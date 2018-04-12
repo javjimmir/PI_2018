@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+ <title>Login</title>
+
+ <meta charset = "utf-8">
+</head>
+
+<body>
+
+<h1>Login de Usuarios</h1>
+<hr />
+
+<form action="login.php" method="post" >
+
+<label>Nombre Usuario:</label><br>
+<input name="alias" type="text" id="alias" required>
+<br><br>
+
+<label>Password:</label><br>
+<input name="password" type="password" id="password" required>
+<br><br>
+
+ <select name="tipo_login">
+  <option value="usuario">Usuario</option>
+  <option value="empresa">Empresa</option>
+</select> 
+<br><br>
+
+<input type="submit" name="Submit" value="login">
+
+</form>
+<hr />
+ </body>
+</html>
