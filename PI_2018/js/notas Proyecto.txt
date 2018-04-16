@@ -1,0 +1,77 @@
+Estructura de datos de acuerdo con el modelo entidad relación: 
+
+- Registro Usuario:
+
+Id: pienso que no es necesario puesto que el dni puede ser usado como PK. 
+
+nif: dni español y extranjeros, la exp funciona perfectamente --> (([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))
+
+nombre: solo letras con acentos, límite de longitud --> /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/
+
+apellidos: misma que el anterior, límite de longitud para evitar apellidos falsos. 
+
+país: validación mediante jquery con expresión regular, solo letras con acentos --> por determinar. 
+
+alias o nombre de usuario: ¿ letras y números ? 
+
+mail: ^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$
+
+cp: valida que tenga 5 caracteres del 01000 al 52999 --> (?:0[1-9]|[1-4]\d|5[0-2])\d{3}$ 
+
+provincia: solo letras. 
+
+dirección: podríamos ponerla en plan un option panel seleccionando si es calle o avenida (o cualquier otro tipo que haya, no se si hay más), luego una caja de texto diciendo cual es el nombre de la calle o avenida, y luego diciendo si es piso, casa, el número, el número del piso y la letra (en caso de que viva en un piso).  
+
+actividades favoritas: Un textarea en el que el usuario pueda explayarse libremente, pero que no lo deje vacío. 
+
+- Registro empresa: 
+
+Id: pienso que no es necesario puesto que el dni puede ser usado como PK. 
+
+cif:  /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/
+
+nombre: ¿ misma exp que para los usuarios ?  
+
+tipo de actividad : (?) 
+
+Web de la empresa (nuevo, modificar excel): 
+
+email corporativo (nuevo, modificar excel): 
+ 
+descripción: A que se dedica la empresa. 
+
+- Ofertas: 
+
+id: id con autoincremento ?? 
+
+cif (empresa) FK de la tabla empresa. 
+
+Nombre de la actividad: ¿ expresión regular que solo permita letras ? 
+
+Descripción actividad: solo que sea nulo. 
+
+Localización: ?? 
+
+Precio: solo números con decimales.  
+
+Dificultad: Podremos elegir mediante tres opciones: Baja, Media, Alta o fácil, medio, difícil, lo que mejor os parezca. 
+
+Fecha de inicio: DATE en la bd, usaremos el elemento de Html5 que permite la introducción de fechas. 
+
+Fecha de fin: lo mismo que el anterior. 
+
+- Reserva: 
+
+id: id con autoincremento ?? 
+
+nif_usuario: misma expresión que la anterior.
+
+cif_empresa: misma expresión que la anterior.
+
+id_oferta: al pinchar en reserva deberá coger la id de esa oferta en concreto. 
+
+fecha_reserva: DATE. 
+
+número de plazas reservadas: 
+
+coste de reserva: 
