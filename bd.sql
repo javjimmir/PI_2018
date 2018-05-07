@@ -20,17 +20,17 @@ CREATE TABLE usuario(
 
 CREATE TABLE empresa(
 	cif varchar(30) NOT NULL,
-	nombre varchar(25),
+	nombre varchar(30),
 	telefono varchar(9),
 	provincia varchar(30),
 	municipio varchar(30),
 	alias varchar(30),
 	tipo_actividad varchar(30),
-	web varchar(50),
-	email varchar(50),
+	web varchar(35),
+	email varchar(35),
 	descripcion varchar(150),
 	cp varchar(5),
-	password varchar(30),
+	password varchar(20),
 	PRIMARY KEY (cif)
 );	
 
@@ -64,37 +64,36 @@ CREATE TABLE reserva(
 	FOREIGN KEY (nif_usuario) REFERENCES usuario(nif),
 	FOREIGN KEY (id_oferta) REFERENCES oferta(id)
 );
--- INSERT EN USUARIO
-insert into usuario values('47342916S','Cristian','De los Santos Pariente','España','Baby','cristian@gmail.com','41410','Sevilla','C/Despeñaperros','Snorkel','cristian1234');	
-insert into usuario values('47342917S','Fran','Alcon','España','FranPLayer','Fran@gmail.com','41410','Sevilla','C/Vami','Correr','Fran1234');
-insert into usuario values('47342918S','Fredy','Jerby','España','Jefry','Fredy@gmail.com','41410','Sevilla','C/DosHermanas','Salto','Fredy1234');
-insert into usuario values('47342919S','Javi','Jimenez','España','Moro','javi@gmail.com','41410','Sevilla','C/Sevilla','Gimna','javi1234');
--- insert erroneo
-insert into usuario values('47342916S','Juan','Delgado','España','juan','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
 
+-- INSERT EN USUARIO
+insert into usuario values('47342916S','Cristian','De los Santos Pariente','999999999','España','Baby','cristian@gmail.com','41410','Sevilla','C/Despeñaperros','Snorkel','cristian1234');	
+insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','Sevilla','C/Vami','Correr','Fran1234');
+insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','Sevilla','C/DosHermanas','Salto','Fredy1234');
+insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','Sevilla','C/Sevilla','Gimna','javi1234');
+-- insert erroneo (key repetida)
+insert into usuario values('47342916S','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
 
 
 -- INSERT EN EMPRESA
-insert into empresa values('11111111k','Sevilla Aventura','Snorkel','www.sevillaaventura.com','sevillaaventura@gmail.com','lorem ipsum','41410','sevillaventura1234');
--- insert erroneo
-insert into empresa values('11111111k','Sevilla Aventura','Snorkel','www.sevillaaventura.com','sevillaaventura@gmail.com','lorem ipsum','41410','sevillaventura1234');
-
+insert into empresa values('11111111k','Sevilla Aventura','999999999','Sevilla,','Sevilla','S_Adventures','Snorkel','www.sevillaaventura.com','sevillaaventura@gmail.com','lorem ipsum','41410','sevillaventura1234');
+insert into empresa values('22222222s','Madrid Mataos','888888888','Madrid,','Madrid','MM','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','madridmataos1234');
+-- insert erroneo (nif repetido)
+insert into empresa values('22222222s','Madriles','888888888','Madrid,','Madrid','MM','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','madridmataos1234');
 
 
 -- INSERT EN OFERTA
-insert into oferta values(1,'11111111k','snorkel','lorem ipsum','guadalquivir',20.50,'facil','18-04-14','18-04-15');
+insert into oferta values(1,'11111111k','Nombre1','Provincia1','Municipio1','2 dias','20','snorkel','lorem ipsum','guadalquivir',20.50,'facil','18-04-14','18-04-15');
+insert into oferta values(2,'22222222s','Nombre2','Provincia2','Municipio2','4 dias','40','senderismo','lorem ipsum siamet','monte nuevo',40.55,'moderado','116-07-15','20-08-18');
 -- insert erroneo
-insert into oferta values(1,'11111111k','snorkel','lorem ipsum','guadalquivir',20.50,'facil','18-04-14','18-04-15');
-insert into oferta values(2,'11111111h','snorkel','lorem ipsum','guadalquivir',20.50,'facil','18-04-14','18-04-15');
-
+insert into oferta values(2,'22222222s','Nombre2','Provincia2','Municipio2','4 dias','40','senderismo','lorem ipsum siamet','monte nuevo',40.55,'moderado','116-07-15','20-08-18');
 
 
 -- INSERT EN RESERVA
 insert into reserva values(1,'47342916S',1,'18-04-14',3,61.5);
 insert into reserva values(2,'47342918S',1,'18-04-14',4,82.0);
+insert into reserva values(3,'47342918S',1,'18-04-14',4,82.0);
+
 
 -- insert erroneo
-insert into reserva values(1,'47342916S',1,'18-04-14',3,61.5);
-insert into reserva values(3,'47342920S',1,'18-04-14',4,82.0);
-insert into reserva values(4,'47342916S',1,'18-04-14',4,82.0);
-insert into reserva values(3,'47342916S',2,'18-04-14',4,82.0);
+insert into reserva values(4,'99999999S',1,'18-04-14',3,69.69); -- El NIF no existe en los users.
+insert into reserva values(3,'47342916S',2,'18-04-14',4,82.0); -- Se repite ID, dará error.
