@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./../css/form.css">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<title>login empresa</title>
+</head>
+<body>
+<section>
+	<article>
+		<!-- formulario de login de usuarios -->
+		<form action="../php/login.php" method="post" id="form-usuario">
+
+			<h1>Iniciar sesión</h1> 
+		
+			<label>Email</label><br>
+			<input class="login" type="text" name="usuario" value="" placeholder="Email" id="usuario"><br>
+		
+			<label>Contraseña</label><br>
+			<input class="login" type="password" name="password" value="" placeholder="Contraseña" id="password"><br>
+		
+			<img src="./../img/captcha.jpg" id="captcha">
+		<br/>
+			<input id="boton" type="submit" value="Enviar">
+			<input id="boton" type="reset" value="Limpiar formulario">
+			<br><br>
+			<a href="form_login_empresa.html">Haz click aquí si eres una empresa</a>
+		</form>
+
+	</article>
+</section>
+
+</body>
+</html>
