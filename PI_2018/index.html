@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +14,17 @@
 	<title>Index</title>
 </head>
 <body>
-
-<header class="menuLogin">
- 
+<!-- ESTO ES LO MISMO QUE EL COMPONENTE, BASTA CON VOLVER A SUSTITUIRLO, CON LA DIFERENCIA DE QUE EL COMPONENTE NO ENLAZA BIEN CON EL LOGIN -->
+<header class="navbar navbar-inverse"> 
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Nombre Web</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+      <li><a href="content/form_login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
+    </ul>
+  </div>
 </header>
 <nav class="menuPrincipalUser">
 	
@@ -224,7 +235,7 @@
 	</article>
 </section>
 
-<footer class="pie">
+<footer>
 	
 </footer>
 
