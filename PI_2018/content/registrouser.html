@@ -20,7 +20,7 @@
 <section>
 	<article>
 		<!-- formulario de login de usuarios -->
-		<form action="" method="get" accept-charset="utf-8" id="form-usuario">
+		<form action="../php/insert_usuarios.php" method="post" accept-charset="utf-8" id="form-usuario">
 
 			
 	<h1>REGISTRO DE USUARIOS</h1> 
@@ -29,7 +29,7 @@
 	<input type="text" name="nombre" value="" placeholder="Nombre" id="nombre-usu"><br>
 
 	<label>Apellidos</label><br>
-	<input type="text" name="nombre" value="" placeholder="Apellidos" id="apellidos-usu"><br>
+	<input type="text" name="apellidos" value="" placeholder="Apellidos" id="apellidos-usu"><br>
 
 	<label>Dni</label><br>
 	<input type="text" name="dni" value="" placeholder="000000000-W" id="Dni-usu"><br>
@@ -283,7 +283,7 @@
 </div>
 <div id="form2">
 	<label>Provincia</label><br>
-	<select id="provincia-usu">                
+	<select name="provincia-usu" id="provincia-usu">                
 		<option value='alava'>Álava</option>
 		<option value='albacete'>Albacete</option>
 		<option value='alicante'>Alicante/Alacant</option>
@@ -356,7 +356,7 @@
 	<input type="email" name="conf-mail-usu" value="" placeholder="@xxx.zz"><br>
 
 	<label>Seleccione una categoria de actividades</label><br>
-	<select id="categ-usu">                
+	<select name="categoria" id="categ-usu">                
 		<option value='agua'>Agua</option>
 		<option value='tierra'>Tierra</option>
 		<option value='aire'>Aire</option>
@@ -366,6 +366,9 @@
 </div>
 			<input id="boton" type="submit" value="Enviar">
 			<input id="boton" type="reset" value="Limpiar formulario">
+			<br><br>
+			<a href="registroempresa.html">Haz click aquí si eres una empresa</a>
+
 
 		</form>
 	</article>

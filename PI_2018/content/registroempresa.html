@@ -19,8 +19,8 @@
 </header>
 <section>
 	<article>
-		<!-- formulario de login de usuarios -->
-		<form action="" method="get" accept-charset="utf-8" id="form-usuario">
+		<!-- formulario de login de empresas -->
+		<form action="../php/insert_empresas.php" method="post" accept-charset="utf-8" id="form-usuario">
 
 			
 	<h1>REGISTRO DE EMPRESAS</h1> 
@@ -357,7 +357,7 @@
 		<input type="email" name="conf-mail-empresa" value="" placeholder="@xxx.zz" id="conf-mail-empresa"><br>
 		
 		<label>Seleccione una categoria de actividades</label><br>
-		<select id="busqueda_provincia">                
+		<select name="categoria" id="busqueda_provincia">                
 			<option value='agua'>Agua</option>
 			<option value='tierra'>Tierra</option>
 			<option value='aire'>Aire</option>
@@ -369,6 +369,8 @@
 </div>
 			<input id="boton" type="submit" value="Enviar">
 			<input id="boton" type="reset" value="Limpiar formulario">
+			<br><br>
+			<a href="registrouser.html">Haz click aquí si eres un usuario</a>
 
 		</form>
 	</article>
