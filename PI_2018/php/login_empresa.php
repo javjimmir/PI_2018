@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 if (isset($_POST['usuario']) and isset($_POST['password'])) {
-	$conexion = mysqli_connect('localhost','root','','actividades') or die ('error al realizar la conexión'.mysqli_error($conexion));
+    include 'connection.php';
 
 	$username = mysqli_real_escape_string($conexion,$_POST['usuario']);
 	$password = mysqli_real_escape_string($conexion,$_POST['password']);
@@ -29,4 +29,3 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
 	echo 'login incorrecto';
 	header('location: ../content/form_login.php');
 }
-?>

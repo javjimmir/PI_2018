@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 if (isset($_POST['usuario']) and isset($_POST['password'])) {
-	$conexion = mysqli_connect('localhost','root','','actividades') or die ('error al realizar la conexión'.mysqli_error($conexion));
+    include 'connection.php';
 
 	$username = mysqli_real_escape_string($conexion,$_POST['usuario']);
 	$password = mysqli_real_escape_string($conexion,$_POST['password']);
@@ -11,22 +11,22 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
 	
 	if ($comprobacion->num_rows > 0) {
  		$pass = $comprobacion->fetch_array(MYSQLI_ASSOC);
- 		print '1-'.$pass['password'].'- '.$username;
+ 		print '#DEBUG: Pass > '.$pass['password'].' ---- User > '.$username.'</br>';
 		if ($password === $pass['password']) {
 			$_SESSION['nombre'] = $username;
 			header('location: ../content/portal.php');
 		}else{
-			print 'password incorrecto<br>
-			<a href="../content/form_login.php">Volver atrás</a>';
+            print 'Password incorrecto <br>
+			<a href="../">Volver atrás</a>';
 		}
 		
 	}else{
-			print 'usuario no correcto <br>
-			<a href="../content/form_login.php">Volver atrás</a>';
+			print 'Usuario incorrecto <br>
+			<a href="../">Volver atrás</a>';
 	}
 
 }else{
+    // Aquí llegará alguna vez??
 	echo 'login incorrecto';
-	header('location: ../content/form_login.php');
+	header('location: ../content/form_login.html');
 }
-?>

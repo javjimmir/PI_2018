@@ -1,15 +1,6 @@
 <?php
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "actividades";
-
-	$conn = new mysqli($servername, $username, $password,$dbname);
-
-	if ($conn->connect_error) {
-	    die("Conexión fallida: " . $conn->connect_error);
-	}
+	include 'connection.php';
 
 	$nombre = $_POST['nombre'];
 	$cif = $_POST['cif'];
@@ -34,5 +25,3 @@
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}
-?>
-
