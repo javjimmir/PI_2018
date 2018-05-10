@@ -70,8 +70,9 @@ insert into usuario values('47342916S','Cristian','De los Santos Pariente','9999
 insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','Sevilla','C/Vami','Correr','Fran1234');
 insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','Sevilla','C/DosHermanas','Salto','Fredy1234');
 insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','Sevilla','C/Sevilla','Gimna','javi1234');
+insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
 -- insert erroneo (key repetida)
-insert into usuario values('47342916S','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
+insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
 
 
 -- INSERT EN EMPRESA

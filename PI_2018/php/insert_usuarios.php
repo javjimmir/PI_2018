@@ -17,9 +17,9 @@
 	$sql = "INSERT INTO usuario (nif,nombre,apellidos,telefono,pais,alias,email,cp,provincia,direccion,actividad_fav,password)
 	VALUES ('$dni', '$nombre', '$apellidos','$telefono','$pais','$alias','$email','$cp','$provincia','$direccion','$categoria','$password')";
 
-	if ($conn->query($sql) === TRUE) {
+	if ($conexion->query($sql) === TRUE) {
 	    echo "Registro añadido correctamente.";
 	    header('location: ./success.html');
 	} else {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
+	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}

@@ -1,5 +1,4 @@
 <?php
-
 	include 'connection.php';
 
 	$nombre = $_POST['nombre'];
@@ -19,9 +18,9 @@
 	$sql = "INSERT INTO empresa (cif,nombre,telefono,pais,provincia,alias,tipo_actividad,web,email,descripcion,cp,password)
 	VALUES ('$cif', '$nombre', '$telefono','$pais','$provincia','$alias','$categoria','$web','$email','$descripcion','$cp','$password')";
 
-	if ($conn->query($sql) === TRUE) {
+	if ($conexion->query($sql) === TRUE) {
 	    echo "Registro añadido correctamente.";
 	    header('location: ./success.html');
 	} else {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
+	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}
