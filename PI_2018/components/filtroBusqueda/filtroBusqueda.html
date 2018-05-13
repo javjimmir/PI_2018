@@ -2,8 +2,17 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="./components/filtroBusqueda/css/style.css">
+	<script type="text/javascript" src="./js/main.js"></script>
+
 </head>
 <body>
-	<h2>Filtros de Busqueda</h2>
+	<h2 class="prueba">Filtros de Busqueda</h2>
+	<form method="post" id="myform">
+		<label>Tipo actividad</label><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo"> Submarinismo<br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="snorkel"> Snorkel<br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="senderismo"> Senderismo<br>
+		<input type="submit" id="filtrar" class="filtrar">
+	</form>
 </body>
 </html>
