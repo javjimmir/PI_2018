@@ -6,7 +6,7 @@
  * Time: 9:45
  */
 
-$conexion = mysqli_connect('localhost','root','root','actividades');
+$conexion = mysqli_connect('localhost','root','','actividades');
 
 /* En caso de que haya error... */
 if ($conexion->connect_errno) {
