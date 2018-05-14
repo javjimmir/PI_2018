@@ -1,7 +1,8 @@
 <?php
 session_start(); 
 if (isset($_POST['usuario']) and isset($_POST['password'])) {
-    include 'connection.php';
+
+    include 'connection.php'; // Usa la var $conexion
 
 	$username = mysqli_real_escape_string($conexion,$_POST['usuario']);
 	$password = mysqli_real_escape_string($conexion,$_POST['password']);
