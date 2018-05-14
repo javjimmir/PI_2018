@@ -47,6 +47,7 @@ CREATE TABLE oferta(
 	localizacion varchar(30),
 	precio double(5,2),
 	dificultad varchar(15),
+	imagen_perfil varchar(100),
 	fecha_inicio date,
 	fecha_fin date,
 	PRIMARY KEY (id),
