@@ -59,13 +59,27 @@ if (isset($_POST["tipo_actividad"])) {
     </div>
     <ul class="nav navbar-nav navbar-right">
     	<?php
-    		if (!isset($_SESSION['nombre'])) {
+        /**
+         *
+         *      Sesión del usuario (no empresa)
+         *
+         */
+            $nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión
+    		if (!isset($nombreuser)) {
     			echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
       			echo '<li><a href="content/form_login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
 
     		}else{
-    			echo '<li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
-      			echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span>  '.$_SESSION['nombre'].'</a></li>';
+      			echo '
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $nombreuser . '
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="perfil.php"><span class="glyphicon glyphicon-log-out"></span> Mi perfil</a></li>
+                      <li><a href="reservas.php"><span class="glyphicon glyphicon-log-out"></span> Mis reservas</a></li>
+                      <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
+                    </ul>
+                </li>';
     		}
     	?>
     </ul>
