@@ -1,7 +1,8 @@
 <?php
 session_start(); 
 if (isset($_POST['usuario']) and isset($_POST['password'])) {
-    include 'connection.php';
+
+    include 'connection.php'; // Usa la var $conexion
 
 	$username = mysqli_real_escape_string($conexion,$_POST['usuario']);
 	$password = mysqli_real_escape_string($conexion,$_POST['password']);
@@ -14,7 +15,7 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
  		print '#DEBUG: Pass > '.$pass['password'].' ---- User > '.$username.'</br>';
 		if ($password === $pass['password']) {
 			$_SESSION['nombre'] = $username;
-			header('location: ../content/portal.php');
+			header('location: ../index.php');
 		}else{
             print 'Password incorrecto <br>
 			<a href="../">Volver atrás</a>';
