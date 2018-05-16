@@ -7,14 +7,13 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="./../js/conectores.js">
-		
-		</script>
+	<script type="text/javascript" src="./../js/conectores.js"></script>
+	<script type="text/javascript" src="./../js/validacion_reg_usu.js"></script>
 	<title>Registro de usuarios</title>
 </head>
 <body>
 
-<header class="menuLogin">
+<header>
  
 </header>
 <section>
@@ -25,6 +24,7 @@
 			
 	<h1>REGISTRO DE USUARIOS</h1> 
 <div id="form1">
+	<div id="error-usu"></div>
 	<label>Nombre</label><br>
 	<input type="text" name="nombre" value="" placeholder="Nombre" id="nombre-usu"><br>
 
@@ -32,7 +32,7 @@
 	<input type="text" name="apellidos" value="" placeholder="Apellidos" id="apellidos-usu"><br>
 
 	<label>Dni</label><br>
-	<input type="text" name="dni" value="" placeholder="000000000-W" id="Dni-usu"><br>
+	<input type="text" name="dni" value="" placeholder="000000000-W" id="dni-usu"><br>
 
 	<label>Nombre de Usuario</label><br>
 	<input type="text" name="username" value="" placeholder="Usuario" id="username"><br>
@@ -343,7 +343,7 @@
 	<label>Direccion</label><br>
 	<input type="text" name="direccion" value="" placeholder="c/xxxxxxxx" id="direccion-usu"><br>
 
-	<label>Código Postal</label><br>
+	<label id="cp-usu">Código Postal</label><br>
 	<input type="text" name="cp-usuario" value="" placeholder="" id="cp-usuario"><br>
 
 	<label>Telefono</label><br>
@@ -353,7 +353,7 @@
 	<input type="email" name="mail" value="" placeholder="@xxx.zz" id="mail-usu"><br>
 
 	<label>Confirmar mail</label><br>
-	<input type="email" name="conf-mail-usu" value="" placeholder="@xxx.zz"><br>
+	<input type="email" name="conf-mail-usu" id="conf-mail-usu" value="" placeholder="@xxx.zz"><br>
 
 	<label>Seleccione una categoria de actividades</label><br>
 	<select name="categoria" id="categ-usu">                
@@ -364,8 +364,8 @@
     </select><br>
     <i>*Se mostrará en primer lugar las ofertas relacionadas con la categoría seleccionada</i><br>
 </div>
-			<input id="boton" type="submit" value="Enviar">
-			<input id="boton" type="reset" value="Limpiar formulario">
+			<input id="enviar" type="submit" value="Enviar">
+			<input id="reset" type="reset" value="Limpiar formulario">
 			<br><br>
 			<a href="registroempresa.html">Haz click aquí si eres una empresa</a>
 
@@ -374,7 +374,7 @@
 	</article>
 </section>
 
-<footer class="pie">
+<footer>
 	
 </footer>
 

@@ -2,19 +2,21 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="./../css/form.css">
+
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="./../js/conectores.js">
+	<script type="text/javascript" src="./../js/conectores.js"></script>
+	<script type="text/javascript" src="./../js/validacion_reg_empre.js"></script>
 		
-		</script>
+
 	<title>Registro de empresas</title>
 </head>
 <body>
 
-<header class="menuLogin">
+<header>
  
 </header>
 <section>
@@ -24,12 +26,14 @@
 
 			
 	<h1>REGISTRO DE EMPRESAS</h1> 
-<div id="form1">
+	<div id="form1">
+
+		<span id="error-empre"></span>
 		<label>Nombre de la empresa</label><br>
 		<input type="text" name="nombre" value="" placeholder="Nombre" id="nombre-empresa"><br>
 	
 		<label>Cif</label><br>
-		<input type="text" name="cif" value="" placeholder="000000000-W" id="Cif"><br>
+		<input type="text" name="cif" value="" placeholder="x0000000z" id="Cif"><br>
 	
 		<label>Web</label><br>
 		<input type="text" name="web" value="" placeholder="www.xxxxxxxx.zz" id="web-empresa"><br>
@@ -344,8 +348,8 @@
 		<label>Direccion</label><br>
 		<input type="text" name="direccion" value="" placeholder="c/xxxxxxxx" id="direccion-empresa"><br>
 	
-		<label>Código Postal</label><br>
-		<input type="text" name="cp-empresa" value="" placeholder="" id="cp-empresa"><br>
+		<label id="cp-em">Código Postal</label><br>
+		<input type="text" name="cp-empresa" value="" placeholder="00000" id="cp-empresa"><br>
 	
 		<label>Telefono</label><br>
 		<input type="tel" name="telefono" value="" id="tel-empresa"><br>
@@ -367,8 +371,8 @@
 		<label>Descripción de la actividad a la que se dedica</label><br>
 		<textarea name="desc-empresa" id="desc-empresa">Escriba aqui</textarea><br>
 </div>
-			<input id="boton" type="submit" value="Enviar">
-			<input id="boton" type="reset" value="Limpiar formulario">
+			<input id="enviar" type="submit" value="Enviar">
+			<input id="reset" type="reset" value="Limpiar formulario">
 			<br><br>
 			<a href="registrouser.html">Haz click aquí si eres un usuario</a>
 
@@ -376,7 +380,7 @@
 	</article>
 </section>
 
-<footer class="pie">
+<footer>
 	
 </footer>
 
