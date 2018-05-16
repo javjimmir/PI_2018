@@ -29,13 +29,26 @@ if (isset($_GET['category'])) {
  *      Comprobación de filtros
  *
  */
-
-// Se comprueba si se ha recibido un parámetro post mediante algún filtro
-if (isset($_POST["tipo_actividad"])) {
-    $actividad = $_POST["tipo_actividad"];
-    $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE tipo_actividad = "."'$actividad'";
-    $global_sql = "select * from oferta where tipo_actividad = "."'$actividad'";
+// Comprobamos si se ha seleccionado una categoría previamente. En este caso, el filtro se aplicará TENIENDO en cuenta la categoría obtenida mediante el GET.
+if (isset($_GET['category'])) {
+    $categoria = $_GET['category'];
+    if (isset($_POST["tipo_actividad"])) {
+        $actividad = $_POST["tipo_actividad"];
+        $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE tipo_actividad = "."'$actividad' and categoria ="."'$categoria'";
+        $global_sql = "select * from oferta where tipo_actividad = "."'$actividad' and categoria ="."'$categoria'";
+    }
+} else {
+    // Si no hay categoría recibida mediante GET, los filtros actuarán de forma normal, filtrando según el seleccionado.
+    if (isset($_POST["tipo_actividad"])) {
+        $actividad = $_POST["tipo_actividad"];
+        $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE tipo_actividad = "."'$actividad'";
+        $global_sql = "select * from oferta where tipo_actividad = "."'$actividad'";
+    }
 }
+
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +77,7 @@ if (isset($_POST["tipo_actividad"])) {
          *      Sesión del usuario (no empresa)
          *
          */
-            //$nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión, da error cuando no está iniciada la sesión porque dicha variable queda vacía. 
+            //$nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión, da error cuando no está iniciada la sesión porque dicha variable queda vacía.
     		if (!isset($_SESSION['nombre'])) {
     			echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
       			echo '<li><a href="content/form_login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
@@ -72,11 +85,11 @@ if (isset($_POST["tipo_actividad"])) {
     		}else{
       			echo '
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['nombre'] . '
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['nombre']  . '
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="perfil.php"><span class="glyphicon glyphicon-log-out"></span> Mi perfil</a></li>
-                      <li><a href="reservas.php"><span class="glyphicon glyphicon-log-out"></span> Mis reservas</a></li>
+                      <li><a href="perfil.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
+                      <li><a href="reservas.php"><span class="glyphicon glyphicon-th-list"></span> Mis reservas</a></li>
                       <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
                     </ul>
                 </li>';
@@ -150,7 +163,7 @@ if (isset($_POST["tipo_actividad"])) {
 	</article>
 
 	<article>
-        <div class="row">
+        <div class="row tabla">
         <?php
         	/* Cuenta las reservas que existen y dependiendo de las que salgan irá poniendo los elementos.
 			   En el caso de que haya más reservas de 12, pues solo se mostrarán las 12 más recientes.

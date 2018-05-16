@@ -5,29 +5,26 @@
  * Date: 13/05/2018
  * Time: 12:48
  */
-/*
+
 include 'connection.php';        // Usa la variable $conexion
 
-$actividad = $_POST['tipo_actividad']; // Actividad a filtrar por el usuario
-
+$precio = $_POST['precio']; // Actividad a filtrar por el usuario
 $res=[];
-$sql = "select * from oferta where tipo_actividad = "."'$actividad'";
-//SELECT COUNT(*) FROM oferta;              Para capturar el total de ofertas de ese tipo de actividad
-$resultado = $conexion->query($sql);
+$sql = "select * from oferta where precio < "."'$precio'";
 
+
+$resultado = $conexion->query($sql);
 
 while($row = $resultado->fetch_object()){
     $fila=array(
-        "nombre"=>$row->nombre
-        /*"provincia"=>$row->provincia,
+        "nombre"=>$row->nombre,
         "tipo_actividad"=>$row->tipo_actividad,
-        "precio"=>$row->precio,
-        "fecha_inicio"=>$row->fecha_inicio,
-        "fecha_fin"=>$row->fecha_fin
+        "provincia"=>$row->provincia,
+        "dificultad"=>$row->dificultad,
+        "precio"=>$row->precio
     );
     array_push($res, $fila);
 }
 echo json_encode($res);
 $resultado->free();
 $conexion->close();
-*/

@@ -11,4 +11,12 @@ aside > h2{
 	font-size: 1em;
 	font-weight: bold;
 }
-
+label {
+	color: white;
+}
+form {
+	color: white;
+}
+input, button {
+	color: black;
+}
