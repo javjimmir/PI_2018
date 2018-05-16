@@ -64,15 +64,15 @@ if (isset($_POST["tipo_actividad"])) {
          *      Sesión del usuario (no empresa)
          *
          */
-            $nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión
-    		if (!isset($nombreuser)) {
+            //$nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión, da error cuando no está iniciada la sesión porque dicha variable queda vacía. 
+    		if (!isset($_SESSION['nombre'])) {
     			echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
       			echo '<li><a href="content/form_login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
 
     		}else{
       			echo '
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $nombreuser . '
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['nombre'] . '
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="perfil.php"><span class="glyphicon glyphicon-log-out"></span> Mi perfil</a></li>
