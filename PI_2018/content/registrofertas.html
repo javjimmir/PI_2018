@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./../css/form.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./../js/conectores.js"></script>
+    <script type="text/javascript" src="./../js/validacion_reg_ofe.js"></script>
+    <title>Registro de actividades</title>
+</head>
+<body>
+
+<header>
+
+</header>
+<nav>
+
+</nav>
+<aside>
+
+</aside>
+<section>
+    <article>
+        <!-- formulario de login de usuarios -->
+        <form action="../php/insert_oferta.php" method="post" accept-charset="utf-8" id="form-oferta">
+
+
+            <h1>REGISTRO DE OFERTAS</h1>
+            <div id="form1">
+                <div id="error-oferta"></div>
+
+                <label>Cif</label><br>
+                <input type="text" name="cif" value="" placeholder="x0000000z" id="Cif-oferta"><br>
+
+                <label>Nombre</label><br>
+                <input type="text" name="nombre" value="" placeholder="Nombre" id="nombre-ofe"><br>
+
+                <label>Provincia</label><br>
+                <select name="provincia-ofe" id="provincia-ofe">
+                    <option value='alava'>Álava</option>
+                    <option value='albacete'>Albacete</option>
+                    <option value='alicante'>Alicante/Alacant</option>
+                    <option value='almeria'>Almería</option>
+                    <option value='asturias'>Asturias</option>
+                    <option value='avila'>Ávila</option>
+                    <option value='badajoz'>Badajoz</option>
+                    <option value='barcelona'>Barcelona</option>
+                    <option value='burgos'>Burgos</option>
+                    <option value='caceres'>Cáceres</option>
+                    <option value='cadiz'>Cádiz</option>
+                    <option value='cantabria'>Cantabria</option>
+                    <option value='castellon'>Castellón/Castelló</option>
+                    <option value='ceuta'>Ceuta</option>
+                    <option value='ciudadreal'>Ciudad Real</option>
+                    <option value='cordoba'>Córdoba</option>
+                    <option value='cuenca'>Cuenca</option>
+                    <option value='girona'>Girona</option>
+                    <option value='laspalmas'>Las Palmas</option>
+                    <option value='granada'>Granada</option>
+                    <option value='guadalajara'>Guadalajara</option>
+                    <option value='guipuzcoa'>Guipúzcoa</option>
+                    <option value='huelva'>Huelva</option>
+                    <option value='huesca'>Huesca</option>
+                    <option value='illesbalears'>Illes Balears</option>
+                    <option value='jaen'>Jaén</option>
+                    <option value='acoruña'>A Coruña</option>
+                    <option value='larioja'>La Rioja</option>
+                    <option value='leon'>León</option>
+                    <option value='lleida'>Lleida</option>
+                    <option value='lugo'>Lugo</option>
+                    <option value='madrid'>Madrid</option>
+                    <option value='malaga'>Málaga</option>
+                    <option value='melilla'>Melilla</option>
+                    <option value='murcia'>Murcia</option>
+                    <option value='navarra'>Navarra</option>
+                    <option value='ourense'>Ourense</option>
+                    <option value='palencia'>Palencia</option>
+                    <option value='pontevedra'>Pontevedra</option>
+                    <option value='salamanca'>Salamanca</option>
+                    <option value='segovia'>Segovia</option>
+                    <option value='sevilla'>Sevilla</option>
+                    <option value='soria'>Soria</option>
+                    <option value='tarragona'>Tarragona</option>
+                    <option value='santacruztenerife'>Santa Cruz de Tenerife</option>
+                    <option value='teruel'>Teruel</option>
+                    <option value='toledo'>Toledo</option>
+                    <option value='valencia'>Valencia/Valéncia</option>
+                    <option value='valladolid'>Valladolid</option>
+                    <option value='vizcaya'>Vizcaya</option>
+                    <option value='zamora'>Zamora</option>
+                    <option value='zaragoza'>Zaragoza</option>
+                </select><br>
+                <!-- si selecciona España aparece el desplegable con la lista de provincias, en caso contrario aparecerá una input text para rellenarla a mano -->
+                <!--<input type="text" name="provincia" value="" placeholder="provincia" id="prov-usu"><br> -->
+
+                <label>Municipio</label><br>
+                <input type="text" name="municipio" value="" placeholder="" id="municipio-ofe"><br>
+
+                <label>Duración</label><br>
+                <input type="text" name="duracion" value="" placeholder="" id="duracion"><br>
+
+                <label>Número de plazas disponibles</label><br>
+                <input type="text" name="plazas" value="" id="plazas"><br>
+
+                <label>Tipo de actividad</label><br>
+                <input type="text" name="actividad" value="" placeholder="senderismo, puenting, surf, etc." id="actividad"><br>
+
+                <label>Localizacion</label><br>
+                <input type="text" name="Localizacion" id="Localizacion" value="" placeholder="Punto exacto del desarrollo de la actividad"><br>
+            </div>
+            <div id="form2">
+                <label>Precio</label><br>
+                <input type="text" name="Precio" id="precio" value="" placeholder="€"><br>
+
+                <label>Dificultad</label><br>
+                <select name="categoria" id="categ-usu">
+                    <option value='facil'>Fácil</option>
+                    <option value='media'>Media</option>
+                    <option value='alta'>Alta</option>
+                    <option value='experto'>Experto</option>
+                </select><br>
+
+                <label>Seleccione una categoria de actividades</label><br>
+                <select name="categoria" id="categ-usu">
+                    <option value='agua'>Agua</option>
+                    <option value='tierra'>Tierra</option>
+                    <option value='aire'>Aire</option>
+                    <option value='nieve'>Nieve</option>
+                </select><br>
+
+                <label>Agregue una imagen</label>
+                <input name="file" type="file" size="2mb"><br/>
+
+                <label>Fecha Inicio de la oferta</label><br/>
+                <input id="date" type="date"><br/>
+
+                <label>Fecha fin de la oferta</label><br/>
+                <input id="date" type="date"><br/><br/><br/>
+                <input id="enviar" type="submit" value="Enviar">
+                <input id="reset" type="reset" value="Limpiar formulario">
+                <br><br>
+            <div>
+
+
+        </form>
+    </article>
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+</html>
