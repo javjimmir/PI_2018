@@ -23,18 +23,6 @@ $(function () {
         }
     });
 
-    $("#Cif").blur(function(){
-        var cif = $("#Cif").val();
-        var cifRegex = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
-        if (cifRegex.test(cif) == false || cif == "") {
-            $("#error-empre").html("<p> El CIF no puede estar vacío y solo puede contener letras y números</p>");
-            $("#error-empre").fadeIn();
-            $("#Cif").focus();
-        }else{
-            $("#error-empre").fadeOut();
-        }
-    });
-
     $("#username-empresa").blur(function(){
         var user = $("#username-empresa").val();
         var userRegex = /^[a-zA-Z0-9]{2,20}$/;

@@ -17,7 +17,7 @@ $(function () {
         var nameRegex = /^([A-Z]{1}[a-zñáéíóú]+[\s]*)+$/;
         var name = $("#apellidos-usu").val();
         if (nameRegex.test(name) == false || name == "") {
-            $("#error-usu").html("<p> Los apellidos deben comenzar con mayúscula</p>");
+            $("#error-usu").html("<p> Los apellidos deben comenzar con mayúsculas</p>");
             $("#error-usu").fadeIn();
             $("#apellidos-usu").focus();
         }else{

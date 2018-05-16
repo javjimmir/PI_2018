@@ -107,3 +107,20 @@ width: 50%;
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+#error-empre, #error-oferta, #error-usu{
+	width: auto;
+	height: 30px;
+	background-color: #ff9792;
+	border-radius: 15px;
+	border: solid 3px red;
+	display: none;
+	bottom: 0;
+	position: absolute;
+	padding-top: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: red;
+	font-size: 13px;
+	margin-bottom: 83rem;
+}
