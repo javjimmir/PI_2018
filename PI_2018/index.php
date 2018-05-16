@@ -9,8 +9,26 @@
 session_start();
 include 'php/connection.php';
 
-$global_sql = 'SELECT * FROM oferta ORDER BY fecha_inicio DESC'; // Esta será la sql estandar, que carga las ofertas, y puede ser modificada por los filtros!!
-$global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta`";
+$global_sql = 'SELECT * FROM oferta ORDER BY fecha_inicio DESC'; // Sql global que carga las ofertas; por defecto seleccionará todas las ofertas más recientes
+$global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta`";   // Contador de ofertas; por defecto contará todas las ofertas de la bd
+
+
+/**
+ *
+ *      Comprobación de categoría
+ *
+ */
+if (isset($_GET['category'])) {
+    $categoria = $_GET['category'];
+    $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE categoria = "."'$categoria'";
+    $global_sql = "select * from oferta where categoria = "."'$categoria'";
+}
+
+/**
+ *
+ *      Comprobación de filtros
+ *
+ */
 
 // Se comprueba si se ha recibido un parámetro post mediante algún filtro
 if (isset($_POST["tipo_actividad"])) {
@@ -41,13 +59,27 @@ if (isset($_POST["tipo_actividad"])) {
     </div>
     <ul class="nav navbar-nav navbar-right">
     	<?php
-    		if (!isset($_SESSION['nombre'])) {
+        /**
+         *
+         *      Sesión del usuario (no empresa)
+         *
+         */
+            $nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión
+    		if (!isset($nombreuser)) {
     			echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
       			echo '<li><a href="content/form_login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
 
     		}else{
-    			echo '<li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
-      			echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span>  '.$_SESSION['nombre'].'</a></li>';
+      			echo '
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $nombreuser . '
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="perfil.php"><span class="glyphicon glyphicon-log-out"></span> Mi perfil</a></li>
+                      <li><a href="reservas.php"><span class="glyphicon glyphicon-log-out"></span> Mis reservas</a></li>
+                      <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
+                    </ul>
+                </li>';
     		}
     	?>
     </ul>
@@ -129,7 +161,7 @@ if (isset($_POST["tipo_actividad"])) {
 			$ofertas_encontradas = $fila['count'];
 
 			if ($ofertas_encontradas == 0) {
-                echo '<div id="sin_ofertas"><p>NO HAY OFERTAS EN LA BD PARA EL FILTRO '.$actividad.'</p></div>';
+                echo '<div id="sin_ofertas"><p>NO HAY OFERTAS DISPONIBLES</p></div>';
             }
 
 
