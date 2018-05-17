@@ -14,7 +14,7 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
  		print '1-'.$pass['password'].'- '.$username;
 		if ($password === $pass['password']) {
 			$_SESSION['nombre'] = $username;
-			header('location: ../content/portal.php');
+			header('location: ../index.php');
 		}else{
 			print 'password incorrecto<br>
 			<a href="../content/form_login.php">Volver atrás</a>';

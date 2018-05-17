@@ -23,12 +23,12 @@ if (isset($_GET['category'])) {
     $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE categoria = "."'$categoria'";
     $global_sql = "select * from oferta where categoria = "."'$categoria'";
 }
+/*
 
-/**
  *
- *      Comprobación de filtros
+ *      Comprobación de filtros (no se necesita, funciona ya con ajax)
  *
- */
+
 // Comprobamos si se ha seleccionado una categoría previamente. En este caso, el filtro se aplicará TENIENDO en cuenta la categoría obtenida mediante el GET.
 if (isset($_GET['category'])) {
     $categoria = $_GET['category'];
@@ -45,11 +45,7 @@ if (isset($_GET['category'])) {
         $global_sql = "select * from oferta where tipo_actividad = "."'$actividad'";
     }
 }
-
-
-
-
-
+*/
 ?>
 <!DOCTYPE html>
 <html>

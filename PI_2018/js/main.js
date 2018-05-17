@@ -5,6 +5,7 @@ function changeInputValue(val){
 function changeRangeValue(val){
     document.getElementById("range").value = isNaN(parseInt(val, 10)) ? 0 : parseInt(val, 10);
 }
+
 $(document).ready(function () {
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()

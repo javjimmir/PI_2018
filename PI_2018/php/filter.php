@@ -9,7 +9,6 @@
 include 'connection.php';        // Usa la variable $conexion
 
 
-
 /* Si se recibe solo una actividad... */
 if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
     $actividad = $_POST['tipo_actividad']; // Actividad a filtrar por el usuario
