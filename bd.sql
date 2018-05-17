@@ -35,7 +35,7 @@ CREATE TABLE empresa(
 );	
 
 CREATE TABLE oferta(
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	cif_empresa varchar(9),
 	nombre varchar(25),
 	provincia varchar(30),
