@@ -106,17 +106,17 @@
                 <input type="text" name="actividad" value="" placeholder="senderismo, puenting, surf, etc." id="actividad"><br>
 
                 <label>Localizacion</label><br>
-                <input type="text" name="Localizacion" id="Localizacion" value="" placeholder="Punto exacto del desarrollo de la actividad"><br>
+                <input type="text" name="localizacion" id="Localizacion" value="" placeholder="Punto exacto del desarrollo de la actividad"><br>
 
                 <div id="error-oferta"></div>
 
             </div>
             <div id="form2">
                 <label>Precio</label><br>
-                <input type="text" name="Precio" id="precio" value="" placeholder="€"><br>
+                <input type="text" name="precio" id="precio" value="" placeholder="€"><br>
 
                 <label>Dificultad</label><br>
-                <select name="categoria" id="categ-usu">
+                <select name="dificultad" id="categ-usu">
                     <option value='facil'>Fácil</option>
                     <option value='media'>Media</option>
                     <option value='alta'>Alta</option>
@@ -135,16 +135,18 @@
                 <input name="file" type="file" size="2mb"><br/>
 
                 <label>Fecha Inicio de la oferta</label><br/>
-                <input id="date-ini" type="date"><br/>
+                <input name="inicio" id="date-ini" type="date"><br/>
 
                 <label>Fecha fin de la oferta</label><br/>
-                <input id="date-fin" type="date"><br/><br/><br/>
+                <input name="fin" id="date-fin" type="date"><br/><br/><br/>
+
+                <label>Describa la oferta:</label><br/>
+                <textarea></textarea><br><br>
 
 
-                <input id="enviar" type="submit" value="Enviar">
-                <input id="reset" type="reset" value="Limpiar formulario">
-                <br><br>
             <div>
+                <input id="enviar" type="submit" value="Enviar"><br>
+                <input id="reset" type="reset" value="Limpiar formulario">
 
 
         </form>
