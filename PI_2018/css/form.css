@@ -111,7 +111,7 @@ width: 50%;
 #error-empre, #error-oferta, #error-usu{
 	width: auto;
 	height: 30px;
-	background-color: #ff9792;
+	background-color: #ffccf8;
 	border-radius: 15px;
 	border: solid 3px red;
 	display: none;

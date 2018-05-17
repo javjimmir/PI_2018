@@ -5,7 +5,7 @@ $(function () {
         var nameRegex = /^([A-Z]{1}[a-zñáéíóú]+[\s]*)+$/;
         var name = $("#nombre-usu").val();
         if (nameRegex.test(name) == false || name == "") {
-            $("#error-usu").html("<p> El nombre debe comenzar con mayúscula</p>");
+            $("#error-usu").html("<p> El nombre debe comenzar con mayúscula y no puede contener caracteres numéricos</p>");
             $("#error-usu").fadeIn();
             $("#nombre-usu").focus();
         }else{
@@ -17,7 +17,7 @@ $(function () {
         var nameRegex = /^([A-Z]{1}[a-zñáéíóú]+[\s]*)+$/;
         var name = $("#apellidos-usu").val();
         if (nameRegex.test(name) == false || name == "") {
-            $("#error-usu").html("<p> Los apellidos deben comenzar con mayúsculas</p>");
+            $("#error-usu").html("<p> Los apellidos deben comenzar con mayúsculas y no pueden contener caracteres numéricos</p>");
             $("#error-usu").fadeIn();
             $("#apellidos-usu").focus();
         }else{

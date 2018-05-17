@@ -15,7 +15,7 @@ $(function () {
         var cif = $("#Cif").val();
         var cifRegex = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
         if (cifRegex.test(cif) == false || cif == "") {
-            $("#error-empre").html("<p> El CIF no puede estar vacío y solo puede contener letras y números</p>");
+            $("#error-empre").html("<p> El CIF no puede estar vacío y debe mantener la estructura x1234567z</p>");
             $("#error-empre").fadeIn();
             $("#Cif").focus();
         }else{
@@ -69,6 +69,8 @@ $(function () {
         }
 
     });
+
+
 
     $("#cp-empresa").blur(function(){
         var cpRegex = /^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/;
