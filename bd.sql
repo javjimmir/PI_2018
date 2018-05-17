@@ -56,7 +56,7 @@ CREATE TABLE oferta(
 );	
 
 CREATE TABLE reserva(
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	nif_usuario varchar(9),
 	id_oferta int,
 	fecha_reserva date,
