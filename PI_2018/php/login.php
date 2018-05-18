@@ -15,6 +15,7 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
  		print '#DEBUG: Pass > '.$pass['password'].' ---- User > '.$username.'</br>';
 		if ($password === $pass['password']) {
 			$_SESSION['nombre'] = $username;
+            $_SESSION['tipo'] = 'usuario';
 			header('location: ../index.php');
 		}else{
             print 'Password incorrecto <br>

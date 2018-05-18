@@ -76,15 +76,15 @@ if (isset($_GET['category'])) {
             //$nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión, da error cuando no está iniciada la sesión porque dicha variable queda vacía.
     		if (!isset($_SESSION['nombre'])) {
     			echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
-      			echo '<li><a href="content/form_login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
+      			echo '<li><a href="content/loginreal.php"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
 
     		}else{
       			echo '
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['nombre']  . '
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['tipo'] . ' ' . $_SESSION['nombre']  . '
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="perfil.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
+                      <li><a href="profile.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
                       <li><a href="reservas.php"><span class="glyphicon glyphicon-th-list"></span> Mis reservas</a></li>
                       <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
                     </ul>
