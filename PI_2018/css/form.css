@@ -73,6 +73,18 @@ input, select {
 	cursor: pointer;
 }
 
+.botones {
+	width: 20%;
+	display: inline;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
 #captcha{
 	width: 45%;
 	padding: 20px;
