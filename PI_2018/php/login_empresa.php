@@ -14,15 +14,16 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
  		print '1-'.$pass['password'].'- '.$username;
 		if ($password === $pass['password']) {
 			$_SESSION['nombre'] = $username;
+            $_SESSION['tipo'] = 'empresa';
 			header('location: ../index.php');
 		}else{
 			print 'password incorrecto<br>
-			<a href="../content/form_login.php">Volver atrás</a>';
+			<a href="../content/form_login_empresa.html">Volver atrás</a>';
 		}
 		
 	}else{
 			print 'usuario no correcto <br>
-			<a href="../content/form_login.php">Volver atrás</a>';
+			<a href="../content/form_login_empresa.html">Volver atrás</a>';
 	}
 
 }else{

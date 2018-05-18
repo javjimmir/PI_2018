@@ -77,4 +77,33 @@ $(document).ready(function () {
             });
         }
     })
+
+    /* Implementación de login por ajax */
+
+    $("#validar").click(function () {
+        // Se haga petición ajax
+
+        var username = $("#alias").val;
+        var password = $("#alias").val;
+        var tiposesion = $('input[name=tiposesion]:checked', '#form-sesion').val();
+
+        $.post("php/success.php", {username: username, password: password, tiposesion: tiposesion}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
+            $(".tabla").empty();
+            data = $.parseJSON(data);
+
+            // Aquí se añadirá el mensaje de error si los datos son incorrectos, o será redirigido al index.php si es correcto.
+
+        });
+    })
+
+
+
+
+
+
+
+
+
+
+
 })
