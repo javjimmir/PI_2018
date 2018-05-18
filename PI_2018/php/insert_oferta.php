@@ -23,13 +23,15 @@
 	$img = "ruta de la imagen";
 	$fecha_inicio = $_POST['inicio'];
 	$fecha_fin = $_POST['fin'];
+	/* faltaría la descripción de la oferta, pero php no me coge el textarea, a ver si lo podeis mirar alguno*/
 	  
-	$sql = "INSERT INTO oferta (cif_empresa,nombre,provincia,municipio,duracion,num_plazas,tipo_actividad,localizacion,precio,dificultad,categoria,imagen_perfil,categoria,fecha_inicio,fecha_fin)
+	$sql = "INSERT INTO oferta (cif_empresa,nombre,provincia,municipio,duracion,num_plazas,tipo_actividad,localizacion,precio,dificultad,categoria,imagen_perfil,fecha_inicio,fecha_fin)
 	VALUES ('$cif','$nombre','$provincia','$municipio','$duracion',$plazas,'$actividad','$localizacion',$precio,'$dificultad','$categoria','$img','$fecha_inicio','$fecha_fin')";
 
 	if ($conexion->query($sql) === TRUE) {
-	    echo "Registro añadido correctamente.";
-	    header('location: ./success.html');
+	    print 'Registro insertado correctamente <br>
+			<a href="../content/registrofertas.html">Volver atrás</a>';
+
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}
