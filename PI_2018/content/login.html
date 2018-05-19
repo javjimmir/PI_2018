@@ -40,15 +40,14 @@ Este login usará una petición ajax. */
 			<input class="login" type="password" name="password" value="" placeholder="Contraseña" id="password" required><br>
 
             <label></label><br>
-            <input type="radio" class="tiposes" name="tiposesion" value="usuario">  Usuario
-            <input type="radio" class="tiposes" name="tiposesion" value="empresa">  Empresa<br>
+            <input required type="radio" class="tiposes" name="tiposesion" value="usuario">  Usuario
+            <input required type="radio" class="tiposes" name="tiposesion" value="empresa">  Empresa<br>
 
 			<img src="./../img/captcha.jpg" id="captcha">
 		<br/>
-            <button id="validar">Enviar</button>
-			<input id="boton" type="reset" value="Limpiar formulario">
+            <button class="boton" id="validar">Enviar</button>
+			<input class="boton" type="reset" value="Limpiar formulario">
 			<br><br>
-			<a href="form_login_empresa.html">Haz click aquí si eres una empresa</a>
 		</form>
 
 	</article>

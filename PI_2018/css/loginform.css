@@ -59,7 +59,7 @@ input[type=text], input[type=password], select {
 	border-radius: 4px;
 	box-sizing: border-box;
 }
-#boton {
+.boton {
 	background-color: #4CAF50;
 	color: white;
 	display: inline;

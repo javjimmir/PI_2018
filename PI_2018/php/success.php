@@ -9,35 +9,24 @@
 /* Este php recibirá los datos de main.js (ajax) y procesará el username, password del usuario/empresa que haya enviado la petición. */
 
 session_start();
-if (isset($_POST['usuario']) and isset($_POST['password'])) {
+if (isset($_POST['username']) && ($_POST['password'])) {
 
-    include 'connection.php'; // Usa la var $conexion
+    include 'connection.php';
 
-    $username = mysqli_real_escape_string($conexion,$_POST['usuario']);
+    $username = mysqli_real_escape_string($conexion,$_POST['username']);
     $password = mysqli_real_escape_string($conexion,$_POST['password']);
+    $tiposesion = $_POST['tiposesion'];
 
-    $sql = 'select * from usuario where alias="'.$username.'"';
-    $comprobacion=$conexion->query($sql);
+    $sql = 'select * from '. $tiposesion .' where alias="'.$username.'"';
+    $resultado=$conexion->query($sql);
+    $datos = $resultado->fetch_array(MYSQLI_ASSOC);
 
-    if ($comprobacion->num_rows > 0) {
-        $pass = $comprobacion->fetch_array(MYSQLI_ASSOC);
-        print '#DEBUG: Pass > '.$pass['password'].' ---- User > '.$username.'</br>';
-        if ($password === $pass['password']) {
-            $_SESSION['nombre'] = $username;
-            $_SESSION['tipo'] = 'usuario';
-            header('location: ../index.php');
-        }else{
-            print 'Password incorrecto <br>
-			<a href="../">Volver atrás</a>';
-        }
-
+    if ($password === $datos['password']) {
+        $_SESSION['nombre'] = $username;    // Creamos una sesión y en el array le metemos tanto el nombre como el tipo de sesion (usuario/empresa)
+        $_SESSION['tipo'] = $tiposesion;
+        echo 0; // Datos correctos
     }else{
-        print 'Usuario incorrecto <br>
-			<a href="../">Volver atrás</a>';
+        // Enviar por ajax respuesta incorrecta
+        echo 1;
     }
-
-}else{
-    // Aquí llegará alguna vez??
-    echo 'login incorrecto';
-    header('location: ../content/form_login.html');
 }

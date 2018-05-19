@@ -8,7 +8,7 @@
 
 // Conectando, seleccionando la base de datos
 // $mysqli = new mysqli('HOST', 'USER', 'PASS', 'NOMBRE_BD');
-$conexion = new mysqli('localhost', 'root', 'root', 'actividades');
+$conexion = new mysqli('localhost', 'root', '', 'actividades');
 $conexion->set_charset("utf8");
 /* En caso de que haya error... */
 if ($conexion->connect_errno) {
