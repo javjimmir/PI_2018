@@ -80,30 +80,30 @@ $(document).ready(function () {
 
     /* Implementación de login por ajax */
 
-    $("#validar").click(function () {
+    $("#validar").click(function (e) {
+        e.preventDefault();
         // Se haga petición ajax
-
-        var username = $("#alias").val;
-        var password = $("#alias").val;
+        var username = $("#alias").val();
+        var password = $("#password").val();
         var tiposesion = $('input[name=tiposesion]:checked', '#form-sesion').val();
 
-        $.post("php/success.php", {username: username, password: password, tiposesion: tiposesion}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
-            $(".tabla").empty();
+        // HAY QUE VALIDAR QUE SE INTRODUCEN LOS DATOS, YA QUE DE MOMENTO SE PUEDE PULSAR EL BOTÓN DE SUBMIT Y HACER INFINITOS POST.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        $.post("../php/success.php", {username: username, password: password, tiposesion: tiposesion}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
             data = $.parseJSON(data);
+            console.log(data);
+            if (data === 0) {
+                // Datos correctos. Añadir algún efecto de loading o algo interesante...
+                setTimeout(function () {
+                    window.location.replace("../index.php");
+                }, 3000);
+            } else {
+                alert("Datos incorrectos");
+            }
+
 
             // Aquí se añadirá el mensaje de error si los datos son incorrectos, o será redirigido al index.php si es correcto.
 
         });
     })
-
-
-
-
-
-
-
-
-
-
-
-})
+});
