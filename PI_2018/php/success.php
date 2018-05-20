@@ -6,7 +6,7 @@
  * Time: 14:46
  */
 
-/* Este php recibirá los datos de main.js (ajax) y procesará el username, password del usuario/empresa que haya enviado la petición. */
+/* Este php recibirá los datos de main.js (ajax) y procesará el LOGIN: username, password del usuario/empresa que haya enviado la petición. */
 
 session_start();
 if (isset($_POST['username']) && ($_POST['password'])) {
