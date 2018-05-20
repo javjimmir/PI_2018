@@ -5,8 +5,8 @@ function changeInputValue(val){
 function changeRangeValue(val){
     document.getElementById("range").value = isNaN(parseInt(val, 10)) ? 0 : parseInt(val, 10);
 }
-
 $(document).ready(function () {
+
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
         console.log(tipo_actividad)
@@ -77,33 +77,59 @@ $(document).ready(function () {
             });
         }
     })
-
-    /* Implementación de login por ajax */
-
+    /**
+     *
+     *      Implementación de login por ajax.
+     *      El uso de setTimeout es para evitar el uso de excesivas peticiones post seguidas, dando un pequeño respiro al servidor y agilizando las conexiones
+     *
+     */
     $("#validar").click(function (e) {
+        var msginfo = $("#msginfo");
+        msginfo.text("");
         e.preventDefault();
         // Se haga petición ajax
         var username = $("#alias").val();
         var password = $("#password").val();
         var tiposesion = $('input[name=tiposesion]:checked', '#form-sesion').val();
 
-        // HAY QUE VALIDAR QUE SE INTRODUCEN LOS DATOS, YA QUE DE MOMENTO SE PUEDE PULSAR EL BOTÓN DE SUBMIT Y HACER INFINITOS POST.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-        $.post("../php/success.php", {username: username, password: password, tiposesion: tiposesion}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
-            data = $.parseJSON(data);
-            console.log(data);
-            if (data === 0) {
-                // Datos correctos. Añadir algún efecto de loading o algo interesante...
-                setTimeout(function () {
-                    window.location.replace("../index.php");
-                }, 3000);
-            } else {
-                alert("Datos incorrectos");
-            }
-
-
-            // Aquí se añadirá el mensaje de error si los datos son incorrectos, o será redirigido al index.php si es correcto.
-
-        });
+        if (username != "" && password != "" && tiposesion != undefined){
+            $.post("../php/success.php", {username: username, password: password, tiposesion: tiposesion}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
+                data = $.parseJSON(data);
+                if (data === 0) {
+                    /* En caso de que los datos sean correctos... */
+                    $("body").addClass("loading");
+                    setTimeout(function () {
+                        msginfo.text("");
+                        $("body").removeClass("loading");
+                        window.location.replace("../index.php");
+                    }, 3000);
+                } else {
+                    /* En caso de que se introduzcan datos incorrectos... */
+                    $("body").addClass("loading");
+                    setTimeout(function () {
+                        msginfo.text("");
+                        msginfo.animate({fontSize: "17px"});
+                        msginfo.animate({fontSize: "15px"});
+                        msginfo.html("<p>El usuario o contraseñas son incorrectos. <a href='#'>¿Has olvidado tu contraseña?</a></p>");
+                        $("#password").val("");
+                        $("#alias").val("");
+                        $("body").removeClass("loading");
+                    }, 2000);
+                }
+            });
+        } else {
+            /* En caso de que introduzcan campos vacíos... */
+            $("body").addClass("loading");
+            setTimeout(function () {
+                msginfo.text("");
+                msginfo.animate({fontSize: "17px"});
+                msginfo.animate({fontSize: "15px"});
+                msginfo.text("Hay campos vacíos");
+                $("#password").val("");
+                $("#alias").val("");
+                $("body").removeClass("loading");
+            }, 2000);
+        }
     })
 });

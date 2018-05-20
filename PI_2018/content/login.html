@@ -1,18 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: jdelgado
- * Date: 18/05/18
- * Time: 12:32
- */
-
-session_start();
-
-
-/* Este será el único login que habrá, de modo que form_login.html (usuario) y form_login_empresa.html (empresa) serán eliminados.
-Este login usará una petición ajax. */
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +13,7 @@ Este login usará una petición ajax. */
 <body>
 <section>
 	<article>
+		<div class="modalpers"><p>Por favor, espere</p></div>
 		<!-- formulario de login de usuarios por AJAX -->
 		<form action="" method="post" id="form-sesion">
 
@@ -48,6 +34,7 @@ Este login usará una petición ajax. */
             <button class="boton" id="validar">Enviar</button>
 			<input class="boton" type="reset" value="Limpiar formulario">
 			<br><br>
+			<div id="msginfo"></div>
 		</form>
 
 	</article>
