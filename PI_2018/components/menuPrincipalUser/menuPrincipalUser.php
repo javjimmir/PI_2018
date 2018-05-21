@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +26,11 @@
           <li><a href="index.php?category=nieve">Nieve</a></li>
         </ul>
       </li>
+        <?php
+        if ($_SESSION['tipo'] === "empresa") {
+            echo "<li><a href='content/ofertas.php'>Administrar actividades</a></li>";
+        }
+        ?>
       <li><a href="#">Como Funciona</a></li>
       <li><a href="#">Contacto</a></li>
       <li><a href="#">Acerca de</a></li>
