@@ -85,8 +85,8 @@ if (isset($_GET['category'])) {
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">';
             if ($_SESSION['tipo'] === "usuario") {
-                echo '<li><a href="content/perfil.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
-                          <li><a href="content/ofertas.php"><span class="glyphicon glyphicon-th-list"></span> Mis reservas</a></li>';
+                echo '<li><a href="content/profile.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
+                          <li><a href="content/reservas.php"><span class="glyphicon glyphicon-th-list"></span> Mis reservas</a></li>';
             } else if ($_SESSION['tipo'] === "empresa") {
                 echo '<li><a href="content/perfil.php"><span class="glyphicon glyphicon-briefcase"></span> Perfil de empresa</a></li>';
             }
