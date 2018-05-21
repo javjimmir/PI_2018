@@ -63,15 +63,19 @@ include '../php/connection.php';
 <article>
 <?php
 
-      /* Se encarga de borrar el registro seleccionado pulsando el botón que tenemos en la tabla. */
+      /* Se encarga de borrar el registro seleccionado pulsando el botón que tenemos en la tabla. 
+
+        Importante el saber que cuando tenemos reservas de dicha actividad esta no se puede borrar, ya que el id de la oferta está asociada a la reserva. Esto se controlará en futuras versiones.
+        
+      */
 
       if(isset($_GET['aski']) == 'delete'){
 
         $id = mysqli_real_escape_string($conexion,(strip_tags($_GET["id"],ENT_QUOTES)));
-        $sql_del = "DELETE FROM reserva WHERE id='$id'";
+        $sql_del = "DELETE FROM oferta WHERE id='$id'";
         $delete = $conexion->query($sql_del);
           if($delete){
-            echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+            echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Actividad eliminada correctamente.</div>';
           }else{
             echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
             echo "Error: " . $sql_del . "<br>" . $conexion->error;
@@ -138,7 +142,7 @@ include '../php/connection.php';
  
                 <a href="actividad.php?id='.$row['id'].'" title="Ver" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
                 <a href="edit.php?id='.$row['id'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>                
-                <a href="reservas.php?aski=delete&id='.$row['id'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de que quiere anular la reserva?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a href="ofertas.php?aski=delete&id='.$row['id'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de que quiere anular la reserva?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>
             </tr>
             ';
