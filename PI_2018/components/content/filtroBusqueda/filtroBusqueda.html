@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./components/filtroBusqueda/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../components/filtroBusqueda/css/style.css">
+	<script type="text/javascript" src="./js/main.js"></script>
+</head>
+<body>
+	<h2>Filtros de Busqueda</h2>
+	<form method="post" id="myform">
+		<label>Tipo actividad</label><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  Submarinismo<br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="snorkel">  Snorkel<br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="senderismo">  Senderismo<br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="buceo">  Buceo<br>
+		<p>más actividades...</p><br>
+
+		<label>Precio máximo</label><br>
+
+		<input type="number" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/> €
+		<br>
+		<input type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
+
+		<button id="quitarfiltros">Quitar filtros</button>
+	</form>
+</body>
+</html>

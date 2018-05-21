@@ -1,7 +1,7 @@
  $(document).ready(function () {
-      $('.menuLogin').load('../components/menuLogin/menuLogin.html');
-      $('.menuPrincipalUser').load('../components/menuPrincipalUser/menuPrincipalUser.php');
-      $('.pie').load('../components/pie/pie.html');
-      $('.filtroBusqueda').load('../components/filtroBusqueda/filtroBusqueda.html');
-      $('.publicidad').load('../components/publicidad/publicidad.html')
+      $('.menuLogin').load('../components/content/menuLogin/menuLogin.html');
+      $('.menuPrincipalUser').load('../components/content/menuPrincipalUser/menuPrincipalUser.php');
+      $('.pie').load('../components/content/pie/pie.html');
+      $('.filtroBusqueda').load('../components/content/filtroBusqueda/filtroBusqueda.html');
+      $('.publicidad').load('../components/content/publicidad/publicidad.html')
     });

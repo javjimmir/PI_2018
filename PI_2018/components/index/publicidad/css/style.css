@@ -1,0 +1,24 @@
+aside{
+    background-color: #222;
+    /*border-style: solid;
+    border-width: 1px;
+    border-color: #080808;*/
+}
+
+aside > h3{
+    align: center;
+    color: #9d9d9d;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 4%;
+}
+aside > a{
+    margin-left: 10%;
+}
+img {
+    margin-left: 12%;
+    width: 70%;
+    height: 11%;
+    margin-bottom: 11%;
+    margin-top: 6%;
+}
