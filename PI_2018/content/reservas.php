@@ -79,70 +79,40 @@ include '../php/connection.php';
       ?>
 </article>
 <article>
-    <h2 class="text-center">Mis reservas</h2><br/>
-		<div class="table-responsive">
-			<table class="table table-striped table-hover">
-        <thead>
-				<tr>
-					<th>Nº</th> <!-- Esta es una variable que muestra el orden de los registros, pero que no pertenece a la bd. -->
-          <th>Nombre de actividad</th>
-          <th>Tipo de actividad</th>
-          <th>Plazas reservadas</th>
-					<th>Coste de la reserva</th>
-          <th>Dificultad</th>
-					<th>Acciones</th>
-				</tr>
-        </thead>
+    <h2 class="text-center">Mis reservas</h2>
 
+    <h2 class="text-center">----------------------------------------</h2>
 				<?php
-
-
-
-        /* Este es el data-table que mostrará los datos de las reservas de los usuarios. Hay una primera consulta que se encarga de listar todas las ofertas del usuario, y una vez que están listadas dentro del bucle pondremos otra que se encargará de ir mostrando los datos de esa reserva procedentes de la taba oferta por su id.*/
 
 				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') "; 
 
 				  $result = $conexion->query($sql_reserva); 
-          $no = 1;
+          
           if ($result->num_rows === 0) {
-            echo '<tr><td colspan="8">No hay reservas.</td></tr>';
+            echo '<p class="text-center">No hay registros para mostrar</p>';
           }else{
-          while($row = $result->fetch_assoc()){
-            $sql_oferta = "SELECT * from oferta where id = '".$row['id_oferta']."'";
-            $result2 = $conexion->query($sql_oferta);
-            $row2 = $result2->fetch_assoc(); 
-            echo '
-            <tr>
-              <td>'.$no.'</td>
-              <td>'.$row2['nombre'].'</td>
-              <td>'.$row2['tipo_actividad'].'</td>
-              <td class="text-center">'.$row['num_plazas_reserva'].'</td>
-              <td class="text-center">'.$row['coste_reserva'].'</td>
-              <td>';
-              if($row2['dificultad'] == 'facil'){
-                echo '<span class="label label-success">Fácil</span>';
-              }
-                            else if ($row2['dificultad'] == 'medio' ){
-                echo '<span class="label label-primary">Medio</span>';
-              }
-                            else if ($row2['dificultad'] == 'dificil' ){
-                echo '<span class="label label-warning">Difícil</span>';
-              }
-                            else{
-                echo '<span class="label label-danger">Experto</span>';
-              }
-            echo '
-              </td>
-              <td>
- 
-                <a href="edit.php?nik='.$row['id'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                <a href="reservas.php?aski=delete&id='.$row['id'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de que quiere anular la reserva?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-              </td>
-            </tr>
-            ';
-            $no++;
+            
+           while($row = $result->fetch_assoc()) {
+
+                $sql_oferta = "SELECT * from oferta where id = '".$row['id_oferta']."'";
+                $result2 = $conexion->query($sql_oferta);
+                $row2 = $result2->fetch_assoc();             
+                echo '  <div class="col-lg-4 actividad">
+          <div class="row">
+            <div class="col-lg-4">
+              <img src="../img/submarinismo.jpg" alt="submarinismo" class="listImg">
+            </div>
+            <div class="col-lg-8">
+                <p id="nombre">'.$row2['nombre'].'</p>
+                <p id="actividad">'.$row2['tipo_actividad'].'</p>
+              <p id="provincia">'.$row['coste_reserva'].'</p>
+              <p id="dificultad">'.$row['num_plazas_reserva'].'</p>
+              <p id="precio">'.$row['fecha_reserva'].'</p>
+            </div>
+          </div>
+        </div>';
+            }
           }
-        }
         ?>
           
 			</table>
