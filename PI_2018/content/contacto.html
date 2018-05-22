@@ -3,6 +3,7 @@
 <head>
     <!--<link rel="stylesheet" type="text/css" href="./css/style.css">-->
     <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,11 +28,13 @@
 <section>
     <article>
         <h2>Formulario de contacto</h2>
-        <form action="" class="formcontact">
+        <form action="" class="formcontact" id="form1">
             <label for="">Nombre</label><br>
             <input type="text" id="nombre"><br>
             <label for="">Correo electrónico</label><br>
             <input type="mail" id="mail"><br>
+        </form>
+        <form action="" class="formcontact" id="form2">
             <label for="">Tipo de consulta</label><br>
             <select name="" id="tipo_consulta">
                 <option value="informacion">Solicitar información</option>
@@ -40,9 +43,9 @@
                 <option value="otras">Otras</option>
             </select><br>
             <label for="">Descripción</label><br>
-            <input type="textarea" id="descripcion"><br><br>
-            <input type="submit" value="enviar" id="enviar">
+            <textarea name="" id="desc-contacto">Escriba aqui</textarea><br>
         </form>
+        <input type="submit" value="enviar" id="enviar">
     </article>
 </section>
 

@@ -69,3 +69,18 @@ footer{
 	margin-top: 2%;
 	margin-bottom: 2%;
 }
+
+.imgfun{
+	width: 25%;
+	height: 25%;
+	margin-bottom: 4rem;
+	margin-top: 4rem;
+}
+
+.imgacerca{
+	width: 25%;
+	height: 25%;
+	margin-bottom: 4rem;
+	margin-top: 4rem;
+	border-radius: 25px;
+}
