@@ -84,3 +84,74 @@ footer{
 	margin-top: 4rem;
 	border-radius: 25px;
 }
+
+.imgperfil > img{
+	border-radius: 50%;
+	margin-left: 0;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.imgperfil{
+	position: relative;
+	float: left;
+width: 25%;
+margin-left: 4em;
+margin-top: -6em;
+}
+
+.imgperfil > button{
+	margin-top: 1em;
+}
+
+.alias{
+	position: relative;
+	float: left;
+	width: 70%;
+	padding-bottom: 9em;
+}
+
+#lista{
+	display: inline-block;
+}
+
+#lista ul li
+{
+	display: flex;
+    align-items: left;
+}
+
+.titulo{
+	padding: 1em;
+	font-size: 3em;
+	font-style: italic;
+}
+
+.actividadesRecientes{
+	position: relative;
+	padding-top: 3em;
+	float: left;
+	width: 40%;
+}
+
+.actividadesRecientes p{
+	width: 50%;
+	margin-left: 10em;
+}
+
+.actividadesFavoritas{
+	position: relative;
+	padding-top: 3em;
+	float: right;
+	width: 60%;
+}
+
+.actividadesFavoritas img{
+	width: 23%;
+}
+
+#bajo{
+	width: 100%;
+	background-color: red;
+}

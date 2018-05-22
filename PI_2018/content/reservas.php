@@ -80,8 +80,6 @@ include '../php/connection.php';
 </article>
 <article>
     <h2 class="text-center">Mis reservas</h2>
-
-    <h2 class="text-center">----------------------------------------</h2>
 				<?php
 
 				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') "; 

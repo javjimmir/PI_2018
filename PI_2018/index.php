@@ -189,7 +189,7 @@ if (isset($_GET['category'])) {
 			$result = $conexion->query($sql);
             for ($i = 1; $i <= $count; $i++) {
             	$row = $result->fetch_assoc();
-            	$id = $row['id'];
+            	//$descripcion = substr($row['descripcion'], 0, 110);
                 $nombre = $row['nombre'];
                 $provincia = $row['provincia'];
                 $actividad = $row['tipo_actividad'];
@@ -206,8 +206,6 @@ if (isset($_GET['category'])) {
 	    				<p id="provincia">'.$provincia.'</p>
 	    				<p id="dificultad">'.$dificultad.'</p>
 	    				<p id="precio">'.$precio.'€</p>
-	    				<a href="content/oferta.php?id='.$id.'">Ver oferta</a>
-	    				
 	    			</div>
     			</div>
     		</div>';
