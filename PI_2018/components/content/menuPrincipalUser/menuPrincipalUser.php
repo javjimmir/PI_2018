@@ -31,9 +31,9 @@ session_start();
             echo "<li><a href='content/ofertas.php'>Administrar actividades</a></li>";
         }
         ?>
-      <li><a href="#">Como Funciona</a></li>
-      <li><a href="#">Contacto</a></li>
-      <li><a href="#">Acerca de</a></li>
+      <li><a href="comofunciona.html">Como Funciona</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="acercade.html">Acerca de</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       
