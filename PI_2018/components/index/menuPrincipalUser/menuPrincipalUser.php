@@ -28,7 +28,7 @@ session_start();
       </li>
         <?php
         if (!empty($_SESSION) && $_SESSION['tipo'] === "empresa") {
-            echo "<li><a href='content/ofertas.php'>Administrar actividades</a></li>";
+            echo "<li><a href='content/activity_manager.php'>Administrar actividades</a></li>";
         }
         ?>
       <li><a href="#">Como Funciona</a></li>
