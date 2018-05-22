@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="./../css/loginform.css">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/loginform.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/conectores_content.js"></script>
+    <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
-	<title>Iniciar sesión</title>
-</head>
+    <title>Iniciar sesión</title>
+    </head>
 <body>
+
+<header class="menuLogin">
+
+    </header>
+<nav class="menuPrincipalUser">
+
+</nav>
+<aside class="publicidad">
+
+    </aside>
 <section>
-	<article>
-		<div class="modalpers"><p>Por favor, espere</p></div>
-		<!-- formulario de login de usuarios por AJAX -->
-		<form action="" method="post" id="form-sesion">
+    <article>
+        <div class="modalpers"><p>Por favor, espere</p></div>
+        <!-- formulario de login de usuarios por AJAX -->
+        <form action="" method="post" id="form-sesion">
 
-			<h1>Iniciar sesión</h1>
+            <h1>Iniciar sesión</h1>
 
-			<label>Alias</label><br>
-			<input class="login" type="text" name="alias" value="" placeholder="Alias" id="alias" required><br>
+            <label>Alias</label><br>
+            <input class="login" type="text" name="alias" value="" placeholder="Alias" id="alias" required><br>
 
-			<label>Contraseña</label><br>
-			<input class="login" type="password" name="password" value="" placeholder="Contraseña" id="password" required><br>
+            <label>Contraseña</label><br>
+            <input class="login" type="password" name="password" value="" placeholder="Contraseña" id="password" required><br>
 
             <label></label><br>
             <input required type="radio" class="tiposes" name="tiposesion" value="usuario">  Usuario
             <input required type="radio" class="tiposes" name="tiposesion" value="empresa">  Empresa<br>
 
-			<img src="./../img/captcha.jpg" id="captcha">
-		<br/>
+            <img src="./../img/captcha.jpg" id="captcha">
+            <br/>
             <button class="boton" id="validar">Enviar</button>
-			<input class="boton" type="reset" value="Limpiar formulario">
-			<br><br>
-			<div id="msginfo"></div>
-		</form>
+            <input class="boton" type="reset" value="Limpiar formulario">
+            <br><br>
+            <div id="msginfo"></div>
+        </form>
 
-	</article>
-</section>
+    </article>
+    </section>
+
+<footer class="pie">
+
+    </footer>
 
 </body>
 </html>
