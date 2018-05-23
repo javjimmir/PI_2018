@@ -84,6 +84,7 @@ include '../php/connection.php';
 </article>
 <article>
     <h2 class="text-center">Mis actividades</h2><br/>
+    <center><a href="registrofertas.html" title="Añadir" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Añadir actividad</a></center>
     <div class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
@@ -122,8 +123,8 @@ include '../php/connection.php';
               if($row['dificultad'] == 'facil'){
                 echo '<span class="label label-success">Fácil</span>';
               }
-                            else if ($row['dificultad'] == 'medio' ){
-                echo '<span class="label label-primary">Medio</span>';
+                            else if ($row['dificultad'] == 'media' ){
+                echo '<span class="label label-primary">Media</span>';
               }
                             else if ($row['dificultad'] == 'dificil' ){
                 echo '<span class="label label-warning">Difícil</span>';
@@ -135,7 +136,7 @@ include '../php/connection.php';
               </td>              
               <td>
  
-                <a href="actividad.php?id='.$row['id'].'" title="Ver" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
+                <a href="oferta.php?id='.$row['id'].'" title="Ver" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
                 <a href="edit.php?id='.$row['id'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>                
                 <a href="activity_manager.php?aski=delete&id='.$row['id'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de que quiere anular la reserva?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>
