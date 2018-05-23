@@ -5,9 +5,8 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
+
   <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <link rel='stylesheet' id='BNS-Corner-Logo-Style-css'  href='./css/social_icons_from_Techandallcom.css' type='text/css' media='screen' />
   <link rel='stylesheet' id='BNS-Corner-Logo-Style-css'  href='../css/social_icons_from_Techandallcom.css' type='text/css' media='screen' />
 
 </head>
@@ -15,7 +14,7 @@ session_start();
   <div class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href=".">Inicio</a></li>
+      <li class="active"><a href="../index.php">Inicio</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorías
         <span class="caret"></span></a>

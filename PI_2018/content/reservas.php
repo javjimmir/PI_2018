@@ -22,7 +22,7 @@ include '../php/connection.php';
 <header class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Nombre Web</a>
+      <a class="navbar-brand" href="../">Nombre Web</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
     	<?php
@@ -44,7 +44,7 @@ include '../php/connection.php';
                     <ul class="dropdown-menu">
                       <li><a href="perfil.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
                       <li><a href="reservas.php"><span class="glyphicon glyphicon-th-list"></span> Mis reservas</a></li>
-                      <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
+                      <li><a href="../php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
                     </ul>
                 </li>';
     		}
