@@ -21,8 +21,67 @@ include '../php/connection.php';
     </head>
 <body>
 
-<header class="menuLogin">
+<!-- ESTO ES LO MISMO QUE EL COMPONENTE, BASTA CON VOLVER A SUSTITUIRLO, CON LA DIFERENCIA DE QUE EL COMPONENTE NO ENLAZA BIEN CON EL LOGIN -->
+<header class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Nombre Web</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <?php
+            /**
+             *
+             *      Submenú lateral de usuario/empresa conectado
+             *
+             */
+            // Si el usuario NO está logueado.
+            if (!isset($_SESSION['nombre'])) {
+                echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
+                echo '<li><a href="content/login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
+                // Si el usuario está logueado, y visualizará distintos menús dependiendo de si es EMPRESA o USUARIO.
+            } else {
+                echo '
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['nombre']  . '
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">';
+                if ($_SESSION['tipo'] === "usuario") {
+                    echo '<li><a href="content/perfil.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
+                          <li><a href="content/reservas.php"><span class="glyphicon glyphicon-th-list"></span> Mis reservas</a></li>';
+                } else if ($_SESSION['tipo'] === "empresa") {
+                    echo '<li><a href="content/perfil.php"><span class="glyphicon glyphicon-briefcase"></span> Perfil de empresa</a></li>';
+                }
+                echo '<li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
+                    </ul>
+                </li>';
+            }
+          /* Sacando datos del user... */
+          $username = $_SESSION['nombre'];
+          $sql = "select * from usuario where alias = " . "'$username'";
+          $resultado = $conexion->query($sql);
+          $res = [];
 
+          while($row = $resultado->fetch_object()){
+              $fila=array(
+                  "nif"=>$row->nif,
+                  "nombre"=>$row->nombre,
+                  "apellidos"=>$row->apellidos,
+                  "telefono"=>$row->telefono,
+                  "pais"=>$row->pais,
+                  "alias"=>$row->alias,
+                  "email"=>$row->email,
+                  "cp"=>$row->cp,
+                  "imagen_perfil"=>$row->imagen_perfil,
+                  "provincia"=>$row->provincia,
+                  "direccion"=>$row->direccion,
+                  "actividad_fav"=>$row->actividad_fav,
+                  "password"=>$row->password
+              );
+              array_push($res, $fila);
+          }
+        ?>
+        </ul>
+    </div>
 </header>
 <nav class="menuPrincipalUser">
 
@@ -41,14 +100,14 @@ include '../php/connection.php';
       <button type="button" class="btn btn-info">Subir</button> 
     </div>
       <div class="alias">
-          <h2>Alias del usuario </h2>
+          <h2><?php echo $res[0]['alias'];?></h2>
           <h4> Información personal </h4>
           <div id="lista">
             <ul>
-              <li>Lorem fistrum diodenoo jarl me cago en tus muelas </li>
-              <li>te va a hasé pupitaa. Hasta luego Lucas</li>
-              <li> hasta luego Lucas benemeritaar hasta luego Lucas a gramenawer.</li> 
-              <li>Papaar papaar por la gloria de mi madre jarl a wan al ataquerl </li>
+              <li>Nombre y apellidos: <?php echo $res[0]['nombre'] . " " . $res[0]['apellidos'];?></li>
+              <li>Teléfono: <?php echo $res[0]['telefono'];?></li>
+              <li>Dirección: <?php echo $res[0]['direccion'] . ", " . $res[0]['provincia'] . ", " . $res[0]['cp'] . ", " . $res[0]['pais'];?></li>
+              <li>Correo eletrónico: <?php echo $res[0]['email'];?></li>
               <li>al ataquerl quietooor a wan me cago en tus muelas tiene musho peligro mamaar. </li>        
 </ul>
           </div>
