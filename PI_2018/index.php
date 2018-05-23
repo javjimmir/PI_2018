@@ -206,6 +206,7 @@ if (isset($_GET['category'])) {
 	    				<p id="provincia">'.$provincia.'</p>
 	    				<p id="dificultad">'.$dificultad.'</p>
 	    				<p id="precio">'.$precio.'€</p>
+	    				<a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
 	    			</div>
     			</div>
     		</div>';
