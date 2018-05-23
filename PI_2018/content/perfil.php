@@ -3,6 +3,7 @@
 session_start();
 include '../php/connection.php';
 
+
 ?>
 <!DOCTYPE html>
 <html><head>
@@ -22,7 +23,7 @@ include '../php/connection.php';
 
 <header class="menuLogin">
 
-    </header>
+</header>
 <nav class="menuPrincipalUser">
 
 </nav>
