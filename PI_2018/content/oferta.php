@@ -14,7 +14,7 @@ include '../php/connection.php';
 if (empty($_SESSION['nombre'])) {
 	/*REDIRECCIONAR A UNA PÁGINA DE ERROR DE INICIAR SESIÓN ??? */
 		echo "Inicia sesión para reservar la actividad.";
-		echo '<a href="content/login.html">Inicia sesión</a>';
+		echo '<a href="login.html">Inicia sesión</a>';
 	}else{
 		$id = $_GET['id'];
 		$sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
@@ -33,55 +33,69 @@ if (empty($_SESSION['nombre'])) {
 		echo '<p> Categoría: '.$row['categoria'].'</p>';
 		echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
 		echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
+
+
 	}
 
-?>
-
-<h2>HACER LA RESERVA</h2>
-<h3>¿ Cuantas plazas desea reservar ?</h3>
-
-<form action="" method="POST">
-	
-	<label>Número de plazas que desea reservar:</label><br><br>
-	<input type="text" name="plazas_reserva"><br><br>
-	<input type="submit" name="enviar">
-
-</form>
-
-<?php 
-	if (!empty($_POST['plazas_reserva']) && !empty($_SESSION['nombre'])) {
+	if ($_SESSION['tipo'] === "usuario") {
 		//sacamos el nif del usuario que hace la reserva mediante la variable de sesión y también debemos multiplicar el precio de la oferta por el número de plazas que se vaya a reservar. En el caso de que l oferta no disponga del número de plazas que se va a solicitar peta y no te deja continuar. EL FORMULARIO HA DE SER VALIDADO PARA QUE SOLO ENTREN NÚMEROS.
 
-		$num_plazas = $row['num_plazas'];
+		/* El formulario solo aparecerá cuando no haya datos post y cuando el que ha iniciado sesión es un usuario.*/
 
-		if ($num_plazas < $_POST['plazas_reserva']) {
-			echo "ERROR: no se puede reservar porque no hay plazas suficientes";
+		if (!isset($_POST['plazas_reserva'])) {
+			echo '<h2>HACER LA RESERVA</h2>
+			  <h3>¿ Cuantas plazas desea reservar ?</h3>
+
+				<form action="" method="POST">
+		
+				<label>Número de plazas que desea reservar:</label><br><br>
+				<input type="text" name="plazas_reserva"><br><br>
+				<input type="submit" name="enviar">
+
+				</form>';			
 		}else{
-			/* obetenemos el dni del usuario conectado */
-			$sql_nif = "SELECT nif FROM usuario WHERE alias = '".$_SESSION['nombre']."'";
-			$result_nif = $conexion->query($sql_nif);
-			$row2 = $result_nif->fetch_assoc();
-			$nif=$row2['nif'];
+			$num_plazas = $row['num_plazas'];
 
-			/* obtenemos la fecha de hoy en el formato YY/MM/DD */
+			if ($num_plazas < $_POST['plazas_reserva']) {
+				echo "ERROR: no se puede reservar porque no hay plazas suficientes";
+			}else{
+				/* obetenemos el dni del usuario conectado */
+				$sql_nif = "SELECT nif FROM usuario WHERE alias = '".$_SESSION['nombre']."'";
+				$result_nif = $conexion->query($sql_nif);
+				$row2 = $result_nif->fetch_assoc();
+				$nif=$row2['nif'];
 
-			$array_fecha = getdate();
-			$year = $array_fecha['year'];
-			$month = $array_fecha['mon'];
-			$day = $array_fecha['mday'];
-			$fecha = $year."-".$month."-".$day;
+				/* obtenemos la fecha de hoy en el formato YY/MM/DD */
 
-			$insert_reserva = "INSERT INTO reserva (nif_usuario,id_oferta,fecha_reserva,num_plazas_reserva,coste_reserva)
-			VALUES('".$nif."',".$id.",'".$fecha."',".$_POST['plazas_reserva'].",".$_POST['plazas_reserva']."*".$row['precio'].")";
+				$array_fecha = getdate();
+				$year = $array_fecha['year'];
+				$month = $array_fecha['mon'];
+				$day = $array_fecha['mday'];
+				$fecha = $year."-".$month."-".$day;
 
-			if ($conexion->query($insert_reserva) === TRUE) {
-				echo 'Registro insertado correctamente';
-			} else {
-				echo "Error: " . $sql . "<br>" . $conexion->error;
+				$insert_reserva = "INSERT INTO reserva (nif_usuario,id_oferta,fecha_reserva,num_plazas_reserva,coste_reserva)
+				VALUES('".$nif."',".$id.",'".$fecha."',".$_POST['plazas_reserva'].",".$_POST['plazas_reserva']."*".$row['precio'].")";
+
+				if ($conexion->query($insert_reserva) === TRUE) {
+					echo 'Registro insertado correctamente';
+					$sql_plazas = "UPDATE oferta SET num_plazas=num_plazas - ".$_POST['plazas_reserva']." WHERE id=".$id;
+					$conexion->query($sql_plazas);
+					echo '<a href="oferta.php?id='.$id.'">Volver</a>';
+				} else {
+					echo "Error: " . $insert_reserva . "<br>" . $conexion->error;
+				}
 			}
 		}
+
 	}
+
+	if ($_SESSION['tipo'] === "empresa") {
+		echo '<p>Solo los usuarios pueden realizar las reservas</p>';
+	}
+	
 ?>
+<br><br>
+<a href="../index.php">Volver al index</a>
 
 </body>
 </html>
