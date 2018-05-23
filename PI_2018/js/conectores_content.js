@@ -1,5 +1,5 @@
  $(document).ready(function () {
-      $('.menuLogin').load('../components/content/menuLogin/menuLogin.php');
+      $('.menuLogin').load('../components/content/menuLogin/menuLogin.html');
       $('.menuPrincipalUser').load('../components/content/menuPrincipalUser/menuPrincipalUser.php');
       $('.pie').load('../components/content/pie/pie.html');
       $('.filtroBusqueda').load('../components/content/filtroBusqueda/filtroBusqueda.html');
