@@ -11,6 +11,7 @@ CREATE TABLE usuario(
 	alias varchar(25),
 	email varchar(50),
 	cp varchar(5),
+  imagen_perfil varchar(100),
 	provincia varchar(30),
 	direccion varchar(30),
 	actividad_fav varchar(20),
@@ -25,6 +26,7 @@ CREATE TABLE empresa(
 	pais varchar(30),
 	provincia varchar(30),
 	alias varchar(30),
+  imagen_perfil varchar(100),
 	tipo_actividad varchar(30),
 	web varchar(35),
 	email varchar(35),
@@ -47,7 +49,7 @@ CREATE TABLE oferta(
 	localizacion varchar(30),
 	precio double(5,2),
 	dificultad varchar(15),
-  imagen_perfil varchar(100),
+  imagen_oferta varchar(100),
   categoria varchar(20),
 	fecha_inicio date,
 	fecha_fin date,
@@ -70,18 +72,18 @@ CREATE TABLE reserva(
 );
 
 -- INSERT EN USUARIO
-insert into usuario values('47342916S','Cristian','De los Santos Pariente','999999999','España','Baby','cristian@gmail.com','41410','Sevilla','C/Despeñaperros','Snorkel','cristian1234');
-insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','Sevilla','C/Bami','Correr','Fran1234');
-insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','Sevilla','C/DosHermanas','Salto','Fredy1234');
-insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','Sevilla','C/Sevilla','Gimna','javi1234');
-insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
+insert into usuario values('47342916S','Cristian','De los Santos Pariente','999999999','España','Baby','cristian@gmail.com','41410','img_perfil1.jpg','Sevilla','C/Despeñaperros','Snorkel','cristian1234');
+insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','img_perfil2.jpg','Sevilla','C/Bami','Correr','Fran1234');
+insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','img_perfil3.jpg','Sevilla','C/DosHermanas','Salto','Fredy1234');
+insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','img_perfil4.jpg','Sevilla','C/Sevilla','Gimna','javi1234');
+insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','juan.jpg','Sevilla','C/ave','Snorkel','juan1234');
 /* insert erroneo (key repetida)
 insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
 */
 
 -- INSERT EN EMPRESA
-insert into empresa values('11111111k','Sevilla Aventura','999999999','Sevilla,','Sevilla','S_Adventures','Snorkel','www.sevillaaventura.com','sevillaaventura@gmail.com','lorem ipsum','41410','sevillaventura1234');
-insert into empresa values('22222222s','Madrid Mataos','888888888','Madrid,','Madrid','MM','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','madridmataos1234');
+insert into empresa values('11111111k','Sevilla Aventura','999999999','Sevilla,','Sevilla','S_Adventures','img_perfil.jpg','Snorkel','www.sevillaaventura.com','sevillaaventura@gmail.com','lorem ipsum','41410','sevillaventura1234');
+insert into empresa values('22222222s','Madrid Mataos','888888888','Madrid,','Madrid','MM','img_perfil.jpg','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','madridmataos1234');
 /* insert erroneo (nif repetido)
 insert into empresa values('22222222s','Madriles','888888888','Madrid,','Madrid','MM','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','madridmataos1234');
 */
@@ -91,6 +93,7 @@ insert into oferta values(1,'11111111k','Nombre1','Provincia1','Municipio1','2 d
 insert into oferta values(2,'22222222s','Nombre2','Provincia2','Municipio2','4 dias','40','senderismo','lorem ipsum siamet','monte nuevo',40.55,'moderado','linkimage2.jpg','tierra','16-07-18','20-07-18');
 insert into oferta values(3,'22222222s','Nombre3','Provincia3','Municipio3','7 dias','50','paracaidismo','lorem ipsum siametparacaidismo','mount chiliad',100.50,'dificil','linkimage3.jpg','aire','20-08-18','20-08-22');
 insert into oferta values(4,'11111111k','Nombre4','Provincia4','Municipio4','5 dias','80','submarinismo','lorem ipsuma','san lucar',30,'moderado','linkimage4.jpg','acuatica','27-09-18','20-09-18');
+insert into oferta values(5,'22222222s','Nombre5','Provincia5','Municipio5','7 dias','30','senderismo','lorem ipsum siamet','cazalla',80.55,'moderado','linkimage5.jpg','tierra','16-07-18','20-07-18');
 /* insert erroneo
 insert into oferta values(2,'22222222s','Nombre2','Provincia2','Municipio2','4 dias','40','senderismo','lorem ipsum siamet','monte nuevo',40.55,'moderado','116-07-15','20-08-18');
 */
