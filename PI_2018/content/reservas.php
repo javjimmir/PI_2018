@@ -1,9 +1,6 @@
 <?php
-
 session_start();
 include '../php/connection.php';
-
-
 ?>
 <!DOCTYPE html>
 <html>

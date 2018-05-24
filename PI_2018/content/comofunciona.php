@@ -1,3 +1,7 @@
+<?php
+session_start();
+include '../php/connection.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +22,7 @@
 
 <header class="menuLogin">
 
-    </header>
+</header>
 <nav class="menuPrincipalUser">
 
 </nav>

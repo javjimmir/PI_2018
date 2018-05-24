@@ -28,9 +28,9 @@ session_start();
             echo "<li><a href='content/activity_manager.php'>Administrar actividades</a></li>";
         }
         ?>
-      <li><a href="./content/comofunciona.html">Como Funciona</a></li>
-      <li><a href="./content/contacto.html">Contacto</a></li>
-      <li><a href="./content/acercade.html">Acerca de</a></li>
+      <li><a href="./content/comofunciona.php">Como Funciona</a></li>
+      <li><a href="./content/contacto.php">Contacto</a></li>
+      <li><a href="./content/acercade.php">Acerca de</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       

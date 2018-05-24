@@ -11,31 +11,23 @@ include '../php/connection.php';
 </head>
 <body>
 <?php
-if (empty($_SESSION['nombre'])) {
-	/*REDIRECCIONAR A UNA PÁGINA DE ERROR DE INICIAR SESIÓN ??? */
-		echo "Inicia sesión para reservar la actividad.";
-		echo '<a href="login.html">Inicia sesión</a>';
-	}else{
-		$id = $_GET['id'];
-		$sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
-		$result = $conexion->query($sql_oferta);
-		$row = $result->fetch_assoc();
-		echo "<p>AVISO: ESTA VISTA ES PROVISIONAL PARA EL DESARROLLO DEL BACK, UNA VEZ QUE ESTÉ TODO FUNCIONANDO PERFE SE PONDRÁ LA VISTA DEFINITIVA EN PLAN BONITO. NO NOS REPORTEIS PROFES.</p>";
-		echo '<p> Nombre de la oferta: '.$row['nombre'].'</p>';
-		echo '<p> Provincia: '.$row['provincia'].'</p>';
-		echo '<p> Municipio: '.$row['municipio'].'</p>';
-		echo '<p> Duración: '.$row['duracion'].'</p>';
-		echo '<p> Número de plazas disponibles: '.$row['num_plazas'].'</p>';
-		echo '<p> Tipo de actividad: '.$row['tipo_actividad'].'</p>';
-		echo '<p> Descripción: '.$row['descripcion'].'</p>';
-		echo '<p> Precio: '.$row['precio'].' €</p>';
-		echo '<p> Dificultad: '.$row['dificultad'].'</p>';
-		echo '<p> Categoría: '.$row['categoria'].'</p>';
-		echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
-		echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
-
-
-	}
+    $id = $_GET['id'];
+    $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
+    $result = $conexion->query($sql_oferta);
+    $row = $result->fetch_assoc();
+    echo "<p>AVISO: ESTA VISTA ES PROVISIONAL PARA EL DESARROLLO DEL BACK, UNA VEZ QUE ESTÉ TODO FUNCIONANDO PERFE SE PONDRÁ LA VISTA DEFINITIVA EN PLAN BONITO. NO NOS REPORTEIS PROFES.</p>";
+    echo '<p> Nombre de la oferta: '.$row['nombre'].'</p>';
+    echo '<p> Provincia: '.$row['provincia'].'</p>';
+    echo '<p> Municipio: '.$row['municipio'].'</p>';
+    echo '<p> Duración: '.$row['duracion'].'</p>';
+    echo '<p> Número de plazas disponibles: '.$row['num_plazas'].'</p>';
+    echo '<p> Tipo de actividad: '.$row['tipo_actividad'].'</p>';
+    echo '<p> Descripción: '.$row['descripcion'].'</p>';
+    echo '<p> Precio: '.$row['precio'].' €</p>';
+    echo '<p> Dificultad: '.$row['dificultad'].'</p>';
+    echo '<p> Categoría: '.$row['categoria'].'</p>';
+    echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
+    echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
 
 	if ($_SESSION['tipo'] === "usuario") {
 		//sacamos el nif del usuario que hace la reserva mediante la variable de sesión y también debemos multiplicar el precio de la oferta por el número de plazas que se vaya a reservar. En el caso de que l oferta no disponga del número de plazas que se va a solicitar peta y no te deja continuar. EL FORMULARIO HA DE SER VALIDADO PARA QUE SOLO ENTREN NÚMEROS.

@@ -10,48 +10,18 @@ include '../php/connection.php';
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/conectores.js"></script>
+    <script type="text/javascript" src="../js/conectores_content.js"></script>
   <script type="text/javascript" src="../js/main.js"></script>
   <title>Administrar ofertas</title>
 </head>
 <body>
-<!-- ESTO ES LO MISMO QUE EL COMPONENTE, BASTA CON VOLVER A SUSTITUIRLO, CON LA DIFERENCIA DE QUE EL COMPONENTE NO ENLAZA BIEN CON EL LOGIN -->
-<header class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="../">Nombre Web</a>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <?php
-        /**
-         *
-         *      Sesión del usuario (no empresa)
-         *
-         */
-            //$nombreuser = $_SESSION['nombre']; // 'Alias' del usuario que ha iniciado sesión, da error cuando no está iniciada la sesión porque dicha variable queda vacía.
-        if (!isset($_SESSION['nombre'])) {
-          echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
-            echo '<li><a href="content/form_login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
-        }else{
-            echo '
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> ' . $_SESSION['nombre']  . '
-                    <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="perfil.php"><span class="glyphicon glyphicon-cog"></span> Mi perfil</a></li>
-                      <li><a href="ofertas.php"><span class="glyphicon glyphicon-th-list"></span> Mis reservas</a></li>
-                      <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
-                    </ul>
-                </li>';
-        }
-      ?>
-    </ul>
-  </div>
+<header class="menuLogin">
+
 </header>
 <nav class="menuPrincipalUser">
 
 </nav>
-<aside class="filtroBusqueda">
+<aside class="publicidad">
 
 </aside>
 
