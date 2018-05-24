@@ -7,14 +7,30 @@ include '../php/connection.php';
 <html>
 <head>
 	<title>Hacer reserva</title>
-	<meta charset="utf-8"> 
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/conectores_content.js"></script>
 </head>
 <body>
+<header class="menuLogin">
+
+</header>
+<nav class="menuPrincipalUser">
+
+</nav>
+<aside class="publicidad">
+
+</aside>
 <?php
     $id = $_GET['id'];
     $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
     $result = $conexion->query($sql_oferta);
     $row = $result->fetch_assoc();
+    echo '<div id="detalle-oferta">';
     echo "<p>AVISO: ESTA VISTA ES PROVISIONAL PARA EL DESARROLLO DEL BACK, UNA VEZ QUE ESTÉ TODO FUNCIONANDO PERFE SE PONDRÁ LA VISTA DEFINITIVA EN PLAN BONITO. NO NOS REPORTEIS PROFES.</p>";
     echo '<p> Nombre de la oferta: '.$row['nombre'].'</p>';
     echo '<p> Provincia: '.$row['provincia'].'</p>';
@@ -28,13 +44,14 @@ include '../php/connection.php';
     echo '<p> Categoría: '.$row['categoria'].'</p>';
     echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
     echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
-
+    echo '</div>';
 	if ($_SESSION['tipo'] === "usuario") {
 		//sacamos el nif del usuario que hace la reserva mediante la variable de sesión y también debemos multiplicar el precio de la oferta por el número de plazas que se vaya a reservar. En el caso de que l oferta no disponga del número de plazas que se va a solicitar peta y no te deja continuar. EL FORMULARIO HA DE SER VALIDADO PARA QUE SOLO ENTREN NÚMEROS.
 
 		/* El formulario solo aparecerá cuando no haya datos post y cuando el que ha iniciado sesión es un usuario.*/
 
 		if (!isset($_POST['plazas_reserva'])) {
+            echo '<div id="reserva-oferta">';
 			echo '<h2>HACER LA RESERVA</h2>
 			  <h3>¿ Cuantas plazas desea reservar ?</h3>
 
@@ -44,7 +61,8 @@ include '../php/connection.php';
 				<input type="text" name="plazas_reserva"><br><br>
 				<input type="submit" name="enviar">
 
-				</form>';			
+				</form>';
+            echo '</div>';
 		}else{
 			$num_plazas = $row['num_plazas'];
 
@@ -88,6 +106,8 @@ include '../php/connection.php';
 ?>
 <br><br>
 <a href="../index.php">Volver al index</a>
+<footer class="pie">
 
+</footer>
 </body>
 </html>
