@@ -27,6 +27,7 @@
     </aside>
 <section>
     <article>
+        <div class="form_contact">
         <h2>Formulario de contacto</h2>
         <form action="" class="formcontact" id="form1">
             <label for="">Nombre</label><br>
@@ -46,6 +47,7 @@
             <textarea name="" id="desc-contacto">Escriba aqui</textarea><br>
         </form>
         <input type="submit" value="enviar" id="enviar">
+        </div>
     </article>
 </section>
 
