@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 include '../php/connection.php';
 ?>
 <header class="navbar navbar-inverse">
@@ -16,7 +16,7 @@ include '../php/connection.php';
              */
             // Si el usuario NO está logueado.
             if (!isset($_SESSION['nombre'])) {
-                echo '<li><a href="./registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
+                echo '<li><a href="./selec_reg.php"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
             echo '<li><a href="./login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
             // Si el usuario está logueado, y visualizará distintos menús dependiendo de si es EMPRESA o USUARIO.
             } else {

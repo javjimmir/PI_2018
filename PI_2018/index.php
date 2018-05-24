@@ -75,7 +75,7 @@ if (isset($_GET['category'])) {
          */
         // Si el usuario NO está logueado.
         if (!isset($_SESSION['nombre'])) {
-            echo '<li><a href="content/registrouser.html"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
+            echo '<li><a href="content/selec_reg.php"><span class="glyphicon glyphicon-download-alt"></span> Registrarse</a></li>';
             echo '<li><a href="content/login.html"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>';
             // Si el usuario está logueado, y visualizará distintos menús dependiendo de si es EMPRESA o USUARIO.
         } else {
