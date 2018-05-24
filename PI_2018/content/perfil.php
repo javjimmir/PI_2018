@@ -3,31 +3,61 @@
 session_start();
 include '../php/connection.php';
 
+
 /* Sacando datos del user... */
 $username = $_SESSION['nombre'];
-$sql = "select * from usuario where alias = " . "'$username'";
-$resultado = $conexion->query($sql);
-$res = [];
+$sesion = $_SESSION['tipo'];
 
-while($row = $resultado->fetch_object()){
-    $fila=array(
-        "nif"=>$row->nif,
-        "nombre"=>$row->nombre,
-        "apellidos"=>$row->apellidos,
-        "telefono"=>$row->telefono,
-        "pais"=>$row->pais,
-        "alias"=>$row->alias,
-        "email"=>$row->email,
-        "cp"=>$row->cp,
-        "imagen_perfil"=>$row->imagen_perfil,
-        "provincia"=>$row->provincia,
-        "direccion"=>$row->direccion,
-        "actividad_fav"=>$row->actividad_fav,
-        "password"=>$row->password
-    );
-    array_push($res, $fila);
+/* Comprobamos si es usuario o empresa */
+if ($sesion == "usuario") {
+    $sql = "select * from usuario where alias = " . "'$username'";
+    $resultado = $conexion->query($sql);
+    $res = [];
+    while($row = $resultado->fetch_object()){
+        $fila=array(
+            "nif"=>$row->nif,
+            "nombre"=>$row->nombre,
+            "apellidos"=>$row->apellidos,
+            "telefono"=>$row->telefono,
+            "pais"=>$row->pais,
+            "alias"=>$row->alias,
+            "email"=>$row->email,
+            "cp"=>$row->cp,
+            "imagen_perfil"=>$row->imagen_perfil,
+            "provincia"=>$row->provincia,
+            "direccion"=>$row->direccion,
+            "actividad_fav"=>$row->actividad_fav,
+            "password"=>$row->password
+        );
+        array_push($res, $fila);
+    }
+} else if ($sesion == "empresa") {
+    $sql = "select * from empresa where alias = " . "'$username'";
+    $resultado = $conexion->query($sql);
+    $res = [];
+    while($row = $resultado->fetch_object()){
+        $fila=array(
+            "cif"=>$row->cif,
+            "nombre"=>$row->nombre,
+            "telefono"=>$row->telefono,
+            "pais"=>$row->pais,
+            "provincia"=>$row->provincia,
+            "alias"=>$row->alias,
+            "imagen_perfil"=>$row->imagen_perfil,
+            "tipo_actividad"=>$row->tipo_actividad,
+            "web"=>$row->web,
+            "email"=>$row->email,
+            "descripcion"=>$row->descripcion,
+            "cp"=>$row->cp,
+            "password"=>$row->password
+        );
+        array_push($res, $fila);
+    }
+} else {
+    // Si es usuario anónimo (no logeado) no podrá acceder a esta página, así que será redirigido a un 404.
+    header('Location: ./404.html');
+    exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html><head>
@@ -41,43 +71,98 @@ while($row = $resultado->fetch_object()){
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
     <title>Mi Perfil</title>
     </head>
 <body>
 
-<header class="menuLogin">
-
-</header>
-<nav class="menuPrincipalUser">
-
-</nav>
-<aside class="publicidad">
-
-    </aside>
+<header class="menuLogin"></header>
+<nav class="menuPrincipalUser"></nav>
+<aside class="publicidad"></aside>
 <section>
 <article>
 </article>
 <article>
-    <h2 class="text-center titulo">Perfil</h2>
+
+    <?php
+        /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito */
+        if ($_GET['confirmation']) {
+            echo "<p id='confirmed'>¡Perfil actualizado con éxito!</p>";
+        }
+    ?>
+
+    <h2 class="text-center titulo">Perfil de <?php echo $sesion ?></h2>
 
       <div class="imgperfil">
-      <img src="https://pbs.twimg.com/profile_images/2212581035/image_400x400.jpg" alt="Mountain View">
+          <?php $myfoto = $res[0]['imagen_perfil'];
+          echo "<img src='../img/$myfoto' alt='Imagen de $username' />";?>
       <button type="button" class="btn btn-info">Subir</button> 
     </div>
       <div class="alias">
           <h2><?php echo $res[0]['alias'];?></h2>
           <h4> Información personal </h4>
           <div id="lista">
-            <ul>
-              <li>Nombre y apellidos: <?php echo $res[0]['nombre'] . " " . $res[0]['apellidos'];?></li>
-              <li>Teléfono: <?php echo $res[0]['telefono'];?></li>
-              <li>Dirección: <?php echo $res[0]['direccion'] . ", " . $res[0]['provincia'] . ", " . $res[0]['cp'] . ", " . $res[0]['pais'];?></li>
-              <li>Correo eletrónico: <?php echo $res[0]['email'];?></li>
-              <li>al ataquerl quietooor a wan me cago en tus muelas tiene musho peligro mamaar. </li>        
-</ul>
+              <?php
+              // Formulario dinámico que depende de si es usuario o empresa.
+              if ($sesion == "usuario") {
+                  echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
+                  <label>Nombre: </label>
+                  <input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value={$res[0]['nombre']}>
+                  <br><label>Apellidos: </label>
+                  <input type=\"text\" name=\"apellidos\" disabled class=\"perfil\" value={$res[0]['apellidos']}>
+                  <br><label>Teléfono: </label>
+                  <input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value={$res[0]['telefono']}>
+                  <br><br><label>Dirección: </label><br>
+                  <br><label>Calle: </label>
+                  <input type=\"text\" name=\"direccion\" disabled class=\"perfil\" value={$res[0]['direccion']}>
+                  <br><label>Provincia: </label>
+                  <input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']}>
+                  <br><label>CP: </label>
+                  <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']}>
+                  <br><label>Pais: </label>
+                  <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}><br>
+
+                  <br><label>Correo: </label>
+                  <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']}>
+                  <br><label>Contraseña: </label>
+                  <input type=\"password\" name=\"password\" disabled class=\"perfil\" value={$res[0]['password']}><br>
+                  <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
+                  <input type=\"hidden\" name=\"dni\" disabled class=\"perfil\" value={$res[0]['nif']}>
+                  <button id=\"edit\" type=\"button\" class=\"btn btn-info\">Editar</button>
+                  <button type=\"submit\" id='save' disabled class=\"btn btn-info\">Guardar</button>
+              </form>";
+              } else {
+                  echo "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
+                  <label>Nombre: </label>
+                  <input type=\"text\" name=\"nombreempresa\" disabled class=\"perfil\" value={$res[0]['nombre']}>
+                  <br><label>Teléfono: </label>
+                  <input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value={$res[0]['telefono']}>
+                  <br><label>Tipo de actividad: </label>
+                  <input type=\"text\" name=\"tipoactividad\" disabled class=\"perfil\" value={$res[0]['tipo_actividad']}>
+                  <br><label>Descripción: </label>
+                  <input type=\"text\" name=\"descripcion\" disabled class=\"perfil\" value={$res[0]['descripcion']}>
+                  <br><label>Web: </label>
+                  <input type=\"text\" name=\"web\" disabled class=\"perfil\" value={$res[0]['web']}>
+                  <br><label>Provincia: </label>
+                  <input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']}>
+                  <br><label>Código postal: </label>
+                  <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']}>
+                  <br><label>Pais: </label>
+                  <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}><br>
+
+                  <br><label>Correo eletrónico: </label>
+                  <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']}>
+                  <br><label>Contraseña: </label>
+                  <input type=\"password\" name=\"password\" disabled class=\"perfil\" value={$res[0]['password']}>
+                  <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
+                  <input type=\"hidden\" name=\"cif\" disabled class=\"perfil\" value={$res[0]['cif']}>
+                  <button id=\"edit\" type=\"button\" class=\"btn btn-info\">Editar</button>
+                  <button type=\"submit\" disabled id='save' class=\"btn btn-info\">Guardar</button>
+              </form>";
+              }
+              ?>
           </div>
 </br>
-          <button type="button" class="btn btn-info">Editar</button>
         </div>
           <div class="actividadesRecientes">
               <h4>Mis actividades Recientes</h4> </br>

@@ -31,7 +31,7 @@ include '../php/connection.php';
                     } else if ($_SESSION['tipo'] === "empresa") {
                     echo '<li><a href="./perfil.php"><span class="glyphicon glyphicon-briefcase"></span> Perfil de empresa</a></li>';
                     }
-                    echo '<li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
+                        echo '<li><a href="../php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></a></li>
                 </ul>
             </li>';
             }

@@ -132,4 +132,13 @@ $(document).ready(function () {
             }, 2000);
         }
     })
+
+    $("#edit").click(function () {
+        $(this).attr("disabled", "disabled");
+        $(".perfil").removeAttr("disabled");
+        $("#save").removeAttr("disabled");
+
+    })
+
+
 });
