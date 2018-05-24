@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include '../php/connection.php';
+include '../../../php/connection.php';
 ?>
 <header class="navbar navbar-inverse">
     <div class="container-fluid">

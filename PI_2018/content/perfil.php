@@ -86,7 +86,7 @@ if ($sesion == "usuario") {
 
     <?php
         /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito */
-        if ($_GET['confirmation']) {
+        if (!empty($_GET['confirmation'])) {
             echo "<p id='confirmed'>¡Perfil actualizado con éxito!</p>";
         }
     ?>
