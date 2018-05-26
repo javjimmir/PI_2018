@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jdelgado
- * Date: 15/05/18
- * Time: 9:45
- */
-
 session_start();
 include 'php/connection.php';
 
