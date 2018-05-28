@@ -32,22 +32,22 @@
             <div id="form1">
                 <div id="error-usu"></div>
                 <label>Nombre</label><br>
-                <input type="text" name="nombre" value="" placeholder="Nombre" id="nombre-usu"><br>
+                <input type="text" name="nombre" value="" placeholder="NOMBRE*" id="nombre-usu"><br>
 
                 <label>Apellidos</label><br>
-                <input type="text" name="apellidos" value="" placeholder="Apellidos" id="apellidos-usu"><br>
+                <input type="text" name="apellidos" value="" placeholder="APELLIDOS" id="apellidos-usu"><br>
 
                 <label>Dni</label><br>
-                <input type="text" name="dni" value="" placeholder="000000000W" id="dni-usu"><br>
+                <input type="text" name="dni" value="" placeholder="DNI*: 000000000W" id="dni-usu"><br>
 
                 <label>Nombre de Usuario</label><br>
-                <input type="text" name="username" value="" placeholder="Usuario" id="username"><br>
+                <input type="text" name="username" value="" placeholder="USUARIO*" id="username"><br>
 
                 <label>Contraseña</label><br>
-                <input type="password" name="pass" value="" placeholder="Contraseña" id="pass-usu"><br>
+                <input type="password" name="pass" value="" placeholder="CONTRASEÑA*" id="pass-usu"><br>
 
                 <label>Confirmar contraseña</label><br>
-                <input type="password" name="conf-pass" value="" placeholder="Confirmar contraseña" id="conf-pass-usu"><br>
+                <input type="password" name="conf-pass" value="" placeholder="CONFIRMAR CONTRASEÑA*" id="conf-pass-usu"><br>
 
                 <label>Pais</label><br>
                 <select name="pais-usu" id="pais-usu">
@@ -287,7 +287,7 @@
             <div id="form2">
                 <label>Provincia</label><br>
                 <select name="provincia-usu" id="provincia-usu">
-                    <option value='alava'>Álava</option>
+                    <option value='alava' selected>Álava</option>
                     <option value='albacete'>Albacete</option>
                     <option value='alicante'>Alicante/Alacant</option>
                     <option value='almeria'>Almería</option>
@@ -343,23 +343,25 @@
                 <!-- si selecciona España aparece el desplegable con la lista de provincias, en caso contrario aparecerá una input text para rellenarla a mano -->
                 <!--<input type="text" name="provincia" value="" placeholder="provincia" id="prov-usu"><br> -->
 
-                <label>Direccion</label><br>
-                <input type="text" name="direccion" value="" placeholder="c/xxxxxxxx" id="direccion-usu"><br>
-
                 <label id="cp-usu">Código Postal</label><br>
-                <input type="text" name="cp-usuario" value="" placeholder="41005" id="cp-usuario"><br>
+                <input type="text" name="cp-usuario" value="" placeholder="CP*: 41005" id="cp-usuario"><br>
+
+                <label>Direccion</label><br>
+                <input type="text" name="direccion" value="" placeholder="DIRECCION*: c/xxxxxxxx" id="direccion-usu"><br>
+
 
                 <label>Telefono</label><br>
-                <input type="tel" name="telefono" value="" id="tel-usu"><br>
+                <input type="tel" name="telefono" value="TLF*: +34" id="tel-usu"><br>
 
                 <label>Mail</label><br>
-                <input type="email" name="mail" value="" placeholder="xxx@xxx.zz" id="mail-usu"><br>
+                <input type="email" name="mail" value="" placeholder="EMAIL*: xxx@xxx.zz" id="mail-usu"><br>
 
                 <label>Confirmar mail</label><br>
-                <input type="email" name="conf-mail-usu" id="conf-mail-usu" value="" placeholder="xxx@xxx.zz"><br>
+                <input type="email" name="conf-mail-usu" id="conf-mail-usu" value="CONFIRMAR EMAIL" placeholder="xxx@xxx.zz"><br>
 
                 <label>Seleccione una categoria de actividades</label><br>
                 <select name="categoria" id="categ-usu">
+                    <option value='CATEGORIA'>CATEGORÍA</option>
                     <option value='agua'>Agua</option>
                     <option value='tierra'>Tierra</option>
                     <option value='aire'>Aire</option>
