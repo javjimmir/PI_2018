@@ -63,7 +63,7 @@ CREATE TABLE reserva(
 	id_oferta int,
 	fecha_reserva date,
 	num_plazas_reserva int,
-	coste_reserva double(5,2),
+	coste_reserva double(8,2),
 	valoración int(5),
 	reseña varchar(500),
 	PRIMARY KEY (id),
