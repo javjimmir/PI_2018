@@ -47,7 +47,7 @@ CREATE TABLE oferta(
 	tipo_actividad varchar(30),
 	descripcion varchar(150),
 	localizacion varchar(30),
-	precio double(5,2),
+	precio double(8,2),
 	dificultad varchar(15),
   imagen_oferta varchar(100),
   categoria varchar(20),
