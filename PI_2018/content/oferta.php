@@ -68,7 +68,7 @@ include '../php/connection.php';
             }else{
                 $num_plazas = $row['num_plazas'];
 
-                if ($num_plazas < $_POST['plazas_reserva']) {
+                if ( $_POST['plazas_reserva']<=0 || $num_plazas < $_POST['plazas_reserva']) {
                     echo "ERROR: no se puede reservar porque no hay plazas suficientes";
                 }else{
                     /* obetenemos el dni del usuario conectado */
