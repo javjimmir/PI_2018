@@ -1,45 +1,8 @@
-body, html{
-	width: 100%;
-	min-height: 100%;
-	height: 100% !important;
-	/*position: fixed;*/
-	top:0;
-	left:0;
-}
-
-body{
-
-	position: absolute;
-	background-color: #222;
-}
-
-header{
-	width: 100%;
-	height: 7.5%;
-	float: left;
-}
-
-section{
-	background-color: red;
-	width: 100%;
-	float: left;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #080808;
-}
-
 article{
-	background-color: white;
+	background-color: transparent;
 	display: inline-block;
-    text-align: center;
+	text-align: center;
 }
-
-footer{
-	width: 100%;
-	height: 5%;
-	float: left;
-}
-
 /*--IMAGENES--*/
 
 .login {
@@ -100,6 +63,9 @@ input [type="text"]:focus, select:focus{
 	padding: 20px;
 	margin: auto;
 }
+form{
+
+}
 
 form label{
 	display: none;
@@ -137,39 +103,39 @@ form a {
 }
 
 #error-empre, #error-oferta{
-	width: auto;
+	width: 23%;
 	height: auto;
-	background-color: #ffccf8;
-	border: solid 3px red;
-	border-radius: 20px;
+	border: solid 3px rgb(255, 128, 128);
 	display: none;
-	bottom: 0;
 	position: absolute;
 	padding-top: 3px;
 	padding-left: 20px;
 	padding-right: 20px;
-	margin-left: -14%;
+	margin-left: -12%;
 	color: red;
 	font-size: 15px;
-	margin-bottom: 10rem;
+	top: 84%;
+}
+
+#error-empre img, #error-oferta img{
+	width: 10%;
+	height: auto;
+
 }
 
 #error-usu{
-	width: auto;
+	width: 23%;
 	height: auto;
-	background-color: #ffccf8;
-	border: solid 3px red;
-	border-radius: 20px;
+	border: solid 3px rgb(255, 128, 128);
 	display: none;
-	bottom: 0;
 	position: absolute;
 	padding-top: 3px;
 	padding-left: 20px;
 	padding-right: 20px;
-	margin-left: 5%;
+	margin-left: 8%;
 	color: red;
 	font-size: 15px;
-	margin-bottom: 10rem;
+	top: 80%;
 }
 
 #form_contact{
@@ -186,4 +152,10 @@ form a {
 	background-color: #4CAF50;
 	margin-top: 1%;
 }
+
+.fondo{
+	width: 100%;
+	height: auto;
+
 }
+

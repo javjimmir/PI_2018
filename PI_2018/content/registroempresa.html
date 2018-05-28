@@ -2,7 +2,9 @@
 <html>
     <head>
     <!--<link rel="stylesheet" type="text/css" href="./css/style.css">-->
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/form.css">
+
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,27 +28,30 @@
                     <h1>REGISTRO DE EMPRESAS</h1>
                     <div id="form1">
 
-                        <span id="error-empre"></span>
+                        <span id="error-empre">
+
+                        </span>
+
                         <label>Nombre de la empresa</label><br>
-                        <input type="text" name="nombre" value="" placeholder="NOMBRE*" id="nombre-empresa"><br>
+                        <input type="text" name="nombre" value="" placeholder="NOMBRE*" id="nombre-empresa" required><br>
 
                         <label>Cif</label><br>
-                        <input type="text" name="cif" value="" placeholder="CIF*: x0000000z" id="Cif"><br>
+                        <input type="text" name="cif" value="" placeholder="CIF*: x0000000z" id="Cif" required><br>
 
                         <label>Web</label><br>
-                        <input type="text" name="web" value="" placeholder="WEB*: www.xxxxxxxx.zz" id="web-empresa"><br>
+                        <input type="text" name="web" value="" placeholder="WEB*: www.xxxxxxxx.zz" id="web-empresa" required><br>
 
                         <label>Nombre de Usuario</label><br>
-                        <input type="text" name="username" value="" placeholder="USUARIO*" id="username-empresa"><br>
+                        <input type="text" name="username" value="" placeholder="USUARIO*" id="username-empresa" required><br>
 
                         <label>Contraseña</label><br>
-                        <input type="password" name="pass" value="" placeholder="CONTRASEÑA*" id="pass-empresa"><br>
+                        <input type="password" name="pass" value="" placeholder="CONTRASEÑA*" id="pass-empresa" required><br>
 
                         <label>Confirmar contraseña</label><br>
-                        <input type="password" name="conf-pass" value="" placeholder="CONFIRMAR CONTRASEÑA*" id="conf-pass-empresa"><br>
+                        <input type="password" name="conf-pass" value="" placeholder="CONFIRMAR CONTRASEÑA*" id="conf-pass-empresa" required><br>
 
                         <label>Pais</label><br>
-                        <select name="pais-empresa" id="pais-empresa">
+                        <select name="pais-empresa" id="pais-empresa" required>
                             <option value="AF">Afganistán</option>
                             <option value="AL">Albania</option>
                             <option value="DE">Alemania</option>
@@ -284,7 +289,7 @@
                         </select><br>
 
                         <label>Provincia</label><br>
-                        <select id="provincia-empresa">
+                        <select id="provincia-empresa" required>
                             <option value='alava' selected>Álava</option>
                             <option value='albacete'>Albacete</option>
                             <option value='alicante'>Alicante/Alacant</option>
@@ -343,22 +348,22 @@
                     </div>
                     <div id="form2">
                         <label id="cp-em">Código Postal</label><br>
-                        <input type="text" name="cp-empresa" value="" placeholder="CODIGO POSTAL*: 41005" id="cp-empresa"><br>
+                        <input type="text" name="cp-empresa" value="" placeholder="CODIGO POSTAL*: 41005" id="cp-empresa" required><br>
 
                         <label>Direccion</label><br>
-                        <input type="text" name="direccion" value="" placeholder="DIRECCION*: c/xxxxxxxx" id="direccion-empresa"><br>
+                        <input type="text" name="direccion" value="" placeholder="DIRECCION*: c/xxxxxxxx" id="direccion-empresa" required><br>
 
                         <label>Telefono</label><br>
-                        <input type="tel" name="telefono" value="" id="tel-empresa" PLACEHOLDER="TLF*: +34 "><br>
+                        <input type="tel" name="telefono" value="" id="tel-empresa" placeholder="TLF*: +34 " required><br>
 
                         <label>Mail</label><br>
-                        <input type="email" name="mail-empresa" value="" placeholder="EMAIL*: xxx@xxx.zz" id="mail-empresa"><br>
+                        <input type="email" name="mail-empresa" value="" placeholder="EMAIL*: xxx@xxx.zz" id="mail-empresa" required><br>
 
                         <label>Confirmar mail</label><br>
-                        <input type="email" name="conf-mail-empresa" value="" placeholder="CONFIRMAR EMAIL*: xxx@xxx.zz" id="conf-mail-empresa"><br>
+                        <input type="email" name="conf-mail-empresa" value="" placeholder="CONFIRMAR EMAIL*: xxx@xxx.zz" id="conf-mail-empresa" required><br>
 
                         <label>Seleccione una categoria de actividades</label><br>
-                        <select name="categoria" id="busqueda_provincia">
+                        <select name="categoria" id="busqueda_provincia" required>
                             <option value='CATEGORÍA' selected>Categoría</option>
                             <option value='agua'>Agua</option>
                             <option value='tierra'>Tierra</option>
@@ -367,7 +372,7 @@
                         </select><br>
 
                         <label>Descripción de la actividad a la que se dedica</label><br>
-                        <textarea name="desc-empresa" id="desc-empresa">DESCRIPCIÓN</textarea><br>
+                        <textarea name="desc-empresa" id="desc-empresa">DESCRIPCIÓN</textarea required><br>
                     </div>
                     <input id="enviar" type="submit" value="Enviar" class="boton">
                     <input id="reset" type="reset" value="Limpiar formulario" class="boton">

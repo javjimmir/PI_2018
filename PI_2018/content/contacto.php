@@ -27,7 +27,7 @@
     </aside>
 <section>
     <article>
-
+        <div class="fondo">
         <form action="mailto:javierjimenezmiranda@gmail.com" method="post" enctype="text/plain" class="formcontact" id="form_contact">
             <h1>Formulario de contacto</h1>
             <div id="form1">
@@ -50,7 +50,7 @@
             </div>
             <input type="submit" value="Enviar" id="boton-contact">
         </form>
-
+        </div>
 
     </article>
 </section>s
