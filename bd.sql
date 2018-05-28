@@ -72,18 +72,18 @@ CREATE TABLE reserva(
 );
 
 -- INSERT EN USUARIO
-insert into usuario values('47342916S','Cristian','De los Santos Pariente','999999999','España','Baby','cristian@gmail.com','41410','img_perfil1.jpg','Sevilla','C/Despeñaperros','Snorkel','cristian1234');
-insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','img_perfil2.jpg','Sevilla','C/Bami','Correr','Fran1234');
-insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','img_perfil3.jpg','Sevilla','C/DosHermanas','Salto','Fredy1234');
-insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','img_perfil4.jpg','Sevilla','C/Sevilla','Gimna','javi1234');
-insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','juan.jpg','Sevilla','C/ave','Snorkel','juan1234');
+insert into usuario values('47342916S','Cristian','De los Santos Pariente','999999999','España','Baby','cristian@gmail.com','41410','img_perfil1.jpg','Sevilla','C/Despeñaperros','Snorkel','ddf7057a2557945754e0da8348c6dfb3');
+insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','img_perfil2.jpg','Sevilla','C/Bami','Correr','bfdd41f4f0c93fbc96c29cdd3da95c0a');
+insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','img_perfil3.jpg','Sevilla','C/DosHermanas','Salto','4951387aa6f624c9b807d4196f12c222');
+insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','img_perfil4.jpg','Sevilla','C/Sevilla','Gimna','193b0ab64631d233958f5b7afb948f5c');
+insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','juan.jpg','Sevilla','C/ave','Snorkel','c7f626ad40317f4dc7b295c6f04c850d');
 /* insert erroneo (key repetida)
 insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
 */
 
 -- INSERT EN EMPRESA
-insert into empresa values('11111111k','Sevilla Aventura','999999999','Sevilla,','Sevilla','S_Adventures','img_perfil.jpg','Snorkel','www.sevillaaventura.com','sevillaaventura@gmail.com','lorem ipsum','41410','sevillaventura1234');
-insert into empresa values('22222222s','Madrid Mataos','888888888','Madrid,','Madrid','MM','img_perfil.jpg','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','madridmataos1234');
+insert into empresa values('11111111k','Sevilla Aventura','999999999','Sevilla,','Sevilla','S_Adventures','img_perfil.jpg','Snorkel','www.sevillaaventura.com','sevillaaventura@gmail.com','lorem ipsum','41410','f39ffce37eeba46736be136e3a25c105');
+insert into empresa values('22222222s','Madrid Mataos','888888888','Madrid,','Madrid','MM','img_perfil.jpg','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','e2ad4ad226efa2430f5e86808a45a0f0');
 /* insert erroneo (nif repetido)
 insert into empresa values('22222222s','Madriles','888888888','Madrid,','Madrid','MM','Submarinismo','www.madridmataos.net','mm@mataos.com','lorem ipsum siamet','65413','madridmataos1234');
 */
