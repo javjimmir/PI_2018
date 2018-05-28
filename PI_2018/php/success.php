@@ -10,11 +10,10 @@ if (isset($_POST['username']) && ($_POST['password'])) {
     $password = mysqli_real_escape_string($conexion,$_POST['password']);
     $tiposesion = $_POST['tiposesion'];
 
-    $sql = 'select * from '. $tiposesion .' where alias="'.$username.'"';
+    $sql = 'select * from '. $tiposesion .' where alias="'.$username.'" and password = MD5("'.$password.'")';
     $resultado=$conexion->query($sql);
-    $datos = $resultado->fetch_array(MYSQLI_ASSOC);
-
-    if ($password === $datos['password']) {
+    //$datos = $resultado->fetch_array(MYSQLI_ASSOC);
+    if ($resultado->num_rows === 1) {
         $_SESSION['nombre'] = $username;    // Creamos una sesión y en el array le metemos tanto el nombre como el tipo de sesion (usuario/empresa)
         $_SESSION['tipo'] = $tiposesion;
         echo 0; // Datos correctos

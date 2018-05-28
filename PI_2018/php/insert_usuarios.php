@@ -15,10 +15,9 @@
 	$categoria = $_POST['categoria'];
 	  
 	$sql = "INSERT INTO usuario (nif,nombre,apellidos,telefono,pais,alias,email,cp,provincia,direccion,actividad_fav,password)
-	VALUES ('$dni', '$nombre', '$apellidos','$telefono','$pais','$alias','$email','$cp','$provincia','$direccion','$categoria','$password')";
-
+	VALUES ('$dni','$nombre', '$apellidos','$telefono','$pais','$alias','$email','$cp','$provincia','$direccion','$categoria',MD5('".$password."'));";
 	if ($conexion->query($sql) === TRUE) {
-	    echo "Registro añadido correctamente.";
+	    // Hace algún efecto con jquery o una redirección...
 	    header('location: ./success.html');
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conexion->error;

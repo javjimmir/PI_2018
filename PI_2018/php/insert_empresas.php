@@ -16,7 +16,7 @@
 	$descripcion = $_POST['desc-empresa'];
 	  
 	$sql = "INSERT INTO empresa (cif,nombre,telefono,pais,provincia,alias,tipo_actividad,web,email,descripcion,cp,password)
-	VALUES ('$cif', '$nombre', '$telefono','$pais','$provincia','$alias','$categoria','$web','$email','$descripcion','$cp','$password')";
+	VALUES ('$cif', '$nombre', '$telefono','$pais','$provincia','$alias','$categoria','$web','$email','$descripcion','$cp', MD5('".$password."'))";
 
 	if ($conexion->query($sql) === TRUE) {
 	    echo "Registro añadido correctamente.";

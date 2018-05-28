@@ -15,7 +15,7 @@ CREATE TABLE usuario(
 	provincia varchar(30),
 	direccion varchar(30),
 	actividad_fav varchar(20),
-	password varchar(50),
+	password varchar(150),
 	PRIMARY KEY (nif)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE empresa(
 	email varchar(35),
 	descripcion varchar(150),
 	cp varchar(5),
-	password varchar(20),
+	password varchar(150),
 	PRIMARY KEY (cif)
 );
 
