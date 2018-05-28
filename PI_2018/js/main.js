@@ -133,12 +133,16 @@ $(document).ready(function () {
         }
     })
 
-    $("#edit").click(function () {
+    $("#editperfil").click(function () {
+        $("#editconfig").attr("disabled", "disabled");
         $(this).attr("disabled", "disabled");
         $(".perfil").removeAttr("disabled");
-        $("#save").removeAttr("disabled");
-
+        $("#saveperfil").removeAttr("disabled");
     })
-
+    $("#editconfig").click(function () {
+        $(this).attr("disabled", "disabled");
+        $(".config").removeAttr("disabled");
+        $("#saveconfig").removeAttr("disabled");
+    })
 
 });

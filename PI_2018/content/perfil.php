@@ -85,9 +85,11 @@ if ($sesion == "usuario") {
 <article>
 
     <?php
-        /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito */
-        if (!empty($_GET['confirmation'])) {
+        /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito HAY QUE APLICAR ESTILO */
+        if ($_GET['confirmation'] == 'succeed') {
             echo "<p id='confirmed'>¡Perfil actualizado con éxito!</p>";
+        } else if ($_GET['confirmation'] == 'password') {
+            echo "<p id='passworderror'>¡La contraseña actual es incorrecta!</p>";
         }
     ?>
 
@@ -104,6 +106,7 @@ if ($sesion == "usuario") {
           <div id="lista">
               <?php
               // Formulario dinámico que depende de si es usuario o empresa.
+                // Cada formulario se divide en dos secciones: perfil y configuración.
               if ($sesion == "usuario") {
                   echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
                   <label>Nombre: </label>
@@ -120,45 +123,73 @@ if ($sesion == "usuario") {
                   <br><label>CP: </label>
                   <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']}>
                   <br><label>Pais: </label>
-                  <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}><br>
-
+                  <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}>
                   <br><label>Correo: </label>
                   <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']}>
-                  <br><label>Contraseña: </label>
-                  <input type=\"password\" name=\"password\" disabled class=\"perfil\" value={$res[0]['password']}><br>
                   <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
+                  <input type=\"hidden\" name=\"seccion\" disabled class=\"perfil\" value='perfil'><br>
                   <input type=\"hidden\" name=\"dni\" disabled class=\"perfil\" value={$res[0]['nif']}>
-                  <button id=\"edit\" type=\"button\" class=\"btn btn-info\">Editar</button>
-                  <button type=\"submit\" id='save' disabled class=\"btn btn-info\">Guardar</button>
+                  <button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button>
+                  <button type=\"submit\" id='saveperfil' disabled class=\"btn btn-info\">Guardar</button>
+                  
+                  <h4>Datos de acceso</h4>
+
+                  <br><label>Contraseña: </label>
+                  <input type=\"password\" name=\"password\" disabled class=\"config\" value=><br>
+                  <label>Contraseña nueva: </label>
+                  <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=>
+                  <label>Confirma nueva contraseña: </label>
+                  <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=>
+                  <input type=\"hidden\" name=\"sesion\" disabled class=\"config\" value={$sesion}>
+                  <input type=\"hidden\" name=\"seccion\" disabled class=\"config\" value='config'>
+                  <input type=\"hidden\" name=\"dni\" disabled class=\"config\" value={$res[0]['nif']}><br>
+                  <button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button>
+                  <button type=\"submit\" id='saveconfig' disabled class=\"btn btn-info\">Guardar</button>
               </form>";
               } else {
-                  echo "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
-                  <label>Nombre: </label>
-                  <input type=\"text\" name=\"nombreempresa\" disabled class=\"perfil\" value={$res[0]['nombre']}>
-                  <br><label>Teléfono: </label>
-                  <input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value={$res[0]['telefono']}>
-                  <br><label>Tipo de actividad: </label>
-                  <input type=\"text\" name=\"tipoactividad\" disabled class=\"perfil\" value={$res[0]['tipo_actividad']}>
-                  <br><label>Descripción: </label>
-                  <input type=\"text\" name=\"descripcion\" disabled class=\"perfil\" value={$res[0]['descripcion']}>
-                  <br><label>Web: </label>
-                  <input type=\"text\" name=\"web\" disabled class=\"perfil\" value={$res[0]['web']}>
-                  <br><label>Provincia: </label>
-                  <input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']}>
-                  <br><label>Código postal: </label>
-                  <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']}>
-                  <br><label>Pais: </label>
-                  <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}><br>
+                  echo
 
-                  <br><label>Correo eletrónico: </label>
-                  <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']}>
-                  <br><label>Contraseña: </label>
-                  <input type=\"password\" name=\"password\" disabled class=\"perfil\" value={$res[0]['password']}>
-                  <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
-                  <input type=\"hidden\" name=\"cif\" disabled class=\"perfil\" value={$res[0]['cif']}>
-                  <button id=\"edit\" type=\"button\" class=\"btn btn-info\">Editar</button>
-                  <button type=\"submit\" disabled id='save' class=\"btn btn-info\">Guardar</button>
-              </form>";
+                  "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
+                      <label>Nombre: </label>
+                      <input type=\"text\" name=\"nombreempresa\" id='nombre-empresa' disabled class=\"perfil\" value={$res[0]['nombre']}>
+                      <br><label>Teléfono: </label>
+                      <input type=\"tel\" name=\"telefono\" id='tel-empresa' disabled class=\"perfil\" value={$res[0]['telefono']}>
+                      <br><label>Tipo de actividad: </label>
+                      <input type=\"text\" name=\"tipoactividad\" disabled class=\"perfil\" value={$res[0]['tipo_actividad']}>
+                      <br><label>Descripción: </label>
+                      <input type=\"text\" name=\"descripcion\" disabled class=\"perfil\" value={$res[0]['descripcion']}>
+                      <br><label>Web: </label>
+                      <input type=\"text\" name=\"web\" disabled class=\"perfil\" value={$res[0]['web']}>
+                      <br><label>Provincia: </label>
+                      <input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']}>
+                      <br><label>Código postal: </label>
+                      <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']}>
+                      <br><label>Pais: </label>
+                      <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}><br>
+                      <label>Correo eletrónico: </label>
+                      <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']}>
+                      <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
+                      <input type=\"hidden\" name=\"seccion\" disabled class=\"perfil\" value='perfil'><br>
+                      <input type=\"hidden\" name=\"cif\" disabled class=\"perfil\" value={$res[0]['cif']}>
+                      <button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button>
+                      <button type=\"submit\" disabled id='saveperfil' class=\"btn btn-info\">Guardar</button>                      
+                  </form>
+                  
+                  <h4>Cambiar la contraseña</h4>
+                  
+                  <form id=\"config_empresa\" action=\"../php/update_profile.php\" method=\"post\">
+                      <label>Contraseña actual: </label>
+                      <input type=\"password\" name=\"password\" disabled class=\"config\" value=><br>
+                      <label>Contraseña nueva: </label>
+                      <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=><br>
+                      <label>Confirma nueva contraseña: </label>
+                      <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=>
+                      <input type=\"hidden\" name=\"sesion\" disabled class=\"config\" value={$sesion}><br>
+                      <input type=\"hidden\" name=\"cif\" disabled class=\"config\" value={$res[0]['cif']}>
+                      <input type=\"hidden\" name=\"seccion\" disabled class=\"config\" value='config'><br>
+                      <button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button>
+                      <button type=\"submit\" disabled id='saveconfig' class=\"btn btn-info\">Guardar</button>
+                  </form>";
               }
               ?>
           </div>
