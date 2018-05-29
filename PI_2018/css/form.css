@@ -1,9 +1,3 @@
-article{
-	background-color: transparent;
-	display: inline-block;
-	text-align: center;
-}
-/*--IMAGENES--*/
 
 .login {
     width: 50%;
@@ -117,11 +111,6 @@ form a {
 	top: 84%;
 }
 
-#error-empre img, #error-oferta img{
-	width: 10%;
-	height: auto;
-
-}
 
 #error-usu{
 	width: 23%;
@@ -158,4 +147,5 @@ form a {
 	height: auto;
 
 }
+
 
