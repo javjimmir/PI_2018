@@ -232,17 +232,28 @@ margin-top: -6em;
 	margin-left: 10%;
 	margin-top: 15%;
 	width: 80%;
-	display: flex;
+	display: inherit;
 
 }
 
 .selectboton input{
-	width: 60%;
-	height: 300px;
+	width: 28%;
+	height: 86px;
 	background-color: red;
 	color: white;
 	font-size: 2em;
 	border-radius: 15px;
-
+	margin-top: -5%;
+	margin-left: 3%;
+	margin-right: 16%;
+	padding-left: 4%;
+	padding-right: 12%;
 }
 
+.selectboton img{
+	width: 36%;
+	margin-top: -12%;
+	margin-left: -2%;
+	margin-right: 12%;
+	margin-bottom: 4%;
+}

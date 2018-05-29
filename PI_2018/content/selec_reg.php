@@ -6,9 +6,6 @@ include '../php/connection.php';
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/form.css">
-
-
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,6 +29,8 @@ include '../php/connection.php';
 <section>
     <article>
        <div class="selectboton">
+           <img src="../img/empresa.png" alt="">
+           <img src="../img/deportista.png" alt="">
            <input type="button" value="Soy una empresa"
                   onclick="window.location='registroempresa.html';" />
            <input type="button" value="Soy un particular"
