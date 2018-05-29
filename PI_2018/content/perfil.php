@@ -61,7 +61,7 @@ if ($sesion == "usuario") {
 ?>
 <!DOCTYPE html>
 <html><head>
-    <link rel="stylesheet" type="text/css" href="../css/form.css">
+
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <meta charset="utf-8">
@@ -70,6 +70,7 @@ if ($sesion == "usuario") {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
+    <script type="text/javascript" src="../js/validacion_reg_usu.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
     <title>Mi Perfil</title>
@@ -110,69 +111,74 @@ if ($sesion == "usuario") {
               if ($sesion == "usuario") {
                   echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
                   <label>Nombre: </label>
-                  <input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value={$res[0]['nombre']}>
+                  <input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value={$res[0]['nombre']} id='nombre-usu' required>
                   <br><label>Apellidos: </label>
-                  <input type=\"text\" name=\"apellidos\" disabled class=\"perfil\" value={$res[0]['apellidos']}>
+                  <input type=\"text\" name=\"apellidos\" disabled class=\"perfil\" value={$res[0]['apellidos']} id=\"apellidos-usu\" required>
                   <br><label>Teléfono: </label>
-                  <input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value={$res[0]['telefono']}>
+                  <input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value={$res[0]['telefono']} id=\"tel-usu\" required>
                   <br><br><label>Dirección: </label><br>
                   <br><label>Calle: </label>
-                  <input type=\"text\" name=\"direccion\" disabled class=\"perfil\" value={$res[0]['direccion']}>
+                  <input type=\"text\" name=\"direccion\" disabled class=\"perfil\" value={$res[0]['direccion']} id=\"direccion-usu\" required>
                   <br><label>Provincia: </label>
-                  <input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']}>
+                  <input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']} id=\"provincia-usu\" required>
                   <br><label>CP: </label>
-                  <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']}>
+                  <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']} id=\"cp-usuario\" required>
                   <br><label>Pais: </label>
-                  <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}>
+                  <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']} id=\"pais-usu\" required>
                   <br><label>Correo: </label>
-                  <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']}>
+                  <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']} id=\"mail-usu\" required>
                   <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
                   <input type=\"hidden\" name=\"seccion\" disabled class=\"perfil\" value='perfil'><br>
                   <input type=\"hidden\" name=\"dni\" disabled class=\"perfil\" value={$res[0]['nif']}>
                   <button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button>
                   <button type=\"submit\" id='saveperfil' disabled class=\"btn btn-info\">Guardar</button>
+                  <div class='error-login' id='error-usu'></div>
                   
                   <h4>Datos de acceso</h4>
 
                   <br><label>Contraseña: </label>
                   <input type=\"password\" name=\"password\" disabled class=\"config\" value=><br>
                   <label>Contraseña nueva: </label>
-                  <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=>
+                  <input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-usu\" required>
                   <label>Confirma nueva contraseña: </label>
-                  <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=>
+                  <input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-usu\" required>
                   <input type=\"hidden\" name=\"sesion\" disabled class=\"config\" value={$sesion}>
                   <input type=\"hidden\" name=\"seccion\" disabled class=\"config\" value='config'>
                   <input type=\"hidden\" name=\"dni\" disabled class=\"config\" value={$res[0]['nif']}><br>
                   <button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button>
                   <button type=\"submit\" id='saveconfig' disabled class=\"btn btn-info\">Guardar</button>
+                  
               </form>";
               } else {
                   echo
 
                   "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
                       <label>Nombre: </label>
-                      <input type=\"text\" name=\"nombreempresa\" id='nombre-empresa' disabled class=\"perfil\" value={$res[0]['nombre']}>
+                      <input type=\"text\" name=\"nombreempresa\" id='nombre-empresa' disabled class=\"perfil\" value={$res[0]['nombre']} required>
                       <br><label>Teléfono: </label>
-                      <input type=\"tel\" name=\"telefono\" id='tel-empresa' disabled class=\"perfil\" value={$res[0]['telefono']}>
+                      <input type=\"tel\" name=\"telefono\" id='tel-empresa' disabled class=\"perfil\" value={$res[0]['telefono']} required>
                       <br><label>Tipo de actividad: </label>
-                      <input type=\"text\" name=\"tipoactividad\" disabled class=\"perfil\" value={$res[0]['tipo_actividad']}>
+                      <input type=\"text\" name=\"tipoactividad\" id=\"busqueda_provincia\" disabled class=\"perfil\" value={$res[0]['tipo_actividad']} required>
                       <br><label>Descripción: </label>
-                      <input type=\"text\" name=\"descripcion\" disabled class=\"perfil\" value={$res[0]['descripcion']}>
+                      <input type=\"text\" name=\"descripcion\" id=\"desc-empresa\" disabled class=\"perfil\" value={$res[0]['descripcion']} required>
                       <br><label>Web: </label>
-                      <input type=\"text\" name=\"web\" disabled class=\"perfil\" value={$res[0]['web']}>
+                      <input type=\"text\" name=\"web\"  id=\"web-empresa\" disabled class=\"perfil\" value={$res[0]['web']} required>
                       <br><label>Provincia: </label>
-                      <input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']}>
+                      <input type=\"text\" name=\"provincia\" id=\"provincia-empresa\" disabled class=\"perfil\" value={$res[0]['provincia']} required>
                       <br><label>Código postal: </label>
-                      <input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']}>
+                      <input type=\"text\" name=\"cp\" id=\"cp-empresa\" disabled class=\"perfil\" value={$res[0]['cp']} required>
                       <br><label>Pais: </label>
-                      <input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']}><br>
+                      <input type=\"text\" name=\"pais\" id=\"pais-empresa\" disabled class=\"perfil\" value={$res[0]['pais']} required><br>
                       <label>Correo eletrónico: </label>
-                      <input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']}>
+                      <input type=\"text\" name=\"email\" id=\"mail-empresa\" disabled class=\"perfil\" value={$res[0]['email']} required>
                       <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
                       <input type=\"hidden\" name=\"seccion\" disabled class=\"perfil\" value='perfil'><br>
                       <input type=\"hidden\" name=\"cif\" disabled class=\"perfil\" value={$res[0]['cif']}>
                       <button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button>
-                      <button type=\"submit\" disabled id='saveperfil' class=\"btn btn-info\">Guardar</button>                      
+                      <button type=\"submit\" disabled id='saveperfil' class=\"btn btn-info\">Guardar</button> 
+                      <span id=\"error-empre\" class='error-login'>
+
+                        </span>                     
                   </form>
                   
                   <h4>Cambiar la contraseña</h4>
@@ -181,14 +187,15 @@ if ($sesion == "usuario") {
                       <label>Contraseña actual: </label>
                       <input type=\"password\" name=\"password\" disabled class=\"config\" value=><br>
                       <label>Contraseña nueva: </label>
-                      <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=><br>
+                      <input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-empresa\" required><br>
                       <label>Confirma nueva contraseña: </label>
-                      <input type=\"password\" name=\"newpassword\" disabled class=\"config\" value=>
+                      <input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-empresa\" required>
                       <input type=\"hidden\" name=\"sesion\" disabled class=\"config\" value={$sesion}><br>
                       <input type=\"hidden\" name=\"cif\" disabled class=\"config\" value={$res[0]['cif']}>
                       <input type=\"hidden\" name=\"seccion\" disabled class=\"config\" value='config'><br>
                       <button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button>
                       <button type=\"submit\" disabled id='saveconfig' class=\"btn btn-info\">Guardar</button>
+                      
                   </form>";
               }
               ?>
