@@ -26,6 +26,10 @@ $(document).ready(function () {
     if (getUrlParameter('load') == 'all') {
         $("#cargar").attr("disabled", "disabled");
     }
+    // Elimina el botón "Load more" si se está filtrando por categoría
+    if (getUrlParameter('category')) {
+        $("#cargar").remove();
+    }
 
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
