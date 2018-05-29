@@ -2,9 +2,8 @@
 session_start();
 include 'php/connection.php';
 
-$global_sql = 'SELECT * FROM oferta ORDER BY fecha_inicio DESC'; // Sql global que carga las ofertas; por defecto seleccionará todas las ofertas más recientes
+$global_sql = "SELECT * FROM oferta ORDER BY fecha_inicio DESC"; // Sql global que carga las ofertas; por defecto seleccionará todas las ofertas más recientes
 $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta`";   // Contador de ofertas; por defecto contará todas las ofertas de la bd
-
 
 /**
  *
@@ -16,29 +15,6 @@ if (isset($_GET['category'])) {
     $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE categoria = "."'$categoria'";
     $global_sql = "select * from oferta where categoria = "."'$categoria'";
 }
-/*
-
- *
- *      Comprobación de filtros (no se necesita, funciona ya con ajax)
- *
-
-// Comprobamos si se ha seleccionado una categoría previamente. En este caso, el filtro se aplicará TENIENDO en cuenta la categoría obtenida mediante el GET.
-if (isset($_GET['category'])) {
-    $categoria = $_GET['category'];
-    if (isset($_POST["tipo_actividad"])) {
-        $actividad = $_POST["tipo_actividad"];
-        $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE tipo_actividad = "."'$actividad' and categoria ="."'$categoria'";
-        $global_sql = "select * from oferta where tipo_actividad = "."'$actividad' and categoria ="."'$categoria'";
-    }
-} else {
-    // Si no hay categoría recibida mediante GET, los filtros actuarán de forma normal, filtrando según el seleccionado.
-    if (isset($_POST["tipo_actividad"])) {
-        $actividad = $_POST["tipo_actividad"];
-        $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE tipo_actividad = "."'$actividad'";
-        $global_sql = "select * from oferta where tipo_actividad = "."'$actividad'";
-    }
-}
-*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +33,7 @@ if (isset($_GET['category'])) {
 <header class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Nombre Web</a>
+      <a class="navbar-brand" href="#">Body Balance</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
     	<?php
@@ -163,8 +139,8 @@ if (isset($_GET['category'])) {
         	*/
         	$result = $conexion->query($global_cont_sql); // Select que se ejecutará. Si se usan filtros cambiará.
 			$fila = $row = $result->fetch_assoc();
-			$count = 12; // Ofertas máximas que se mostrarán por página
 			$ofertas_encontradas = $fila['count'];
+			$count = 12;
 
 			if ($ofertas_encontradas == 0) {
                 echo '<div id="sin_ofertas"><p>NO HAY OFERTAS DISPONIBLES</p></div>';
@@ -174,151 +150,99 @@ if (isset($_GET['category'])) {
 			if ($ofertas_encontradas<12) {
 				$count = $fila['count'];
 			}
-
+            $sql = $global_sql;
+            $result = $conexion->query($sql);
 			/* Realiza la consulta para extraer las ofertas de la base de datos ordenadas por su fecha de inicio de forma descendente. Tras esto, se realiza un corte de la descripción por si esta es demasiado extensa que solo salga una parte, y al lado un botón o enlace de leer más que llevara a la página de esa oferta concreta.
 
 			*/
-        	$sql = $global_sql;
-			$result = $conexion->query($sql);
-            for ($i = 1; $i <= $count; $i++) {
-            	$row = $result->fetch_assoc();
-            	//$descripcion = substr($row['descripcion'], 0, 110);
-                $nombre = $row['nombre'];
-                $provincia = $row['provincia'];
-                $actividad = $row['tipo_actividad'];
-                $precio = $row['precio'];
-                $dificultad = $row['dificultad'];
-                echo '  <div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    			    <p id="nombre">'.$nombre.'</p>
-	    			    <p id="actividad">'.$actividad.'</p>
-	    				<p id="provincia">'.$provincia.'</p>
-	    				<p id="dificultad">'.$dificultad.'</p>
-	    				<p id="precio">'.$precio.'€</p>
-	    				<a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
-	    			</div>
-    			</div>
-    		</div>';
-
+            /**
+             *
+             *      Comprobación de load more
+             *
+             */
+            if (isset($_GET['load'])) {
+                for ($i = 1; $i <= $ofertas_encontradas; $i++) {
+                    $row = $result->fetch_assoc();
+                    //$descripcion = substr($row['descripcion'], 0, 110);
+                    $nombre = $row['nombre'];
+                    $provincia = $row['provincia'];
+                    $actividad = $row['tipo_actividad'];
+                    $precio = $row['precio'];
+                    $dificultad = $row['dificultad'];
+                    echo '  <div class="col-lg-4 actividad">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
+                        </div>
+                        <div class="col-lg-8">
+                            <p id="nombre">'.$nombre.'</p>
+                            <p id="actividad">'.$actividad.'</p>
+                            <p id="provincia">'.$provincia.'</p>
+                            <p id="dificultad">'.$dificultad.'</p>
+                            <p id="precio">'.$precio.'€</p>
+                            <a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
+                        </div>
+                    </div>
+                </div>';
+                }
+            } else if (isset($_GET['category'])) {
+                for ($i = 1; $i <= $ofertas_encontradas; $i++) {
+                    $row = $result->fetch_assoc();
+                    //$descripcion = substr($row['descripcion'], 0, 110);
+                    $nombre = $row['nombre'];
+                    $provincia = $row['provincia'];
+                    $actividad = $row['tipo_actividad'];
+                    $precio = $row['precio'];
+                    $dificultad = $row['dificultad'];
+                    echo '  <div class="col-lg-4 actividad">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
+                        </div>
+                        <div class="col-lg-8">
+                            <p id="nombre">'.$nombre.'</p>
+                            <p id="actividad">'.$actividad.'</p>
+                            <p id="provincia">'.$provincia.'</p>
+                            <p id="dificultad">'.$dificultad.'</p>
+                            <p id="precio">'.$precio.'€</p>
+                            <a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
+                        </div>
+                    </div>
+                </div>';
+                }
+            } else {
+                for ($i = 1; $i <= $count; $i++) {
+                    $row = $result->fetch_assoc();
+                    //$descripcion = substr($row['descripcion'], 0, 110);
+                    $nombre = $row['nombre'];
+                    $provincia = $row['provincia'];
+                    $actividad = $row['tipo_actividad'];
+                    $precio = $row['precio'];
+                    $dificultad = $row['dificultad'];
+                    echo '  <div class="col-lg-4 actividad">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
+                        </div>
+                        <div class="col-lg-8">
+                            <p id="nombre">'.$nombre.'</p>
+                            <p id="actividad">'.$actividad.'</p>
+                            <p id="provincia">'.$provincia.'</p>
+                            <p id="dificultad">'.$dificultad.'</p>
+                            <p id="precio">'.$precio.'€</p>
+                            <a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
+                        </div>
+                    </div>
+                </div>';
+                }
             }
-
         ?>
-
   		</div>
-
+        <form action="?load=all" method="get">
+            <input type="hidden" name="load" value="all">
+            <button id="cargar">Cargar más</button>
+        </form>
 	</article>
-
-	<!--<article>
-		<div class="row">
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-			<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-  		</div>
-
-	</article>
-
-	<article>
-		<div class="row">
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-			<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-  		</div>
-
-	</article>
-
-	<article>
-		<div class="row">
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-			<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-  		</div>
-
-	</article>-->
 </section>
 
 <footer>

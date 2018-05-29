@@ -13,7 +13,7 @@ include 'connection.php';        // Usa la variable $conexion
 if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
     $actividad = $_POST['tipo_actividad']; // Actividad a filtrar por el usuario
     $res=[];
-    $sql = "select * from oferta where tipo_actividad = "."'$actividad'" . " ORDER BY fecha_inicio DESC";
+    $sql = "select * from oferta where tipo_actividad = "."'$actividad'" . " ORDER BY fecha_inicio DESC LIMIT 50";
 
     $resultado = $conexion->query($sql);
 
@@ -36,7 +36,7 @@ if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
 if (isset($_POST['precio']) && empty($_POST['tipo_actividad'])) {
     $precio = $_POST['precio']; // Actividad a filtrar por el usuario
     $res=[];
-    $sql = "select * from oferta where precio < "."'$precio'" . " ORDER BY fecha_inicio DESC";
+    $sql = "select * from oferta where precio < "."'$precio'" . " ORDER BY fecha_inicio DESC LIMIT 50";
     $resultado = $conexion->query($sql);
 
     while($row = $resultado->fetch_object()){
@@ -60,7 +60,7 @@ if (isset($_POST['precio'], $_POST['tipo_actividad'])) {
     $actividad = $_POST['tipo_actividad']; // Actividad a filtrar por el usuario
 
     $res=[];
-    $sql = "select * from oferta where precio < "."'$precio'" . " and tipo_actividad = "."'$actividad' ORDER BY fecha_inicio DESC";
+    $sql = "select * from oferta where precio < "."'$precio'" . " and tipo_actividad = "."'$actividad' ORDER BY fecha_inicio DESC LIMIT 50";
     $resultado = $conexion->query($sql);
     //echo $sql;
     while($row = $resultado->fetch_object()){

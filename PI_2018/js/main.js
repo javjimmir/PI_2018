@@ -5,7 +5,31 @@ function changeInputValue(val){
 function changeRangeValue(val){
     document.getElementById("range").value = isNaN(parseInt(val, 10)) ? 0 : parseInt(val, 10);
 }
+
+// Función que obtiene un parámetro get.
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
 $(document).ready(function () {
+    if (getUrlParameter('load') == 'all') {
+        $("#cargar").attr("disabled", "disabled");
+    }
+    // Elimina el botón "Load more" si se está filtrando por categoría
+    if (getUrlParameter('category')) {
+        $("#cargar").remove();
+    }
 
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
@@ -131,7 +155,7 @@ $(document).ready(function () {
                 $("body").removeClass("loading");
             }, 2000);
         }
-    })
+    });
 
     $("#editperfil").click(function () {
         $("#editconfig").attr("disabled", "disabled");
