@@ -25,7 +25,7 @@ include '../php/connection.php';
 <aside class="publicidad">
 
 </aside>
-<sectio>
+<section>
     <article>
         <?php
         $id = $_GET['id'];
@@ -109,7 +109,7 @@ include '../php/connection.php';
         <br><br>
         <a href="../index.php">Volver al index</a>
     </article>
-</sectio>
+</section>
 
 <footer class="pie">
 

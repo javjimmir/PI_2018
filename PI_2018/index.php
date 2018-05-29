@@ -2,9 +2,9 @@
 session_start();
 include 'php/connection.php';
 
-$global_sql = 'SELECT * FROM oferta ORDER BY fecha_inicio DESC'; // Sql global que carga las ofertas; por defecto seleccionará todas las ofertas más recientes
+$global_sql = "SELECT * FROM oferta ORDER BY fecha_inicio DESC"; // Sql global que carga las ofertas; por defecto seleccionará todas las ofertas más recientes
 $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta`";   // Contador de ofertas; por defecto contará todas las ofertas de la bd
-
+$count = 12;                                                     // Contador que marcará el máximo de ofertas mostradas.
 
 /**
  *
@@ -16,29 +16,15 @@ if (isset($_GET['category'])) {
     $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE categoria = "."'$categoria'";
     $global_sql = "select * from oferta where categoria = "."'$categoria'";
 }
-/*
-
+/**
  *
- *      Comprobación de filtros (no se necesita, funciona ya con ajax)
+ *      Comprobación de load more
  *
+ */
+if (isset($_GET['load'])) {
+    $count = 50;    // Se mostrarán las 50 más recientes.
 
-// Comprobamos si se ha seleccionado una categoría previamente. En este caso, el filtro se aplicará TENIENDO en cuenta la categoría obtenida mediante el GET.
-if (isset($_GET['category'])) {
-    $categoria = $_GET['category'];
-    if (isset($_POST["tipo_actividad"])) {
-        $actividad = $_POST["tipo_actividad"];
-        $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE tipo_actividad = "."'$actividad' and categoria ="."'$categoria'";
-        $global_sql = "select * from oferta where tipo_actividad = "."'$actividad' and categoria ="."'$categoria'";
-    }
-} else {
-    // Si no hay categoría recibida mediante GET, los filtros actuarán de forma normal, filtrando según el seleccionado.
-    if (isset($_POST["tipo_actividad"])) {
-        $actividad = $_POST["tipo_actividad"];
-        $global_cont_sql = "SELECT COUNT(*) AS `count` FROM `oferta` WHERE tipo_actividad = "."'$actividad'";
-        $global_sql = "select * from oferta where tipo_actividad = "."'$actividad'";
-    }
 }
-*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -163,7 +149,6 @@ if (isset($_GET['category'])) {
         	*/
         	$result = $conexion->query($global_cont_sql); // Select que se ejecutará. Si se usan filtros cambiará.
 			$fila = $row = $result->fetch_assoc();
-			$count = 12; // Ofertas máximas que se mostrarán por página
 			$ofertas_encontradas = $fila['count'];
 
 			if ($ofertas_encontradas == 0) {
@@ -203,122 +188,13 @@ if (isset($_GET['category'])) {
 	    			</div>
     			</div>
     		</div>';
-
             }
-
         ?>
-
   		</div>
-
+        <form action="index.php?load=all" method="post">
+            <button id="cargar">Cargar más</button>
+        </form>
 	</article>
-
-	<!--<article>
-		<div class="row">
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-			<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-  		</div>
-
-	</article>
-
-	<article>
-		<div class="row">
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-			<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-  		</div>
-
-	</article>
-
-	<article>
-		<div class="row">
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-			<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-    		<div class="col-lg-4 actividad">
-    			<div class="row">
-	    			<div class="col-lg-4">
-	    				<img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-	    			</div>
-	    			<div class="col-lg-8">
-	    				<p>Adentrate en las profundidades del mar y mira los arrecifes de corales, los peces que viven en ellos y conoce un mundo nuevo.</p>
-	    			</div>
-    			</div>
-    		</div>
-  		</div>
-
-	</article>-->
 </section>
 
 <footer>
