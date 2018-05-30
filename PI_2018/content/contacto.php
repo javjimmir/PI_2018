@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
-    <script type="text/javascript" src="../js/validacion_reg_ofertas.js"></script>
+    <script type="text/javascript" src="../js/validacion_reg_usu.js"></script>
     <title>Index</title>
     </head>
 <body>
@@ -32,9 +32,9 @@
             <h1>Formulario de contacto</h1>
             <div id="form1">
                 <label for="">Nombre</label><br>
-                <input type="text" id="nombre" placeholder="NOMBRE"><br>
+                <input type="text" id="nombre-usu" placeholder="NOMBRE" required><br>
                 <label for="">Correo electrónico</label><br>
-                <input type="mail" id="mail" placeholder="EMAIL"><br><br><br>
+                <input type="mail" id="mail-usu" placeholder="EMAIL" required><br><br><br>
                 <p>Nota: Nos pondremos en contacto con usted a través del email facilitado, Gracias.</p>
             </div>
             <div id="form2">
@@ -43,6 +43,7 @@
                     <option value="informacion">Solicitar información</option>
                     <option value="sugerencias">Sugerencias</option>
                     <option value="quejas">Quejas y reclamaciones</option>
+                    <option value="publi">Publicidad</option>
                     <option value="otras">Otras</option>
                 </select><br>
                 <label for="">Descripción</label><br>
@@ -50,6 +51,7 @@
             </div>
             <input type="submit" value="Enviar" id="boton-contact">
         </form>
+            <div id="error-usu"></div>
         </div>
 
     </article>

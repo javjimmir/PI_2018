@@ -15,10 +15,21 @@ aside > h3{
 aside > a{
     margin-left: 10%;
 }
-img {
+.publi img {
     margin-left: 12%;
     width: 70%;
     height: 11%;
-    margin-bottom: 11%;
-    margin-top: 6%;
+    margin-bottom: 7%;
+    margin-top: 2%;
+    border-radius: 15px;
+}
+
+
+.publi img:hover {
+    margin-left: 12%;
+    width: 80%;
+    height: 15%;
+    margin-bottom: 7%;
+    margin-top: 2%;
+    border-radius: 15px;
 }
