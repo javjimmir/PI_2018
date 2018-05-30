@@ -64,8 +64,8 @@ CREATE TABLE reserva(
 	fecha_reserva date,
 	num_plazas_reserva int,
 	coste_reserva double(8,2),
-	valoración int(5),
-	reseña varchar(500),
+	valoracion int(5),
+	resena varchar(500),
 	PRIMARY KEY (id),
 	FOREIGN KEY (nif_usuario) REFERENCES usuario(nif),
 	FOREIGN KEY (id_oferta) REFERENCES oferta(id)
