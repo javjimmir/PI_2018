@@ -157,6 +157,29 @@ $(document).ready(function () {
         }
     });
 
+    /* Implementación de sistema de puntuación y reseña por ajax */
+    $("#rating").click(function(e) {
+        e.preventDefault();
+        var starselected = $('input[name=rating]:checked', '#form-rating').val();
+        var rating_text = $("#rating-text").val();
+        var input_nif_usuario = $("#input_nif").val();
+        var input_id_oferta = $("#input_id_oferta").val();
+        console.log(starselected + "   " + rating_text + " " + input_nif_usuario + "   " + input_id_oferta);
+
+        $.post("../php/rating.php", {starselected: starselected, rating_text: rating_text, input_nif_usuario: input_nif_usuario, input_id_oferta: input_id_oferta}, function (data) {
+            $("#puntuacion").empty();
+            if (data == 0) {
+                /* En caso de que los datos sean correctos... */
+                $("#puntuacion").append("<p>¡Muchas gracias por tu opinión!</p>");
+            } else {
+                /* En caso de algún error... */
+                $("#puntuacion").append("<p>¡Vaya! Ha ocurrido un error inesperado. Inténtalo más tarde.</p>");
+            }
+        });
+    })
+
+
+
     $("#editperfil").click(function () {
         $("#editconfig").attr("disabled", "disabled");
         $(this).attr("disabled", "disabled");

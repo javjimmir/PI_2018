@@ -81,12 +81,12 @@ if (!isset($_SESSION['nombre'])) {
                 }
 
                echo ' 
-               <p id="fecha_reserva">Fecha de reserva: '.$row['fecha_reserva'].'</p>';
+               <p id="fecha_reserva">Fecha reservada: '.$row['fecha_reserva'].'</p>';
                $fecha_reserva = $row['fecha_reserva'];
                /* EN CASO DE QUE LA RESERVA HAYA CONCLUIDO ... */
 
-
-               $fecha_expiracion_actividad = date("Y-m-d", strtotime('2018-5-30' . '+1 day'));
+               // Cálculo de la fecha de expiración que es igual a fecha_reserva + 1 dia
+               $fecha_expiracion_actividad = date("Y-m-d", strtotime($fecha_reserva . '+1 day'));
                $array_fecha = getdate();
                $year = $array_fecha['year'];
                $month = $array_fecha['mon'];
@@ -97,12 +97,27 @@ if (!isset($_SESSION['nombre'])) {
 
                // Si la fecha de hoy es mayor o igual a la fecha de expiración de la actividad, el usuario podrá valorar e incluir reseña. Tengo pensado hacerlo con AJAX
                // Para debugear, pon en fecha_de_hoy una fecha menor a la de expiración de la actividad :))
+
+
+
+               /* Aquí debe ir una comprobación de si la reserva tiene las columnas reseña y valoración en NULL, que SE MUESTRE la encuesta. Si tiene otro valor NO se mostrará */
+               /* select * from reserva where nif_usuario = '47342916J' and id_oferta = 1 and valoracion IS NULL */
+               $nif_usuario = $row['num_plazas_reserva'];
+               $id_oferta = $row['id_oferta'];
+               $sql_comprobacion_null = "SELECT * FROM reserva where nif_usuario = '$nif_usuario' and id_oferta = '$id_oferta' and valoracion is NULL and resena is NULL";
+               $resultado=$conexion->query($sql);
+               if ($resultado->num_rows === 0) {
+                   /* QUEDA PENDIENTE */
+               }else{
+                   /* QUEDA PENDIENTE */
+               }
+
                if ($fecha_de_hoy >= $fecha_expiracion_actividad) {?>
                     <div id="puntuacion">
-                        <form id="form-reseña" method="post">
+                        <form id="form-rating" method="post">
                             <label>Califica la actividad</label>
                             <fieldset class="rating">
-                                <input name="rating"
+                                <input required name="rating"
                                        type="radio"
                                        id="rating5"
                                        value="5"
@@ -110,7 +125,7 @@ if (!isset($_SESSION['nombre'])) {
                                 <label for="rating5"
                                        title="5 stars">☆</label>
 
-                                <input name="rating"
+                                <input required name="rating"
                                        type="radio"
                                        id="rating4"
                                        value="4"
@@ -118,7 +133,7 @@ if (!isset($_SESSION['nombre'])) {
                                 <label for="rating4"
                                        title="4 stars">☆</label>
 
-                                <input name="rating"
+                                <input required name="rating"
                                        type="radio"
                                        id="rating3"
                                        value="3"
@@ -126,7 +141,7 @@ if (!isset($_SESSION['nombre'])) {
                                 <label for="rating3"
                                        title="3 stars">☆</label>
 
-                                <input name="rating"
+                                <input required name="rating"
                                        type="radio"
                                        id="rating2"
                                        value="2"
@@ -135,7 +150,7 @@ if (!isset($_SESSION['nombre'])) {
                                 <label for="rating2"
                                        title="2 stars">☆</label>
 
-                                <input name="rating"
+                                <input required name="rating"
                                        type="radio"
                                        id="rating1"
                                        value="1"
@@ -144,8 +159,10 @@ if (!isset($_SESSION['nombre'])) {
                                        title="1 stars">☆</label>
                             </fieldset>
                             <label>¿Qué te ha parecido la actividad?</label>
-                            <textarea name="resena" maxlength="200"></textarea><br>
-                            <button id="enviar_resena">¡Calificar!</button>
+                            <textarea required id="rating-text" name="resena" maxlength="200"></textarea><br>
+                            <input type="hidden" id="input_nif" name="nif_usuario" value=<?php echo $row['nif_usuario'];?>>
+                            <input type="hidden" id="input_id_oferta" name="id_oferta" value=<?php echo $row['id_oferta'];?>>
+                            <button id="rating">Calificar</button>
                         </form>
                     </div>
                <?php

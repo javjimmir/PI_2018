@@ -1,24 +1,17 @@
 <?php
-/* Este php recibirá los datos de main.js (ajax) y procesará el LOGIN: username, password del usuario/empresa que haya enviado la petición. */
+/* Este php procesa la petición ajax de reservas.php */
 
-session_start();
-if (isset($_POST['username']) && ($_POST['password'])) {
+include 'connection.php'; // Usa la variable $conexion
 
-    include 'connection.php';
+$estrellas = $_POST['starselected'];
+$texto_opinion = $_POST['rating_text'];
+$nif_user = $_POST['input_nif_usuario'];
+$id_oferta = $_POST['input_id_oferta'];
 
-    $username = mysqli_real_escape_string($conexion,$_POST['username']);
-    $password = mysqli_real_escape_string($conexion,$_POST['password']);
-    $tiposesion = $_POST['tiposesion'];
+$sql = "UPDATE reserva SET valoracion = $estrellas, resena = '$texto_opinion' WHERE nif_usuario = '$nif_user' and id_oferta = $id_oferta";
 
-    $sql = 'select * from '. $tiposesion .' where alias="'.$username.'" and password = MD5("'.$password.'")';
-    $resultado=$conexion->query($sql);
-    //$datos = $resultado->fetch_array(MYSQLI_ASSOC);
-    if ($resultado->num_rows === 1) {
-        $_SESSION['nombre'] = $username;    // Creamos una sesión y en el array le metemos tanto el nombre como el tipo de sesion (usuario/empresa)
-        $_SESSION['tipo'] = $tiposesion;
-        echo 0; // Datos correctos
-    }else{
-        // Enviar por ajax respuesta incorrecta
-        echo 1;
-    }
+if ($conexion->query($sql) === TRUE) {
+    echo 0; // Éxito
+} else {
+    echo 1; // Error
 }
