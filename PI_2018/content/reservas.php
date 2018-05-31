@@ -102,71 +102,74 @@ if (!isset($_SESSION['nombre'])) {
 
                /* Aquí debe ir una comprobación de si la reserva tiene las columnas reseña y valoración en NULL, que SE MUESTRE la encuesta. Si tiene otro valor NO se mostrará */
                /* select * from reserva where nif_usuario = '47342916J' and id_oferta = 1 and valoracion IS NULL */
-               $nif_usuario = $row['num_plazas_reserva'];
+               $nif_usuario = $row['nif_usuario'];
                $id_oferta = $row['id_oferta'];
                $sql_comprobacion_null = "SELECT * FROM reserva where nif_usuario = '$nif_usuario' and id_oferta = '$id_oferta' and valoracion is NULL and resena is NULL";
-               $resultado=$conexion->query($sql);
-               if ($resultado->num_rows === 0) {
-                   /* QUEDA PENDIENTE */
-               }else{
-                   /* QUEDA PENDIENTE */
+               $resultado=$conexion->query($sql_comprobacion_null);
+               //echo "nif = " . $nif_usuario . " -- id_oferta = " . $id_oferta;
+               if ($resultado->num_rows > 0) { // Si DEVUELVE una actividad con valores nulos, es que el user PUEDE rellenar la encuesta, así que se mostrará
+                   if ('2018-06-01' >= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calcula
+                                                                      // si el día de hoy es mayor o IGUAL que la fecha de expiración, es entonces cuando se mostrará.  ?>
+                       <div id="puntuacion">
+                           <form id="form-rating" method="post">
+                               <label>Califica la actividad</label>
+                               <fieldset class="rating">
+                                   <input required name="rating"
+                                          type="radio"
+                                          id="rating5"
+                                          value="5"
+                                          on="change:rating.submit" />
+                                   <label for="rating5"
+                                          title="5 stars">☆</label>
+
+                                   <input required name="rating"
+                                          type="radio"
+                                          id="rating4"
+                                          value="4"
+                                          on="change:rating.submit" />
+                                   <label for="rating4"
+                                          title="4 stars">☆</label>
+
+                                   <input required name="rating"
+                                          type="radio"
+                                          id="rating3"
+                                          value="3"
+                                          on="change:rating.submit" />
+                                   <label for="rating3"
+                                          title="3 stars">☆</label>
+
+                                   <input required name="rating"
+                                          type="radio"
+                                          id="rating2"
+                                          value="2"
+                                          on="change:rating.submit"
+                                          checked="checked" />
+                                   <label for="rating2"
+                                          title="2 stars">☆</label>
+
+                                   <input required name="rating"
+                                          type="radio"
+                                          id="rating1"
+                                          value="1"
+                                          on="change:rating.submit" />
+                                   <label for="rating1"
+                                          title="1 stars">☆</label>
+                               </fieldset>
+                               <label>¿Qué te ha parecido la actividad?</label>
+                               <textarea required id="rating-text" name="resena" maxlength="200"></textarea><br>
+                               <input type="hidden" id="input_nif" name="nif_usuario" value=<?php echo $row['nif_usuario'];?>>
+                               <input type="hidden" id="input_id_oferta" name="id_oferta" value=<?php echo $row['id_oferta'];?>>
+                               <button id="rating">Calificar</button>
+                           </form>
+                       </div>
+                       <?php
+                   }
+               } else {
+                    echo "<span id='voted'><p>Ya has evaluado esta actividad</p><img width='30' src=\"../img/tick.png\"></span><br>";
                }
+               //echo "Hoy -> " . $fecha_de_hoy . " Expiración -> " . $fecha_expiracion_actividad;
 
-               if ($fecha_de_hoy >= $fecha_expiracion_actividad) {?>
-                    <div id="puntuacion">
-                        <form id="form-rating" method="post">
-                            <label>Califica la actividad</label>
-                            <fieldset class="rating">
-                                <input required name="rating"
-                                       type="radio"
-                                       id="rating5"
-                                       value="5"
-                                       on="change:rating.submit" />
-                                <label for="rating5"
-                                       title="5 stars">☆</label>
 
-                                <input required name="rating"
-                                       type="radio"
-                                       id="rating4"
-                                       value="4"
-                                       on="change:rating.submit" />
-                                <label for="rating4"
-                                       title="4 stars">☆</label>
-
-                                <input required name="rating"
-                                       type="radio"
-                                       id="rating3"
-                                       value="3"
-                                       on="change:rating.submit" />
-                                <label for="rating3"
-                                       title="3 stars">☆</label>
-
-                                <input required name="rating"
-                                       type="radio"
-                                       id="rating2"
-                                       value="2"
-                                       on="change:rating.submit"
-                                       checked="checked" />
-                                <label for="rating2"
-                                       title="2 stars">☆</label>
-
-                                <input required name="rating"
-                                       type="radio"
-                                       id="rating1"
-                                       value="1"
-                                       on="change:rating.submit" />
-                                <label for="rating1"
-                                       title="1 stars">☆</label>
-                            </fieldset>
-                            <label>¿Qué te ha parecido la actividad?</label>
-                            <textarea required id="rating-text" name="resena" maxlength="200"></textarea><br>
-                            <input type="hidden" id="input_nif" name="nif_usuario" value=<?php echo $row['nif_usuario'];?>>
-                            <input type="hidden" id="input_id_oferta" name="id_oferta" value=<?php echo $row['id_oferta'];?>>
-                            <button id="rating">Calificar</button>
-                        </form>
-                    </div>
-               <?php
-               }
                echo '
               <a href="oferta.php?id='.$row['id'].'">Ver actividad</a>';
                 echo '
