@@ -33,31 +33,22 @@ include '../php/connection.php';
     <article>
         <div id="acercade">
             <h3>¿Quienes somos?</h3>
-            <p>Lorem fistrum caballo blanco caballo negroorl ese pedazo de está la cosa muy malar hasta
-                luego Lucas ese hombree te voy a borrar el cerito. Quietooor sexuarl mamaar se calle ustée
-                me cago en tus muelas. Benemeritaar qué dise usteer ahorarr no te digo trigo por no llamarte
-                Rodrigor sexuarl la caidita no puedor me cago en tus muelas a peich amatomaa al ataquerl.
-                Por la gloria de mi madre diodenoo me cago en tus muelas al ataquerl torpedo apetecan.
-                Fistro caballo blanco caballo negroorl se calle ustée te voy a borrar el cerito amatomaa
-                ahorarr ese que llega ahorarr a gramenawer. De la pradera te voy a borrar el cerito pupita
-                benemeritaar. Torpedo ese pedazo de mamaar torpedo torpedo. A wan fistro fistro qué dise usteer
-                hasta luego Lucas pupita llevame al sircoo. Apetecan a gramenawer la caidita fistro me cago en
-                tus muelas caballo blanco caballo negroorl te voy a borrar el cerito va usté muy cargadoo te va a
-                hasé pupitaa llevame al sircoo.</p>
+            <p>Somos un grupo de estudiantes de Desarrollo de Aplicaciones Web del instituto IES Polígono Sur, creamos este portal como proyecto de fin de curso 
+                teniendo en mente una realidad que había existido siempre: No era facil encontrar actividades divertidas en tu ciudad si no las conocías de primera mano, y no había 
+                un portal que unificase todas las posibles actividades que puedes hacer y te sugiriese actividades gratuitas para realizar disfrutando del aire libre y
+                por ello decidimos crear este portal, para tener un lugar en el que poder localizar actividades para realizar en tu zona, poder encontrar el tipo de actividad que más 
+                te guste y tener una vía para contactar con la empresa a través de un portal que garantice la calidad de los servicios que te ofrezcan, ese fue nuestro objetivo desde un primer 
+                momento y esperamos que te guste.
+            </p>
             <img src="https://pbs.twimg.com/media/DXM_B1MX0AAvZ58.jpg" alt="" class="imgacerca">
 
             <h3>Nuestra empresa</h3>
-            <p>Lorem fistrum caballo blanco caballo negroorl ese pedazo de está la cosa muy malar hasta
-                luego Lucas ese hombree te voy a borrar el cerito. Quietooor sexuarl mamaar se calle ustée
-                me cago en tus muelas. Benemeritaar qué dise usteer ahorarr no te digo trigo por no llamarte
-                Rodrigor sexuarl la caidita no puedor me cago en tus muelas a peich amatomaa al ataquerl.
-                Por la gloria de mi madre diodenoo me cago en tus muelas al ataquerl torpedo apetecan.
-                Fistro caballo blanco caballo negroorl se calle ustée te voy a borrar el cerito amatomaa
-                ahorarr ese que llega ahorarr a gramenawer. De la pradera te voy a borrar el cerito pupita
-                benemeritaar. Torpedo ese pedazo de mamaar torpedo torpedo. A wan fistro fistro qué dise usteer
-                hasta luego Lucas pupita llevame al sircoo. Apetecan a gramenawer la caidita fistro me cago en
-                tus muelas caballo blanco caballo negroorl te voy a borrar el cerito va usté muy cargadoo te va a
-                hasé pupitaa llevame al sircoo.</p>
+            <p>Jairo Sport nació como un portal para encontrar actividades en tu zona de forma rápida y sencilla, gracias a este portal podrás encontrar las mejores actividades en tu zona
+                desde rutas de ciclismo hasta paracaidismo, paseos en barca, piragua, senderismo, etc... Podrás planificar tu próxima excursión ya que también mostramos los mejores lugares para 
+                hacer acampada y picnics, puedes contactar con nuestro departamento de atención al cliente en la pestaña Contacto, ahí te atenderá nuestro becario Fran (el que se tapa la boca buscando como solucionar el problema) que se encargará en la medida 
+                de lo posible en hacer ameno tu día, contandote la increible gastronomía y cultura de Lebrija, que por si no lo sabías es un pueblo perdido en cadiz al que sorprendentemente ¡Llega el tren! 
+                a renfe le sobraban vias y no sabían donde meterlas parece ser... 
+            </p>
             <img src="https://pbs.twimg.com/media/DV6xgMfX4AA5D_j.jpg" alt="" class="imgacerca">
         </div>
     </article>

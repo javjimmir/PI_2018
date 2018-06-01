@@ -3,10 +3,17 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="./components/index/filtroBusqueda/css/style.css">
 	<script type="text/javascript" src="./js/main.js"></script>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 </head>
+	
 <body>
 	<h2>Filtros de Busqueda</h2>
-	<form method="post" id="myform">
+	<form method="post" id="myform"  class="form-group">
 		<label>Tipo actividad</label><br>
 		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  Submarinismo<br>
 		<input type="radio" class="tipoact" name="tipo_actividad" value="snorkel">  Snorkel<br>
@@ -16,11 +23,11 @@
 
 		<label>Precio máximo</label><br>
 
-		<input type="number" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/> €
+		<input class="form-control" type="number" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/> €
 		<br>
-		<input type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
+		<input class="form-control" type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
 
-		<button id="quitarfiltros">Quitar filtros</button>
+		<button class="form-control" id="quitarfiltros">Quitar filtros</button>
 	</form>
 </body>
 </html>
