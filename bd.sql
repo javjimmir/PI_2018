@@ -72,11 +72,11 @@ CREATE TABLE reserva(
 );
 
 -- INSERT EN USUARIO
-insert into usuario values('47342916S','Cristian','De los Santos Pariente','999999999','España','Baby','cristian@gmail.com','41410','img_perfil1.jpg','Sevilla','C/Despeñaperros','Snorkel','ddf7057a2557945754e0da8348c6dfb3');
-insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','img_perfil2.jpg','Sevilla','C/Bami','Correr','bfdd41f4f0c93fbc96c29cdd3da95c0a');
-insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','img_perfil3.jpg','Sevilla','C/DosHermanas','Salto','4951387aa6f624c9b807d4196f12c222');
-insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','img_perfil4.jpg','Sevilla','C/Sevilla','Gimna','193b0ab64631d233958f5b7afb948f5c');
-insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','juan.jpg','Sevilla','C/ave','Snorkel','c7f626ad40317f4dc7b295c6f04c850d');
+insert into usuario values('47342916S','Cristian','De los Santos Pariente','999999999','España','Baby','cristian@gmail.com','41410','img_perfil1.jpg','Sevilla','C/Despeñaperros','acuatica','ddf7057a2557945754e0da8348c6dfb3');
+insert into usuario values('47342917S','Fran','Alcon','999999999','España','FranPLayer','Fran@gmail.com','41410','img_perfil2.jpg','Sevilla','C/Bami','aire','bfdd41f4f0c93fbc96c29cdd3da95c0a');
+insert into usuario values('47342918S','Fredy','Jerby','999999999','España','Jefry','Fredy@gmail.com','41410','img_perfil3.jpg','Sevilla','C/DosHermanas','aire','4951387aa6f624c9b807d4196f12c222');
+insert into usuario values('47342919S','Javi','Jimenez','999999999','España','Moro','javi@gmail.com','41410','img_perfil4.jpg','Sevilla','C/Sevilla','nieve','193b0ab64631d233958f5b7afb948f5c');
+insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','juan.jpg','Sevilla','C/ave','tierra','c7f626ad40317f4dc7b295c6f04c850d');
 /* insert erroneo (key repetida)
 insert into usuario values('47342916J','Juan','Delgado','999999999','España','juandels3','juan@gmail.com','41410','Sevilla','C/ave','Snorkel','juan1234');
 */

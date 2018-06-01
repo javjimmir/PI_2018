@@ -18,8 +18,7 @@
 	$sql = "INSERT INTO usuario (nif,nombre,apellidos,telefono,pais,alias,email,cp,imagen_perfil,provincia,direccion,actividad_fav,password)
 	VALUES ('$dni','$nombre', '$apellidos','$telefono','$pais','$alias','$email','$cp','$imagen_perfil','$provincia','$direccion','$categoria',MD5('".$password."'));";
 	if ($conexion->query($sql) === TRUE) {
-	    // Hace algún efecto con jquery o una redirección...
-	    header('location: ./success.html');
+	    header('location: ./login.html?register=user');
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}
