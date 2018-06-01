@@ -30,6 +30,15 @@ $(document).ready(function () {
     if (getUrlParameter('category')) {
         $("#cargar").remove();
     }
+    // Redirección al registrarte. Obtiene si se ha registrado un usuario o empresa y realiza algunos efectos to guapos.
+    if (getUrlParameter('register')) {
+        $("article").append("<p>¡Registro completado! Ahora inicia sesión con tus datos</p>");
+        if (getUrlParameter('register') == 'user') {
+            $("#user").prop( "checked", true );
+        } else if(getUrlParameter('register') == 'company') {
+            $("#company").prop( "checked", true );
+        }
+    }
 
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()

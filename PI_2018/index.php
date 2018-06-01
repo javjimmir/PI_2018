@@ -140,7 +140,7 @@ if (isset($_GET['category'])) {
         	$result = $conexion->query($global_cont_sql); // Select que se ejecutará. Si se usan filtros cambiará.
 			$fila = $row = $result->fetch_assoc();
 			$ofertas_encontradas = $fila['count'];
-			$count = 12;
+			$count = 9;
 
 			if ($ofertas_encontradas == 0) {
                 echo '<div id="sin_ofertas"><p>NO HAY OFERTAS DISPONIBLES</p></div>';
@@ -188,7 +188,6 @@ if (isset($_GET['category'])) {
             } else if (isset($_GET['category'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
-                    //$descripcion = substr($row['descripcion'], 0, 110);
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
@@ -211,6 +210,48 @@ if (isset($_GET['category'])) {
                 </div>';
                 }
             } else {
+                /**
+                 *
+                 * Bloque de actividades recomendadas para el usuario.
+                 * En este bloque aparecerán 3 ofertas recomendadas para el usuario, según su categoría marcada como favorita al registrarse.
+                 *
+                 */
+                $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') ORDER BY RAND() ";
+                $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
+                $fila_destacados = $row_destacados = $result->fetch_assoc();
+                $ofertas_destacadas_encontradas = $result->num_rows;
+                //print_r($sql_destacados . " --- " . $ofertas_destacadas_encontradas);
+
+                if ($ofertas_destacadas_encontradas > 0) { // Si no existen actividades con la categoría favorita del user (mínimo 1), no saldrá el cuadro de DESTACADOS!!
+                    if (isset($_SESSION['nombre'])) {
+
+                        echo "<h3>DESTACADOS</h3>";
+                        for ($i = 1; $i <= 3; $i++) {
+                            $row_destacados = $result_destacados->fetch_assoc();
+                            $nombre = $row_destacados['nombre'];
+                            $provincia = $row_destacados['provincia'];
+                            $actividad = $row_destacados['tipo_actividad'];
+                            $precio = $row_destacados['precio'];
+                            $dificultad = $row_destacados['dificultad'];
+                            echo '  <div class="col-lg-4 actividad destacada">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
+                        </div>
+                        <div class="col-lg-8">
+                            <p id="nombre">' . $nombre . '</p>
+                            <p id="actividad">' . $actividad . '</p>
+                            <p id="provincia">' . $provincia . '</p>
+                            <p id="dificultad">' . $dificultad . '</p>
+                            <p id="precio">' . $precio . '€</p>
+                            <a href="content/oferta.php?id=' . $row_destacados['id'] . '">Ver actividad</a>
+                        </div>
+                    </div>
+                </div>';
+                        }
+                    }
+                }
+
                 for ($i = 1; $i <= $count; $i++) {
                     $row = $result->fetch_assoc();
                     //$descripcion = substr($row['descripcion'], 0, 110);
@@ -240,7 +281,7 @@ if (isset($_GET['category'])) {
   		</div>
         <form action="?load=all" method="get">
             <input type="hidden" name="load" value="all">
-            <button id="cargar">Cargar más</button>
+            <button id="cargar">Cargar más...</button>
         </form>
 	</article>
 </section>
