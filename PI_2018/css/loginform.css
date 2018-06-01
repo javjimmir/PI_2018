@@ -13,18 +13,25 @@ input[type=text], input[type=password], select {
 	padding: 12px 20px;
 	margin: 8px 0;
 	border: 1px solid #ccc;
-	border-radius: 4px;
+	border-radius: 25px;
 	box-sizing: border-box;
 }
 .boton {
-	background-color: #4CAF50;
-	color: white;
+	background: rgba(0,0,0,0);
+	box-shadow: inset 0 0 0 3px #2a992c;
+	color: #5eaf69;
 	display: inline;
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
-	border-radius: 4px;
+	border-radius: 25px;
 	cursor: pointer;
+    width: 30%;
+}
+
+.boton:hover {
+	background-color: #5eaf69;
+	color: white;
 }
 
 #captcha{
@@ -35,11 +42,15 @@ input[type=text], input[type=password], select {
 
 form {
 	border-radius: 5px;
-	background-color: #f2f2f2;
+	background-color: white;
 	padding: 20px;
 	display: inline-block;
 	text-align: center;
 	width: 60%;
+}
+
+form label{
+	display: none;
 }
 
 #form1{
@@ -120,3 +131,21 @@ body.loading .modalpers {
 	right: 0;
 	position: absolute;
 }
+
+.login-radio img{
+    width: 10%;
+    height: 10%;
+    margin-left: 2%;
+    margin-right: -1%;
+}
+
+input[type=radio] {
+    margin-top: 1px;
+    line-height: normal;
+    margin-left: 3%!important;
+}
+
+
+
+
+
