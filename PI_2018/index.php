@@ -140,7 +140,7 @@ if (isset($_GET['category'])) {
         	$result = $conexion->query($global_cont_sql); // Select que se ejecutará. Si se usan filtros cambiará.
 			$fila = $row = $result->fetch_assoc();
 			$ofertas_encontradas = $fila['count'];
-			$count = 9;
+			$count = 12;
 
 			if ($ofertas_encontradas == 0) {
                 echo '<div id="sin_ofertas"><p>NO HAY OFERTAS DISPONIBLES</p></div>';
@@ -216,24 +216,26 @@ if (isset($_GET['category'])) {
                  * En este bloque aparecerán 3 ofertas recomendadas para el usuario, según su categoría marcada como favorita al registrarse.
                  *
                  */
-                $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') ORDER BY RAND() ";
-                $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
-                $fila_destacados = $row_destacados = $result->fetch_assoc();
-                $ofertas_destacadas_encontradas = $result->num_rows;
-                //print_r($sql_destacados . " --- " . $ofertas_destacadas_encontradas);
+                if (isset($_SESSION['nombre']) && $_SESSION['tipo'] === 'usuario') { // Si hay un usuario conectado y es de tipo usuario...
+                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND() ";
+                    $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
+                    $fila_destacados = $row_destacados = $result->fetch_assoc();
+                    $ofertas_destacadas_encontradas = $result->num_rows;
+                    $count = 9;
+                    //print_r($sql_destacados . " --- " . $ofertas_destacadas_encontradas);
 
-                if ($ofertas_destacadas_encontradas > 0) { // Si no existen actividades con la categoría favorita del user (mínimo 1), no saldrá el cuadro de DESTACADOS!!
-                    if (isset($_SESSION['nombre'])) {
+                    if ($ofertas_destacadas_encontradas > 0) { // Si no existen actividades con la categoría favorita del user (mínimo 1), no saldrá el cuadro de DESTACADOS!!
+                        if (isset($_SESSION['nombre'])) {
 
-                        echo "<h3>DESTACADOS</h3>";
-                        for ($i = 1; $i <= 3; $i++) {
-                            $row_destacados = $result_destacados->fetch_assoc();
-                            $nombre = $row_destacados['nombre'];
-                            $provincia = $row_destacados['provincia'];
-                            $actividad = $row_destacados['tipo_actividad'];
-                            $precio = $row_destacados['precio'];
-                            $dificultad = $row_destacados['dificultad'];
-                            echo '  <div class="col-lg-4 actividad destacada">
+                            echo "<h3>DESTACADOS</h3>";
+                            for ($i = 1; $i <= 3; $i++) {
+                                $row_destacados = $result_destacados->fetch_assoc();
+                                $nombre = $row_destacados['nombre'];
+                                $provincia = $row_destacados['provincia'];
+                                $actividad = $row_destacados['tipo_actividad'];
+                                $precio = $row_destacados['precio'];
+                                $dificultad = $row_destacados['dificultad'];
+                                echo '  <div class="col-lg-4 actividad destacada">
                     <div class="row">
                         <div class="col-lg-4">
                             <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
@@ -248,10 +250,10 @@ if (isset($_GET['category'])) {
                         </div>
                     </div>
                 </div>';
+                            }
                         }
                     }
                 }
-
                 for ($i = 1; $i <= $count; $i++) {
                     $row = $result->fetch_assoc();
                     //$descripcion = substr($row['descripcion'], 0, 110);
