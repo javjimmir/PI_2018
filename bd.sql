@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS actividades;
+﻿DROP DATABASE IF EXISTS actividades;
 CREATE DATABASE actividades;
-use actividades
+use actividades;
 
 CREATE TABLE usuario(
 	nif varchar(30) NOT NULL,
