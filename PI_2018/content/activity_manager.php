@@ -1,6 +1,35 @@
 <?php
 session_start();
 include '../php/connection.php';
+
+//Cantidad de resultados por página 
+$resultados_por_pagina = 10;
+
+if (isset($_GET["pagina"])) {
+
+  if (is_string($_GET["pagina"])) {
+
+     if (is_numeric($_GET["pagina"])) {
+
+       if ($_GET["pagina"] == 1) {
+         header("Location: ./activity_manager.php");
+         die();
+       } else { 
+         $pagina = $_GET["pagina"];
+      };
+
+     } else { //si el parámetro get no es un número redirige al index.php
+       header("Location: ./activity_manager.php");
+      die();
+     };
+  };
+
+} else { //si el get no se ha seteado pues la página será la número 1.
+  $pagina = 1;
+};
+
+//Define el número 0 para empezar a paginar multiplicado por la cantidad de resultados por página
+$empezar_desde = ($pagina-1) * $resultados_por_pagina;
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +83,6 @@ include '../php/connection.php';
 </article>
 <article>
     <h2 class="text-center">Mis actividades</h2><br/>
-    <center><a href="registrofertas.html" title="Añadir" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Añadir actividad</a></center>
     <div class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
@@ -73,13 +101,21 @@ include '../php/connection.php';
 
         <?php
         /* Este es el data-table que mostrará los datos de las actividades publicadas por la empresa.*/
-        $sql_oferta = "SELECT * FROM oferta WHERE cif_empresa = (SELECT cif FROM empresa WHERE alias = '". $_SESSION['nombre']  ."') "; 
-          $result = $conexion->query($sql_oferta); 
+        $sql_count = "SELECT * FROM oferta WHERE cif_empresa = (SELECT cif FROM empresa WHERE alias = '". $_SESSION['nombre']  ."')"; 
+          $result = $conexion->query($sql_count);
+
+          $total_registros = $result->num_rows;
+
+          $total_paginas = ceil($total_registros / $resultados_por_pagina); 
+
+          $sql_oferta = "SELECT * FROM oferta WHERE cif_empresa = (SELECT cif FROM empresa WHERE alias = '". $_SESSION['nombre']  ."') LIMIT $empezar_desde, $resultados_por_pagina";
+
+          $result2 = $conexion->query($sql_oferta);
           $no = 1;
-          if ($result->num_rows === 0) {
+          if ($total_registros === 0) {
             echo '<tr><td colspan="8">No hay actividades.</td></tr>';
           }else{
-          while($row = $result->fetch_assoc()){
+          while($row = $result2->fetch_assoc()){
             echo '
             <tr>
               <td>'.$no.'</td>
@@ -114,7 +150,29 @@ include '../php/connection.php';
             ';
             $no++;
           }
+            $url = "activity_manager.php";
+            echo '<p>';
+
+          if ($total_paginas > 1) {
+            if ($pagina != 1)
+              echo '<a href="'.$url.'?pagina='.($pagina-1).'"><img src="../img/izq.gif" border="0"></a>';
+            for ($i=1;$i<=$total_paginas;$i++) {
+              if ($pagina == $i)
+                //si muestro el �ndice de la p�gina actual, no coloco enlace
+                echo $pagina;
+              else
+                //si el �ndice no corresponde con la p�gina mostrada actualmente,
+                //coloco el enlace para ir a esa p�gina
+                echo '  <a href="'.$url.'?pagina='.$i.'">'.$i.'</a>  ';
+            }
+            if ($pagina != $total_paginas)
+              echo '<a href="'.$url.'?pagina='.($pagina+1).'"><img src="../img/der.gif" border="0"></a>';
+          }
+          echo '</p>';
         }
+
+        echo '<center><a href="registrofertas.html" title="Añadir" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Añadir actividad</a></center>';
+
         ?>
           
       </table>
@@ -122,7 +180,11 @@ include '../php/connection.php';
     </div>
 
 </article>
+<article>
+<?php
 
+?>
+</article>
   
 </section>
 
