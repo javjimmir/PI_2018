@@ -58,7 +58,8 @@ $(document).ready(function () {
                     "<p id='actividad'>" + data[i].provincia + "</p>" +
                     "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
                     "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                    "<p id='precio'>" + data[i].precio + "€</p></div></div>");
+                    "<p id='precio'>" + data[i].precio + "€</p>"+
+                    "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
             }
         });
     })
@@ -85,7 +86,8 @@ $(document).ready(function () {
                         "<p id='actividad'>" + data[i].provincia + "</p>" +
                         "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
                         "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                        "<p id='precio'>" + data[i].precio + "€</p></div></div>");
+                        "<p id='precio'>" + data[i].precio + "€</p>"+
+                        "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
                 }
             });
         } else {    // Si no hay tipo de actividad marcada, hará el post solo con el precio
@@ -105,7 +107,8 @@ $(document).ready(function () {
                         "<p id='actividad'>" + data[i].provincia + "</p>" +
                         "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
                         "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                        "<p id='precio'>" + data[i].precio + "€</p></div></div>");
+                        "<p id='precio'>" + data[i].precio + "€</p>"+
+                        "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
                 }
             });
         }
