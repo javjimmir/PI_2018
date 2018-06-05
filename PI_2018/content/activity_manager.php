@@ -7,8 +7,6 @@ $resultados_por_pagina = 10;
 
 if (isset($_GET["pagina"])) {
 
-  if (is_string($_GET["pagina"])) {
-
      if (is_numeric($_GET["pagina"])) {
 
        if ($_GET["pagina"] == 1) {
@@ -22,8 +20,6 @@ if (isset($_GET["pagina"])) {
        header("Location: ./activity_manager.php");
       die();
      };
-  };
-
 } else { //si el get no se ha seteado pues la página será la número 1.
   $pagina = 1;
 };
@@ -82,7 +78,7 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
 ?>
 </article>
 <article>
-    <h2 class="text-center">Mis actividades</h2><br/>
+    <h2 class="text-center">Administrac</h2><br/>
     <div class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
