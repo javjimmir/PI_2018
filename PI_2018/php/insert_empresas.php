@@ -21,7 +21,7 @@
 
 	if ($conexion->query($sql) === TRUE) {
 	    echo "Registro añadido correctamente.";
-	    header('location: ./login.html?register=company');
+	    header('location: ../content/login.html?register=company');
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}
