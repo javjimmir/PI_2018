@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: JUAN
- * Date: 13/05/2018
- * Time: 12:48
- */
-
-include 'connection.php';        // Usa la variable $conexion
-
+include 'connection.php';      
 
 /* Si se recibe solo una actividad... */
 if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
@@ -19,6 +11,7 @@ if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
 
     while($row = $resultado->fetch_object()){
         $fila=array(
+            "id"=>$row->id,
             "nombre"=>$row->nombre,
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
@@ -41,6 +34,7 @@ if (isset($_POST['precio']) && empty($_POST['tipo_actividad'])) {
 
     while($row = $resultado->fetch_object()){
         $fila=array(
+            "id"=>$row->id,
             "nombre"=>$row->nombre,
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
@@ -65,6 +59,7 @@ if (isset($_POST['precio'], $_POST['tipo_actividad'])) {
     //echo $sql;
     while($row = $resultado->fetch_object()){
         $fila=array(
+            "id"=>$row->id,
             "nombre"=>$row->nombre,
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
