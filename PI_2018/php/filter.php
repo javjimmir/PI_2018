@@ -1,33 +1,75 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: JUAN
- * Date: 13/05/2018
- * Time: 12:48
- */
+include 'connection.php';      
 
-include 'connection.php';
+/* Si se recibe solo una actividad... */
+if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
+    $actividad = $_POST['tipo_actividad']; // Actividad a filtrar por el usuario
+    $res=[];
+    $sql = "select * from oferta where tipo_actividad = "."'$actividad'" . " ORDER BY fecha_inicio DESC LIMIT 50";
 
-$actividad = $_POST['tipo_actividad']; // Actividad a filtrar por el usuario
+    $resultado = $conexion->query($sql);
 
-$res=[];
-$sql = "select * from oferta where tipo_actividad = "."'$actividad'";
-//echo $sql;
-//SELECT COUNT(*) FROM oferta;              Para capturar el total de ofertas de ese tipo de actividad
-$resultado = $mysqli->query($sql);
-
-
-while($row = $resultado->fetch_object()){
-    $fila=array(
-        "nombre"=>$row->nombre
-        /*"provincia"=>$row->provincia,
-        "tipo_actividad"=>$row->tipo_actividad,
-        "precio"=>$row->precio,
-        "fecha_inicio"=>$row->fecha_inicio,
-        "fecha_fin"=>$row->fecha_fin*/
-    );
-    array_push($res, $fila);
+    while($row = $resultado->fetch_object()){
+        $fila=array(
+            "id"=>$row->id,
+            "nombre"=>$row->nombre,
+            "tipo_actividad"=>$row->tipo_actividad,
+            "provincia"=>$row->provincia,
+            "dificultad"=>$row->dificultad,
+            "precio"=>$row->precio
+        );
+        array_push($res, $fila);
+    }
+    echo json_encode($res);
+    $resultado->free();
+    $conexion->close();
 }
-echo json_encode($res);
-$resultado->free();
-$mysqli->close();
+
+/* Si se recibe solo un precio... */
+if (isset($_POST['precio']) && empty($_POST['tipo_actividad'])) {
+    $precio = $_POST['precio']; // Actividad a filtrar por el usuario
+    $res=[];
+    $sql = "select * from oferta where precio < "."'$precio'" . " ORDER BY fecha_inicio DESC LIMIT 50";
+    $resultado = $conexion->query($sql);
+
+    while($row = $resultado->fetch_object()){
+        $fila=array(
+            "id"=>$row->id,
+            "nombre"=>$row->nombre,
+            "tipo_actividad"=>$row->tipo_actividad,
+            "provincia"=>$row->provincia,
+            "dificultad"=>$row->dificultad,
+            "precio"=>$row->precio
+        );
+        array_push($res, $fila);
+    }
+    echo json_encode($res);
+    $resultado->free();
+    $conexion->close();
+}
+
+/* Si se recibe precio y actividad... */
+if (isset($_POST['precio'], $_POST['tipo_actividad'])) {
+    $precio = $_POST['precio']; // Actividad a filtrar por el usuario
+    $actividad = $_POST['tipo_actividad']; // Actividad a filtrar por el usuario
+
+    $res=[];
+    $sql = "select * from oferta where precio < "."'$precio'" . " and tipo_actividad = "."'$actividad' ORDER BY fecha_inicio DESC LIMIT 50";
+    $resultado = $conexion->query($sql);
+    //echo $sql;
+    while($row = $resultado->fetch_object()){
+        $fila=array(
+            "id"=>$row->id,
+            "nombre"=>$row->nombre,
+            "tipo_actividad"=>$row->tipo_actividad,
+            "provincia"=>$row->provincia,
+            "dificultad"=>$row->dificultad,
+            "precio"=>$row->precio
+        );
+        array_push($res, $fila);
+    }
+    echo json_encode($res);
+    $resultado->free();
+    $conexion->close();
+}
+

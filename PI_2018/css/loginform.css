@@ -1,0 +1,151 @@
+
+.login {
+	width: 50%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=text], input[type=password], select {
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+	box-sizing: border-box;
+}
+.boton {
+	background: rgba(0,0,0,0);
+	box-shadow: inset 0 0 0 3px #2a992c;
+	color: #5eaf69;
+	display: inline;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+    width: 30%;
+}
+
+.boton:hover {
+	background-color: #5eaf69;
+	color: white;
+}
+
+#captcha{
+	width: 45%;
+	padding: 20px;
+	margin: auto;
+}
+
+form {
+	border-radius: 5px;
+	background-color: white;
+	padding: 20px;
+	display: inline-block;
+	text-align: center;
+	width: 60%;
+}
+
+form label{
+	display: none;
+}
+
+#form1{
+	float: left;
+	width: 50%;
+	margin-bottom: 40px;
+}
+
+#form2{
+	float: right;
+	width: 50%;
+
+}
+
+#desc-empresa{
+	width: 70%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+#error-empre, #error-oferta, #error-usu{
+	width: auto;
+	height: 30px;
+	background-color: #ffccf8;
+	border-radius: 15px;
+	border: solid 3px red;
+	display: none;
+	bottom: 0;
+	position: absolute;
+	padding-top: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: red;
+	font-size: 13px;
+	margin-bottom: 83rem;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modalpers {
+	display:    none;
+	position:   fixed;
+	z-index:    1000;
+	top:        0;
+	left:       0;
+	height:     100%;
+	width:      100%;
+	background: rgba( 255, 255, 255, .8 )
+	url('http://i.stack.imgur.com/FhHRx.gif')
+	50% 50%
+	no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .modalpers {
+	overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modalpers {
+	display: block;
+}
+
+.modalpers p {
+	font-weight: bold;
+	font-size: 17px;
+	top: 53%;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	position: absolute;
+}
+
+.login-radio img{
+    width: 10%;
+    height: 10%;
+    margin-left: 2%;
+    margin-right: -1%;
+}
+
+input[type=radio] {
+    margin-top: 1px;
+    line-height: normal;
+    margin-left: 3%!important;
+}
+
+
+
+
+

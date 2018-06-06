@@ -13,13 +13,12 @@
 	$cp = $_POST['cp-usuario'];
 	$telefono = $_POST['telefono'];
 	$categoria = $_POST['categoria'];
+    $imagen_perfil = 'user-default.png';
 	  
-	$sql = "INSERT INTO usuario (nif,nombre,apellidos,telefono,pais,alias,email,cp,provincia,direccion,actividad_fav,password)
-	VALUES ('$dni', '$nombre', '$apellidos','$telefono','$pais','$alias','$email','$cp','$provincia','$direccion','$categoria','$password')";
-
+	$sql = "INSERT INTO usuario (nif,nombre,apellidos,telefono,pais,alias,email,cp,imagen_perfil,provincia,direccion,actividad_fav,password)
+	VALUES ('$dni','$nombre', '$apellidos','$telefono','$pais','$alias','$email','$cp','$imagen_perfil','$provincia','$direccion','$categoria',MD5('".$password."'));";
 	if ($conexion->query($sql) === TRUE) {
-	    echo "Registro añadido correctamente.";
-	    header('location: ./success.html');
+	    header('location: ../content/login.html?register=user');
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}

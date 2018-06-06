@@ -14,13 +14,14 @@
 	$email = $_POST['mail-empresa'];
 	$categoria = $_POST['categoria'];
 	$descripcion = $_POST['desc-empresa'];
+	$imagen_perfil = 'user-default.png';
 	  
-	$sql = "INSERT INTO empresa (cif,nombre,telefono,pais,provincia,alias,tipo_actividad,web,email,descripcion,cp,password)
-	VALUES ('$cif', '$nombre', '$telefono','$pais','$provincia','$alias','$categoria','$web','$email','$descripcion','$cp','$password')";
+	$sql = "INSERT INTO empresa (cif,nombre,telefono,pais,provincia,alias,imagen_perfil,tipo_actividad,web,email,descripcion,cp,password)
+	VALUES ('$cif', '$nombre', '$telefono','$pais','$provincia','$alias','$imagen_perfil','$categoria','$web','$email','$descripcion','$cp', MD5('".$password."'))";
 
 	if ($conexion->query($sql) === TRUE) {
 	    echo "Registro añadido correctamente.";
-	    header('location: ./success.html');
+	    header('location: ../content/login.html?register=company');
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}

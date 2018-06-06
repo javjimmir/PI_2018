@@ -1,49 +1,63 @@
 body, html{
-width: 100%;
-min-height: 100%;
-height: 100% !important;
-/*position: fixed;*/
-top:0;
-left:0;
+	-width: 100%;
+	min-height: 100%;
+	height: 100% !important;
+	/*position: fixed;*/
+	top:0;
+	left:0;
 }
 
 body{
 
 	position: absolute;
-	background-color: #222;
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
 
 header{
+	background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	width: 100%;
 	height: 7.5%;
 	float: left;
 }
 
+
+
 nav{
 	width: 80%;
 	height: 7.5%;
 	float: right;
+	margin-right: 5%;
 }
 
 section{
-	background-color: #f2f2f2;
+	background-color: white;
 	width: 80%;
 	min-height: 80%;
 	float: left;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #080808;
+	border-color: black;
+	border-radius: 5px;
 }
 
+
 article{
+	width: 100%;
 	background-color: white;
+	display: inline-block;
+	text-align: center;
 }
 
 aside{
-	width: 20%;
+	width: 15%;
 	min-height: 87.5%;
 	height: auto;
 	float: left;
+	padding-top: 2%;
+	padding-left: 1%;
+	padding-right: 1%;
 }
 
 footer{
@@ -51,7 +65,6 @@ footer{
 	height: 5%;
 	float: left;
 }
-
 /*--IMAGENES--*/
 
 .listImg{
@@ -69,3 +82,255 @@ footer{
 	margin-top: 2%;
 	margin-bottom: 2%;
 }
+
+
+
+.imgperfil > img{
+	border-radius: 50%;
+	margin-left: 0;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.imgperfil{
+	position: relative;
+	float: left;
+width: 25%;
+margin-left: 4em;
+margin-top: -6em;
+}
+
+.imgperfil > button{
+	margin-top: 1em;
+}
+
+.alias{
+	position: relative;
+	float: left;
+	width: 70%;
+	padding-bottom: 9em;
+}
+
+#lista{
+	display: inline-block;
+}
+
+#lista ul li
+{
+	display: flex;
+    align-items: left;
+}
+
+.titulo{
+	padding: 1em;
+	font-size: 3em;
+	font-style: italic;
+}
+
+.actividadesRecientes{
+	position: relative;
+	padding-top: 3em;
+	float: left;
+	width: 40%;
+}
+
+.actividadesRecientes p{
+	width: 50%;
+	margin-left: 10em;
+}
+
+.actividadesFavoritas{
+	position: relative;
+	padding-top: 3em;
+	float: right;
+	width: 60%;
+}
+
+.actividadesFavoritas img{
+	width: 23%;
+}
+
+#bajo{
+	width: 100%;
+	background-color: red;
+}
+
+#detalle-oferta{
+	color: black;
+	margin-top: 10%;
+	margin-left: 30%;
+}
+
+#reserva-oferta{
+	color: black;
+	margin-left: 30%;
+
+}
+
+#acercade p{
+	width: 50%;
+	display: inline-block;
+	text-align: justify;
+	margin-right: 3em;
+}
+
+#acercade h3{
+	margin-left: -106rem;
+	margin-bottom: 1%;
+}
+
+
+#acercade {
+	padding-top: 3%;
+}
+
+
+.imgacerca{
+	width: 24%;
+	height: auto;
+	margin-bottom: 2%;
+	margin-top: -9%;
+	border-radius: 25px;
+	margin-right: 4%;
+}
+
+#funciona p{
+	width: 50%;
+	text-align: justify;
+}
+
+.funciona1{
+	display: flex;
+	float: left;
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-bottom: -10%;
+}
+.funciona1 img{
+	margin-right: 5em;
+	margin-top: 0;
+	border-radius: 15px;
+	position: relative;
+	float: left;
+	left: 0;
+	width: 15em;
+}
+
+.funciona2{
+	display: flex;
+	float: right;
+	margin-top: 13%;
+	margin-left: 10%;
+	margin-bottom: -5%;
+}
+.funciona2 img{
+	width: 32%;
+	height: 25%;
+	margin-right: 3%;
+	margin-left: 38px;
+	margin-top: 0;
+	border-radius: 30px;
+}
+
+.form_contact{
+	width: 60%;
+	margin-left: 20%;
+	margin-top: 5%;
+}
+
+
+.selectboton{
+	margin-left: 10%;
+	margin-top: 15%;
+	width: 80%;
+	display: inherit;
+
+}
+
+.selectboton input{
+	width: 28%;
+	height: 86px;
+	background-color: red;
+	color: white;
+	font-size: 1.5vw;
+	border-radius: 15px;
+	margin-top: -5%;
+	margin-left: 3%;
+	margin-right: 16%;
+	padding-left: 4%;
+	padding-right: 12%;
+}
+
+.selectboton img{
+	width: 36%;
+	margin-top: -12%;
+	margin-left: -2%;
+	margin-right: 12%;
+	margin-bottom: 4%;
+}
+
+.selectboton img:hover{
+	-webkit-transform: rotateY(180deg);
+	-webkit-transform-style: preserve-3d;
+	transform: rotateY(180deg);
+	transform-style: preserve-3d;
+}
+
+.destacada {
+	background: #71b2d0;
+}
+
+/* Sistema de puntuación y reseña */
+
+.rating {
+	--star-size: 3;  /* use CSS variables to calculate dependent dimensions later */
+	padding: 0;  /* to prevent flicker when mousing over padding */
+	border: none;  /* to prevent flicker when mousing over border */
+	unicode-bidi: bidi-override; direction: rtl;  /* for CSS-only style change on hover */
+	text-align: left;  /* revert the RTL direction */
+	user-select: none;  /* disable mouse/touch selection */
+	font-size: 3em;  /* fallback - IE doesn't support CSS variables */
+	font-size: calc(var(--star-size) * 1em);  /* because `var(--star-size)em` would be too good to be true */
+	cursor: pointer;
+	/* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+	margin-bottom: 1em;
+}
+/* the stars */
+.rating > label {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;  /* magic number to overlap the radio buttons on top of the stars */
+	width: calc(var(--star-size) / 3 * 1.1em);
+}
+.rating > *:hover,
+.rating > *:hover ~ label,
+.rating:not(:hover) > input:checked ~ label {
+	color: transparent;  /* reveal the contour/white star from the HTML markup */
+	cursor: inherit;  /* avoid a cursor transition from arrow/pointer to text selection */
+}
+.rating > *:hover:before,
+.rating > *:hover ~ label:before,
+.rating:not(:hover) > input:checked ~ label:before {
+	content: "★";
+	position: absolute;
+	left: 0;
+	color: gold;
+}
+.rating > input {
+	position: relative;
+	transform: scale(3);  /* make the radio buttons big; they don't inherit font-size */
+	transform: scale(var(--star-size));
+	/* the magic numbers below correlate with the font-size */
+	top: -0.5em;  /* margin-top doesn't work */
+	top: calc(var(--star-size) / 6 * -1em);
+	margin-left: -2.5em;  /* overlap the radio buttons exactly under the stars */
+	margin-left: calc(var(--star-size) / 6 * -5em);
+	z-index: 2;  /* bring the button above the stars so it captures touches/clicks */
+	opacity: 0;  /* comment to see where the radio buttons are */
+	font-size: initial; /* reset to default */
+}
+
+/* ------------------------------ */

@@ -1,6 +1,7 @@
  $(document).ready(function () {
-      $('.menuLogin').load('./components/menuLogin/menuLogin.html');
-      $('.menuPrincipalUser').load('./components/menuPrincipalUser/menuPrincipalUser.html');
-      $('.pie').load('./components/pie/pie.html');
-      $('.filtroBusqueda').load('./components/filtroBusqueda/filtroBusqueda.html');
+      $('.menuLogin').load('../components/index/menuLogin/menuLogin.php');
+      $('.menuPrincipalUser').load('./components/index/menuPrincipalUser/menuPrincipalUser.php');
+      $('.pie').load('./components/index/pie/pie.html');
+      $('.filtroBusqueda').load('./components/index/filtroBusqueda/filtroBusqueda.html');
+      $('.publicidad').load('./components/index/publicidad/publicidad.html')
     });

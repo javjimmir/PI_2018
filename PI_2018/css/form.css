@@ -1,75 +1,68 @@
-body, html{
-width: 100%;
-min-height: 100%;
-height: 100% !important;
-/*position: fixed;*/
-top:0;
-left:0;
-}
-
-body{
-
-	position: absolute;
-	background-color: #222;
-}
-
-header{
-	width: 100%;
-	height: 7.5%;
-	float: left;
-}
-
-section{
-	background-color: red;
-	width: 100%;
-	float: left;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #080808;
-}
-
-article{
-	background-color: white;
-	display: inline-block;
-    text-align: center;
-}
-
-footer{
-	width: 100%;
-	height: 5%;
-	float: left;
-}
-
-/*--IMAGENES--*/
 
 .login {
     width: 50%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
-input, select {
-    width: 70%;
+input, select{
+    width: 75%;
     padding: 12px 20px;
     margin: 8px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 25px;
     box-sizing: border-box;
+
 }
 
 
-#boton {
-    background-color: #4CAF50;
-	color: white;
-display: inline;
+input [type="text"]:focus, select:focus{
+	width: 75%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	background-color: #f2ffe6;
+	border-radius: 25px;
+	border-color: green;
+}
+
+
+.boton {
+	width: 10%;
+	display: inline;
+
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
 	cursor: pointer;
+	background: rgba(0,0,0,0);
+	color: #2a992c;
+	box-shadow: inset 0 0 0 3px #2a992c;
+}
+
+.boton:hover{
+	background-color: #5eaf69;
+	color: white;
+}
+
+.botones {
+	width: 20%;
+	display: inline;
+    color: #2a992c;
+    box-shadow: inset 0 0 0 3px #2a992c;;
+	padding: 14px 20px;
+	margin: 8px;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+.botones:hover{
+	background-color: #5eaf69;
+	color: white;
 }
 
 #captcha{
@@ -77,25 +70,33 @@ display: inline;
 	padding: 20px;
 	margin: auto;
 }
+form{
 
-form {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-	padding: 20px;
-	display: inline-block;
-	text-align: center;
-	width: 60%;
+}
+
+form label{
+	display: none;
+}
+
+form h1{
+	font-size: 36px;
+	color: #626267;
+	font-family: serif;
+}
+
+form a {
+	margin-left: 50%;
 }
 
 #form1{
-float: left;
-width: 50%;
-margin-bottom: 40px;
+	float: left;
+	width: 50%;
+	margin-bottom: 40px;
 }
 
 #form2{
-float: right;
-width: 50%;
+	float: right;
+	width: 50%;
 
 }
 
@@ -107,3 +108,82 @@ width: 50%;
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+#error-empre, #error-oferta{
+	width: 23%;
+	height: auto;
+	border: solid 3px rgb(255, 128, 128);
+	display: none;
+	position: absolute;
+	padding-top: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: -12%;
+	color: red;
+	font-size: 15px;
+	top: 84%;
+}
+
+
+#error-usu{
+	width: 23%;
+	height: auto;
+	border: solid 3px rgb(255, 128, 128);
+	display: none;
+	position: absolute;
+	padding-top: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: 8%;
+	color: red;
+	font-size: 15px;
+	top: 80%;
+}
+
+#error-login{
+	width: 23%;
+	height: auto;
+	border: solid 3px rgb(255, 128, 128);
+	display: none;
+	position: absolute;
+	padding-top: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: 8%;
+	color: red;
+	font-size: 15px;
+	top: 80%;
+}
+
+#form_contact{
+	margin-top: 8%;
+}
+#form_contact textarea{
+	width: 75%;
+	height: 75px;
+	border-radius: 20px;
+}
+
+#boton-contact{
+	width: 35%;
+
+	margin-top: 1%;
+	background: rgba(0,0,0,0);
+	color: #2a992c;
+	box-shadow: inset 0 0 0 3px #2a992c;
+}
+
+#boton-contact:hover{
+	background-color: #5eaf69;
+	color: white;
+}
+
+
+
+.fondo{
+	width: 100%;
+	height: auto;
+
+}
+
+
