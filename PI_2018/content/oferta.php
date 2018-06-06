@@ -30,9 +30,18 @@ include '../php/connection.php';
         <?php
         $id = $_GET['id'];
         $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
+        $sql_cont_reservas = "SELECT COUNT(*) as reservas, CAST(((SUM(valoracion))/COUNT(*)) as INT) as media FROM reserva WHERE id_oferta=".$id;
         $result = $conexion->query($sql_oferta);
+        $result2 = $conexion->query($sql_cont_reservas);
         $row = $result->fetch_assoc();
-        echo '<div id="detalle-oferta">';
+        $row2 = $result2->fetch_assoc();
+        $media = 0; 
+
+        if ($row2['media']!=null) {
+            $media = $row2['media'];
+        }
+
+        echo '<div>';
         echo "<p>AVISO: ESTA VISTA ES PROVISIONAL PARA EL DESARROLLO DEL BACK, UNA VEZ QUE ESTÉ TODO FUNCIONANDO PERFE SE PONDRÁ LA VISTA DEFINITIVA EN PLAN BONITO. NO NOS REPORTEIS PROFES.</p>";
         echo '<p> Nombre de la oferta: '.$row['nombre'].'</p>';
         echo '<p> Provincia: '.$row['provincia'].'</p>';
@@ -46,6 +55,8 @@ include '../php/connection.php';
         echo '<p> Categoría: '.$row['categoria'].'</p>';
         echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
         echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
+        echo '<p> Reservas realizadas: '.$row2['reservas'].'</p>';
+        echo '<p> Media de valoraciones: '.$media.'</p>';
         echo '</div>';
 
         ?>
