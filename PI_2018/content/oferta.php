@@ -47,69 +47,85 @@ include '../php/connection.php';
         echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
         echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
         echo '</div>';
-        if ($_SESSION['tipo'] === "usuario") {
-            //sacamos el nif del usuario que hace la reserva mediante la variable de sesión y también debemos multiplicar el precio de la oferta por el número de plazas que se vaya a reservar. En el caso de que l oferta no disponga del número de plazas que se va a solicitar peta y no te deja continuar. EL FORMULARIO HA DE SER VALIDADO PARA QUE SOLO ENTREN NÚMEROS.
-
-            /* El formulario solo aparecerá cuando no haya datos post y cuando el que ha iniciado sesión es un usuario.*/
-            if (!isset($_POST['plazas_reserva'])) {
-                ?>
-                <div id="reserva-oferta">
-                    <h2>HACER LA RESERVA</h2>
-                    <form method="POST">
-                        <label>Número de plazas que desea reservar:</label><br>
-                        <input required type="number" name="plazas_reserva" min="1" max=<?php echo $row['num_plazas'];?>><br>
-                        <label>¿Cuándo desea empezar la actividad?</label><br>
-
-                        <input required type="date" min="<?php echo $row['fecha_inicio'];?>" max="<?php echo $row['fecha_fin'];?>" name="fecha_reserva"><br>
-                        Escoja un día entre el <?php echo $row['fecha_inicio'];?> y el <?php echo $row['fecha_fin'];?><br>
-                        <input type="submit" name="enviar" value="Confirmar">
-                    </form>
-                </div>
-        <?php
-            } else {
-                $num_plazas = $row['num_plazas'];
-                // esta comprobación ya no es necesaria porque el formulario está validado y solo se puede escoger las plazas reservadas según dicta la oferta *juan*
-                /*if ( $_POST['plazas_reserva']<=0 || $num_plazas < $_POST['plazas_reserva']) {
-                    echo "ERROR: no se puede reservar porque no hay plazas suficientes";
-                }else{*/
-                    /* obtenemos el dni del usuario conectado */
-                    $sql_nif = "SELECT nif FROM usuario WHERE alias = '".$_SESSION['nombre']."'";
-                    $result_nif = $conexion->query($sql_nif);
-                    $row2 = $result_nif->fetch_assoc();
-                    $nif=$row2['nif'];
-
-                    /* obtenemos la fecha de hoy en el formato YY/MM/DD */
-
-                    /*$array_fecha = getdate();
-                    $year = $array_fecha['year'];
-                    $month = $array_fecha['mon'];
-                    $day = $array_fecha['mday'];
-                    $fecha = $year."-".$month."-".$day;*/
-
-
-                    /* Actualización: ahora la fecha_reserva  NO es el día que reserva el usuario, sino el día que el usuario elige para empezar la actividad */
-                    $insert_reserva = "INSERT INTO reserva (nif_usuario,id_oferta,fecha_reserva,num_plazas_reserva,coste_reserva)
-				VALUES('".$nif."',".$id.",'".$_POST['fecha_reserva']."',".$_POST['plazas_reserva'].",".$_POST['plazas_reserva']."*".$row['precio'].")";
-
-                    if ($conexion->query($insert_reserva) === TRUE) {
-                        echo 'Registro insertado correctamente';
-                        $sql_plazas = "UPDATE oferta SET num_plazas=num_plazas - ".$_POST['plazas_reserva']." WHERE id=".$id;
-                        $conexion->query($sql_plazas);
-                        echo '<a href="oferta.php?id='.$id.'">Volver</a>';
-                    } else {
-                        echo "Error: " . $insert_reserva . "<br>" . $conexion->error;
-                    }
-                //}
-            }
-        }
-
-        if ($_SESSION['tipo'] === "empresa") {
-            echo '<p>Solo los usuarios pueden realizar las reservas</p>';
-        }
 
         ?>
+
+        <!-- Modal que contiene el formulario de reserva de la actividad, al cual solo podemos acceder cuando se está logueado como usuario y no como empresa. -->
+        <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Reserva de actividad</h4>
+                    </div>
+                    <div class="modal-body">
+                        <?php
+                        $insert_correcto = 0;
+                        if (!isset($_POST['plazas_reserva'])) {
+                            ?>
+                            <div id="reserva-oferta">
+                                <h2>HACER LA RESERVA</h2>
+                                <form method="POST">
+                                    <label>Número de plazas que desea reservar:</label><br>
+                                    <input required type="number" name="plazas_reserva" min="1" max=<?php echo $row['num_plazas'];?>><br>
+                                    <label>¿Cuándo desea empezar la actividad?</label><br>
+
+                                    <input required type="date" min="<?php echo $row['fecha_inicio'];?>" max="<?php echo $row['fecha_fin'];?>" name="fecha_reserva"><br>
+                                    Escoja un día entre el <?php echo $row['fecha_inicio'];?> y el <?php echo $row['fecha_fin'];?><br>
+                                    <input type="submit" name="enviar" value="Confirmar">
+                                </form>
+                            </div>
+                        <?php 
+                            } else {
+                                $num_plazas = $row['num_plazas'];
+                                    $sql_nif = "SELECT nif FROM usuario WHERE alias = '".$_SESSION['nombre']."'";
+                                    $result_nif = $conexion->query($sql_nif);
+                                    $row2 = $result_nif->fetch_assoc();
+                                    $nif=$row2['nif'];
+                                    $insert_reserva = "INSERT INTO reserva (nif_usuario,id_oferta,fecha_reserva,num_plazas_reserva,coste_reserva)
+                                VALUES('".$nif."',".$id.",'".$_POST['fecha_reserva']."',".$_POST['plazas_reserva'].",".$_POST['plazas_reserva']."*".$row['precio'].")";
+
+                                    if ($conexion->query($insert_reserva) === TRUE) {
+                                        echo 'Registro insertado correctamente';
+                                        $sql_plazas = "UPDATE oferta SET num_plazas=num_plazas - ".$_POST['plazas_reserva']." WHERE id=".$id;
+                                        $conexion->query($sql_plazas);
+                                        $insert_correcto = 1;
+                                        echo '<a href="oferta.php?id='.$id.'">Volver</a>';
+                                    } else {
+                                        echo "Error: " . $insert_reserva . "<br>" . $conexion->error;
+                                        $insert_correcto = 2;
+                                    }
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <br><br>
         <a href="../index.php">Volver al index</a>
+        <br><br>
+
+        <?php 
+
+            /* Esto de mostrar el error así es un viaje de pachanguero, pero por ahora lo dejo así porque no se me ocurre otra forma. Fran */ 
+
+            if ($insert_correcto === 1) {
+                echo '<p>Registro insertado correctamente!!!</p>';
+            }
+
+            if ($insert_correcto === 2) {
+                echo '<p>Error al intentar hacer la reserva.</p>';
+            }
+
+            if ($_SESSION['tipo'] === "usuario") { 
+            echo '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
+                Realizar reserva
+            </button>';
+            }
+        ?>
     </article>
 </section>
 
