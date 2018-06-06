@@ -53,11 +53,11 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
 <section>
 <article>
 <?php
-      /* Se encarga de borrar el registro seleccionado pulsando el botón que tenemos en la tabla. Solo se puede borrar una oferta si esta no tiene reservas pendientes. */
+    /* Parte del código que se encarga de borrar una oferta siempre y cuando no tenga reservas asociadas */
     if(isset($_GET['aski']) == 'delete'){
         
         $id = mysqli_real_escape_string($conexion,(strip_tags($_GET["id"],ENT_QUOTES)));
-        $sql_reservas = "SELECT * FROM reserva WHERE id='$id'"; //comprobamos que no haya reservas.
+        $sql_reservas = "SELECT * FROM reserva WHERE id_oferta='$id'"; //comprobamos que no haya reservas.
         $comprobar = $conexion->query($sql_reservas);
         
         if ($comprobar->num_rows > 0) {
@@ -78,25 +78,25 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
 ?>
 </article>
 <article>
-    <h2 class="text-center">Administrac</h2><br/>
+    <h2 class="text-center">Administración de actividades</h2><br/>
     <div class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
         <tr>
-          <th>Nº</th>
+          <th>ID</th>
           <th>Actividad</th>
           <th>Tipo de actividad</th>
           <th>Localización</th>
           <th>Precio</th>
           <th>Inicio de la actividad</th>
           <th>Fin de la actividad</th>
+          <th>Nº de Reservas</th>
           <th>Dificultad</th>
           <th>Acciones</th>
         </tr>
         </thead>
 
         <?php
-        /* Este es el data-table que mostrará los datos de las actividades publicadas por la empresa.*/
         $sql_count = "SELECT * FROM oferta WHERE cif_empresa = (SELECT cif FROM empresa WHERE alias = '". $_SESSION['nombre']  ."')"; 
           $result = $conexion->query($sql_count);
 
@@ -112,15 +112,19 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
             echo '<tr><td colspan="8">No hay actividades.</td></tr>';
           }else{
           while($row = $result2->fetch_assoc()){
+            $sql_num_reservas = "SELECT * from reserva WHERE id_oferta = ".$row['id'];
+            $result3 = $conexion->query($sql_num_reservas);
+            $reservas = $result3->num_rows;
             echo '
             <tr>
-              <td>'.$no.'</td>
+              <td>'.$row['id'].'</td>                          
               <td>'.$row['nombre'].'</td>
               <td>'.$row['tipo_actividad'].'</td>
               <td>'.$row['localizacion'].'</td>
               <td>'.$row['precio'].' €</td>
               <td>'.$row['fecha_inicio'].'</td>
               <td>'.$row['fecha_fin'].'</td>
+              <td>'.$reservas.'</td>              
               <td>';
               if($row['dificultad'] == 'facil'){
                 echo '<span class="label label-success">Fácil</span>';
@@ -140,11 +144,10 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
  
                 <a href="oferta.php?id='.$row['id'].'" title="Ver" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
                 <a href="edit.php?id='.$row['id'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>                
-                <a href="activity_manager.php?aski=delete&id='.$row['id'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de que quiere anular la reserva?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a href="activity_manager.php?aski=delete&id='.$row['id'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de que quiere anular la oferta?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>
             </tr>
             ';
-            $no++;
           }
             $url = "activity_manager.php";
             echo '<p>';
@@ -177,9 +180,6 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
 
 </article>
 <article>
-<?php
-
-?>
 </article>
   
 </section>
