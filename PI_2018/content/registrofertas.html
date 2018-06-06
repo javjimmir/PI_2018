@@ -32,13 +32,12 @@
 
             <h1>REGISTRO DE OFERTAS</h1>
             <div id="form1">
-
-
                 <label>Nombre</label><br>
-                <input type="text" name="nombre" value="" placeholder="Nombre" id="nombre-ofe"><br>
+                <input type="text" name="nombre" value="" placeholder="NOMBRE" id="nombre-ofe" required><br>
 
                 <label>Provincia</label><br>
-                <select name="provincia-ofe" id="provincia-ofe">
+                <select name="provincia-ofe" id="provincia-ofe" required>
+                    <option value='PROVINCIA'>PROVINCIA</option>
                     <option value='alava'>Álava</option>
                     <option value='albacete'>Albacete</option>
                     <option value='alicante'>Alicante/Alacant</option>
@@ -96,29 +95,30 @@
                 <!--<input type="text" name="provincia" value="" placeholder="provincia" id="prov-usu"><br> -->
 
                 <label>Municipio</label><br>
-                <input type="text" name="municipio" value="" placeholder="" id="municipio-ofe"><br>
+                <input type="text" name="municipio" value="" placeholder="MUNICIPIO" id="municipio-ofe" required><br>
 
                 <label>Duración</label><br>
-                <input type="text" name="duracion" value="" placeholder="min" id="duracion"><br>
+                <input type="text" name="duracion" value="" placeholder="DURACIÓN EN MINUTOS" id="duracion" required><br>
 
                 <label>Número de plazas disponibles</label><br>
-                <input type="text" name="plazas" value="" id="plazas" placeholder="plazas individuales"><br>
+                <input type="text" name="plazas" value="" id="plazas" placeholder="Nº DE PLAZAS INDIVIDUALES" required><br>
 
                 <label>Tipo de actividad</label><br>
-                <input type="text" name="actividad" value="" placeholder="senderismo, puenting, surf, etc." id="actividad"><br>
+                <input type="text" name="actividad" value="" placeholder="TIPO DE ACTIVIDAD" id="actividad" required><br>
 
                 <label>Localizacion</label><br>
-                <input type="text" name="localizacion" id="Localizacion" value="" placeholder="Punto exacto del desarrollo de la actividad"><br>
+                <input type="text" name="localizacion" id="Localizacion" value="" placeholder="LOCALIZACIÓN EXACTA DE LA ACTIVIDAD" required><br>
 
                 <div id="error-oferta"></div>
 
             </div>
             <div id="form2">
                 <label>Precio</label><br>
-                <input type="text" name="precio" id="precio" value="" placeholder="€"><br>
+                <input type="text" name="precio" id="precio" value="" placeholder="PRECIO EN EUROS" required><br>
 
                 <label>Dificultad</label><br>
-                <select name="dificultad" id="categ-usu">
+                <select name="dificultad" id="categ-usu" required>
+                    <option value='DIFICULTAD'>DIFICULTAD</option>
                     <option value='facil'>Fácil</option>
                     <option value='media'>Media</option>
                     <option value='alta'>Alta</option>
@@ -126,7 +126,8 @@
                 </select><br>
 
                 <label>Seleccione una categoria de actividades</label><br>
-                <select name="categoria" id="categ-usu">
+                <select name="categoria" id="categ-usu" required>
+                    <option value='CATEGORÍS'>CATEGORIA</option>
                     <option value='agua'>Agua</option>
                     <option value='tierra'>Tierra</option>
                     <option value='aire'>Aire</option>
@@ -134,17 +135,16 @@
                 </select><br>
 
                 <label>Agregue una imagen</label>
-                <input name="file" type="file" size="2mb"><br/>
+                <input name="file" type="file" size="2mb" required><br/>
 
-                <label>Fecha Inicio de la oferta</label><br/>
-                <input name="inicio" id="date-ini" type="date"><br/>
+                <label class="labelfecha">Fecha Inicio de la oferta</label><br/>
+                <input name="inicio" id="date-ini" type="date" placeholder="FECHA INICIO DE LA OFERTA" required><br/>
 
-                <label>Fecha fin de la oferta</label><br/>
-                <input name="fin" id="date-fin" type="date"><br/>
+                <label class="labelfecha">Fecha fin de la oferta</label><br/>
+                <input name="fin" id="date-fin" type="date" placeholder="FECHA FINALIZACIÓN DE LA OFERTA" required><br/>
 
-                <label>Describa la oferta:</label><br/>
-                <textarea name="desc"></textarea>
-
+                <label >Describa la oferta:</label><br/>
+                <textarea name="desc" placeholder="DESCRIPCION DE LA ACTIVIDAD" id="desc-empresa" required></textarea>
 
                 <div>
                     <input id="enviar" type="submit" value="Enviar" class="botones">

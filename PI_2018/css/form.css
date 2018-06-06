@@ -18,6 +18,16 @@ input, select{
 
 }
 
+input[type=file] {
+	display: inline-block!important;
+	margin-top: 2%;
+}
+
+.labelfecha {
+	display: block;
+	margin-top: 2%;
+	margin-bottom: -1%;
+}
 
 input [type="text"]:focus, select:focus{
 	width: 75%;
@@ -109,7 +119,7 @@ form a {
     box-sizing: border-box;
 }
 
-#error-empre, #error-oferta{
+#error-empre{
 	width: 23%;
 	height: auto;
 	border: solid 3px rgb(255, 128, 128);
@@ -122,6 +132,21 @@ form a {
 	color: red;
 	font-size: 15px;
 	top: 84%;
+}
+
+#error-oferta{
+	width: 23%;
+	height: auto;
+	border: solid 3px rgb(255, 128, 128);
+	display: none;
+	position: absolute;
+	padding-top: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: 8%;
+	color: red;
+	font-size: 15px;
+	top: 80%;
 }
 
 
