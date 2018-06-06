@@ -143,7 +143,7 @@ if (isset($_GET['category'])) {
 			$count = 12;
 
 			if ($ofertas_encontradas == 0) {
-                echo '<div id="sin_ofertas"><p>NO HAY OFERTAS DISPONIBLES</p></div>';
+                echo '<div id="sin_ofertas"><p>No hay ofertas disponibles en estos momentos</p></div>';
             }
 
 

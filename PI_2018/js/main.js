@@ -62,10 +62,36 @@ $(document).ready(function () {
                     "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
             }
         });
-    })
+    });
+
+    /* Filtro por provincia */
+    $(".prov-filter").change(function() {
+        var provincia =  $(this).val();
+
+        $.post("php/filter.php", {provincia: provincia}, function (data) { // Le pasamos el tipo de actividad, que es lo que se procesará en servidor
+            $(".tabla").empty();
+            data = $.parseJSON(data);
+            num_ofertas = data.length;
+            if (num_ofertas > 0) {
+                for (var i = 0; i <= data.length-1; i++) {
+                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
+                        "<div class='row'>" + "<div class='col-lg-4'>" + "<img src='./img/submarinismo.jpg' alt='submarinismo' class='listImg'></div>" +
+                        "<div class='col-lg-8'>" +
+                        "<p id='nombre'>" + data[i].nombre + "</p>" +
+                        "<p id='actividad'>" + data[i].provincia + "</p>" +
+                        "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
+                        "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                        "<p id='precio'>" + data[i].precio + "€</p>"+
+                        "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
+                }
+            } else {
+                $(".tabla").append("<div id='sin_ofertas'><p>No hay ofertas disponibles en estos momentos</p></div>");
+            }
+        });
+    });
 
 
-        // Petición ajax que se lanza cuando se desliza la barra de precio
+    // Petición ajax que se lanza cuando se desliza la barra de precio
     $("#range").change(function() {
         if ($('.tipoact').is(':checked')) {     // Si tipo de actividad está marcada, se enviará con el post precio y actividad
             var precio = $("#number").val();
@@ -112,7 +138,7 @@ $(document).ready(function () {
                 }
             });
         }
-    })
+    });
     /**
      *
      *      Implementación de login por ajax.
