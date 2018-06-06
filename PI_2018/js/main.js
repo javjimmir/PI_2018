@@ -52,14 +52,21 @@ $(document).ready(function () {
             for (var i = 0; i <= data.length-1; i++) {
                 //console.log(data[i]);
                 $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                    "<div class='row'>" + "<div class='col-lg-4'>" + "<img src='./img/submarinismo.jpg' alt='submarinismo' class='listImg'></div>" +
-                    "<div class='col-lg-8'>" +
-                    "<p id='nombre'>" + data[i].nombre + "</p>" +
-                    "<p id='actividad'>" + data[i].provincia + "</p>" +
-                    "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
+                    "<figure class='snip1208'>"+
+  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  "<figcaption>"+
+  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
+
+                    
+                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
+                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                    "<p id='provincia'>" + data[i].provincia + "</p>" +
                     "<p id='dificultad'>" + data[i].dificultad + "</p>" +
                     "<p id='precio'>" + data[i].precio + "€</p>"+
-                    "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
+                    "<button>Ver actividad</button>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figure></div>");
             }
         });
     });
@@ -75,14 +82,21 @@ $(document).ready(function () {
             if (num_ofertas > 0) {
                 for (var i = 0; i <= data.length-1; i++) {
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<div class='row'>" + "<div class='col-lg-4'>" + "<img src='./img/submarinismo.jpg' alt='submarinismo' class='listImg'></div>" +
-                        "<div class='col-lg-8'>" +
-                        "<p id='nombre'>" + data[i].nombre + "</p>" +
-                        "<p id='actividad'>" + data[i].provincia + "</p>" +
-                        "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
-                        "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                        "<p id='precio'>" + data[i].precio + "€</p>"+
-                        "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
+                        "<figure class='snip1208'>"+
+  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  "<figcaption>"+
+  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
+
+                    
+                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
+                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                    "<p id='provincia'>" + data[i].provincia + "</p>" +
+                    "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                    "<p id='precio'>" + data[i].precio + "€</p>"+
+                    "<button>Ver actividad</button>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figure></div>");
                 }
             } else {
                 $(".tabla").append("<div id='sin_ofertas'><p>No hay ofertas disponibles en estos momentos</p></div>");
@@ -106,15 +120,23 @@ $(document).ready(function () {
                 for (var i = 0; i <= data.length - 1; i++) {
                     //console.log(data[i]);
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<div class='row'>" + "<div class='col-lg-4'>" + "<img src='./img/submarinismo.jpg' alt='submarinismo' class='listImg'></div>" +
-                        "<div class='col-lg-8'>" +
-                        "<p id='nombre'>" + data[i].nombre + "</p>" +
-                        "<p id='actividad'>" + data[i].provincia + "</p>" +
-                        "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
-                        "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                        "<p id='precio'>" + data[i].precio + "€</p>"+
-                        "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
+                        "<figure class='snip1208'>"+
+  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  "<figcaption>"+
+  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
+
+                    
+                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
+                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                    "<p id='provincia'>" + data[i].provincia + "</p>" +
+                    "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                    "<p id='precio'>" + data[i].precio + "€</p>"+
+                    "<button>Ver actividad</button>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figure></div>");
                 }
+                
             });
         } else {    // Si no hay tipo de actividad marcada, hará el post solo con el precio
             var precio = $("#number").val();
@@ -127,14 +149,21 @@ $(document).ready(function () {
                 for (var i = 0; i <= data.length - 1; i++) {
                     //console.log(data[i]);
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<div class='row'>" + "<div class='col-lg-4'>" + "<img src='./img/submarinismo.jpg' alt='submarinismo' class='listImg'></div>" +
-                        "<div class='col-lg-8'>" +
-                        "<p id='nombre'>" + data[i].nombre + "</p>" +
-                        "<p id='actividad'>" + data[i].provincia + "</p>" +
-                        "<p id='provincia'>" + data[i].tipo_actividad + "</p>" +
-                        "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                        "<p id='precio'>" + data[i].precio + "€</p>"+
-                        "<a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a></div></div>");
+                       "<figure class='snip1208'>"+
+  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  "<figcaption>"+
+  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
+
+                    
+                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
+                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                    "<p id='provincia'>" + data[i].provincia + "</p>" +
+                    "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                    "<p id='precio'>" + data[i].precio + "€</p>"+
+                    "<button>Ver actividad</button>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figure></div>");
                 }
             });
         }

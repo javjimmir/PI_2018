@@ -1,5 +1,4 @@
 aside{
-	/* background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */
 	background-color: #222;
 	/*border-style: solid;
 	border-width: 1px;
@@ -8,8 +7,8 @@ aside{
 
 aside > h2{
 	text-align: center;
-	color: white;
-	font-size: 1.2em;
+	color: #9d9d9d;
+	font-size: 1em;
 	font-weight: bold;
 }
 label {
@@ -20,8 +19,4 @@ form {
 }
 input, button {
 	color: black;
-}
-
-#quitarfiltros{
-	margin-top: 3em;
 }
