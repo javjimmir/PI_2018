@@ -12,7 +12,7 @@
 </head>
 	
 <body>
-	<h2>Filtros de Busqueda</h2>
+	<h2>Filtros de Búsqueda</h2><br>
 	<form method="post" id="myform"  class="form-group">
 		<label>Tipo actividad</label><br>
 		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  Submarinismo<br>
@@ -25,12 +25,12 @@
 
 		<label>Precio máximo</label><br>
 
-		<input class="form-control" type="number" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/> €
+		<input class="form-control" type="number" placeholder="€" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/> 
 		<br>
 		<input class="form-control" type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
 
         <br><label>Provincia</label><br>
-        <select name="prov-filter" class="prov-filter"style="color: black">
+        <select name="prov-filter" class="prov-filter form-control"style="color: black">
             <option value='alava' selected>Álava</option>
             <option value='albacete'>Albacete</option>
             <option value='alicante'>Alicante/Alacant</option>
