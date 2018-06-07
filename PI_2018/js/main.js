@@ -32,7 +32,7 @@ $(document).ready(function () {
     }
     // Redirección al registrarte. Obtiene si se ha registrado un usuario o empresa y realiza algunos efectos to guapos.
     if (getUrlParameter('register')) {
-        $("article").append("<p class='infomsg'>¡Registro completado! Ahora inicia sesión con tus datos</p>");
+        $("article").append("<p>¡Registro completado! Ahora inicia sesión con tus datos</p>");
         if (getUrlParameter('register') == 'user') {
             $("#user").prop( "checked", true );
         } else if(getUrlParameter('register') == 'company') {
@@ -40,26 +40,11 @@ $(document).ready(function () {
         }
     }
 
-    /* Bloque de mensajes de información relacionados con la actualización de imágenes en el perfil */
-
-    if (getUrlParameter('status') == 'success') {
-        $("article").append("<p class='infomsg'>¡Imagen actualizada con éxito!</p>");
-    } else if (getUrlParameter('status') == 'generic') {
-        $("article").append("<p class='infomsg'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</p>");
-    } else if (getUrlParameter('status') == 'fileformat') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</p>");
-    } else if (getUrlParameter('status') == 'filesizelimit') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</p>");
-    } else if (getUrlParameter('status') == 'unknown') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</p>");
-    } else if (getUrlParameter('status') == 'parameters') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</p>");
-    }
-
+    
 
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
-        //console.log(tipo_actividad)
+        console.log(tipo_actividad)
 
         /* Petición ajax que envía el tipo de actividad marcado */
 
@@ -82,7 +67,7 @@ $(document).ready(function () {
                     "<p id='dificultad'>" + data[i].dificultad + "</p>" +
                     "<p id='precio'>" + data[i].precio + "€</p>"+
                     "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
                     "</figure></div>");
             }
         });
@@ -112,7 +97,7 @@ $(document).ready(function () {
                     "<p id='dificultad'>" + data[i].dificultad + "</p>" +
                     "<p id='precio'>" + data[i].precio + "€</p>"+
                     "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
                     "</figure></div>");
                 }
             } else {
@@ -150,7 +135,7 @@ $(document).ready(function () {
                     "<p id='dificultad'>" + data[i].dificultad + "</p>" +
                     "<p id='precio'>" + data[i].precio + "€</p>"+
                     "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
                     "</figure></div>");
                 }
                 
@@ -179,7 +164,7 @@ $(document).ready(function () {
                     "<p id='dificultad'>" + data[i].dificultad + "</p>" +
                     "<p id='precio'>" + data[i].precio + "€</p>"+
                     "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'>Ver actividad</a>"+
+                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
                     "</figure></div>");
                 }
             });

@@ -234,23 +234,23 @@ if (isset($_GET['category'])) {
                                 $precio = $row_destacados['precio'];
                                 $dificultad = $row_destacados['dificultad'];
                                 echo '  <div class="col-lg-4 actividad destacada">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-                        </div>
-                        <div class="col-lg-8">
-                            <p id="nombre">' . $nombre . '</p>
-                            <p id="actividad">' . $actividad . '</p>
-                            <p id="provincia">' . $provincia . '</p>
-                            <p id="dificultad">' . $dificultad . '</p>
-                            <p id="precio">' . $precio . '€</p>
-                            <a href="content/oferta.php?id=' . $row_destacados['id'] . '">Ver actividad</a>
-                        </div>
-                    </div>
+                                <figure class="snip1208">
+                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+                      <figcaption>
+                        <h3 id="nombre">'.$nombre.'</h3>
+                        <p id="actividad">'.$actividad.'</p>
+                        <p id="provincia">'.$provincia.'</p>
+                        <p id="dificultad">'.$dificultad.'</p>
+                        <p id="precio">'.$precio.'€</p>
+                        <button>Ver actividad</button>
+                      </figcaption><a href="content/oferta.php?id=' . $row_destacados['id'] . '"></a>
+                    </figure>
                 </div>';
                             }
                         }
                     }
+                    echo "<h3>Ofertas</h3>";
                 }
 
 

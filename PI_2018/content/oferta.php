@@ -27,41 +27,114 @@ include '../php/connection.php';
 </aside>
 <section>
     <article>
+
+
         <?php
         $id = $_GET['id'];
         $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
-        $sql_cont_reservas = "SELECT COUNT(*) as reservas, CAST(((SUM(valoracion))/COUNT(*)) as INT) as media FROM reserva WHERE id_oferta=".$id;
+        //$sql_cont_reservas = "SELECT COUNT(*) as reservas, CAST(((SUM(valoracion))/COUNT(*)) as INT) as media FROM reserva WHERE id_oferta=".$id;
         $result = $conexion->query($sql_oferta);
-        $result2 = $conexion->query($sql_cont_reservas);
+        //$result2 = $conexion->query($sql_cont_reservas);
         $row = $result->fetch_assoc();
-        $row2 = $result2->fetch_assoc();
-        $media = 0; 
+        //$row2 = $result2->fetch_assoc();
+        //$media = 0; 
 
-        if ($row2['media']!=null) {
+        /*if ($row2['media']!=null) {
             $media = $row2['media'];
-        }
+        }*/
+
 
         echo '<div>';
-        echo "<p>AVISO: ESTA VISTA ES PROVISIONAL PARA EL DESARROLLO DEL BACK, UNA VEZ QUE ESTÉ TODO FUNCIONANDO PERFE SE PONDRÁ LA VISTA DEFINITIVA EN PLAN BONITO. NO NOS REPORTEIS PROFES.</p>";
-        echo '<p> Nombre de la oferta: '.$row['nombre'].'</p>';
-        echo '<p> Provincia: '.$row['provincia'].'</p>';
-        echo '<p> Municipio: '.$row['municipio'].'</p>';
-        echo '<p> Duración: '.$row['duracion'].'</p>';
-        echo '<p> Número de plazas disponibles: '.$row['num_plazas'].'</p>';
-        echo '<p> Tipo de actividad: '.$row['tipo_actividad'].'</p>';
-        echo '<p> Descripción: '.$row['descripcion'].'</p>';
-        echo '<p> Precio: '.$row['precio'].' €</p>';
-        echo '<p> Dificultad: '.$row['dificultad'].'</p>';
-        echo '<p> Categoría: '.$row['categoria'].'</p>';
-        echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
-        echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
-        echo '<p> Reservas realizadas: '.$row2['reservas'].'</p>';
-        echo '<p> Media de valoraciones: '.$media.'</p>';
+        
+        echo '<div class="table-title">
+				<h3>Reservas</h3>
+				</div>
+				<table class="table-fill">
+				<thead>
+				<tr>
+				<th class="text-left">Campo</th>
+				<th class="text-left">Información</th>
+				</tr>
+				</thead>';
+				echo '<tbody class="table-hover">';
+
+				echo '<tr>
+				<td class="text-left">Nombre de la oferta</td>
+				<td class="text-left">'.$row['nombre'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Provincia</td>
+				<td class="text-left">'.$row['provincia'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Municipio</td>
+				<td class="text-left">'.$row['municipio'].'</td>
+				</tr>';
+				echo '<tr>
+				<td class="text-left">Duración</td>
+				<td class="text-left">'.$row['duracion'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Número de plazas disponibles</td>
+				<td class="text-left">'.$row['num_plazas'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Tipo de actividad</td>
+				<td class="text-left">'.$row['tipo_actividad'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Descipción</td>
+				<td class="text-left">'.$row['descripcion'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Precio</td>
+				<td class="text-left">'.$row['precio'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Dificultad</td>
+				<td class="text-left">'.$row['dificultad'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Categoría</td>
+				<td class="text-left">'.$row['categoria'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Fecha de inicio</td>
+				<td class="text-left">'.$row['fecha_inicio'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Fecha de fin</td>
+				<td class="text-left">'.$row['fecha_fin'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Reservas realizadas</td>
+				<td class="text-left">'.$row['reservas'].'</td>
+				</tr>';
+
+				echo '<tr>
+				<td class="text-left">Media de valoraciones</td>
+				<td class="text-left">'.$media.'</td>
+				</tr>';
+				echo '</tbody>';
+				echo '</table>';
+      
         echo '</div>';
 
         ?>
 
         <!-- Modal que contiene el formulario de reserva de la actividad, al cual solo podemos acceder cuando se está logueado como usuario y no como empresa. -->
+        
         <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -116,8 +189,6 @@ include '../php/connection.php';
         </div>
 
         <br><br>
-        <a href="../index.php">Volver al index</a>
-        <br><br>
 
         <?php 
 
@@ -137,6 +208,10 @@ include '../php/connection.php';
             </button>';
             }
         ?>
+
+        <br><br>
+                <a class="btn btn-primary btn-lg" href="../index.php">Volver al index</a>
+        <br><br>
     </article>
 </section>
 

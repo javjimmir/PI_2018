@@ -9,6 +9,7 @@
             $nif = $_POST['dni'];
             $nombre = $_POST['nombreusuario'];
             $apellidos = $_POST['apellidos'];
+            //$alias = $_POST['username']; Se debería poder cambiar?
             $telefono = $_POST['telefono'];
             $actividad_favorita = $_POST['actfavorita'];
             $direccion = $_POST['direccion'];

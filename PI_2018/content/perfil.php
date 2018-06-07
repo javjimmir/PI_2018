@@ -102,12 +102,12 @@ if ($sesion == "usuario") {
     <div class="infoperfil">
       <div class="imgperfil">
           <?php $myfoto = $res[0]['imagen_perfil'];
-          echo "<img src='../img/$sesion/$myfoto' alt='Imagen de $username' />";?>
-          <form action="../php/upload.php" id="upfile" method='post' enctype="multipart/form-data">
-			<h3>Imagen de perfil</h3><br/>
-			<input type='file' name="upfile" id="upfile" required="" />
+          echo "<img src='../img/$myfoto' alt='Imagen de $username' />";?>
+          <form id="uploadForm" method='post' enctype="multipart/form-data">
+			<h3>Upload File</h3><br/>
+			<input type='file' name="upFile" id="upFile" required="" />
 			<br>
-			<input type='submit' value='Actualizar'/>
+			<input type='submit' value='Upload'/>
 			</form>
     </div>
       <div class="alias">
@@ -253,33 +253,31 @@ if ($sesion == "usuario") {
                      $sql_oferta = "SELECT * from oferta where id = '" . $row['id_oferta'] . "'";
                      $result2 = $conexion->query($sql_oferta);
                      $row2 = $result2->fetch_assoc();
+                     
                      echo '
      
       <div class="col-lg-4 actividad">
-              <div class="row">
-                <div class="col-lg-4">
-                  <img src="../img/submarinismo.jpg" alt="submarinismo" class="listImg">
-                </div>
-                <div class="col-lg-8">
-                    <p id="nombre_actividad">' . $row2['nombre'] . '</p>
+
+
+               <figure class="snip1208">
+                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
+                     <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+                     <figcaption>
+                      <p id="nombre_actividad">' . $row2['nombre'] . '</p>
                     <p id="tipo_actividad">' . $row2['tipo_actividad'] . '</p>
-                  <p id="coste_reserva">Te costó ' . $row['coste_reserva'] . '€</p>';
-
-                         echo ' 
-                   <p id="fecha_reserva">La hiciste el ' . $row['fecha_reserva'] . '</p>
-                   <p id="valoracion">Tu valoración fue de ' . $row['valoracion'] . '<em>/5</em></p>';
-
-
-                         echo '
-                  <a href="oferta.php?id=' . $row['id'] . '">Ver detalles</a>';
-                         echo '
-                </div>
-              </div>
+                  <p id="coste_reserva">Te costó ' . $row['coste_reserva'] . '€</p>
+                  <p id="fecha_reserva">La hiciste el ' . $row['fecha_reserva'] . '</p>
+                   <p id="valoracion">Tu valoración fue de ' . $row['valoracion'] . '<em>/5</em></p>
+                   <button>Ver actividad</button>
+                      </figcaption><a href="oferta.php?id=' . $row['id'] . '"></a>                     
             </div>';
                  }
              }
          }
          ?>
+         <br><br>
+
+         
 </article>
 
 	
