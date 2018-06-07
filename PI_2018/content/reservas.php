@@ -73,11 +73,10 @@ if (!isset($_SESSION['nombre'])) {
                $day = $array_fecha['mday'];
                $fecha_de_hoy = $year."-".$month."-".$day;
                $fecha_de_hoy = date("Y-m-d", strtotime($fecha_de_hoy)); // Convertimos al formato deseado.
-               //echo "Hoy: " . $fecha_de_hoy . " ----- " . "Expira: " . $fecha_expiracion_actividad;
+               //echo "Hoy: " . $fecha_de_hoy . " ----- " . "Fecha de reserva: " . $fecha_reserva . "Expira: " . $fecha_expiracion_actividad;
 
                // Si la fecha de hoy es mayor o igual a la fecha de expiración de la actividad, el usuario podrá valorar e incluir reseña. Tengo pensado hacerlo con AJAX
                // Para debugear, pon en fecha_de_hoy una fecha menor a la de expiración de la actividad :))
-
 
 
                /* Aquí debe ir una comprobación de si la reserva tiene las columnas reseña y valoración en NULL, que SE MUESTRE la encuesta. Si tiene otro valor NO se mostrará */
@@ -88,7 +87,7 @@ if (!isset($_SESSION['nombre'])) {
                $resultado=$conexion->query($sql_comprobacion_null);
                //echo "nif = " . $nif_usuario . " -- id_oferta = " . $id_oferta;
                if ($resultado->num_rows > 0) { // Si DEVUELVE una actividad con valores nulos, es que el user PUEDE rellenar la encuesta, así que se mostrará
-                   if ('2018-06-01' >= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calcula
+                   if ($fecha_reserva <= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calcula
                                                                       // si el día de hoy es mayor o IGUAL que la fecha de expiración, es entonces cuando se mostrará.  ?>
                        <div id="puntuacion">
                            <form id="form-rating" method="post">
@@ -149,14 +148,11 @@ if (!isset($_SESSION['nombre'])) {
 
                     ";
                }
-               //echo "Hoy -> " . $fecha_de_hoy . " Expiración -> " . $fecha_expiracion_actividad;
-
-
-               echo '
+               /*echo '
                <button>Ver actividad</button>
-                      </figcaption><a href="oferta.php?id='.$row['id_oferta'].'"></a>
-                    </figure>';
-              
+                      </figcaption>
+                    </figure><a href="oferta.php?id='.$row['id_oferta'].'"></a>';
+              */
                 echo '
             </div>
           </div>
