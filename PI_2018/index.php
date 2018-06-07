@@ -165,8 +165,6 @@ if (isset($_GET['category'])) {
             if (isset($_GET['load'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
-                    //$descripcion = substr($row['descripcion'], 0, 110);
-                    $descripcion=$row['descripcion'];
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
@@ -178,8 +176,6 @@ if (isset($_GET['category'])) {
   <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
-    <p id="descripcion">'.$descripcion.'</p>
-
     <p id="actividad">'.$actividad.'</p>
     <p id="provincia">'.$provincia.'</p>
     <p id="dificultad">'.$dificultad.'</p>
@@ -192,35 +188,75 @@ if (isset($_GET['category'])) {
             } else if (isset($_GET['category'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
-                    //$descripcion = substr($row['descripcion'], 0, 110);
-                    $descripcion=$row['descripcion'];
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
-                                       <figure class="snip1208">
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
-  <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
-  <figcaption>
-    <h3 id="nombre">'.$nombre.'</h3>
-    <p id="descripcion">'.$descripcion.'</p>
-
-    <p id="actividad">'.$actividad.'</p>
-    <p id="provincia">'.$provincia.'</p>
-    <p id="dificultad">'.$dificultad.'</p>
-    <p id="precio">'.$precio.'€</p>
-    <button>Ver actividad</button>
-  </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
-</figure>
-                </div>';
+                                                           <figure class="snip1208">
+                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+                      <figcaption>
+                        <h3 id="nombre">'.$nombre.'</h3>
+                        <p id="actividad">'.$actividad.'</p>
+                        <p id="provincia">'.$provincia.'</p>
+                        <p id="dificultad">'.$dificultad.'</p>
+                        <p id="precio">'.$precio.'€</p>
+                        <button>Ver actividad</button>
+                      </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+                    </figure>
+                    </div>';
                 }
             } else {
+
+
+                /**
+                 *
+                 * Bloque de actividades recomendadas para el usuario.
+                 * En este bloque aparecerán 3 ofertas recomendadas para el usuario, según su categoría marcada como favorita al registrarse.
+                 *
+                 */
+                if (isset($_SESSION['nombre']) && $_SESSION['tipo'] === 'usuario') { // Si hay un usuario conectado y es de tipo usuario...
+                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND() ";
+                    $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
+                    $fila_destacados = $row_destacados = $result->fetch_assoc();
+                    $ofertas_destacadas_encontradas = $result->num_rows;
+                    $count = 9;
+                    if ($ofertas_destacadas_encontradas > 0) { // Si no existen actividades con la categoría favorita del user (mínimo 1), no saldrá el cuadro de DESTACADOS!!
+                        if (isset($_SESSION['nombre'])) {
+                            echo "<h3>Destacadas</h3>";
+                            for ($i = 1; $i <= 3; $i++) {
+                                $row_destacados = $result_destacados->fetch_assoc();
+                                $nombre = $row_destacados['nombre'];
+                                $provincia = $row_destacados['provincia'];
+                                $actividad = $row_destacados['tipo_actividad'];
+                                $precio = $row_destacados['precio'];
+                                $dificultad = $row_destacados['dificultad'];
+                                echo '  <div class="col-lg-4 actividad destacada">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
+                        </div>
+                        <div class="col-lg-8">
+                            <p id="nombre">' . $nombre . '</p>
+                            <p id="actividad">' . $actividad . '</p>
+                            <p id="provincia">' . $provincia . '</p>
+                            <p id="dificultad">' . $dificultad . '</p>
+                            <p id="precio">' . $precio . '€</p>
+                            <a href="content/oferta.php?id=' . $row_destacados['id'] . '">Ver actividad</a>
+                        </div>
+                    </div>
+                </div>';
+                            }
+                        }
+                    }
+                }
+
+
+
                 for ($i = 1; $i <= $count; $i++) {
                     $row = $result->fetch_assoc();
-                    //$descripcion = substr($row['descripcion'], 0, 110);
-                    $descripcion=$row['descripcion'];
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
@@ -232,8 +268,6 @@ if (isset($_GET['category'])) {
   <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
-    <p id="descripcion">'.$descripcion.'</p>
-
     <p id="actividad">'.$actividad.'</p>
     <p id="provincia">'.$provincia.'</p>
     <p id="dificultad">'.$dificultad.'</p>
