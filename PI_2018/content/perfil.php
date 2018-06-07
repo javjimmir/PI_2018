@@ -11,6 +11,7 @@ $sesion = $_SESSION['tipo'];
 /* Comprobamos si es usuario o empresa */
 if ($sesion == "usuario") {
     $sql = "select * from usuario where alias = " . "'$username'";
+    $sql_actividades_recientes = "select * from reserva where nif_usuario = (select nif from usuario where alias = '$username') ORDER BY fecha_reserva DESC LIMIT 3;";
     $resultado = $conexion->query($sql);
     $res = [];
     while($row = $resultado->fetch_object()){
@@ -70,8 +71,8 @@ if ($sesion == "usuario") {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
-    <script src="../js/aws_config.js"></script>
-    <script src="../js/s3_upload.js"></script>
+    <!--<script src="../js/aws_config.js"></script> COMENTADO PORQUE NO HACE FALTA Y DA 404 EN EL NAVEGADOR-->
+    <!--<script src="../js/s3_upload.js"></script>-->
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_usu.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
@@ -108,11 +109,6 @@ if ($sesion == "usuario") {
 			<br>
 			<input type='submit' value='Upload'/>
 			</form>
-     <!-- <button type="button" class="btn btn-info">Subir</button> -->
-      <div class="actividadesRecientes">
-              <h4>Mis actividades Recientes</h4> </br>
-              <p>Ese hombree no puedor torpedo papaar papaar me cago en tus muelas qué dise usteer la caidita a gramenawer. Diodeno ese pedazo de hasta luego Lucas amatomaa torpedo te va a hasé pupitaa de la pradera. Se calle ustée llevame al sircoo diodeno tiene musho peligro. Me cago en tus muelas por la gloria de mi madre</p>
-              </div>
     </div>
       <div class="alias">
           <h2><?php echo $res[0]['alias'];?></h2>
@@ -226,7 +222,7 @@ if ($sesion == "usuario") {
               	  		<div class='infoperfilde'><input type=\"password\" name=\"password\" disabled class=\"config\" value=></div>
 
               	  		<div class='infoperfiliz'><label>Nueva contraseña: </label></div>
-              	  		<div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-empresa\" required><</div>
+              	  		<div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-empresa\" required></div>
 
               	  		<div class='infoperfiliz'><label>COnfirmar nueva contraseña: </label></div>
               	  		<div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-empresa\" required>
@@ -244,14 +240,46 @@ if ($sesion == "usuario") {
           </div>
 </br>
         </div>
-         
-            <div class="actividadesFavoritas">
-            <h4>Mis actividades Favoritas</h4> </br>
-                <img src="http://s.newsweek.com/sites/www.newsweek.com/files/styles/embed-lg/public/2018/03/21/vladimir-putin-satan-2.jpg" alt="Mountain View">
-                <img src="http://s.newsweek.com/sites/www.newsweek.com/files/styles/embed-lg/public/2018/03/21/vladimir-putin-satan-2.jpg" alt="Mountain View">
-                <img src="http://s.newsweek.com/sites/www.newsweek.com/files/styles/embed-lg/public/2018/03/21/vladimir-putin-satan-2.jpg" alt="Mountain View">
-           </div>
-       
+         <?php
+         if ($sesion == 'usuario') {
+             /* Consulta para últimas actividades o actividades recientes */
+             $result = $conexion->query($sql_actividades_recientes);
+             if ($result->num_rows === 0) {
+                 echo '<p class="text-center">No has participado en actividades aún :(</p>';
+             } else {
+                 $resultado_ult_act = $conexion->query($sql_actividades_recientes); // Con esta query sacamos las ofertas asociadas al usuario logueado.
+                 echo ' <h4>Actividades recientes</h4>';
+                 while ($row = $resultado_ult_act->fetch_assoc()) {
+                     $sql_oferta = "SELECT * from oferta where id = '" . $row['id_oferta'] . "'";
+                     $result2 = $conexion->query($sql_oferta);
+                     $row2 = $result2->fetch_assoc();
+                     echo '
+     
+      <div class="col-lg-4 actividad">
+              <div class="row">
+                <div class="col-lg-4">
+                  <img src="../img/submarinismo.jpg" alt="submarinismo" class="listImg">
+                </div>
+                <div class="col-lg-8">
+                    <p id="nombre_actividad">' . $row2['nombre'] . '</p>
+                    <p id="tipo_actividad">' . $row2['tipo_actividad'] . '</p>
+                  <p id="coste_reserva">Te costó ' . $row['coste_reserva'] . '€</p>';
+
+                         echo ' 
+                   <p id="fecha_reserva">La hiciste el ' . $row['fecha_reserva'] . '</p>
+                   <p id="valoracion">Tu valoración fue de ' . $row['valoracion'] . '<em>/5</em></p>';
+
+
+                         echo '
+                  <a href="oferta.php?id=' . $row['id'] . '">Ver detalles</a>';
+                         echo '
+                </div>
+              </div>
+            </div>';
+                 }
+             }
+         }
+         ?>
 </article>
 
 	
