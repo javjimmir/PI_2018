@@ -20,7 +20,7 @@
 	$precio = $_POST['precio'];
 	$dificultad = $_POST['dificultad'];
 	$categoria = $_POST['categoria'];
-	$img = "ruta de la imagen";
+	$img = "submarinismo.jpg";
 	$fecha_inicio = $_POST['inicio'];
 	$fecha_fin = $_POST['fin'];
 	$descripcion = $_POST['desc'];
