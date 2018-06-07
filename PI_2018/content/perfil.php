@@ -116,125 +116,157 @@ if ($sesion == "usuario") {
           <h2><?php echo $res[0]['alias'];?></h2>
           <h4> Información personal </h4>
           <div id="lista">
-              <?php
+             <?php
               // Formulario dinámico que depende de si es usuario o empresa.
                 // Cada formulario se divide en dos secciones: perfil y configuración.
               if ($sesion == "usuario") {
-              	echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
-              	<div class='infoperfiliz'><label>Nombre: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value={$res[0]['nombre']} id='nombre-usu' required></div>
+                echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
+                <div class='filainfo'>
+                <div class='infoperfiliz'><label>Nombre: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value={$res[0]['nombre']} id='nombre-usu' required></div>
+                </div>
+                  <div class='filainfo'>
+                <div class='infoperfiliz'><label>Apellidos: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"apellidos\" disabled class=\"perfil\" value={$res[0]['apellidos']} id=\"apellidos-usu\" required></div>
+                  </div>
+                  <div class='filainfo'>
+                <div class='infoperfiliz'><label>Teléfono: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value={$res[0]['telefono']} id=\"tel-usu\" required></div>
+                </div>
 
-              	<div class='infoperfiliz'><label>Apellidos: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"apellidos\" disabled class=\"perfil\" value={$res[0]['apellidos']} id=\"apellidos-usu\" required></div>
-
-              	<div class='infoperfiliz'><label>Teléfono: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value={$res[0]['telefono']} id=\"tel-usu\" required></div>
-
-              	<div class='infoperfiliz'><label>Calle: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"direccion\" disabled class=\"perfil\" value={$res[0]['direccion']} id=\"direccion-usu\" required></div>
-
-              	<div class='infoperfiliz'><label>Provincia: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']} id=\"provincia-usu\" required></div>
-
-              	<div class='infoperfiliz'><label>CP: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']} id=\"cp-usuario\" required></div>
-
-              	<div class='infoperfiliz'><label>Pais: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']} id=\"pais-usu\" required></div>
-
-              	<div class='infoperfiliz'><label>Correo: </label></div>
-              	<div class='infoperfilde'><input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']} id=\"mail-usu\" required>
+<div class='filainfo'>
+                <div class='infoperfiliz'><label>Calle: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"direccion\" disabled class=\"perfil\" value={$res[0]['direccion']} id=\"direccion-usu\" required></div>
+</div>
+<div class='filainfo'>
+                <div class='infoperfiliz'><label>Provincia: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value={$res[0]['provincia']} id=\"provincia-usu\" required></div>
+<div>
+<div class='filainfo'>
+                <div class='infoperfiliz'><label>CP: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"cp\" disabled class=\"perfil\" value={$res[0]['cp']} id=\"cp-usuario\" required></div>
+</div>
+<div class='filainfo'>
+                <div class='infoperfiliz'><label>Pais: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"pais\" disabled class=\"perfil\" value={$res[0]['pais']} id=\"pais-usu\" required></div>
+</div>
+<div class='filainfo'>
+                <div class='infoperfiliz'><label>Correo: </label></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"email\" disabled class=\"perfil\" value={$res[0]['email']} id=\"mail-usu\" required>
                   <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
                   <input type=\"hidden\" name=\"seccion\" disabled class=\"perfil\" value='perfil'><br>
                   <input type=\"hidden\" name=\"dni\" disabled class=\"perfil\" value={$res[0]['nif']}></div>
-
-              	<div class='infoperfiliz'><button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-              	<div class='infoperfilde'><button type=\"submit\" id='saveperfil' disabled class=\"btn btn-info\">Guardar</button></div>
-              	
-              	
+                  </div>
+<div class='filainfo'>
+                <div class='infoperfiliz'><button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
+                <div class='infoperfilde'><button type=\"submit\" id='saveperfil' disabled class=\"btn btn-info\">Guardar</button></div>
+                
+                </div>
                     
-                  <h4>Datos de acceso</h4>
-
+                  <div class='filainfo'><h4>Datos de acceso</h4></div>
+<div class='filainfo'>
                   <div class='infoperfiliz'><label>Contraseña: </label></div>
-              	  <div class='infoperfilde'><input type=\"password\" name=\"password\" disabled class=\"config\" value=><br></div>
-
-              	  <div class='infoperfiliz'><label>Nueva contraseña: </label></div>
-              	  <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-usu\" required></div>
-
-              	  <div class='infoperfiliz'><label>Confirmar contraseña: </label></div>
-              	  <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-usu\" required>
+                  <div class='infoperfilde'><input type=\"password\" name=\"password\" disabled class=\"config\" value=><br></div>
+                  </div>
+<div class='filainfo'>
+                  <div class='infoperfiliz'><label>Nueva contraseña: </label></div>
+                  <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-usu\" required></div>
+</div>
+<div class='filainfo'>
+                  <div class='infoperfiliz'><label>Confirmar contraseña: </label></div>
+                  <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-usu\" required>
                   <input type=\"hidden\" name=\"sesion\" disabled class=\"config\" value={$sesion}>
                   <input type=\"hidden\" name=\"seccion\" disabled class=\"config\" value='config'>
                   <input type=\"hidden\" name=\"dni\" disabled class=\"config\" value={$res[0]['nif']}></div>
-
+                  </div>
+<div class='filainfo'>
                   <div class='infoperfiliz'><button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-              	  <div class='infoperfilde'><button type=\"submit\" id='saveconfig' disabled class=\"btn btn-info\">Guardar</button></div>
+                  <div class='infoperfilde'><button type=\"submit\" id='saveconfig' disabled class=\"btn btn-info\">Guardar</button></div>
+                  </div>
                   
               </form>";
               } else {
                   echo
 
                   "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Nombre: </label></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"nombreempresa\" id='nombre-empresa' disabled class=\"perfil\" value={$res[0]['nombre']} required></div>
+</div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Teléfono: </label></div>
+                      <div class='infoperfilde'><input type=\"tel\" name=\"telefono\" id='tel-empresa' disabled class=\"perfil\" value={$res[0]['telefono']} required></div>
+                      </div>
 
-                  		<div class='infoperfiliz'><label>Nombre: </label></div>
-              	  		<div class='infoperfilde'><input type=\"text\" name=\"nombreempresa\" id='nombre-empresa' disabled class=\"perfil\" value={$res[0]['nombre']} required></div>
+                      <div class='filainfo'>
 
-              	  		<div class='infoperfiliz'><label>Teléfono: </label></div>
-              	  		<div class='infoperfilde'><input type=\"tel\" name=\"telefono\" id='tel-empresa' disabled class=\"perfil\" value={$res[0]['telefono']} required></div>
+                      <div class='infoperfiliz'><label>Tipo de actividad: </label></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"tipoactividad\" id=\"busqueda_provincia\" disabled class=\"perfil\" value={$res[0]['tipo_actividad']} required></div>
+                      </div>
 
-              	  		<div class='infoperfiliz'><label>Tipo de actividad: </label></div>
-              	  		<div class='infoperfilde'><input type=\"text\" name=\"tipoactividad\" id=\"busqueda_provincia\" disabled class=\"perfil\" value={$res[0]['tipo_actividad']} required></div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Descripción: </label></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"descripcion\" id=\"desc-empresa\" disabled class=\"perfil\" value={$res[0]['descripcion']} required></div>
+                      </div>
 
-              	  		<div class='infoperfiliz'><label>Descripción: </label></div>
-              	  		<div class='infoperfilde'><input type=\"text\" name=\"descripcion\" id=\"desc-empresa\" disabled class=\"perfil\" value={$res[0]['descripcion']} required></div>
-
-              	  		<div class='infoperfiliz'><label>Web: </label></div>
-              	  		<div class='infoperfilde'><input type=\"text\" name=\"web\"  id=\"web-empresa\" disabled class=\"perfil\" value={$res[0]['web']} required></div>
-
-              	  		<div class='infoperfiliz'><label>Provincia: </label></div>
-              	  		<div class='infoperfilde'><input type=\"text\" name=\"provincia\" id=\"provincia-empresa\" disabled class=\"perfil\" value={$res[0]['provincia']} required></div>
-
-              	  		<div class='infoperfiliz'><label>Código postal: </label></div>
-              	  		<div class='infoperfilde'><input type=\"text\" name=\"cp\" id=\"cp-empresa\" disabled class=\"perfil\" value={$res[0]['cp']} required></div>
-
-              	  		<div class='infoperfiliz'><label>Pais: </label></div>
-              	  		<div class='infoperfilde'><input type=\"text\" name=\"pais\" id=\"pais-empresa\" disabled class=\"perfil\" value={$res[0]['pais']} required><br></div>
-
-              	  		<div class='infoperfiliz'><label>Correo electrónico: </label></div>
-              	  		<div class='infoperfilde'> <input type=\"text\" name=\"email\" id=\"mail-empresa\" disabled class=\"perfil\" value={$res[0]['email']} required>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Web: </label></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"web\"  id=\"web-empresa\" disabled class=\"perfil\" value={$res[0]['web']} required></div>
+                      </div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Provincia: </label></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"provincia\" id=\"provincia-empresa\" disabled class=\"perfil\" value={$res[0]['provincia']} required></div>
+</div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Código postal: </label></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"cp\" id=\"cp-empresa\" disabled class=\"perfil\" value={$res[0]['cp']} required></div>
+                      </div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Pais: </label></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"pais\" id=\"pais-empresa\" disabled class=\"perfil\" value={$res[0]['pais']} required><br></div>
+                      </div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Correo electrónico: </label></div>
+                      <div class='infoperfilde'> <input type=\"text\" name=\"email\" id=\"mail-empresa\" disabled class=\"perfil\" value={$res[0]['email']} required>
                       <input type=\"hidden\" name=\"sesion\" disabled class=\"perfil\" value={$sesion}><br>
                       <input type=\"hidden\" name=\"seccion\" disabled class=\"perfil\" value='perfil'><br>
                       <input type=\"hidden\" name=\"cif\" disabled class=\"perfil\" value={$res[0]['cif']}></div>
+                      </div>
+                      <div class='filainfo'>
 
                       <div class='infoperfiliz'><button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-              		  <div class='infoperfilde'><button type=\"submit\" disabled id='saveperfil' class=\"btn btn-info\">Guardar</button> </div>
+                    <div class='infoperfilde'><button type=\"submit\" disabled id='saveperfil' class=\"btn btn-info\">Guardar</button> </div>
+                    </div>
 
-              		  <span id=\"error-empre\" class='error-login'>
+                    <span id=\"error-empre\" class='error-login'>
 
                         </span>
                      
                   </form>
                   
-                  <h4>Cambiar la contraseña</h4>
+                  <div class='filainfo'><h4>Cambiar la contraseña</h4></div>
                   
                   <form id=\"config_empresa\" action=\"../php/update_profile.php\" method=\"post\">
 
-
-                  		<div class='infoperfiliz'><label>Contraseña actual: </label></div>
-              	  		<div class='infoperfilde'><input type=\"password\" name=\"password\" disabled class=\"config\" value=></div>
-
-              	  		<div class='infoperfiliz'><label>Nueva contraseña: </label></div>
-              	  		<div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-empresa\" required></div>
-
-              	  		<div class='infoperfiliz'><label>COnfirmar nueva contraseña: </label></div>
-              	  		<div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-empresa\" required>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Contraseña actual: </label></div>
+                      <div class='infoperfilde'><input type=\"password\" name=\"password\" disabled class=\"config\" value=></div>
+</div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>Nueva contraseña: </label></div>
+                      <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-empresa\" required></div>
+                      </div>
+<div class='filainfo'>
+                      <div class='infoperfiliz'><label>COnfirmar nueva contraseña: </label></div>
+                      <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-empresa\" required>
                       <input type=\"hidden\" name=\"sesion\" disabled class=\"config\" value={$sesion}><br>
                       <input type=\"hidden\" name=\"cif\" disabled class=\"config\" value={$res[0]['cif']}>
                       <input type=\"hidden\" name=\"seccion\" disabled class=\"config\" value='config'><br></div>
-
+</div>
+<div class='filainfo'>
                       <div class='infoperfiliz'><button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-              		  <div class='infoperfilde'><button type=\"submit\" disabled id='saveconfig' class=\"btn btn-info\">Guardar</button></div>
-                      
+                    <div class='infoperfilde'><button type=\"submit\" disabled id='saveconfig' class=\"btn btn-info\">Guardar</button></div>
+                      </div>
                   </form>";
               }
               ?>
