@@ -91,11 +91,13 @@ if ($sesion == "usuario") {
 
     <?php
         /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito HAY QUE APLICAR ESTILO */
-        if ($_GET['confirmation'] == 'succeed') {
+    if (isset($_GET['confirmation'])) {
+        if ($_GET['confirmation'] == 'success') {
             echo "<p id='confirmed'>¡Perfil actualizado con éxito!</p>";
         } else if ($_GET['confirmation'] == 'password') {
             echo "<p id='passworderror'>¡La contraseña actual es incorrecta!</p>";
         }
+    }
     ?>
 
     <h2 class="text-center titulo">Perfil de <?php echo $sesion ?></h2>

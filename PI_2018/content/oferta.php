@@ -94,12 +94,12 @@ include '../php/connection.php';
 
 				echo '<tr>
 				<td class="text-left">Precio</td>
-				<td class="text-left">'.$row['precio'].'</td>
+				<td class="text-left">'.$row['precio'].'€</td>
 				</tr>';
 
 				echo '<tr>
 				<td class="text-left">Dificultad</td>
-				<td class="text-left">'.$row['dificultad'].'</td>
+				<td class="text-left">'.$row['dificultad']. '</td>
 				</tr>';
 
 				echo '<tr>
@@ -117,15 +117,11 @@ include '../php/connection.php';
 				<td class="text-left">'.$row['fecha_fin'].'</td>
 				</tr>';
 
-				echo '<tr>
-				<td class="text-left">Reservas realizadas</td>
-				<td class="text-left">'.$row['reservas'].'</td>
-				</tr>';
-
-				echo '<tr>
+				/*echo '<tr>
 				<td class="text-left">Media de valoraciones</td>
 				<td class="text-left">'.$media.'</td>
 				</tr>';
+				*/
 				echo '</tbody>';
 				echo '</table>';
       
