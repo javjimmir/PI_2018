@@ -41,18 +41,16 @@ if (!isset($_SESSION['nombre'])) {
           
           if ($result->num_rows === 0) {
             echo '<p class="text-center">No hay registros para mostrar</p>';
-          }else{
-            
+          }else{ 
            while($row = $result->fetch_assoc()) {
                 $sql_oferta = "SELECT * from oferta where id = '".$row['id_oferta']."'";
                 $result2 = $conexion->query($sql_oferta);
                 $row2 = $result2->fetch_assoc();
                 echo '  <div class="col-lg-4 actividad">
-          <div class="row">
-            <div class="col-lg-4">
-              <img src="../img/submarinismo.jpg" alt="submarinismo" class="listImg">
-            </div>
-            <div class="col-lg-8">
+         <figure class="snip1208">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      
+                      <figcaption>
                 <p id="nombre_actividad">'.$row2['nombre'].'</p>
                 <p id="tipo_actividad">'.$row2['tipo_actividad'].'</p>
               <p id="coste_reserva">Coste: '.$row['coste_reserva'].'€</p>';
@@ -147,13 +145,18 @@ if (!isset($_SESSION['nombre'])) {
                        <?php
                    }
                } else {
-                    echo "<span id='voted'><p>Ya has evaluado esta actividad</p><img width='30' src=\"../img/tick.png\"></span><br>";
+                    echo "<span id='voted'><p>Ya has evaluado esta actividad</p><img width='30' src=\"../img/tick.png\"></span><br>
+
+                    ";
                }
                //echo "Hoy -> " . $fecha_de_hoy . " Expiración -> " . $fecha_expiracion_actividad;
 
 
                echo '
-              <a href="oferta.php?id='.$row['id_oferta'].'">Ver actividad</a>';
+               <button>Ver actividad</button>
+                      </figcaption><a href="oferta.php?id='.$row['id_oferta'].'"></a>
+                    </figure>';
+              
                 echo '
             </div>
           </div>

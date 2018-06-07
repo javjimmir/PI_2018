@@ -87,7 +87,7 @@ if ($sesion == "usuario") {
 <section>
 <article>
 </article>
-<article>
+<article style="background-color: #f5f5f0;">
 
     <?php
         /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito HAY QUE APLICAR ESTILO */
@@ -248,7 +248,7 @@ if ($sesion == "usuario") {
                  echo '<p class="text-center">No has participado en actividades aún :(</p>';
              } else {
                  $resultado_ult_act = $conexion->query($sql_actividades_recientes); // Con esta query sacamos las ofertas asociadas al usuario logueado.
-                 echo ' <h4>Actividades recientes</h4>';
+                 echo ' <br><br><br><h4>Actividades recientes</h4>';
                  while ($row = $resultado_ult_act->fetch_assoc()) {
                      $sql_oferta = "SELECT * from oferta where id = '" . $row['id_oferta'] . "'";
                      $result2 = $conexion->query($sql_oferta);
@@ -261,7 +261,7 @@ if ($sesion == "usuario") {
 
                <figure class="snip1208">
                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
-                     <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+                     
                      <figcaption>
                       <p id="nombre_actividad">' . $row2['nombre'] . '</p>
                     <p id="tipo_actividad">' . $row2['tipo_actividad'] . '</p>

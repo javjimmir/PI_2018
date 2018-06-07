@@ -70,7 +70,7 @@ $(document).ready(function () {
                 $(".tabla").append("<div class='col-lg-4 actividad'>" +
                     "<figure class='snip1208'>"+
   "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
-  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
 
@@ -100,7 +100,7 @@ $(document).ready(function () {
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
                         "<figure class='snip1208'>"+
   "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
-  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
 
@@ -138,7 +138,7 @@ $(document).ready(function () {
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
                         "<figure class='snip1208'>"+
   "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
-  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
 
@@ -167,7 +167,7 @@ $(document).ready(function () {
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
                        "<figure class='snip1208'>"+
   "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
-  "<div class='date'><span class='day'>28</span><span class='month'>Oct</span></div><i class='ion-film-marker'></i>"+
+  
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
 

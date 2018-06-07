@@ -131,7 +131,7 @@ if (isset($_GET['category'])) {
 		</div>
 	</article>
 
-	<article>
+	<article style="background-color: #f5f5f0;">
         <div class="row tabla">
 
         <?php
@@ -173,7 +173,7 @@ if (isset($_GET['category'])) {
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
-  <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
     <p id="actividad">'.$actividad.'</p>
@@ -196,7 +196,7 @@ if (isset($_GET['category'])) {
                     echo '  <div class="col-lg-4 actividad">
                                                            <figure class="snip1208">
                       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
-                      <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+                      
                       <figcaption>
                         <h3 id="nombre">'.$nombre.'</h3>
                         <p id="actividad">'.$actividad.'</p>
@@ -236,7 +236,7 @@ if (isset($_GET['category'])) {
                                 echo '  <div class="col-lg-4 actividad destacada">
                                 <figure class="snip1208">
                       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
-                      <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+                      
                       <figcaption>
                         <h3 id="nombre">'.$nombre.'</h3>
                         <p id="actividad">'.$actividad.'</p>
@@ -265,7 +265,7 @@ if (isset($_GET['category'])) {
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
-  <div class="date"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>
+  
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
     <p id="actividad">'.$actividad.'</p>
