@@ -32,24 +32,6 @@ if (!isset($_SESSION['nombre'])) {
 
 <section>
 <article>
-<?php
-      
-      if(isset($_GET['aski']) == 'delete'){
-
-        $id = mysqli_real_escape_string($conexion,(strip_tags($_GET["id"],ENT_QUOTES)));
-        $sql_del = "DELETE FROM reserva WHERE id='$id'";
-        $delete = $conexion->query($sql_del);
-          if($delete){
-            echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
-          }else{
-            echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-            echo "Error: " . $sql_del . "<br>" . $conexion->error;
-          }
-        }
-      
-      ?>
-</article>
-<article>
     <h2 class="text-center">Mis reservas</h2>
 				<?php
 
@@ -171,7 +153,7 @@ if (!isset($_SESSION['nombre'])) {
 
 
                echo '
-              <a href="oferta.php?id='.$row['id'].'">Ver actividad</a>';
+              <a href="oferta.php?id='.$row['id_oferta'].'">Ver actividad</a>';
                 echo '
             </div>
           </div>
