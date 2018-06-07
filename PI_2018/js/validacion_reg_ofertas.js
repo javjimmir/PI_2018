@@ -131,4 +131,11 @@ $(function () {
         }
     });
 
+    $("#reset").click(function(){
+        $("input[type='text'], input[type='password'], input[type='email'], input[type='tel'], input[type='date']").text("");
+        $("input[type='text'], input[type='password'], input[type='email'], input[type='tel'], input[type='date']").css('background', 'white');
+        $("input[type='text'], input[type='password'], input[type='email'], input[type='tel'], input[type='date']").css('color', '#7c7a7a');
+
+    });
+
 });

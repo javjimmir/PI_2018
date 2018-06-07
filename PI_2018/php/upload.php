@@ -1,44 +1,89 @@
 <?php
-
-$target_dir = "../img/profile/";
-$target_file = $target_dir . basename($_FILES["cambiarimagen"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["cambiarimagen"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
+session_start();
+include '../php/connection.php';
+/* Sacando datos del user... */
+$username = $_SESSION['nombre'];
+$sesion = $_SESSION['tipo'];
+header('Content-Type: text/plain; charset=utf-8');
+try {
+    // Undefined | Multiple Files | $_FILES Corruption Attack
+    // If this request falls under any of them, treat it invalid.
+    if (
+        !isset($_FILES['upfile']['error']) ||
+        is_array($_FILES['upfile']['error'])
+    ) {
+        throw new RuntimeException('Invalid parameters.', header('Location: ../content/perfil.php?user='. $username .'&status=parameters'));
     }
-}
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-}
-// Check file size
-if ($_FILES["cambiarimagen"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["cambiarimagen"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["cambiarimagen"]["name"]). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
+    // Check $_FILES['upfile']['error'] value.
+    switch ($_FILES['upfile']['error']) {
+        case UPLOAD_ERR_OK:
+            break;
+        case UPLOAD_ERR_NO_FILE:
+            throw new RuntimeException('No file sent.', header('Location: ../content/perfil.php?user='. $username .'&status=nofilesent'));
+        case UPLOAD_ERR_INI_SIZE:
+        case UPLOAD_ERR_FORM_SIZE:
+            throw new RuntimeException('Exceeded filesize limit.', header('Location: ../content/perfil.php?user='. $username .'&status=filesizelimit'));
+        default:
+            throw new RuntimeException('Unknown errors.', header('Location: ../content/perfil.php?user='. $username .'&status=unknown'));
     }
+    // You should also check filesize here.
+    if ($_FILES['upfile']['size'] > 1000000) {
+        throw new RuntimeException('Exceeded filesize limit.', header('Location: ../content/perfil.php?user='. $username .'&status=filesizelimit'));
+    }
+    // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+    // Check MIME Type by yourself.
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    if (false === $ext = array_search(
+            $finfo->file($_FILES['upfile']['tmp_name']),
+            array(
+                'jpg' => 'image/jpeg',
+                'png' => 'image/png',
+                'gif' => 'image/gif',
+            ),
+            true
+        )) {
+        throw new RuntimeException('Invalid file format.', header('Location: ../content/perfil.php?user='. $username .'&status=fileformat'));
+    }
+    if ($sesion == "usuario") {
+        $directorio = '../img/usuario/';
+        $nombre_real = $_FILES["upfile"]["name"];
+        $ext = pathinfo($nombre_real, PATHINFO_EXTENSION);
+        $nombre_base = basename($username . '_perfil' . '.' . $ext);    // Modificamos el fichero por seguridad, y le adjuntamos la extensión
+        if (!move_uploaded_file(
+            $_FILES['upfile']['tmp_name'],
+            sprintf($directorio . $nombre_base,
+                $ext
+            )
+        )) {
+            throw new RuntimeException('Failed to move uploaded file.', header('Location: ../content/perfil.php?user='. $username .'&status=generic'));
+        }
+        // En caso de que se haya subido correctamente...
+        $sql = "UPDATE usuario SET imagen_perfil = '$nombre_base' WHERE alias = '$username'";
+        if ($conexion->query($sql) === TRUE) {
+            header('Location: ../content/perfil.php?user='. $username .'&status=success');
+        } else {
+            echo "Error: " . $sql . "<br>" . $conexion->error;
+        }
+    } else if ($sesion == "empresa") {
+        $directorio = '../img/empresa/';
+        $nombre_real = $_FILES["upfile"]["name"];
+        $ext = pathinfo($nombre_real, PATHINFO_EXTENSION);
+        $nombre_base = basename($username . '_perfil' . '.' . $ext);    // Modificamos el fichero por seguridad, y le adjuntamos la extensión
+        if (!move_uploaded_file(
+            $_FILES['upfile']['tmp_name'],
+            sprintf($directorio . $nombre_base,
+                $ext
+            )
+        )) {
+            throw new RuntimeException('Failed to move uploaded file.', header('Location: ../content/perfil.php?user='. $username .'&status=generic'));
+        }
+        $sql = "UPDATE empresa SET imagen_perfil = '$nombre_base' WHERE alias = '$username'";
+        if ($conexion->query($sql) === TRUE) {
+            header('Location: ../content/perfil.php?user='. $username .'&status=success');
+        } else {
+            echo "Error: " . $sql . "<br>" . $conexion->error;
+        }
+    }
+} catch (RuntimeException $e) {
+    echo $e->getMessage();
 }

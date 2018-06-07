@@ -102,12 +102,12 @@ if ($sesion == "usuario") {
     <div class="infoperfil">
       <div class="imgperfil">
           <?php $myfoto = $res[0]['imagen_perfil'];
-          echo "<img src='../img/$myfoto' alt='Imagen de $username' />";?>
-          <form id="uploadForm" method='post' enctype="multipart/form-data">
-			<h3>Upload File</h3><br/>
-			<input type='file' name="upFile" id="upFile" required="" />
+                    echo "<img src='../img/$sesion/$myfoto' alt='Imagen de $username' />";?>
+          <form action="../php/upload.php" id="upfile" method='post' enctype="multipart/form-data">
+    <h3>Imagen de perfil</h3><br/>
+     <input type='file' name="upfile" id="upfile" required="" />
 			<br>
-			<input type='submit' value='Upload'/>
+			<input type='submit' value='Actualizar'/>
 			</form>
     </div>
       <div class="alias">
