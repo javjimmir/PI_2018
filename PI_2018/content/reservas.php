@@ -79,15 +79,20 @@ if (!isset($_SESSION['nombre'])) {
                // Para debugear, pon en fecha_de_hoy una fecha menor a la de expiración de la actividad :))
 
 
+
                /* Aquí debe ir una comprobación de si la reserva tiene las columnas reseña y valoración en NULL, que SE MUESTRE la encuesta. Si tiene otro valor NO se mostrará */
                /* select * from reserva where nif_usuario = '47342916J' and id_oferta = 1 and valoracion IS NULL */
                $nif_usuario = $row['nif_usuario'];
                $id_oferta = $row['id_oferta'];
                $sql_comprobacion_null = "SELECT * FROM reserva where nif_usuario = '$nif_usuario' and id_oferta = '$id_oferta' and valoracion is NULL and resena is NULL";
                $resultado=$conexion->query($sql_comprobacion_null);
+                echo '
+               <button>Ver actividad</button>
+                      </figcaption><a href="oferta.php?id='.$row['id_oferta'].'"></a>
+                    </figure>';
                //echo "nif = " . $nif_usuario . " -- id_oferta = " . $id_oferta;
                if ($resultado->num_rows > 0) { // Si DEVUELVE una actividad con valores nulos, es que el user PUEDE rellenar la encuesta, así que se mostrará
-                   if ($fecha_reserva <= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calcula
+                   if ($fecha_reserva <= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calculafecha_expiracion)
                                                                       // si el día de hoy es mayor o IGUAL que la fecha de expiración, es entonces cuando se mostrará.  ?>
                        <div id="puntuacion">
                            <form id="form-rating" method="post">
@@ -148,11 +153,11 @@ if (!isset($_SESSION['nombre'])) {
 
                     ";
                }
-               /*echo '
-               <button>Ver actividad</button>
-                      </figcaption>
-                    </figure><a href="oferta.php?id='.$row['id_oferta'].'"></a>';
-              */
+               //echo "Hoy -> " . $fecha_de_hoy . " Expiración -> " . $fecha_expiracion_actividad;
+
+
+              
+              
                 echo '
             </div>
           </div>

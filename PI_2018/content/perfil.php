@@ -271,7 +271,7 @@ if ($sesion == "usuario") {
               }
               ?>
           </div>
-          </div>
+          </div></div></div>
 </br>
         </div>
          <?php
