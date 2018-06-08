@@ -33,7 +33,7 @@ if (isset($_GET['category'])) {
 <header class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Body Balance</a>
+      <a class="navbar-brand" href="#">WildSports</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
     	<?php

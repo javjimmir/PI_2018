@@ -28,38 +28,76 @@ $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
 <aside class="publicidad">
 
 </aside>
-<section>
-    <article>
+<section id="sectionforms"> 
+    <article id="userforms">
+    <div id="lista">
         <?php
         $result = $conexion->query($sql_oferta);
         $row = $result->fetch_assoc();
         echo '<div id="detalle-oferta">';
-        echo "<p>AVISO: ESTO ESTÁ HECHO EN PLAN CUTRÓN, LA IDEA ES QUE AQUÍ SALGAN LOS DATOS, PERO SOLO ALGUNOS DE ELLOS SE PUEDAN MODIFICAR, A CONTINUACIÓN VEREIS CUALES. SE HARÁ PRIMERO LA PARTE BACK Y LUEGO SE LE IMPLEMENTARÁ LA VISTA.</p>";
-        echo '<h2>DATOS DE LA ACTIVIDAD A MODIFICAR</h2>';
-        echo '<p> Nombre de la oferta: '.$row['nombre'].'</p>';
-        echo '<p> Provincia: '.$row['provincia'].'</p>';
-        echo '<p> Municipio: '.$row['municipio'].'</p>';
-        echo '<p> Duración: '.$row['duracion'].'</p>';
-        echo '<p> Número de plazas disponibles: '.$row['num_plazas'].'</p>';
-        echo '<p> Tipo de actividad: '.$row['tipo_actividad'].'</p>';
-        echo '<p> Descripción: '.$row['descripcion'].'</p>';
-        echo '<p> Precio: '.$row['precio'].' €</p>';
-        echo '<p> Dificultad: '.$row['dificultad'].'</p>';
-        echo '<p> Categoría: '.$row['categoria'].'</p>';
-        echo '<p> Fecha de inicio: '.$row['fecha_inicio'].'</p>';
-        echo '<p> Fecha de fin: '.$row['fecha_fin'].'</p>';
+        // echo "<p>AVISO: ESTO ESTÁ HECHO EN PLAN CUTRÓN, LA IDEA ES QUE AQUÍ SALGAN LOS DATOS, PERO SOLO ALGUNOS DE ELLOS SE PUEDAN MODIFICAR, A CONTINUACIÓN VEREIS CUALES. SE HARÁ PRIMERO LA PARTE BACK Y LUEGO SE LE IMPLEMENTARÁ LA VISTA.</p>";
+        echo '<h2>Información de la actividad a editar</h2>';      
+echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Nombre de la oferta: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['nombre']} </div> ";
+echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Provincia: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['provincia']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Municipio: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['municipio']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Duración: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['duracion']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Número de plazas disponibles: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['num_plazas']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Tipo de actividad: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['tipo_actividad']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Descripción: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['descripcion']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Precio: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['precio']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Dificultad: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['dificultad']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Categoría: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['categoria']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'>";
+        echo "<div class='infoperfiliz'><label>Fecha de inicio: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['fecha_inicio']} </div> ";
+        echo "</div>";
+        echo "<div class='filainfo'> ";
+        echo "<div class='infoperfiliz'><label>Fecha de fin: </label></div>";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['fecha_fin']} </div> ";
+        echo "</div>";
         echo '</div>';
         ?>
-        <br><br>
+        <br><br>.
+</div>
         <a href="../index.php">Volver al index</a>
     </article>
-    <article>
-
+    <article id="userforms">
+<div class="camposmodificar">
 <?php
     if (!isset($_POST['nombre'])) {
         echo '    
 
-        <h2>Campos a modificar de la reserva</h2>
+        <h2>Campos a modificar de la actividad</h2>
         
         <form action="" method="post" accept-charset="utf-8">
         <label>Nombre</label><br>
@@ -107,8 +145,7 @@ $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
     }
 
 ?>
-
-        
+<div>
     </article>
 </section>
 
