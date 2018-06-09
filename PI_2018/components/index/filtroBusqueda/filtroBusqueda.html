@@ -5,7 +5,8 @@
 	<script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
-	<h2>Filtros de Búsqueda</h2><br>
+<div id="filters">
+	<h2>Filtrar actividades</h2><br>
 	<form method="post" id="myform" class="form-group">
 		<label>Tipo actividad</label><br>
 		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  Submarinismo<br>
@@ -15,13 +16,13 @@
 		<input type="radio" class="tipoact" name="tipo_actividad" value="paracaidismo">  Paracaidismo<br>
 		<input type="radio" class="tipoact" name="tipo_actividad" value="surf">  Surf<br>
 
-		
-		<p>más actividades...</p><br>
 
-		<label>Precio máximo</label><br>
+		<label>Precio máximo</label>
 
-		<input class="form-control" type="number" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/> €
-		<br>
+        <div class="input-box">
+		    <input class="form-control" type="number" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/>
+            <span class="euros">€</span>
+        </div>
 		<input class="form-control" type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
 
 		<br><label>Provincia</label><br>
@@ -79,9 +80,8 @@
             <option value='zamora'>Zamora</option>
             <option value='zaragoza'>Zaragoza</option>
         </select><br>
-
-	
-		<button class="form-control" id="quitarfiltros">Quitar filtros</button>
+		<button class="form-control btn-5" id="quitarfiltros">Quitar filtros</button>
 	</form>
+</div>
 </body>
 </html>
