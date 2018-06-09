@@ -6,24 +6,24 @@
 </head>
 <body>
 <div id="filters">
-	<h2>Filtrar actividades</h2><br>
+	<h2>Filtrar actividades</h2><hr/>
 	<form method="post" id="myform" class="form-group">
-		<label>Tipo actividad</label><br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  Submarinismo<br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="snorkel">  Snorkel<br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="senderismo">  Senderismo<br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="buceo">  Buceo<br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="paracaidismo">  Paracaidismo<br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="surf">  Surf<br>
+		<label>Tipo de actividad</label><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  <span id="submarinismo">Submarinismo</span><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="snorkel">  <span id="snorkel">Snorkel</span><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="senderismo">  <span id="senderismo">Senderismo</span><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="buceo">  <span id="buceo">Buceo</span><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="paracaidismo">  <span id="paracaidismo">Paracaidismo</span><br>
+		<input type="radio" class="tipoact" name="tipo_actividad" value="surf">  <span id="surf">Surf</span>
 
 
 		<label>Precio máximo</label>
 
         <div class="input-box">
-		    <input class="form-control" type="number" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/>
+		    <input class="form-control" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/>
             <span class="euros">€</span>
         </div>
-		<input class="form-control" type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
+		<input class="form-control-range" type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
 
 		<br><label>Provincia</label><br>
         <select name="prov-filter" class="prov-filter form-control"style="color: black">

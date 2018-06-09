@@ -1,7 +1,7 @@
 #filters {
     border-radius: 2px;
     padding: 1rem;
-	background: #a6ee5226;
+	background: #92929226;
 }
 aside{
 	background-color: #222;
@@ -33,14 +33,19 @@ input, button {
     color: white;
     border-right: 4px solid;
     border-bottom: 4px solid;
+	margin-bottom: 10px;
 }
+input[type='range'] {
+	padding: 0 2px 0 2px;
+}
+
+input[type='radio'] {
+	width: auto;
+}
+
 /* Para el signo de euros no desaparezca en el input de rangos */
 .input-box { position: relative; }
 .euros { position: absolute; display: block; left: 57%; top: 19%; z-index: 9; }
-
-radio {
-    padding: 2px;
-}
 
 .btn-5 {
 	border: 0 solid;
