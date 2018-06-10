@@ -34,6 +34,7 @@ input, button {
     border-right: 4px solid;
     border-bottom: 4px solid;
 	margin-bottom: 10px;
+	margin-left: 15%
 }
 input[type='range'] {
 	padding: 0 2px 0 2px;
@@ -45,7 +46,7 @@ input[type='radio'] {
 
 /* Para el signo de euros no desaparezca en el input de rangos */
 .input-box { position: relative; }
-.euros { position: absolute; display: block; left: 57%; top: 19%; z-index: 9; }
+.euros { position: absolute; display: block; left: 67%; top: 19%; z-index: 9; }
 
 .btn-5 {
 	border: 0 solid;

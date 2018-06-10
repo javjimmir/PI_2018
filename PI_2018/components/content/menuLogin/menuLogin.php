@@ -5,9 +5,9 @@ include '../../../php/connection.php';
 <header class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <!-- <img src="../../../img/LogoAplicacion.png"/> -->
             <a class="navbar-brand" href="../index.php">WildSports</a>
         </div>
+        <div id="logo"><img src="../img/LogoAplicacion.png"/></div>
         <ul class="nav navbar-nav navbar-right">
             <?php
             /**

@@ -1,8 +1,10 @@
 aside{
-    background-color: #222;
-    /*border-style: solid;
-    border-width: 1px;
-    border-color: #080808;*/
+    width: 13%;
+    min-height: 87.5%;
+    height: auto;
+    text-align: center;
+    float: left;
+    padding-right: 1%;
 }
 
 aside > h3{
@@ -16,15 +18,16 @@ aside > a{
     margin-left: 10%;
 }
 .publi img {
-    margin-left: 12%;
     width: 70%;
     height: 11%;
     margin-bottom: 7%;
     margin-top: 2%;
     border-radius: 15px;
 }
-
-
 .publi img:hover {
     filter: sepia(80%);
+}
+
+.anunciate {
+    font-style: italic;
 }

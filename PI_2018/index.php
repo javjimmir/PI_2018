@@ -35,6 +35,7 @@ if (isset($_GET['category'])) {
     <div class="navbar-header">
       <a class="navbar-brand" href="#">WildSports</a>
     </div>
+    <div id="logo"><img src="img/LogoAplicacion.png"/></div>
     <ul class="nav navbar-nav navbar-right">
     	<?php
         /**
