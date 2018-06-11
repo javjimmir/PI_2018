@@ -40,22 +40,6 @@ $(document).ready(function () {
         }
     }
 
-    /* Bloque de mensajes de información relacionados con la actualización de imágenes en el perfil */
-
-    if (getUrlParameter('status') == 'success') {
-        $("#status").append("<span class='alert alert-success'>¡Imagen actualizada con éxito!</span>").delay(3000).fadeOut();
-    } else if (getUrlParameter('status') == 'generic') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</span>").delay(3000).fadeOut();
-    } else if (getUrlParameter('status') == 'fileformat') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</span>").delay(3000).fadeOut();
-    } else if (getUrlParameter('status') == 'filesizelimit') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</span>").delay(3000).fadeOut();
-    } else if (getUrlParameter('status') == 'unknown') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</span>").delay(3000).fadeOut();
-    } else if (getUrlParameter('status') == 'parameters') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut();
-    }
-
 
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
@@ -218,7 +202,7 @@ $(document).ready(function () {
                         msginfo.text("");
                         msginfo.animate({fontSize: "17px"});
                         msginfo.animate({fontSize: "15px"});
-                        msginfo.html("<p>El usuario o contraseñas son incorrectos. <a href='#'>¿Has olvidado tu contraseña?</a></p>");
+                        msginfo.html("<p>El usuario o contraseñas son incorrectos. <a href='contacto.php'>¿Has olvidado tu contraseña?</a></p>");
                         $("#password").val("");
                         $("#alias").val("");
                         $("body").removeClass("loading");
@@ -261,16 +245,47 @@ $(document).ready(function () {
         });
     });
 
+    /*
+    *
+    * Perfil.php
+    *
+     */
 
+    /* Botones de edición de perfil.php. */
     $("#editperfil").click(function () {
-        $("#editconfig").attr("disabled", "disabled");
-        $(this).attr("disabled", "disabled");
-        $(".perfil").removeAttr("disabled");
-        $("#saveperfil").removeAttr("disabled");
+        if ($("#editperfil").text() === 'Cancelar') { // Cuando se está editando se convierte en cancelar, que cancela los cambios
+            window.location.reload();
+        } else {
+            $("#editperfil").text("Cancelar");
+            $(".perfil").removeAttr("disabled");
+            $("#saveperfil").removeAttr("disabled");
+        }
     });
     $("#editconfig").click(function () {
-        $(this).attr("disabled", "disabled");
-        $(".config").removeAttr("disabled");
-        $("#saveconfig").removeAttr("disabled");
+        if ($("#editconfig").text() === 'Cancelar') { // Cuando se está editando se convierte en cancelar, que cancela los cambios
+            window.location.reload();
+        } else {
+            $("#editconfig").text("Cancelar");
+            $(".config").removeAttr("disabled");
+            $("#saveconfig").removeAttr("disabled");
+        }
     });
+
+    /* Bloque de mensajes de información relacionados con la actualización de imágenes en el perfil */
+
+    if (getUrlParameter('status') == 'success') {
+        $("#status").append("<span class='alert alert-success'>¡Imagen actualizada con éxito!</span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('status') == 'generic') {
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('status') == 'fileformat') {
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('status') == 'filesizelimit') {
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('status') == 'unknown') {
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('status') == 'parameters') {
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut();
+    }
+
+    /* ---------------------------------------------------------------------------------------------------- */
 });

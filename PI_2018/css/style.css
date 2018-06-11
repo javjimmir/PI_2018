@@ -31,7 +31,7 @@ nav{
 }
 
 section{
-	background-color: #f5f5f0;
+	background-color: white;
 	width: 80%;
 	min-height: 80%;
 	float: left;
@@ -59,7 +59,7 @@ aside{
 
 footer{
 	width: 100%;
-	height: 5%;
+	height: 7%;
 	float: left;
 }
 
@@ -937,13 +937,13 @@ figure.snip0067.hover:before {
     border-radius: 50%;
     overflow: hidden;
     margin-left: 0;
-    height: auto;
-    width: 60%;
+    height: 30rem;
+    width: 30rem;
     margin: 0;
     padding: 0;
-    -webkit-box-shadow: 3px 4px 20px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 3px 4px 20px 0px rgba(0,0,0,0.75);;
-    box-shadow: 3px 4px 20px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
 }
 
 .imgperfil{
@@ -989,10 +989,22 @@ figure.snip0067.hover:before {
 
 .infoperfilde > input{
     float: left;
+    padding: 3px 20%;
+    margin: 1%;
+    box-sizing: border-box;
+    border: 2px solid #1110106e;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
 }
 .infoperfilde>button{
     float: left;
     margin-left: 3%;
+}
+
+.infoperfilde > input[type=text]:focus, input[type=password]:focus {
+    background-color: #337ab7;
+    color: white;
 }
 
 .alias{
@@ -1003,7 +1015,7 @@ figure.snip0067.hover:before {
 }
 
 #lista{
-    background-color: #f5f5f0;
+    background-color: white;
     width: 70%;
     color: black;
     margin-top: 10%;

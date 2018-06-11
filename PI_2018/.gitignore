@@ -22,5 +22,5 @@ data/dot-drush
 **/apache2/certs/*
 
 #ignorar imagenes subidas por usuarios.
-img/usuario
-img/empresa
+img/usuario/*
+img/empresa/*

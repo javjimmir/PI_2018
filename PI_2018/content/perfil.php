@@ -85,7 +85,7 @@ if ($sesion == "usuario") {
 <nav class="menuPrincipalUser"></nav>
 <aside class="publicidad"></aside>
 <section>
-<article style="background-color: #f5f5f0;">
+<article>
     <div id="status"></div>
 
     <?php
@@ -318,7 +318,7 @@ if ($sesion == "usuario") {
 	
 </section>
 
-<footer>
+<footer class="pie">
 
 </footer>
 
