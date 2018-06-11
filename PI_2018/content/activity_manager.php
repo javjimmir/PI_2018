@@ -184,7 +184,7 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
   
 </section>
 
-<footer>
+<footer class="pie">
 
 </footer>
 

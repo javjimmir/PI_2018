@@ -1,4 +1,4 @@
-footer{
+footer {
 	background-color: #222;
 	border-style: solid;
 	border-width: 1px;
@@ -8,5 +8,5 @@ footer{
 	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;
+	padding-top: 13px;
 }
-

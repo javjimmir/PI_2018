@@ -174,7 +174,7 @@ if (!isset($_SESSION['nombre'])) {
 	
 </section>
 
-<footer>
+<footer class="pie">
 
 </footer>
 
