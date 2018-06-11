@@ -21,4 +21,6 @@ data/docker-containers-volumes
 data/dot-drush
 **/apache2/certs/*
 
-
+#ignorar imagenes subidas por usuarios.
+img/usuario
+img/empresa

@@ -85,9 +85,8 @@ if ($sesion == "usuario") {
 <nav class="menuPrincipalUser"></nav>
 <aside class="publicidad"></aside>
 <section>
-<article>
-</article>
 <article style="background-color: #f5f5f0;">
+    <div id="status"></div>
 
     <?php
         /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito HAY QUE APLICAR ESTILO */
@@ -100,21 +99,21 @@ if ($sesion == "usuario") {
     }
     ?>
 
-    <h2 class="text-center titulo">Perfil de <?php echo $sesion ?></h2>
+    <h2 class="text-center titulo">Perfil de <?php if($sesion == 'empresa'){ echo $sesion . ' <span class="glyphicon glyphicon-briefcase"></span>'; } else { echo $sesion . ' <span class="glyphicon glyphicon-user"></span>'; } ?></h2>
     <div class="infoperfil">
       <div class="imgperfil">
           <?php $myfoto = $res[0]['imagen_perfil'];
-                    echo "<img src='../img/$sesion/$myfoto' alt='Imagen de $username' />";?>
-          <form action="../php/upload.php" id="upfile" method='post' enctype="multipart/form-data">
+                    echo "<img src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";?>
+          <form action="../php/upload.php" id="formfileup" method='post' enctype="multipart/form-data">
     <h3>Imagen de perfil</h3><br/>
-     <input type='file' name="upfile" id="upfile" required="" />
+     <input type='file' name="upfile" id="upfile" class="btn btn-primary" required="" />
 			<br>
-			<input type='submit' value='Actualizar'/>
+			<input type='submit' class="btn btn-primary" value='Actualizar'/>
 			</form>
     </div>
       <div class="alias">
           <h2><?php echo $res[0]['alias'];?></h2>
-          <h4> Información personal </h4>
+          <h4> Información <?php if($sesion == 'empresa'){ echo 'de la empresa'; } else { echo 'personal'; } ?> </h4>
           <div id="lista">
              <?php
               // Formulario dinámico que depende de si es usuario o empresa.
@@ -158,8 +157,8 @@ if ($sesion == "usuario") {
                   <input type=\"hidden\" name=\"dni\" disabled class=\"perfil\" value={$res[0]['nif']}></div>
                   </div>
 <div class='filainfo'>
-                <div class='infoperfiliz'><button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-                <div class='infoperfilde'><button type=\"submit\" id='saveperfil' disabled class=\"btn btn-info\">Guardar</button></div>
+                <div class='infoperfiliz'><button id=\"editperfil\" type=\"button\" class=\"btn btn-primary\">Editar</button></div>
+                <div class='infoperfilde'><button type=\"submit\" id='saveperfil' disabled class=\"btn btn-primary\"><i class='fa fa-circle-o-notch fa-spin'></i>Guardar</button></div>
                 
                 </div>
                     
@@ -180,8 +179,8 @@ if ($sesion == "usuario") {
                   <input type=\"hidden\" name=\"dni\" disabled class=\"config\" value={$res[0]['nif']}></div>
                   </div>
 <div class='filainfo'>
-                  <div class='infoperfiliz'><button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-                  <div class='infoperfilde'><button type=\"submit\" id='saveconfig' disabled class=\"btn btn-info\">Guardar</button></div>
+                  <div class='infoperfiliz'><button id=\"editconfig\" type=\"button\" class=\"btn btn-primary\">Editar</button></div>
+                  <div class='infoperfilde'><button type=\"submit\" id='saveconfig' disabled class=\"btn btn-primary\">Guardar</button></div>
                   </div>
                   
               </form>";
@@ -206,7 +205,9 @@ if ($sesion == "usuario") {
 
 <div class='filainfo'>
                       <div class='infoperfiliz'><label>Descripción: </label></div>
-                      <div class='infoperfilde'><input type=\"text\" name=\"descripcion\" id=\"desc-empresa\" disabled class=\"perfil\" value={$res[0]['descripcion']} required></div>
+                      <div class='infoperfilde'>
+                      <textarea name=\"descripcion\" id=\"desc-empresa\" disabled class=\"perfil\" required>{$res[0]['descripcion']}</textarea>
+
                       </div>
 
 <div class='filainfo'>
@@ -234,8 +235,8 @@ if ($sesion == "usuario") {
                       </div>
                       <div class='filainfo'>
 
-                      <div class='infoperfiliz'><button id=\"editperfil\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-                    <div class='infoperfilde'><button type=\"submit\" disabled id='saveperfil' class=\"btn btn-info\">Guardar</button> </div>
+                      <div class='infoperfiliz'><button id=\"editperfil\" type=\"button\" class=\"btn btn-primary\">Editar</button></div>
+                    <div class='infoperfilde'><button type=\"submit\" disabled id='saveperfil' class=\"btn btn-primary\">Guardar</button> </div>
                     </div>
 
                     <span id=\"error-empre\" class='error-login'>
@@ -257,15 +258,15 @@ if ($sesion == "usuario") {
                       <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"pass-empresa\" required></div>
                       </div>
 <div class='filainfo'>
-                      <div class='infoperfiliz'><label>COnfirmar nueva contraseña: </label></div>
+                      <div class='infoperfiliz'><label>Confirmar nueva contraseña: </label></div>
                       <div class='infoperfilde'><input type=\"password\" name=\"newpassword\" disabled class=\"config\" id=\"conf-pass-empresa\" required>
                       <input type=\"hidden\" name=\"sesion\" disabled class=\"config\" value={$sesion}><br>
                       <input type=\"hidden\" name=\"cif\" disabled class=\"config\" value={$res[0]['cif']}>
                       <input type=\"hidden\" name=\"seccion\" disabled class=\"config\" value='config'><br></div>
 </div>
 <div class='filainfo'>
-                      <div class='infoperfiliz'><button id=\"editconfig\" type=\"button\" class=\"btn btn-info\">Editar</button></div>
-                    <div class='infoperfilde'><button type=\"submit\" disabled id='saveconfig' class=\"btn btn-info\">Guardar</button></div>
+                      <div class='infoperfiliz'><button id=\"editconfig\" type=\"button\" class=\"btn btn-primary\">Editar</button></div>
+                    <div class='infoperfilde'><button type=\"submit\" disabled id='saveconfig' class=\"btn btn-primary \">Guardar</button></div>
                       </div>
                   </form>";
               }
@@ -279,10 +280,10 @@ if ($sesion == "usuario") {
              /* Consulta para últimas actividades o actividades recientes */
              $result = $conexion->query($sql_actividades_recientes);
              if ($result->num_rows === 0) {
-                 echo '<p class="text-center">No has participado en actividades aún :(</p>';
+                 echo '<span id="alerta-sin-actividades"><p class="text-center alert alert-info"><span class="glyphicon glyphicon-info-sign"></span> No has participado en actividades aún :(</p></span>';
              } else {
                  $resultado_ult_act = $conexion->query($sql_actividades_recientes); // Con esta query sacamos las ofertas asociadas al usuario logueado.
-                 echo ' <br><br><br><h4>Actividades recientes</h4>';
+                 echo ' <br><br><br><h3>Actividades recientes <span class="glyphicon glyphicon-th-list"></span></h3>';
                  while ($row = $resultado_ult_act->fetch_assoc()) {
                      $sql_oferta = "SELECT * from oferta where id = '" . $row['id_oferta'] . "'";
                      $result2 = $conexion->query($sql_oferta);

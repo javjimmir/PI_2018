@@ -31,7 +31,7 @@ nav{
 }
 
 section{
-	background-color: white;
+	background-color: #f5f5f0;
 	width: 80%;
 	min-height: 80%;
 	float: left;
@@ -128,139 +128,10 @@ background: -o-linear-gradient(top, rgba(145,232,66,1) 0%, rgba(210,255,82,0.76)
 background: -ms-linear-gradient(top, rgba(145,232,66,1) 0%, rgba(210,255,82,0.76) 66%);
 background: linear-gradient(to bottom, rgba(145,232,66,1) 0%, rgba(210,255,82,0.76) 66%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91e842', endColorstr='#d2ff52', GradientType=0 );
-
-
-	
-}
-
-.perfiles h3{
-  font-size: 2.1em;
-  margin: 30px;
-}
-
-.infoperfil{
-	position: relative;
-	float: left;
-	background-color: white;
-	width: 90%;
-	min-height: 30%;
-	margin-right: 5%;
-	margin-left: 5%;
-	margin-bottom: 5%;
-	/*-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);*/
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-}
-
-.filainfo{
-	width: 100%;
-	float: left;
-}
-
-.infoperfiliz{
-	/*background-color: pink;*/
-	width: 50%;
-	float: left;
-  position: relative;
-  vertical-align: baseline;
-}
-.infoperfiliz>label{
-	float: right;
-	color: #66b3ff;
-  padding-top: 1.8%; 
-  vertical-align: baseline;
-}
-
-.infoperfiliz>button{
-	float: right;
-  margin-right: 3%; 
-  vertical-align: baseline;
-}
-
-.infoperfilde{
-	/*background-color: brown;*/
-	width: 50%;
-	float: left;
-  position: relative;
-  vertical-align: baseline;
-}
-
-.infoperfilde > input{
-	float: left;
-}
-.infoperfilde>button{
-	float: left;
-	margin-left: 3%; 
-}
-
-.imgperfil > img{
-	border-radius: 50%;
-	height: 40rem;
-	overflow: hidden;
-	margin-left: 0;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-}
-
-.imgperfil{
-	/*background-color: blue;*/
-	position: relative;
-	float: left;
-width: 50%;
-padding: 5%;
-
-	/*
-	position: relative;
-	float: left;
-width: 25%;
-margin-left: 4em;
-margin-top: -6em;*/
-}
-
-
-.imgperfil > button{
-	margin-top: 1em;
-}
-
-.alias{
-	/*
-	position: relative;
-	float: left;
-	width: 70%;
-	padding-bottom: 9em;*/
-	/*background-color: red;*/
-	position: relative;
-	float: left;
-	width: 49%;
-	margin-right: 1%;
-	/*border: solid 1px black;*/
-}
-
-#lista{
-	display: inline-block;
 }
 
 #userforms{
   display: block;
-}
-
-#lista ul li
-{
-	display: flex;
-    align-items: center;
-}
-
-.titulo{
-	padding: 1em;
-	font-size: 3em;
-	font-style: italic;
 }
 
 .actividadesRecientes{
@@ -294,44 +165,10 @@ margin-top: -6em;*/
 	background-color: red;
 }
 
-#lista{
-	background-color: #f5f5f0;
-	width: 90%;
-	min-height: 30%;
-	margin-right: 5%;
-	margin-left: 5%;
-	margin-bottom: 5%;
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-	color: black;
-	margin-top: 10%;
-  position: relative;
-  width: 48%;
-  text-align: center;
-  margin: auto;
-}
-
 #sectionforms{
   text-align:center;
 
  }
-
-.camposmodificar{
-	background-color: #f5f5f0;
-	min-height: 30%;
-	margin-right: 5%;
-	margin-left: 5%;
-	margin-bottom: 15em;
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  margin: auto;
-  color: black;
-  position: relative;
-  width: 48%;
-  text-align: center;
-}
 
 #reserva-oferta{
 	color: black;
@@ -1078,3 +915,125 @@ figure.snip0067.hover:before {
   text-align: center;
   background-color: #aaa;
 }
+
+/* Perfil.php */
+
+#status {
+    width: 80%;
+    top: 1%;
+    position: fixed;
+    z-index: 999;
+}
+/* Borrar los de arriba */
+.titulo {
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+#upfile {
+    margin: 0 auto;
+}
+
+.imgperfil > img{
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 0;
+    height: auto;
+    width: 60%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-shadow: 3px 4px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 20px 0px rgba(0,0,0,0.75);;
+    box-shadow: 3px 4px 20px 0px rgba(0,0,0,0.75);
+}
+
+.imgperfil{
+    position: relative;
+    float: left;
+    width: 40%;
+    padding: 3%;
+}
+
+.infoperfil{
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.infoperfiliz{
+    width: 70%;
+    float: left;
+    text-align: left;
+    position: relative;
+    vertical-align: baseline;
+}
+.infoperfiliz>label{
+    float: left;
+    padding-top: 1.8%;
+    vertical-align: baseline;
+}
+
+.infoperfiliz>button{
+    float: right;
+    margin-right: 3%;
+    vertical-align: baseline;
+}
+
+.infoperfilde{
+    /*background-color: brown;*/
+    width: 30%;
+    float: left;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.infoperfilde > input{
+    float: left;
+}
+.infoperfilde>button{
+    float: left;
+    margin-left: 3%;
+}
+
+.alias{
+    position: relative;
+    float: right;
+    width: 60%;
+    margin-bottom: 5%;
+}
+
+#lista{
+    background-color: #f5f5f0;
+    width: 70%;
+    color: black;
+    margin-top: 10%;
+    position: relative;
+    width: 48%;
+    text-align: center;
+    margin: auto;
+}
+
+.filainfo{
+    width: 100%;
+    float: left;
+}
+
+.infoperfil{
+    position: relative;
+    float: left;
+    width: 90%;
+    min-height: 30%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+#alerta-sin-actividades {
+    width: 78%;
+    position: absolute;
+    left: 14%;
+    right: 0;
+    bottom: 5%;
+}
+
+/* ---------- */

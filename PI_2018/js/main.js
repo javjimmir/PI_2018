@@ -43,17 +43,17 @@ $(document).ready(function () {
     /* Bloque de mensajes de información relacionados con la actualización de imágenes en el perfil */
 
     if (getUrlParameter('status') == 'success') {
-        $("article").append("<p class='infomsg'>¡Imagen actualizada con éxito!</p>");
+        $("#status").append("<span class='alert alert-success'>¡Imagen actualizada con éxito!</span>").delay(3000).fadeOut();
     } else if (getUrlParameter('status') == 'generic') {
-        $("article").append("<p class='infomsg'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</p>");
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</span>").delay(3000).fadeOut();
     } else if (getUrlParameter('status') == 'fileformat') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</p>");
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</span>").delay(3000).fadeOut();
     } else if (getUrlParameter('status') == 'filesizelimit') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</p>");
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</span>").delay(3000).fadeOut();
     } else if (getUrlParameter('status') == 'unknown') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</p>");
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</span>").delay(3000).fadeOut();
     } else if (getUrlParameter('status') == 'parameters') {
-        $("article").append("<p class='infomsg'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</p>");
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut();
     }
 
 
@@ -259,8 +259,7 @@ $(document).ready(function () {
                 $("#puntuacion").append("<p>¡Vaya! Ha ocurrido un error inesperado. Inténtalo más tarde.</p>");
             }
         });
-    })
-
+    });
 
 
     $("#editperfil").click(function () {
@@ -268,11 +267,10 @@ $(document).ready(function () {
         $(this).attr("disabled", "disabled");
         $(".perfil").removeAttr("disabled");
         $("#saveperfil").removeAttr("disabled");
-    })
+    });
     $("#editconfig").click(function () {
         $(this).attr("disabled", "disabled");
         $(".config").removeAttr("disabled");
         $("#saveconfig").removeAttr("disabled");
-    })
-
+    });
 });
