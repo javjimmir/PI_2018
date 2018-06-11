@@ -918,7 +918,7 @@ figure.snip0067.hover:before {
 
 /* Perfil.php */
 
-#status {
+.status {
     width: 80%;
     top: 1%;
     position: fixed;
@@ -1002,7 +1002,7 @@ figure.snip0067.hover:before {
     margin-left: 3%;
 }
 
-.infoperfilde > input[type=text]:focus, input[type=password]:focus {
+.infoperfilde > input[type=text]:focus, .infoperfilde > input[type=password]:focus {
     background-color: #337ab7;
     color: white;
 }

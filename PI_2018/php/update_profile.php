@@ -17,8 +17,7 @@
             $cp = $_POST['cp'];
             $pais = $_POST['pais'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
-            $sql = "UPDATE usuario SET nombre = '$nombre', apellidos = '$apellidos', telefono = '$telefono', pais = '$pais', email = '$email', cp = '$cp', provincia = '$provincia', direccion = '$direccion', password = MD5(\"'.$password.'\") WHERE nif = '$nif'";
+            $sql = "UPDATE usuario SET nombre = '$nombre', apellidos = '$apellidos', telefono = '$telefono', pais = '$pais', email = '$email', cp = '$cp', provincia = '$provincia', direccion = '$direccion' WHERE nif = '$nif'";
 
             if ($conexion->query($sql) === TRUE) {
                 header('location: ../content/perfil.php?confirmation=succeed'); // Enviamos a perfil por get que se ha editado con éxito, para coger el parámetro y enviar un mensaje en perfil.

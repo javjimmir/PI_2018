@@ -32,7 +32,7 @@ $(document).ready(function () {
     }
     // Redirección al registrarte. Obtiene si se ha registrado un usuario o empresa y realiza algunos efectos to guapos.
     if (getUrlParameter('register')) {
-        $("article").append("<p class='infomsg'>¡Registro completado! Ahora inicia sesión con tus datos</p>");
+        $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> ¡Registro completado! Ahora inicia sesión con tus datos</span>").delay(4000).fadeOut("slow");
         if (getUrlParameter('register') == 'user') {
             $("#user").prop( "checked", true );
         } else if(getUrlParameter('register') == 'company') {
@@ -276,15 +276,15 @@ $(document).ready(function () {
     if (getUrlParameter('status') == 'success') {
         $("#status").append("<span class='alert alert-success'>¡Imagen actualizada con éxito!</span>").delay(3000).fadeOut();
     } else if (getUrlParameter('status') == 'generic') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</span>").delay(3000).fadeOut();
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</span>").delay(3000).fadeOut("slow");
     } else if (getUrlParameter('status') == 'fileformat') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</span>").delay(3000).fadeOut();
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</span>").delay(3000).fadeOut("slow");
     } else if (getUrlParameter('status') == 'filesizelimit') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</span>").delay(3000).fadeOut();
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</span>").delay(3000).fadeOut("slow");
     } else if (getUrlParameter('status') == 'unknown') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</span>").delay(3000).fadeOut();
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</span>").delay(3000).fadeOut("slow");
     } else if (getUrlParameter('status') == 'parameters') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut();
+        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut("slow");
     }
 
     /* ---------------------------------------------------------------------------------------------------- */

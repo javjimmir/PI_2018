@@ -86,7 +86,7 @@ if ($sesion == "usuario") {
 <aside class="publicidad"></aside>
 <section>
 <article>
-    <div id="status"></div>
+    <div class="status"></div>
 
     <?php
         /* Comprobamos si se ha actualizado el perfil, para mostrar un mensaje de confirmación o de éxito HAY QUE APLICAR ESTILO */
