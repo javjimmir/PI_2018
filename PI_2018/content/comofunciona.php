@@ -33,31 +33,50 @@ include '../php/connection.php';
     <article>
         <div id="funciona">
            <div class="funciona1">
-           <img src="https://www.dordognemaison.com/UserFiles/Image/Kids/IndianForest1.jpg" alt="" class="imgfun">
-            <p><b>¿Cómo Funciona? </b> <br>
-                JairoSport.com Te permite acceder a actividades deportivas ¡en tu zona!, <br>
-                Te permitimos encontrar tus actividades favoritas para aquellos fines de semana en los que no surge plan
-                gracias a JairoSport podrás encontrar rápidamente tu plan perfecto en exteriores o interiores para disfrutar de un día con tu familia o amigos, 
-                podrás reservar las plazas que necesiteis tu y tus amigos a través de nosotros y planear un día perfecto haciendo lo que más te guste: 
-                Ciclismo, Snorkel, Submarinismo, Piragüismo... ¡Tú decides!<br> Puedes navegar entre las distintas actividades disponibles y elegir
-                la que más se ajuste a tus gustos.. Y a tu presupuesto, puedes encontrar actividades sin necesidad de registrarte, pero si deseas 
-                realizar reservas y tener un portal donde consultar tus dudas y recibir descuentos y promociones no dudes en registrarte, es totalmente Gratis.
-        </p>
+           <img src="../img/comofunciona.jpg" alt="" class="imgfun">
+              <div class="funcionaEmpreUsu">
+               <div id="morecsspure">
+                   <h2>Si eres empresa... </h2>
+                   <input id="morecsspure-element-toggle" type="checkbox" />
+                   <div id="morecsspure-abstract">
+                       <p>Si eres una empresa y estas interesado en publicar ofertas en nuestro portal, estas en el lugar adecuado. A continuación le indicaremos
+                       de manera sencilla los pasos que tiene que seguir para para pertenecer a Nomad by Nature:</p>
+                   </div>
+                   <div id="morecsspure-toggled-element">
+                    <ul class="listaFuncionaEmpre">
+                        <li>En primer lugar debe registrarse como empresa y rellenar correctamente los campos del formulario.</li>
+                        <li>Lo siguiente será iniciar sesion y a partir de ahi podras publicar tus mejores ofertas.</li>
+                        <li>En el menu aparecera una nueva entrada denominada Administración de ofertas, desde ahira podras gestionarlas de manera efectiva.</li>
+                        <li>Y listo, ya puedes participar añadiendo ofertas y esperar las respuesta de los usuarios interesados.</li>
 
+
+                    </ul>
+                   </div>
+                   <label for="morecsspure-element-toggle" id="morecsspure-trigger-toggle"><span class="morecsspure-morelink">Seguir leyendo ></span><span class="morecsspure-lesslink">Mostrar menos</span></label>
+               </div>
+
+                <div id="morecsspure1">
+                    <h2>Si eres usuario... </h2>
+                    <input id="morecsspure1-element-toggle" type="checkbox" />
+                    <div id="morecsspure1-abstract">
+                        <p>Si eres una empresa y estas interesado en publicar ofertas en nuestro portal, estas en el lugar adecuado. A continuación le indicaremos
+                            de manera sencilla los pasos que tiene que seguir para para pertenecer a Nomad by Nature:</p>
+                    </div>
+                    <div id="morecsspure1-toggled-element">
+                        <ul class="listaFuncionaEmpre">
+                            <li>En primer lugar debe registrarse como empresa y rellenar correctamente los campos del formulario.</li>
+                            <li>Lo siguiente será iniciar sesion y a partir de ahi podras publicar tus mejores ofertas.</li>
+                            <li>En el menu aparecera una nueva entrada denominada Administración de ofertas, desde ahira podras gestionarlas de manera efectiva.</li>
+                            <li>Y listo, ya puedes participar añadiendo ofertas y esperar las respuesta de los usuarios interesados.</li>
+
+                        </ul></div>
+                    <label for="morecsspure1-element-toggle" id="morecsspure1-trigger-toggle"><span class="morecsspure1-morelink">Seguir leyendo ></span><span class="morecsspure1-lesslink">Mostrar menos</span></label>
+                </div>
+              </div>
            </div>
-           <div >
-</div>
-            <div class="funciona2">                
-                <p><b>Las Actividades</b><br> En nuestro portal puedes encontrar actividades de todo tipo, no todas son puramente deportivas, hay actividades como puenting en las que no 
-            hay una actividad física obligatoria, hay actividades que se ofrecen por empresas y hay recomendaciones nuestras, nuestras recomendaciones son gratuitas, solo mostramos 
-            sugerencias de actividades que puedas realizar en tu zona, como rutas para ciclismo, un lugar para hacer picnic o camping y demás actividades que no requieran de equipamiento 
-            especial o monitores, para las cuales hay ofertas de empresas que realizan las actividades, esas son las que puedes reservar y tienen una serie de características.
-            <br> Las actividades que ofertamos no son nuestras, nosotros solo ofrecemos un portal a través del cual encontrar actividades para pasar un buen día solamente aquellas actividades
-            que no tienen un precio asignado son recomendaciones nuestras, no nos hacemos responsables de cualquier acción realizada por la empresa que oferte las actividades de pago ni de anulaciones
-             de reservas por no cubir un cupo o cualquier otro motivo, aunque en esos casos el usuario está protegido y deberá ser notificado con un tiempo de antelación y en todo caso devuelto el importe de la reserva si ya había sido abonado.</p>
-                    <img src="https://png.pngtree.com/thumb_back/fw800/back_pic/03/89/91/6557dab13c8ace0.jpg" alt="" class="imgfun">
+        </div>
 
-            </div>
+
         </div>
 
     </article>
