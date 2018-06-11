@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Hammersmith+One');
 
+.iniciar-sesion {
+	font-family: 'Hammersmith One', sans-serif;
+    font-weight: bold;
+}
 .login {
 	width: 50%;
 	padding: 12px 20px;

@@ -1,3 +1,8 @@
+<?php
+session_start();
+include '../php/connection.php';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +32,7 @@
 <section>
     <article>
         <!-- formulario de login de usuarios -->
-        <form action="../php/insert_oferta.php" method="post" accept-charset="utf-8" id="form-oferta">
+        <form action="../php/insert_oferta.php" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form-oferta">
 
 
             <h1>REGISTRO DE OFERTAS</h1>
@@ -135,7 +140,7 @@
                 </select><br>
 
                 <label>Agregue una imagen</label>
-                <input name="upfile" type="file" required><br/>
+                <input name="upfile" type="file" />
 
                 <label class="labelfecha">Fecha Inicio de la oferta</label><br/>
                 <input name="inicio" id="date-ini" type="date" placeholder="FECHA INICIO DE LA OFERTA" required><br/>

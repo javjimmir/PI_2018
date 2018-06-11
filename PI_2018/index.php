@@ -33,8 +33,9 @@ if (isset($_GET['category'])) {
 <header class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Body Balance</a>
+      <a class="navbar-brand" href="#">WildSports</a>
     </div>
+    <div id="logo"><img src="img/LogoAplicacion.png"/></div>
     <ul class="nav navbar-nav navbar-right">
     	<?php
         /**
@@ -131,8 +132,9 @@ if (isset($_GET['category'])) {
 		</div>
 	</article>
 
-	<article>
+	<article style="background-color: #f5f5f0;">
         <div class="row tabla">
+
         <?php
         	/* Cuenta las reservas que existen y dependiendo de las que salgan irá poniendo los elementos.
 			   En el caso de que haya más reservas de 12, pues solo se mostrarán las 12 más recientes.
@@ -160,29 +162,29 @@ if (isset($_GET['category'])) {
              *      Comprobación de load more
              *
              */
+
             if (isset($_GET['load'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
-                    //$descripcion = substr($row['descripcion'], 0, 110);
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
+                    $img = $row['imagen_oferta'];
                     echo '  <div class="col-lg-4 actividad">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-                        </div>
-                        <div class="col-lg-8">
-                            <p id="nombre">'.$nombre.'</p>
-                            <p id="actividad">'.$actividad.'</p>
-                            <p id="provincia">'.$provincia.'</p>
-                            <p id="dificultad">'.$dificultad.'</p>
-                            <p id="precio">'.$precio.'€</p>
-                            <a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
-                        </div>
-                    </div>
+                                       <figure class="snip1208">
+  <img src="img/oferta/'.$img.'" alt="sample66"/>
+
+  <figcaption>
+    <h3 id="nombre">'.$nombre.'</h3>
+    <p id="actividad">'.$actividad.'</p>
+    <p id="provincia">'.$provincia.'</p>
+    <p id="dificultad">'.$dificultad.'</p>
+    <p id="precio">'.$precio.'€</p>
+    <button>Ver actividad</button>
+  </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+</figure>
                 </div>';
                 }
             } else if (isset($_GET['category'])) {
@@ -193,23 +195,25 @@ if (isset($_GET['category'])) {
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
+                    $img = $row['img_oferta'];
                     echo '  <div class="col-lg-4 actividad">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-                        </div>
-                        <div class="col-lg-8">
-                            <p id="nombre">'.$nombre.'</p>
-                            <p id="actividad">'.$actividad.'</p>
-                            <p id="provincia">'.$provincia.'</p>
-                            <p id="dificultad">'.$dificultad.'</p>
-                            <p id="precio">'.$precio.'€</p>
-                            <a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
-                        </div>
-                    </div>
-                </div>';
+                                                           <figure class="snip1208">
+                      <img src="img/"'.$img.'" alt="sample66"/>
+                      
+                      <figcaption>
+                        <h3 id="nombre">'.$nombre.'</h3>
+                        <p id="actividad">'.$actividad.'</p>
+                        <p id="provincia">'.$provincia.'</p>
+                        <p id="dificultad">'.$dificultad.'</p>
+                        <p id="precio">'.$precio.'€</p>
+                        <button>Ver actividad</button>
+                      </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+                    </figure>
+                    </div>';
                 }
             } else {
+
+
                 /**
                  *
                  * Bloque de actividades recomendadas para el usuario.
@@ -222,12 +226,9 @@ if (isset($_GET['category'])) {
                     $fila_destacados = $row_destacados = $result->fetch_assoc();
                     $ofertas_destacadas_encontradas = $result->num_rows;
                     $count = 9;
-                    //print_r($sql_destacados . " --- " . $ofertas_destacadas_encontradas);
-
                     if ($ofertas_destacadas_encontradas > 0) { // Si no existen actividades con la categoría favorita del user (mínimo 1), no saldrá el cuadro de DESTACADOS!!
                         if (isset($_SESSION['nombre'])) {
-
-                            echo "<h3>DESTACADOS</h3>";
+                            echo "<h3>Destacadas</h3>";
                             for ($i = 1; $i <= 3; $i++) {
                                 $row_destacados = $result_destacados->fetch_assoc();
                                 $nombre = $row_destacados['nombre'];
@@ -236,46 +237,47 @@ if (isset($_GET['category'])) {
                                 $precio = $row_destacados['precio'];
                                 $dificultad = $row_destacados['dificultad'];
                                 echo '  <div class="col-lg-4 actividad destacada">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-                        </div>
-                        <div class="col-lg-8">
-                            <p id="nombre">' . $nombre . '</p>
-                            <p id="actividad">' . $actividad . '</p>
-                            <p id="provincia">' . $provincia . '</p>
-                            <p id="dificultad">' . $dificultad . '</p>
-                            <p id="precio">' . $precio . '€</p>
-                            <a href="content/oferta.php?id=' . $row_destacados['id'] . '">Ver actividad</a>
-                        </div>
-                    </div>
+                                <figure class="snip1208">
+                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      
+                      <figcaption>
+                        <h3 id="nombre">'.$nombre.'</h3>
+                        <p id="actividad">'.$actividad.'</p>
+                        <p id="provincia">'.$provincia.'</p>
+                        <p id="dificultad">'.$dificultad.'</p>
+                        <p id="precio">'.$precio.'€</p>
+                        <button>Ver actividad</button>
+                      </figcaption><a href="content/oferta.php?id=' . $row_destacados['id'] . '"></a>
+                    </figure>
                 </div>';
                             }
                         }
                     }
+                    echo "<h3>Ofertas</h3>";
                 }
+
+
+
                 for ($i = 1; $i <= $count; $i++) {
                     $row = $result->fetch_assoc();
-                    //$descripcion = substr($row['descripcion'], 0, 110);
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="./img/submarinismo.jpg" alt="submarinismo" class="listImg">
-                        </div>
-                        <div class="col-lg-8">
-                            <p id="nombre">'.$nombre.'</p>
-                            <p id="actividad">'.$actividad.'</p>
-                            <p id="provincia">'.$provincia.'</p>
-                            <p id="dificultad">'.$dificultad.'</p>
-                            <p id="precio">'.$precio.'€</p>
-                            <a href="content/oferta.php?id='.$row['id'].'">Ver actividad</a>
-                        </div>
-                    </div>
+                                       <figure class="snip1208">
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
+  
+  <figcaption>
+    <h3 id="nombre">'.$nombre.'</h3>
+    <p id="actividad">'.$actividad.'</p>
+    <p id="provincia">'.$provincia.'</p>
+    <p id="dificultad">'.$dificultad.'</p>
+    <p id="precio">'.$precio.'€</p>
+    <button>Ver actividad</button>
+  </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+</figure>
                 </div>';
                 }
             }
@@ -283,7 +285,7 @@ if (isset($_GET['category'])) {
   		</div>
         <form action="?load=all" method="get">
             <input type="hidden" name="load" value="all">
-            <button id="cargar">Cargar más...</button>
+            <button id="cargar">Cargar más</button>
         </form>
 	</article>
 </section>

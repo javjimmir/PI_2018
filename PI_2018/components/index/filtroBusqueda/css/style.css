@@ -1,26 +1,68 @@
+#filters {
+    border-radius: 2px;
+    padding: 1rem;
+	background: #92929226;
+}
 aside{
-	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-	/*border-style: solid;
-	border-width: 1px;
-	border-color: #080808;*/
+	background-color: #222;
 }
 
-aside > h2{
+h2{
 	text-align: center;
-	color: black;
-	font-size: 1em;
+	color: white;
+	font-size: 1.5em;
 	font-weight: bold;
 }
 label {
 	color: white;
+	width: 100%;
+	font-weight: bold;
+	margin: 2rem 0 2rem 0;
+	text-align: center;
 }
 form {
 	color: white;
 }
 input, button {
 	color: black;
+
+}
+#number {
+    width: 70%;
+    background-color: #222;
+    color: white;
+    border-right: 4px solid;
+    border-bottom: 4px solid;
+	margin-bottom: 10px;
+	margin-left: 15%
+}
+input[type='range'] {
+	padding: 0 2px 0 2px;
 }
 
-#quitarfiltros{
-	margin-top: 3em;
+input[type='radio'] {
+	width: auto;
+}
+
+/* Para el signo de euros no desaparezca en el input de rangos */
+.input-box { position: relative; }
+.euros { position: absolute; display: block; left: 67%; top: 19%; z-index: 9; }
+
+.btn-5 {
+	border: 0 solid;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+	outline: 1px solid;
+	outline-color: rgba(255, 255, 255, .5);
+	outline-offset: 0px;
+	text-shadow: none;
+	transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+	border-radius: 0;
+}
+
+.btn-5:hover {
+	border: 1px solid;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .4);
+	outline-color: rgba(255, 255, 255, 0);
+	outline-offset: 15px;
+	text-shadow: 1px 1px 2px #427388;
 }

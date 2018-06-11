@@ -35,24 +35,22 @@ if (!isset($_SESSION['nombre'])) {
     <h2 class="text-center">Mis reservas</h2>
 				<?php
 
-				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') ORDER BY fecha_reserva"; 
+				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') "; 
 
 				  $result = $conexion->query($sql_reserva); 
           
           if ($result->num_rows === 0) {
             echo '<p class="text-center">No hay registros para mostrar</p>';
-          }else{
-            
+          }else{ 
            while($row = $result->fetch_assoc()) {
                 $sql_oferta = "SELECT * from oferta where id = '".$row['id_oferta']."'";
                 $result2 = $conexion->query($sql_oferta);
                 $row2 = $result2->fetch_assoc();
                 echo '  <div class="col-lg-4 actividad">
-          <div class="row">
-            <div class="col-lg-4">
-              <img src="../img/submarinismo.jpg" alt="submarinismo" class="listImg">
-            </div>
-            <div class="col-lg-8">
+         <figure class="snip1208">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      
+                      <figcaption>
                 <p id="nombre_actividad">'.$row2['nombre'].'</p>
                 <p id="tipo_actividad">'.$row2['tipo_actividad'].'</p>
               <p id="coste_reserva">Coste: '.$row['coste_reserva'].'€</p>';
@@ -75,7 +73,7 @@ if (!isset($_SESSION['nombre'])) {
                $day = $array_fecha['mday'];
                $fecha_de_hoy = $year."-".$month."-".$day;
                $fecha_de_hoy = date("Y-m-d", strtotime($fecha_de_hoy)); // Convertimos al formato deseado.
-               //echo "Hoy: " . $fecha_de_hoy . " ----- " . "Expira: " . $fecha_expiracion_actividad;
+               //echo "Hoy: " . $fecha_de_hoy . " ----- " . "Fecha de reserva: " . $fecha_reserva . "Expira: " . $fecha_expiracion_actividad;
 
                // Si la fecha de hoy es mayor o igual a la fecha de expiración de la actividad, el usuario podrá valorar e incluir reseña. Tengo pensado hacerlo con AJAX
                // Para debugear, pon en fecha_de_hoy una fecha menor a la de expiración de la actividad :))
@@ -88,9 +86,13 @@ if (!isset($_SESSION['nombre'])) {
                $id_oferta = $row['id_oferta'];
                $sql_comprobacion_null = "SELECT * FROM reserva where nif_usuario = '$nif_usuario' and id_oferta = '$id_oferta' and valoracion is NULL and resena is NULL";
                $resultado=$conexion->query($sql_comprobacion_null);
+                echo '
+               <button>Ver actividad</button>
+                      </figcaption><a href="oferta.php?id='.$row['id_oferta'].'"></a>
+                    </figure>';
                //echo "nif = " . $nif_usuario . " -- id_oferta = " . $id_oferta;
                if ($resultado->num_rows > 0) { // Si DEVUELVE una actividad con valores nulos, es que el user PUEDE rellenar la encuesta, así que se mostrará
-                   if ('2018-06-01' >= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calcula
+                   if ($fecha_reserva <= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calculafecha_expiracion)
                                                                       // si el día de hoy es mayor o IGUAL que la fecha de expiración, es entonces cuando se mostrará.  ?>
                        <div id="puntuacion">
                            <form id="form-rating" method="post">
@@ -147,13 +149,15 @@ if (!isset($_SESSION['nombre'])) {
                        <?php
                    }
                } else {
-                    echo "<span id='voted'><p>Ya has evaluado esta actividad</p><img width='30' src=\"../img/tick.png\"></span><br>";
+                    echo "<span id='voted'><p>Ya has evaluado esta actividad</p><img width='30' src=\"../img/tick.png\"></span><br>
+
+                    ";
                }
                //echo "Hoy -> " . $fecha_de_hoy . " Expiración -> " . $fecha_expiracion_actividad;
 
 
-               echo '
-              <a href="oferta.php?id='.$row['id'].'">Ver actividad</a>';
+              
+              
                 echo '
             </div>
           </div>

@@ -14,7 +14,7 @@ session_start();
   <div class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="../index.php">Inicio</a></li>
+      <li><a href="../index.php">Inicio</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categorías
         <span class="caret"></span></a>
