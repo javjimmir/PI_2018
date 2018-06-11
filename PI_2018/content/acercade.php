@@ -32,7 +32,7 @@ include '../php/connection.php';
     <article class="perfiles">
     <h3>¿Quienes somos?</h3>
                 <figure class="snip0067 red">
-                    <img src="./../img/JAVI.PNG" alt="sample8" />
+                    <img src="./../img/JAVI.png" alt="sample8" />
                     <figcaption>
                         <h2>Javier <span>Jimenez</span></h2>
                         <p>Experto en PHP Drupal entre otras cosas</p>
@@ -40,7 +40,7 @@ include '../php/connection.php';
                     </figcaption>
                     <div class="position">Programador Web</div>
                 </figure>
-                <figure class="snip0067 blue"><img src="./../img/JUAN.jpg" alt="sample3" />
+                <figure class="snip0067 blue"><img src="./../img/juan.jpg" alt="sample3" />
                     <figcaption>
                         <h2>Juan <span>Delgado</span></h2>
                         <p>Experto en PHP Drupal y aplicaciones WEB</p>
