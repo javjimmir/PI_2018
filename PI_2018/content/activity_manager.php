@@ -170,7 +170,7 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
           echo '</p>';
         }
 
-        echo '<center><a href="registrofertas.html" title="Añadir" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Añadir actividad</a></center>';
+        echo '<center><a href="registrofertas.php" title="Añadir" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Añadir actividad</a></center>';
 
         ?>
           
