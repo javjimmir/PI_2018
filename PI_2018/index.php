@@ -167,6 +167,7 @@ if (isset($_GET['category'])) {
             if (isset($_GET['load'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
+                    $img = $row['imagen_oferta'];
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
@@ -174,7 +175,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
+  <img src="img/oferta/'.$img.'" alt="sample66"/>
 
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
@@ -190,6 +191,7 @@ if (isset($_GET['category'])) {
             } else if (isset($_GET['category'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
+                    $img = ['imagen_oferta'];
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
@@ -197,7 +199,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                                            <figure class="snip1208">
-                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      <img src="img/oferta/'.$img.'" alt="sample66"/>
                       
                       <figcaption>
                         <h3 id="nombre">'.$nombre.'</h3>
@@ -259,6 +261,7 @@ if (isset($_GET['category'])) {
 
                 for ($i = 1; $i <= $count; $i++) {
                     $row = $result->fetch_assoc();
+                    $img = $row['imagen_oferta'];
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
@@ -266,7 +269,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
+  <img src="img/oferta/'.$img.'" alt="sample66"/>
   
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
