@@ -23,6 +23,26 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 $(document).ready(function () {
+
+
+    /* Bloque de mensajes de información relacionados con la actualización de imágenes en el perfil */
+
+    if (getUrlParameter('status') == 'success') {
+        $(".status").append("<span class='alert alert-success'>¡Imagen actualizada con éxito!</span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('status') == 'generic') {
+        $(".status").append("<span class='alert alert-danger'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</span>").delay(3000).fadeOut("slow");
+    } else if (getUrlParameter('status') == 'fileformat') {
+        $(".status").append("<span class='alert alert-danger'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</span>").delay(3000).fadeOut("slow");
+    } else if (getUrlParameter('status') == 'filesizelimit') {
+        $(".status").append("<span class='alert alert-danger'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</span>").delay(3000).fadeOut("slow");
+    } else if (getUrlParameter('status') == 'unknown') {
+        $(".status").append("<span class='alert alert-danger'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</span>").delay(3000).fadeOut("slow");
+    } else if (getUrlParameter('status') == 'parameters') {
+        $(".status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut("slow");
+    }
+
+
+
     if (getUrlParameter('load') == 'all') {
         $("#cargar").attr("disabled", "disabled");
     }
@@ -270,22 +290,6 @@ $(document).ready(function () {
             $("#saveconfig").removeAttr("disabled");
         }
     });
-
-    /* Bloque de mensajes de información relacionados con la actualización de imágenes en el perfil */
-
-    if (getUrlParameter('status') == 'success') {
-        $("#status").append("<span class='alert alert-success'>¡Imagen actualizada con éxito!</span>").delay(3000).fadeOut();
-    } else if (getUrlParameter('status') == 'generic') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - No se ha podido subir la imagen al servidor, espera unos instantes e inténtalo de nuevo</span>").delay(3000).fadeOut("slow");
-    } else if (getUrlParameter('status') == 'fileformat') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo están permitidos los formatos png, jpg y gif</span>").delay(3000).fadeOut("slow");
-    } else if (getUrlParameter('status') == 'filesizelimit') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Solo se permiten imágenes de como máximo 2MB</span>").delay(3000).fadeOut("slow");
-    } else if (getUrlParameter('status') == 'unknown') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Error desconocido. ¡Estamos solucionándolo!</span>").delay(3000).fadeOut("slow");
-    } else if (getUrlParameter('status') == 'parameters') {
-        $("#status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut("slow");
-    }
 
     /* ---------------------------------------------------------------------------------------------------- */
 });

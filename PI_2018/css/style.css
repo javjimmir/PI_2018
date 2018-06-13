@@ -975,7 +975,7 @@ figure.snip0067.hover:before {
 
 .infoperfiliz>button{
     float: right;
-    margin-right: 3%;
+    margin: 2%;
     vertical-align: baseline;
 }
 
@@ -999,7 +999,7 @@ figure.snip0067.hover:before {
 }
 .infoperfilde>button{
     float: left;
-    margin-left: 3%;
+    margin: 5%;
 }
 
 .infoperfilde > input[type=text]:focus, .infoperfilde > input[type=password]:focus {
