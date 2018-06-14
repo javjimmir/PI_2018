@@ -1,5 +1,3 @@
-
-
 $(function () {
     $("#nombre-usu").blur(function(){
         var nameRegex = /^([A-Z]{1}[a-zñáéíóú]+[\s]*)+$/;
@@ -15,6 +13,7 @@ $(function () {
             $("#nombre-usu").css('color', 'black');
         }
     });
+
 
     $("#apellidos-usu").blur(function(){
         var nameRegex = /^([A-Z]{1}[a-zñáéíóú]+[\s]*)+$/;
@@ -110,9 +109,10 @@ $(function () {
     });
 
     $("#cp-usuario").blur(function(){
+        var cpRegex = /^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/;
         var cp = $("#cp-usuario").val();
-        if ( cp == "") {
-            $("#error-usu").html("<p>Campo vacío</p>");
+        if ( cpRegex.test(cp) == false || cp == "") {
+            $("#error-usu").html("<p>Campo vacío o incompleto</p>");
             $("#error-usu").fadeIn();
             $("#cp-usuario").css('color', 'white');
             $("#cp-usuario").css('background', '#ff8080');

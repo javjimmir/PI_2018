@@ -122,8 +122,8 @@ $(function () {
     $("#cp-empresa").blur(function(){
         var cpRegex = /^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/;
         var cp = $("#cp-empresa").val();
-        if ( cp == "") {
-            $("#error-empre").html("<p>Campo vacío</p>");
+        if ( cpRegex.test(cp) == false || cp == "") {
+            $("#error-empre").html("<p>Campo vacío o mal formado</p>");
             $("#error-empre").fadeIn();
             $("#cp-empresa").css('color', 'white');
             $("#cp-empresa").css('background', '#ff8080');
