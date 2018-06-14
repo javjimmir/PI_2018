@@ -76,7 +76,7 @@ $(document).ready(function () {
                 //console.log(data[i]);
                 $(".tabla").append("<div class='col-lg-4 actividad'>" +
                     "<figure class='snip1208'>"+
-  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
   
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 for (var i = 0; i <= data.length-1; i++) {
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
                         "<figure class='snip1208'>"+
-  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
   
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -144,7 +144,7 @@ $(document).ready(function () {
                     //console.log(data[i]);
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
                         "<figure class='snip1208'>"+
-  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
   
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -173,7 +173,7 @@ $(document).ready(function () {
                     //console.log(data[i]);
                     $(".tabla").append("<div class='col-lg-4 actividad'>" +
                        "<figure class='snip1208'>"+
-  "<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg' alt='sample66'/>"+
+  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
   
   "<figcaption>"+
   "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
