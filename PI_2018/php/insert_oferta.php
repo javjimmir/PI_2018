@@ -83,7 +83,7 @@ try {
 	VALUES ('$cif','$nombre','$provincia','$municipio','$duracion',$plazas,'$actividad','$localizacion',$precio,'$dificultad','$categoria','$img','$fecha_inicio','$fecha_fin','$descripcion')";
 
 	if ($conexion->query($sql) === TRUE) {
-	    header('Location: ../content/registrofertas.php');
+	    header('Location: ../content/registrofertas.php?status=created');
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conexion->error;
 	}

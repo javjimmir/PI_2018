@@ -7,9 +7,8 @@ include '../php/connection.php';
 <html>
 <head>
     <link rel="icon" type="image/png" href="../img/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/form.css">
-
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,6 +16,7 @@ include '../php/connection.php';
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_ofertas.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
     <title>Index</title>
 </head>
 <body>
@@ -32,6 +32,7 @@ include '../php/connection.php';
 </aside>
 <section>
     <article>
+        <div class="status"></div>
         <!-- formulario de login de usuarios -->
         <form action="../php/insert_oferta.php" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="form-oferta">
 

@@ -41,7 +41,10 @@ $(document).ready(function () {
         $(".status").append("<span class='alert alert-danger'>¡ERROR! - Parámetros inválidos. Contacta con un administrador del site</span>").delay(3000).fadeOut("slow");
     }
 
-
+    /* Notificación cuando una empresa crea una actividad */
+    if (getUrlParameter('status') == 'created') {
+        $(".status").append("<span class='alert alert-success'>¡Actividad creada con éxito! </span>").delay(3000).fadeOut();
+    }
 
     if (getUrlParameter('load') == 'all') {
         $("#cargar").attr("disabled", "disabled");
