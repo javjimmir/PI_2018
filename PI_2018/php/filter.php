@@ -17,7 +17,8 @@ if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
             "dificultad"=>$row->dificultad,
-            "precio"=>$row->precio
+            "precio"=>$row->precio,
+            "imagen_oferta"=>$row->imagen_oferta
         );
         array_push($res, $fila);
     }
@@ -41,7 +42,8 @@ if (isset($_POST['precio']) && empty($_POST['tipo_actividad'])) {
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
             "dificultad"=>$row->dificultad,
-            "precio"=>$row->precio
+            "precio"=>$row->precio,
+            "imagen_oferta"=>$row->imagen_oferta
         );
         array_push($res, $fila);
     }
@@ -67,7 +69,8 @@ if (isset($_POST['precio'], $_POST['tipo_actividad'])) {
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
             "dificultad"=>$row->dificultad,
-            "precio"=>$row->precio
+            "precio"=>$row->precio,
+            "imagen_oferta"=>$row->imagen_oferta
         );
         array_push($res, $fila);
     }
@@ -91,7 +94,8 @@ if (isset($_POST['provincia']) && empty($_POST['tipo_actividad']) && empty($_POS
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
             "dificultad"=>$row->dificultad,
-            "precio"=>$row->precio
+            "precio"=>$row->precio,
+            "imagen_oferta"=>$row->imagen_oferta
         );
         array_push($res, $fila);
     }
