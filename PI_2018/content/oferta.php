@@ -6,6 +6,7 @@ include '../php/connection.php';
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/png" href="../img/favicon.ico" />
 	<title>Hacer reserva</title>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">

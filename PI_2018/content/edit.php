@@ -9,6 +9,7 @@ $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/png" href="../img/favicon.ico" />
 	<title>Editar una oferta</title>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
