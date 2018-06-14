@@ -30,6 +30,7 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/png" href="../img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

@@ -19,6 +19,7 @@ if (isset($_GET['category'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/png" href="./img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
 	<meta charset="utf-8">
