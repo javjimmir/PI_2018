@@ -59,8 +59,8 @@ include '../php/connection.php';
                 </figure> 
                 <figure class="snip0067 green"><img src="./../img/FRAN.jpg" alt="sample5" />
                     <figcaption>
-                        <h2>Francisco <span>Alcón</span></h2>
-                        <p>Programador web y futuro programador de aplicaciones multiplataforma </p>
+                        <h2>Fran <span>Alcón</span></h2>
+                        <p>Programador web y futuro multiplataforma </p>
                         <div class="icons"><a target="_blank" href="https://github.com/FranAlcon96"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
                     </figcaption>
                     <div class="position">Analista Programador</div>
