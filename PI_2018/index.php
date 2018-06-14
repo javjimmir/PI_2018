@@ -77,7 +77,7 @@ if (isset($_GET['category'])) {
 
 </aside>
 <section>
-	<article>
+	<article class="index">
 		<div id="myCarousel" class="carousel slide carousel-generico" data-ride="carousel">
 		  <!-- Indicators -->
 		  <ol class="carousel-indicators">
@@ -134,7 +134,7 @@ if (isset($_GET['category'])) {
 		</div>
 	</article>
 
-	<article style="background-color: #f5f5f0;">
+	<article class="index">
         <div class="row tabla">
 
         <?php
@@ -223,15 +223,15 @@ if (isset($_GET['category'])) {
                  *
                  */
                 if (isset($_SESSION['nombre']) && $_SESSION['tipo'] === 'usuario') { // Si hay un usuario conectado y es de tipo usuario...
-                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND()";
+                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = 'aire' ORDER BY RAND() LIMIT 3";
                     $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
                     $fila_destacados = $row_destacados = $result->fetch_assoc();
-                    $ofertas_destacadas_encontradas = $result->num_rows;
+                    $ofertas_destacadas_encontradas = $result_destacados->num_rows;
                     $count = 9;
                     if ($ofertas_destacadas_encontradas > 0) { // Si no existen actividades con la categoría favorita del user (mínimo 1), no saldrá el cuadro de DESTACADOS!!
                         if (isset($_SESSION['nombre'])) {
-                            echo "<h3>Destacadas</h3>";
-                            for ($i = 1; $i <= 3; $i++) {
+                            echo "<div id='bloque_destacados'><h3>Destacadas</h3>";
+                            for ($i = 1; $i <= $ofertas_destacadas_encontradas; $i++) {
                                 $row_destacados = $result_destacados->fetch_assoc();
                                 $nombre = $row_destacados['nombre'];
                                 $img = $row_destacados['imagen_oferta'];
@@ -254,14 +254,23 @@ if (isset($_GET['category'])) {
                     </figure>
                 </div>';
                             }
+                            echo "</div>";
                         }
                     }
                     echo "<h3>Ofertas</h3>";
                 }
 
+                /* Carga de las demás ofertas, máximo 9 hasta pulsar "Cargar más" Este if-else hace que en caso de que haya menos de 9 actividades en TOTAL, semuestren normalmente
+                las que haya en pantalla, y si supera el máximo por pantalla (9), se mostrará el máximo. */
+                if ($ofertas_encontradas >= 9) {
+                    $ofertas_mostradas = 9;
+                } else {
+                    $ofertas_mostradas = $ofertas_encontradas-1;
+                }
 
 
-                for ($i = 1; $i <= $count; $i++) {
+
+                for ($i = 1; $i <= $ofertas_mostradas; $i++) {
                     $row = $result->fetch_assoc();
                     $img = $row['imagen_oferta'];
                     $nombre = $row['nombre'];
