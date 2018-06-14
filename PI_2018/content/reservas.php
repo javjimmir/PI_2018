@@ -32,6 +32,7 @@ if (!isset($_SESSION['nombre'])) {
 
 <section>
 <article>
+    <div class="status"></div>
     <h2 class="text-center">Mis reservas</h2>
 				<?php
 
@@ -90,7 +91,6 @@ if (!isset($_SESSION['nombre'])) {
                <button>Ver actividad</button>
                       </figcaption><a href="oferta.php?id='.$row['id_oferta'].'"></a>
                     </figure>';
-               //echo "nif = " . $nif_usuario . " -- id_oferta = " . $id_oferta;
                if ($resultado->num_rows > 0) { // Si DEVUELVE una actividad con valores nulos, es que el user PUEDE rellenar la encuesta, así que se mostrará
                    if ($fecha_reserva <= $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calculafecha_expiracion)
                                                                       // si el día de hoy es mayor o IGUAL que la fecha de expiración, es entonces cuando se mostrará.  ?>
@@ -153,10 +153,6 @@ if (!isset($_SESSION['nombre'])) {
 
                     ";
                }
-               //echo "Hoy -> " . $fecha_de_hoy . " Expiración -> " . $fecha_expiracion_actividad;
-
-
-              
               
                 echo '
             </div>

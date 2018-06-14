@@ -175,7 +175,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
-  <img src="img/oferta/'.$img.'" alt="sample66"/>
+  <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
 
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
@@ -199,7 +199,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                                            <figure class="snip1208">
-                      <img src="img/oferta/'.$img.'" alt="sample66"/>
+                      <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
                       
                       <figcaption>
                         <h3 id="nombre">'.$nombre.'</h3>
@@ -233,13 +233,14 @@ if (isset($_GET['category'])) {
                             for ($i = 1; $i <= 3; $i++) {
                                 $row_destacados = $result_destacados->fetch_assoc();
                                 $nombre = $row_destacados['nombre'];
+                                $img = ['imagen_oferta'];
                                 $provincia = $row_destacados['provincia'];
                                 $actividad = $row_destacados['tipo_actividad'];
                                 $precio = $row_destacados['precio'];
                                 $dificultad = $row_destacados['dificultad'];
                                 echo '  <div class="col-lg-4 actividad destacada">
                                 <figure class="snip1208">
-                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      <img src="img/oferta/'.$img.'" alt="Oferta de actividad destacada"/>
                       
                       <figcaption>
                         <h3 id="nombre">'.$nombre.'</h3>
@@ -269,7 +270,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
-  <img src="img/oferta/'.$img.'" alt="sample66"/>
+  <img src="img/oferta/'.$img.'" alt="Ofertas de portada"/>
   
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
