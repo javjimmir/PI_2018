@@ -257,10 +257,10 @@ $(document).ready(function () {
             $("#puntuacion").empty();
             if (data == 0) {
                 /* En caso de que los datos sean correctos... */
-                $("#puntuacion").append("<p>¡Muchas gracias por tu opinión!</p>");
+                $(".status").append("<span class='alert alert-success'>¡Muchas gracias por tu opinión!</span>").delay(3000).fadeOut();
             } else {
                 /* En caso de algún error... */
-                $("#puntuacion").append("<p>¡Vaya! Ha ocurrido un error inesperado. Inténtalo más tarde.</p>");
+                $(".status").append("<span class='alert alert-danger'>Ha ocurrido un error inesperado, ¡inténtalo más tarde!</span>").delay(3000).fadeOut("slow");
             }
         });
     });

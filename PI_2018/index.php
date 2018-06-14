@@ -176,7 +176,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
-  <img src="img/oferta/'.$img.'" alt="sample66"/>
+  <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
 
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
@@ -200,7 +200,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                                            <figure class="snip1208">
-                      <img src="img/oferta/'.$img.'" alt="sample66"/>
+                      <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
                       
                       <figcaption>
                         <h3 id="nombre">'.$nombre.'</h3>
@@ -223,7 +223,7 @@ if (isset($_GET['category'])) {
                  *
                  */
                 if (isset($_SESSION['nombre']) && $_SESSION['tipo'] === 'usuario') { // Si hay un usuario conectado y es de tipo usuario...
-                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND() ";
+                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND()";
                     $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
                     $fila_destacados = $row_destacados = $result->fetch_assoc();
                     $ofertas_destacadas_encontradas = $result->num_rows;
@@ -234,13 +234,14 @@ if (isset($_GET['category'])) {
                             for ($i = 1; $i <= 3; $i++) {
                                 $row_destacados = $result_destacados->fetch_assoc();
                                 $nombre = $row_destacados['nombre'];
+                                $img = $row_destacados['imagen_oferta'];
                                 $provincia = $row_destacados['provincia'];
                                 $actividad = $row_destacados['tipo_actividad'];
                                 $precio = $row_destacados['precio'];
                                 $dificultad = $row_destacados['dificultad'];
                                 echo '  <div class="col-lg-4 actividad destacada">
                                 <figure class="snip1208">
-                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" lt="sample66"/>
+                      <img src="img/oferta/'.$img.'" alt="Oferta de actividad destacada"/>
                       
                       <figcaption>
                         <h3 id="nombre">'.$nombre.'</h3>
@@ -270,7 +271,7 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
-  <img src="img/oferta/'.$img.'" alt="sample66"/>
+  <img src="img/oferta/'.$img.'" alt="Ofertas de portada"/>
   
   <figcaption>
     <h3 id="nombre">'.$nombre.'</h3>
