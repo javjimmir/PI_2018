@@ -10,8 +10,9 @@ body, html{
 body{
 
 	position: absolute;
-	
-background: rgba(163,231,250,1);
+  /* background: url("./../img/fondos/fondo.jpg"); */
+  
+/* background: rgba(163,231,250,1);
 background: -moz-linear-gradient(top, rgba(163,231,250,1) 0%, rgba(204,244,255,1) 59%, rgba(224,249,255,1) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(163,231,250,1)), color-stop(59%, rgba(204,244,255,1)), color-stop(100%, rgba(224,249,255,1)));
 background: -webkit-linear-gradient(top, rgba(163,231,250,1) 0%, rgba(204,244,255,1) 59%, rgba(224,249,255,1) 100%);
@@ -19,8 +20,9 @@ background: -o-linear-gradient(top, rgba(163,231,250,1) 0%, rgba(204,244,255,1) 
 background: -ms-linear-gradient(top, rgba(163,231,250,1) 0%, rgba(204,244,255,1) 59%, rgba(224,249,255,1) 100%);
 background: linear-gradient(to bottom, rgba(163,231,250,1) 0%, rgba(204,244,255,1) 59%, rgba(224,249,255,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3e7fa', endColorstr='#e0f9ff', GradientType=0 );
-background-repeat: no-repeat;
-background-attachment: fixed;
+*/background-repeat: no-repeat;
+background-attachment: fixed; 
+background-size: cover;
 }
 
 header{
@@ -324,6 +326,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 .funciona1 h2 {
 	text-align: left;
 }
+
+@media (max-width: 769px) {
+  .funciona1{
+     margin-top: 20em;
+  }
+}
+
+/* @media (max-width: 320px) {
+  .funciona{
+     margin-left: 10px;
+  }
+} */
 
 
 #morecsspure-trigger-toggle {
