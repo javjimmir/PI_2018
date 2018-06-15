@@ -152,6 +152,7 @@ footer{
 	margin-top: 1%;
 	margin-bottom: 1%;
 	width: 30%;
+	height: 530px;
 	border-radius: 18px 0px 0px 0px;
 -moz-border-radius: 18px 0px 0px 0px;
 -webkit-border-radius: 18px 0px 0px 0px;
@@ -490,12 +491,13 @@ figure.snip1208 * {
   transition: all 0.2s ease;
 }
 figure.snip1208 img {
-  max-width: 100%;
-  vertical-align: top;
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+	max-width: 100%;
+	width: 100%;
+	height: 200px;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 figure.snip1208 figcaption {
   padding: 25px;
