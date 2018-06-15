@@ -4,75 +4,97 @@ session_start();
 include '../php/connection.php';
 
 
-/* Sacando datos del user... */
-$username = $_SESSION['nombre'];
-$sesion = $_SESSION['tipo'];
-
-/* Comprobamos si es usuario o empresa */
-if ($sesion == "usuario") {
-    $sql = "select * from usuario where alias = " . "'$username'";
-    $sql_actividades_recientes = "select * from reserva where nif_usuario = (select nif from usuario where alias = '$username') ORDER BY fecha_reserva DESC LIMIT 3;";
-    $resultado = $conexion->query($sql);
-    $res = [];
-    while($row = $resultado->fetch_object()){
-        $fila=array(
-            "nif"=>$row->nif,
-            "nombre"=>$row->nombre,
-            "apellidos"=>$row->apellidos,
-            "telefono"=>$row->telefono,
-            "pais"=>$row->pais,
-            "alias"=>$row->alias,
-            "email"=>$row->email,
-            "cp"=>$row->cp,
-            "imagen_perfil"=>$row->imagen_perfil,
-            "provincia"=>$row->provincia,
-            "direccion"=>$row->direccion,
-            "actividad_fav"=>$row->actividad_fav,
-            "password"=>$row->password
-        );
-        array_push($res, $fila);
-    }
-} else if ($sesion == "empresa") {
-    $sql = "select * from empresa where alias = " . "'$username'";
-    $resultado = $conexion->query($sql);
-    $res = [];
-    while($row = $resultado->fetch_object()){
-        $fila=array(
-            "cif"=>$row->cif,
-            "nombre"=>$row->nombre,
-            "telefono"=>$row->telefono,
-            "pais"=>$row->pais,
-            "provincia"=>$row->provincia,
-            "alias"=>$row->alias,
-            "imagen_perfil"=>$row->imagen_perfil,
-            "tipo_actividad"=>$row->tipo_actividad,
-            "web"=>$row->web,
-            "email"=>$row->email,
-            "descripcion"=>$row->descripcion,
-            "cp"=>$row->cp,
-            "password"=>$row->password
-        );
-        array_push($res, $fila);
-    }
+if (isset($_GET['alias'])) {
+    $alias_empresa = $_GET['alias'];
+    $sql = "select * from empresa where alias = " . "'$alias_empresa'";
+        $resultado = $conexion->query($sql);
+        $res = [];
+        while ($row = $resultado->fetch_object()) {
+            $fila = array(
+                "cif" => $row->cif,
+                "nombre" => $row->nombre,
+                "telefono" => $row->telefono,
+                "pais" => $row->pais,
+                "provincia" => $row->provincia,
+                "alias" => $row->alias,
+                "imagen_perfil" => $row->imagen_perfil,
+                "tipo_actividad" => $row->tipo_actividad,
+                "web" => $row->web,
+                "email" => $row->email,
+                "descripcion" => $row->descripcion,
+                "cp" => $row->cp,
+                "password" => $row->password
+            );
+            array_push($res, $fila);
+        }
 } else {
-    // Si es usuario anónimo (no logeado) no podrá acceder a esta página, así que será redirigido a un 404.
-    header('Location: ./404.html');
-    exit;
+    /* Sacando datos del user... */
+    $username = $_SESSION['nombre'];
+    $sesion = $_SESSION['tipo'];
+
+    /* Comprobamos si es usuario o empresa */
+    if ($sesion == "usuario") {
+        $sql = "select * from usuario where alias = " . "'$username'";
+        $sql_actividades_recientes = "select * from reserva where nif_usuario = (select nif from usuario where alias = '$username') ORDER BY fecha_reserva DESC LIMIT 3;";
+        $resultado = $conexion->query($sql);
+        $res = [];
+        while ($row = $resultado->fetch_object()) {
+            $fila = array(
+                "nif" => $row->nif,
+                "nombre" => $row->nombre,
+                "apellidos" => $row->apellidos,
+                "telefono" => $row->telefono,
+                "pais" => $row->pais,
+                "alias" => $row->alias,
+                "email" => $row->email,
+                "cp" => $row->cp,
+                "imagen_perfil" => $row->imagen_perfil,
+                "provincia" => $row->provincia,
+                "direccion" => $row->direccion,
+                "actividad_fav" => $row->actividad_fav,
+                "password" => $row->password
+            );
+            array_push($res, $fila);
+        }
+    } else if ($sesion == "empresa") {
+        $sql = "select * from empresa where alias = " . "'$username'";
+        $resultado = $conexion->query($sql);
+        $res = [];
+        while ($row = $resultado->fetch_object()) {
+            $fila = array(
+                "cif" => $row->cif,
+                "nombre" => $row->nombre,
+                "telefono" => $row->telefono,
+                "pais" => $row->pais,
+                "provincia" => $row->provincia,
+                "alias" => $row->alias,
+                "imagen_perfil" => $row->imagen_perfil,
+                "tipo_actividad" => $row->tipo_actividad,
+                "web" => $row->web,
+                "email" => $row->email,
+                "descripcion" => $row->descripcion,
+                "cp" => $row->cp,
+                "password" => $row->password
+            );
+            array_push($res, $fila);
+        }
+    } else {
+        // Si es usuario anónimo (no logeado) no podrá acceder a esta página, así que será redirigido a un 404.
+        header('Location: ./404.html');
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
 <html><head>
     <link rel="icon" type="image/png" href="../img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
-    <!--<script src="../js/aws_config.js"></script> COMENTADO PORQUE NO HACE FALTA Y DA 404 EN EL NAVEGADOR-->
-    <!--<script src="../js/s3_upload.js"></script>-->
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_usu.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
@@ -99,27 +121,57 @@ if ($sesion == "usuario") {
     }
     ?>
 
-    <h2 class="text-center titulo">Perfil de <?php if($sesion == 'empresa'){ echo $sesion . ' <span class="glyphicon glyphicon-briefcase"></span>'; } else { echo $sesion . ' <span class="glyphicon glyphicon-user"></span>'; } ?></h2>
+    <h2 class="text-center titulo">Perfil de <?php
+        if ($alias_empresa != null) {
+            echo $res[0]['nombre'] . ' <span class="glyphicon glyphicon-briefcase"></span>';
+        } else {
+            if ($sesion == 'empresa') {
+                echo $sesion . ' <span class="glyphicon glyphicon-briefcase"></span>';
+            } else {
+                echo $sesion . ' <span class="glyphicon glyphicon-user"></span>';
+            }
+        }?>
+    </h2>
     <div class="infoperfil">
       <div class="imgperfil">
           <?php $myfoto = $res[0]['imagen_perfil'];
-                    echo "<img src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";?>
+                    echo "<img src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";
+          if ($alias_empresa == null) {
+          ?>
           <form action="../php/upload.php" id="formfileup" method='post' enctype="multipart/form-data">
-    <h3>Imagen de perfil</h3><br/>
-     <input type='file' name="upfile" id="upfile" class="btn btn-primary" required="" />
+            <h3>Imagen de perfil</h3><br/>
+            <input type='file' name="upfile" id="upfile" class="btn btn-primary" required="" />
 			<br>
 			<input type='submit' class="btn btn-primary" value='Actualizar'/>
 			</form>
+          <?php } ?>
     </div>
       <div class="alias">
           <h2><?php echo $res[0]['alias'];?></h2>
           <h4> Información <?php if($sesion == 'empresa'){ echo 'de la empresa'; } else { echo 'personal'; } ?> </h4>
           <div id="lista">
              <?php
-              // Formulario dinámico que depende de si es usuario o empresa.
-                // Cada formulario se divide en dos secciones: perfil y configuración.
-              if ($sesion == "usuario") {
-                echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
+             /* Bloque de vista de perfil de terceros. Si viene un get alias, se mostrará el perfil de la empresa con dicho alias */
+             if ($alias_empresa != null) {
+                echo "<div id='perfil_externo'>
+                <p>Nombre de la empresa: {$res[0]['nombre']}</p>
+                <p>Teléfono de contacto: {$res[0]['telefono']}</p>
+                <p>Pais: {$res[0]['pais']}</p>
+                <p>Provincia: {$res[0]['provincia']}</p>
+                <p>Categoría especializada: {$res[0]['tipo_actividad']}</p>
+                <p>Web: {$res[0]['web']}</p>
+                <p>Correo electrónico: {$res[0]['email']}</p>
+                <p>Descripción: {$res[0]['descripcion']}</p>
+
+                </div>";
+             } else {
+                 // No hay get, no se visualiza un perfil de terceros
+
+
+                 // Formulario dinámico que depende de si es usuario o empresa.
+                 // Cada formulario se divide en dos secciones: perfil y configuración.
+                 if ($sesion == "usuario") {
+                     echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
                 <div id=\"error-usu\"></div>
                 <div class='filainfo'>
                 <div class='infoperfiliz'><label>Nombre: </label></div>
@@ -185,10 +237,10 @@ if ($sesion == "usuario") {
                   </div>
                   
               </form>";
-              } else {
-                  echo
+                 } else {
+                     echo
 
-                  "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
+                     "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
 <span id=\"error-empre\">
 
                         </span>
@@ -273,7 +325,8 @@ if ($sesion == "usuario") {
                     <div class='infoperfilde'><button type=\"submit\" disabled id='saveconfig' class=\"btn btn-primary \">Guardar</button></div>
                       </div>
                   </form>";
-              }
+                 }
+             }
               ?>
           </div>
           </div></div></div>
@@ -292,7 +345,7 @@ if ($sesion == "usuario") {
                      $sql_oferta = "SELECT * from oferta where id = '" . $row['id_oferta'] . "'";
                      $result2 = $conexion->query($sql_oferta);
                      $row2 = $result2->fetch_assoc();
-                     
+
                      echo '
      
       <div class="col-lg-4 actividad">
