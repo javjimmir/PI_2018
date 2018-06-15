@@ -48,7 +48,7 @@ include '../php/connection.php';
 
 
         /* Query que obtiene el nombre de la empresa que organiza la oferta/actividad */
-        $sql_nombre_empresa = "select nombre from empresa where cif = (select cif_empresa from oferta where id = $id)";
+        $sql_nombre_empresa = "select nombre,alias from empresa where cif = (select cif_empresa from oferta where id = $id)";
         $result_nombre_empresa = $conexion->query($sql_nombre_empresa);
         $row_nombre_empresa = $result_nombre_empresa->fetch_assoc();
 
@@ -72,10 +72,10 @@ include '../php/connection.php';
 				<td class="text-left">'.$row['nombre'].'</td>
 				</tr>';
 
-                echo '<tr>
-				<td class="text-left">Empresa organizadora</td>
-				<td class="text-left">'.$row_nombre_empresa['nombre'].'</td>
-				</tr>';
+                echo "<tr>
+				<td class=\"text-left\">Empresa organizadora</td>
+				<td class=\"text-left\"><a href='perfil.php?alias={$row_nombre_empresa['alias']}'>{$row_nombre_empresa['nombre']}</a></td>
+				</tr>";
 
 				echo '<tr>
 				<td class="text-left">Provincia</td>
