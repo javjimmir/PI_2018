@@ -66,30 +66,37 @@ $(document).ready(function () {
 
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
-//console.log(tipo_actividad)
         /* Petición ajax que envía el tipo de actividad marcado */
 
         $.post("php/filter.php", {tipo_actividad: tipo_actividad}, function (data) { // Le pasamos el tipo de actividad, que es lo que se procesará en servidor
             $(".tabla").empty();
             data = $.parseJSON(data);
-            for (var i = 0; i <= data.length-1; i++) {
-                //console.log(data[i]);
-                $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                    "<figure class='snip1208'>"+
-  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
-  
-  "<figcaption>"+
-  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
+            /* Bloque de comprobación de disponibilidad de ofertas */
+            if (data.length === 0) {
+                $("#no_offers").remove();
+                $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                $("#cargar").hide();
+            } else {
+                $("#cargar").show();
+                $("#no_offers").remove();
+                for (var i = 0; i <= data.length-1; i++) {
+                    //console.log(data[i]);
+                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
+                        "<figure class='snip1208'>"+
+                        "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
 
-                    
-                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
-                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
-                    "<p id='provincia'>" + data[i].provincia + "</p>" +
-                    "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                    "<p id='precio'>" + data[i].precio + "€</p>"+
-                    "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                    "</figure></div>");
+                        "<figcaption>"+
+                        "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
+
+
+                        "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                        "<p id='provincia'>" + data[i].provincia + "</p>" +
+                        "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                        "<p id='precio'>" + data[i].precio + "€</p>"+
+                        "<button>Ver actividad</button>"+
+                        "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
+                        "</figure></div>");
+                }
             }
         });
     });
@@ -101,28 +108,28 @@ $(document).ready(function () {
         $.post("php/filter.php", {provincia: provincia}, function (data) { // Le pasamos el tipo de actividad, que es lo que se procesará en servidor
             $(".tabla").empty();
             data = $.parseJSON(data);
-            num_ofertas = data.length;
-            if (num_ofertas > 0) {
-                for (var i = 0; i <= data.length-1; i++) {
-                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<figure class='snip1208'>"+
-  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
-  
-  "<figcaption>"+
-  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
-
-                    
-                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
-                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
-                    "<p id='provincia'>" + data[i].provincia + "</p>" +
-                    "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                    "<p id='precio'>" + data[i].precio + "€</p>"+
-                    "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                    "</figure></div>");
-                }
+            /* Bloque de comprobación de disponibilidad de ofertas */
+            if (data.length === 0) {
+                $("#no_offers").remove();
+                $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                $("#cargar").hide();
             } else {
-                $(".tabla").append("<div id='sin_ofertas'><p>No hay ofertas disponibles en estos momentos</p></div>");
+                $("#cargar").show();
+                $("#no_offers").remove();
+                for (var i = 0; i <= data.length - 1; i++) {
+                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
+                        "<figure class='snip1208'>" +
+                        "<img src='img/oferta/" + data[i].imagen_oferta + "' alt='sample66'/>" +
+                        "<figcaption>" +
+                        "<h3 id='nombre'>" + data[i].nombre + "</h3>" +
+                        "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                        "<p id='provincia'>" + data[i].provincia + "</p>" +
+                        "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                        "<p id='precio'>" + data[i].precio + "€</p>" +
+                        "<button>Ver actividad</button>" +
+                        "</figcaption><a href='content/oferta.php?id=" + data[i].id + "'></a>" +
+                        "</figure></div>");
+                }
             }
         });
     });
@@ -133,31 +140,32 @@ $(document).ready(function () {
         if ($('.tipoact').is(':checked')) {     // Si tipo de actividad está marcada, se enviará con el post precio y actividad
             var precio = $("#number").val();
             var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
-            console.log(tipo_actividad + " --- " + precio);
-
-            /* Petición ajax que envía el precio seleccionado en el rango */
 
             $.post("php/filter.php", {precio: precio, tipo_actividad: tipo_actividad}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
                 $(".tabla").empty();
                 data = $.parseJSON(data);
-                for (var i = 0; i <= data.length - 1; i++) {
-                    //console.log(data[i]);
-                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<figure class='snip1208'>"+
-  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
-  
-  "<figcaption>"+
-  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
-
-                    
-                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
-                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
-                    "<p id='provincia'>" + data[i].provincia + "</p>" +
-                    "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                    "<p id='precio'>" + data[i].precio + "€</p>"+
-                    "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                    "</figure></div>");
+                /* Bloque de comprobación de disponibilidad de ofertas */
+                if (data.length === 0) {
+                    $("#no_offers").remove();
+                    $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                    $("#cargar").hide();
+                } else {
+                    $("#cargar").show();
+                    $("#no_offers").remove();
+                    for (var i = 0; i <= data.length - 1; i++) {
+                        $(".tabla").append("<div class='col-lg-4 actividad'>" +
+                            "<figure class='snip1208'>" +
+                            "<img src='img/oferta/" + data[i].imagen_oferta + "' alt='sample66'/>" +
+                            "<figcaption>" +
+                            "<h3 id='nombre'>" + data[i].nombre + "</h3>" +
+                            "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                            "<p id='provincia'>" + data[i].provincia + "</p>" +
+                            "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                            "<p id='precio'>" + data[i].precio + "€</p>" +
+                            "<button>Ver actividad</button>" +
+                            "</figcaption><a href='content/oferta.php?id=" + data[i].id + "'></a>" +
+                            "</figure></div>");
+                    }
                 }
                 
             });
@@ -169,24 +177,28 @@ $(document).ready(function () {
             $.post("php/filter.php", {precio: precio}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
                 $(".tabla").empty();
                 data = $.parseJSON(data);
-                for (var i = 0; i <= data.length - 1; i++) {
-                    //console.log(data[i]);
-                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                       "<figure class='snip1208'>"+
-  "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
-  
-  "<figcaption>"+
-  "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
-
-                    
-                    "<p id='descripcion'>" + data[i].descripcion + "</p>" +
-                    "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
-                    "<p id='provincia'>" + data[i].provincia + "</p>" +
-                    "<p id='dificultad'>" + data[i].dificultad + "</p>" +
-                    "<p id='precio'>" + data[i].precio + "€</p>"+
-                    "<button>Ver actividad</button>"+
-                    "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                    "</figure></div>");
+                /* Bloque de comprobación de disponibilidad de ofertas */
+                if (data.length === 0) {
+                    $("#no_offers").remove();
+                    $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                    $("#cargar").hide();
+                } else {
+                    $("#cargar").show();
+                    $("#no_offers").remove();
+                    for (var i = 0; i <= data.length - 1; i++) {
+                        $(".tabla").append("<div class='col-lg-4 actividad'>" +
+                            "<figure class='snip1208'>" +
+                            "<img src='img/oferta/" + data[i].imagen_oferta + "' alt='sample66'/>" +
+                            "<figcaption>" +
+                            "<h3 id='nombre'>" + data[i].nombre + "</h3>" +
+                            "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                            "<p id='provincia'>" + data[i].provincia + "</p>" +
+                            "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                            "<p id='precio'>" + data[i].precio + "€</p>" +
+                            "<button>Ver actividad</button>" +
+                            "</figcaption><a href='content/oferta.php?id=" + data[i].id + "'></a>" +
+                            "</figure></div>");
+                    }
                 }
             });
         }
@@ -254,7 +266,6 @@ $(document).ready(function () {
         var rating_text = $("#rating-text").val();
         var input_nif_usuario = $("#input_nif").val();
         var input_id_oferta = $("#input_id_oferta").val();
-        console.log(starselected + "   " + rating_text + " " + input_nif_usuario + "   " + input_id_oferta);
 
         $.post("../php/rating.php", {starselected: starselected, rating_text: rating_text, input_nif_usuario: input_nif_usuario, input_id_oferta: input_id_oferta}, function (data) {
             $("#puntuacion").empty();

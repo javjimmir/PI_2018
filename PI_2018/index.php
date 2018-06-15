@@ -134,7 +134,7 @@ if (isset($_GET['category'])) {
 		</div>
 	</article>
 
-	<article class="index">
+	<article class="index offers">
         <div class="row tabla">
 
         <?php

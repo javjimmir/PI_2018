@@ -16,14 +16,13 @@
 		<input type="radio" class="tipoact" name="tipo_actividad" value="paracaidismo">  <span id="paracaidismo">Paracaidismo</span><br>
 		<input type="radio" class="tipoact" name="tipo_actividad" value="surf">  <span id="surf">Surf</span>
 
-
 		<label>Precio máximo</label>
 
         <div class="input-box">
-		    <input class="form-control" id="number" name="rangoprecio" min="0" max="200" disabled onkeyup="changeRangeValue(this.value)"/>
+		    <input class="form-control" id="number" name="rangoprecio" min="10" max="200" disabled onkeyup="changeRangeValue(this.value)"/>
             <span class="euros">€</span>
         </div>
-		<input class="form-control-range" type="range" min="0" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
+		<input class="form-control-range" type="range" min="10" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
 
 		<br><label>Provincia</label><br>
         <select name="prov-filter" class="prov-filter form-control"style="color: black">

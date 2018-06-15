@@ -12,7 +12,6 @@ if (isset($_POST['tipo_actividad']) && empty($_POST['precio'])) {
     while($row = $resultado->fetch_object()){
         $fila=array(
             "id"=>$row->id,
-            "descripcion"=>$row->descripcion,
             "nombre"=>$row->nombre,
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
@@ -37,7 +36,6 @@ if (isset($_POST['precio']) && empty($_POST['tipo_actividad'])) {
     while($row = $resultado->fetch_object()){
         $fila=array(
             "id"=>$row->id,
-            "descripcion"=>$row->descripcion,
             "nombre"=>$row->nombre,
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
@@ -64,7 +62,6 @@ if (isset($_POST['precio'], $_POST['tipo_actividad'])) {
     while($row = $resultado->fetch_object()){
         $fila=array(
             "id"=>$row->id,
-            "descripcion"=>$row->descripcion,
             "nombre"=>$row->nombre,
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
@@ -89,7 +86,6 @@ if (isset($_POST['provincia']) && empty($_POST['tipo_actividad']) && empty($_POS
     while($row = $resultado->fetch_object()){
         $fila=array(
             "id"=>$row->id,
-            "descripcion"=>$row->descripcion,
             "nombre"=>$row->nombre,
             "tipo_actividad"=>$row->tipo_actividad,
             "provincia"=>$row->provincia,
