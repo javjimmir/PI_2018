@@ -1092,6 +1092,14 @@ figure.snip0067.hover:before {
     bottom: 5%;
 }
 
+#alerta-sin-reservas {
+	width: 23%;
+	position: absolute;
+	left: 41%;
+	right: 40%;
+	bottom: 50%;
+}
+
 /* ---------- */
 
 /* Bloque destacados */
