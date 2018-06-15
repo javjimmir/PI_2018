@@ -47,7 +47,7 @@ include '../php/connection.php';
                     <ul class="listaFuncionaEmpre">
                         <li>En primer lugar debe registrarse como empresa y rellenar correctamente los campos del formulario.</li>
                         <li>Lo siguiente será iniciar sesion y a partir de ahi podras publicar tus mejores ofertas.</li>
-                        <li>En el menu aparecera una nueva entrada denominada Administración de ofertas, desde ahira podras gestionarlas de manera efectiva.</li>
+                        <li>En el menu aparecera una nueva entrada denominada Administración de ofertas, desde ahora podras gestionarlas de manera efectiva.</li>
                         <li>Y listo, ya puedes participar añadiendo ofertas y esperar las respuesta de los usuarios interesados.</li>
 
 
@@ -60,15 +60,16 @@ include '../php/connection.php';
                     <h2>Si eres usuario... </h2>
                     <input id="morecsspure1-element-toggle" type="checkbox" />
                     <div id="morecsspure1-abstract">
-                        <p>Si eres una empresa y estas interesado en publicar ofertas en nuestro portal, estas en el lugar adecuado. A continuación le indicaremos
+                        <p>Si eres un aventurero interesado en participar de las actividades que ofrecemos en nuestro portal, estas en el lugar adecuado. A continuación te indicaremos
                             de manera sencilla los pasos que tiene que seguir para para pertenecer a Nomad by Nature:</p>
                     </div>
                     <div id="morecsspure1-toggled-element">
                         <ul class="listaFuncionaEmpre">
-                            <li>En primer lugar debe registrarse como empresa y rellenar correctamente los campos del formulario.</li>
-                            <li>Lo siguiente será iniciar sesion y a partir de ahi podras publicar tus mejores ofertas.</li>
-                            <li>En el menu aparecera una nueva entrada denominada Administración de ofertas, desde ahira podras gestionarlas de manera efectiva.</li>
-                            <li>Y listo, ya puedes participar añadiendo ofertas y esperar las respuesta de los usuarios interesados.</li>
+                            <li>En primer lugar debe registrarse como particular y rellenar correctamente los campos del formulario.</li>
+                            <li>Lo siguiente será iniciar sesion y a partir de ahi podras hacer reservas de las actividades que te interesen.</li>
+                            <li>Para reservar tienes que clickar en el detalle de la oferta de interes y desde alli podras hacer la reserva.</li>
+                            <li>En el menu desplegable aparece las opciones para ver y modificar tu perfil.</li>
+                            <li>Tambien tendras acceso al historial de reservas.</li>
 
                         </ul></div>
                     <label for="morecsspure1-element-toggle" id="morecsspure1-trigger-toggle"><span class="morecsspure1-morelink">Seguir leyendo ></span><span class="morecsspure1-lesslink">Mostrar menos</span></label>
