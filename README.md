@@ -34,14 +34,14 @@ Proyecto integrado 2018 para I.E.S. Polígono Sur.
 
       $cd img/
 
-      $sudo chmod 775 empresa/
-      $sudo chown www-data:www-data empresa/
+      $sudo chmod -R 775 empresa/
+      $sudo chown -R www-data:www-data empresa/
 
-      $sudo chmod 775 oferta/
-      $sudo chown www-data:www-data oferta/
+      $sudo chmod -R 775 oferta/
+      $sudo chown -R www-data:www-data oferta/
 
-      $sudo chmod 775 usuario/
-      $sudo chown www-data:www-data usuario/
+      $sudo chmod -R 775 usuario/
+      $sudo chown -R www-data:www-data usuario/
 
 - Configuración del archivo connection.php
 
