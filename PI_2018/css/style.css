@@ -250,7 +250,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 
 
 #acercade p{
-	width: 50%;
+	width: 90%;
 	display: inline-block;
 	text-align: justify;
 	margin-right: 3em;
@@ -268,11 +268,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 
 
 .imgacerca{
-	width: 24%;
+	width: 90%;
 	height: auto;
 	margin-bottom: 2%;
-	margin-top: -9%;
-	border-radius: 25px;
+	border-radius: 12px;
 	margin-right: 4%;
 }
 
@@ -771,25 +770,28 @@ td.text-right {
 
 /*MODAL*/
 
+#quienes{
+  margin: 2em;
+}
+
+justids{
+  width: 100%;
+}
 
 /*Tarjetas de acercade*/
-
-
-
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip0067 {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
-  float: left;
   overflow: hidden;
-  margin: 10px 1%;
-  min-width: 18%;
-  max-width: 18%;
+  margin: auto;
   width: 100%;
   background: #ffffff;
   color: #000000;
+  max-width: 366px;
+
 }
 
 figure.snip0067 * {
@@ -868,8 +870,8 @@ figure.snip0067 figcaption .icons i {
   color: #ffffff;
   margin-right: 5px;
   opacity: 0;
-  height: 55px;
-  width: 55px;
+  height: 1.21em;
+  width:  1.21em;
   text-align: center;
   line-height: 35px;
   border-radius: 50%;

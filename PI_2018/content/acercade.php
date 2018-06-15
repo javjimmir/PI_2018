@@ -30,33 +30,50 @@ include '../php/connection.php';
 
     </aside>
 <section>
-    <article class="perfiles">
-    <h3>¿Quienes somos?</h3>
-                <figure class="snip0067 red">
-                    <img src="./../img/JAVI.png" alt="sample8" />
-                    <figcaption>
-                        <h2>Javier <span>Jimenez</span></h2>
-                        <p>Experto en PHP Drupal</p>
-                        <div class="icons"><a target="_blank" href="https://github.com/javjimmir"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
-                    </figcaption>
-                    <div class="position">Programador Web</div>
-                </figure>
-                <figure class="snip0067 blue"><img src="./../img/juan.jpg" alt="sample3" />
-                    <figcaption>
-                        <h2>Juan <span>Delgado</span></h2>
-                        <p>Experto en PHP Drupal</p>
-                        <div class="icons"><a target="_blank" href="https://github.com/JuandeLS3"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
-                    </figcaption>
-                    <div class="position">Programador Web</div>
-                </figure>
-                <figure class="snip0067 yellow"><img src="./../img/PROYECTOHOMBRE.jpeg" alt="sample5" />
-                    <figcaption>
-                        <h2>Cristian <span>Delossantos</span></h2>
-                        <p>Desarrollador de aplicaciones</p>
-                        <div class="icons"><a target="_blank" href="https://github.com/cristianciclo"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
-                    </figcaption>
-                    <div class="position">Programador</div>
-                </figure> 
+    <article class="justids">
+        
+    <div class="row">
+    <h3 id="quienes" >¿Quienes somos?</h3><br>
+    <div class="col-5 col-md-1">
+    <br><br><br>
+        
+        <br>
+</div>
+                <div class="col-12 col-md-2">
+                    <figure class="snip0067 red">
+                        <img src="./../img/JAVI.png" alt="sample8" />
+                        <figcaption>
+                            <h2>Javier <span>Jimenez</span></h2>
+                            <p>Experto en PHP Drupal</p>
+                            <div class="icons"><a target="_blank" href="https://github.com/javjimmir"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
+                        </figcaption>
+                        <div class="position">Programador Web</div>
+                    </figure>
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <figure class="snip0067 blue"><img src="./../img/juan.jpg" alt="sample3" />
+                        <figcaption>
+                            <h2>Juan <span>Delgado</span></h2>
+                            <p>Experto en PHP Drupal</p>
+                            <div class="icons"><a target="_blank" href="https://github.com/JuandeLS3"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
+                        </figcaption>
+                        <div class="position">Programador Web</div>
+                    </figure>
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <figure class="snip0067 yellow"><img src="./../img/PROYECTOHOMBRE.jpeg" alt="sample5" />
+                        <figcaption>
+                            <h2>Cristian <span>Delossantos</span></h2>
+                            <p>Desarrollador de aplicaciones</p>
+                            <div class="icons"><a target="_blank" href="https://github.com/cristianciclo"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
+                        </figcaption>
+                        <div class="position">Programador</div>
+                    </figure> 
+                </div>
+
+                <div class="col-12 col-md-2">
                 <figure class="snip0067 green"><img src="./../img/FRAN.jpg" alt="sample5" />
                     <figcaption>
                         <h2>Fran <span>Alcón</span></h2>
@@ -64,21 +81,27 @@ include '../php/connection.php';
                         <div class="icons"><a target="_blank" href="https://github.com/FranAlcon96"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
                     </figcaption>
                     <div class="position">Analista Programador</div>
-                </figure>
-                <figure class="snip0067 navy"><img src="./../img/FREDY.jpeg" alt="sample5" />
-                    <figcaption>
-                        <h2>Fredy <span>Jerbi</span></h2>
-                        <p>Programador Web Front-end</p>
-                        <div class="icons"><a target="_blank" href="https://github.com/Freddiew20"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
-                    </figcaption>
-                    <div class="position">Programador Web</div>
-                </figure>
-        
+                </figure>                
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <figure class="snip0067 navy"><img src="./../img/FREDY.jpeg" alt="sample5" />
+                        <figcaption>
+                            <h2>Fredy <span>Jerbi</span></h2>
+                            <p>Programador Web Front-end</p>
+                            <div class="icons"><a target="_blank" href="https://github.com/Freddiew20"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
+                        </figcaption>
+                        <div class="position">Programador Web</div>
+                    </figure>
+                </div>
+
+            </div>
     </article>
     <article>
     
-    <div id="acercade">
-            
+    <div id="acercade" class="row align-items-center">
+    <div class="col-12 col-md-8">
+
     <h3>Nuestra historia</h3>
             <p>Somos un grupo de estudiantes de Desarrollo de Aplicaciones Web del instituto IES Polígono Sur, creamos este portal como proyecto de fin de curso 
                 teniendo en mente una realidad que había existido siempre: No era facil encontrar actividades divertidas en tu ciudad si no las conocías de primera mano, y no había 
@@ -87,17 +110,23 @@ include '../php/connection.php';
                 te guste y tener una vía para contactar con la empresa a través de un portal que garantice la calidad de los servicios que te ofrezcan, ese fue nuestro objetivo desde un primer 
                 momento y esperamos que te guste.
             </p>
-            
+</div>
+            <div class="col-12 col-md-4">
             <img src="https://pbs.twimg.com/media/DXM_B1MX0AAvZ58.jpg" alt="" class="imgacerca">
-
-            <h3>Nuestra empresa</h3>
+            </div>
+            <div class="col-12 col-md-4">
             <img src="https://pbs.twimg.com/media/DV6xgMfX4AA5D_j.jpg" alt="" class="imgacerca">
+            </div>
+                <div class="col-12 col-md-8">
+            <h3>Nuestra empresa</h3>
             <p>WildSport nació como un portal para encontrar actividades en tu zona de forma rápida y sencilla, gracias a este portal podrás encontrar las mejores actividades en tu zona
                 desde rutas de ciclismo hasta paracaidismo, paseos en barca, piragua, senderismo, etc... Podrás planificar tu próxima excursión ya que también mostramos los mejores lugares para 
                 hacer acampada y picnics, puedes contactar con nuestro departamento de atención al cliente en la pestaña Contacto para cualquier duda que tengas sobre la aplicación ya seas usuario normal 
                 o empresa, si deseas contactar con nosotros para fines empresariales puedes hacerlo también por el mismo medio, responderemos lo antes posible, si lo deseas puedes visitar nuestros perfiles de 
                 github enlazados en nuestras imágenes de perfil arriba.
             </p>
+</div>
+                            
            
         </div>
         </article>
