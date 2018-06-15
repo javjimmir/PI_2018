@@ -18,7 +18,8 @@ $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
-</head>
+    <script type="text/javascript" src="../js/fondo.js"></script>
+    </head>
 <body>
 <header class="menuLogin">
 

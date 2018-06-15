@@ -38,7 +38,7 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
   <script type="text/javascript" src="../js/main.js"></script>
-  <title>Administrar ofertas</title>
+  <script type="text/javascript" src="../js/fondo.js"></script>
 </head>
 <body>
 <header class="menuLogin">

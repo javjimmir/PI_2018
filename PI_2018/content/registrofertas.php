@@ -17,6 +17,7 @@ include '../php/connection.php';
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_ofertas.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/fondo.js"></script>
     <title>Index</title>
 </head>
 <body>

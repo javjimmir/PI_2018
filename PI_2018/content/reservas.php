@@ -18,7 +18,8 @@ if (!isset($_SESSION['nombre'])) {
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script type="text/javascript" src="../js/conectores_content.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
-	<title>Mis reservas</title>
+    <script type="text/javascript" src="../js/fondo.js"></script>
+    <title>Mis reservas</title>
 </head>
 <body>
 <header class="menuLogin">

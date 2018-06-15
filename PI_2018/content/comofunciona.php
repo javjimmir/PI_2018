@@ -17,6 +17,8 @@ include '../php/connection.php';
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
+    <script type="text/javascript" src="../js/fondo.js"></script>
+
     <title>Index</title>
     </head>
 <body>
