@@ -152,7 +152,7 @@ footer{
 	margin-top: 1%;
 	margin-bottom: 1%;
 	width: 30%;
-	height: 530px;
+	min-height: 530px;
 	border-radius: 18px 0px 0px 0px;
 -moz-border-radius: 18px 0px 0px 0px;
 -webkit-border-radius: 18px 0px 0px 0px;
@@ -463,6 +463,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	z-index: 2;  /* bring the button above the stars so it captures touches/clicks */
 	opacity: 0;  /* comment to see where the radio buttons are */
 	font-size: initial; /* reset to default */
+}
+
+#puntuacion button{
+    margin-bottom: 3%;
 }
 
 /* ------------------------------ */
