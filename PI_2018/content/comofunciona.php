@@ -41,7 +41,7 @@ include '../php/connection.php';
                    <input id="morecsspure-element-toggle" type="checkbox" />
                    <div id="morecsspure-abstract">
                        <p>Si eres una empresa y estas interesado en publicar ofertas en nuestro portal, estas en el lugar adecuado. A continuación le indicaremos
-                       de manera sencilla los pasos que tiene que seguir para para pertenecer a Nomad by Nature:</p>
+                       de manera sencilla los pasos que tiene que seguir para para pertenecer a WildSports:</p>
                    </div>
                    <div id="morecsspure-toggled-element">
                     <ul class="listaFuncionaEmpre">
@@ -61,7 +61,7 @@ include '../php/connection.php';
                     <input id="morecsspure1-element-toggle" type="checkbox" />
                     <div id="morecsspure1-abstract">
                         <p>Si eres un aventurero interesado en participar de las actividades que ofrecemos en nuestro portal, estas en el lugar adecuado. A continuación te indicaremos
-                            de manera sencilla los pasos que tiene que seguir para para pertenecer a Nomad by Nature:</p>
+                            de manera sencilla los pasos que tiene que seguir para para pertenecer a WildSports:</p>
                     </div>
                     <div id="morecsspure1-toggled-element">
                         <ul class="listaFuncionaEmpre">

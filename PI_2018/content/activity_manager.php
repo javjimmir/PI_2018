@@ -81,9 +81,9 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
 <article>
     <h2 class="text-center">Administración de actividades</h2><br/>
     <div class="table-responsive">
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover ">
         <thead>
-        <tr>
+        <tr tablaactividades>
           <th>ID</th>
           <th>Actividad</th>
           <th>Tipo de actividad</th>

@@ -499,6 +499,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
 /* ------------------------------ */
 
+
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip1208 {
@@ -672,7 +673,7 @@ th {
   background:#1b1e24;
   border-bottom:4px solid #9ea7af;
   border-right: 1px solid #343a45;
-  font-size:23px;
+  font-size:1em;
   font-weight: 100;
   padding:24px;
   text-align:left;
