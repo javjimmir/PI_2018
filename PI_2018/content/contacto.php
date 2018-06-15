@@ -41,6 +41,7 @@
             <div id="form2">
                 <label for="">Tipo de consulta</label><br>
                 <select name="" id="tipo_consulta">
+                    <option value="informacion">¿¿Olvidaste la contraseña??</option>
                     <option value="informacion">Solicitar información</option>
                     <option value="sugerencias">Sugerencias</option>
                     <option value="quejas">Quejas y reclamaciones</option>

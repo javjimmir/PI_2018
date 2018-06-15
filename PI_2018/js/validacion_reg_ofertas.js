@@ -92,8 +92,9 @@ $(function () {
 
     $("#date-ini").blur(function(){
     var date = $("#date-ini").val();
-    if (date == "") {
-        $("#error-oferta").html("<p> Complete el Fecha de inicio</p>");
+    var hoy = new Date();
+    if (date == "" || Date.parse(date) <= hoy) {
+        $("#error-oferta").html("<p> Complete el Fecha de inicio, la fecha no puede ser anterior al dia de hoy</p>");
         $("#error-oferta").fadeIn();
         $("#date-ini").css('color', 'white');
         $("#date-ini").css('background', '#ff8080');
