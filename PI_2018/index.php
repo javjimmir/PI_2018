@@ -223,7 +223,7 @@ if (isset($_GET['category'])) {
                  *
                  */
                 if (isset($_SESSION['nombre']) && $_SESSION['tipo'] === 'usuario') { // Si hay un usuario conectado y es de tipo usuario...
-                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = 'aire' ORDER BY RAND() LIMIT 3";
+                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND() LIMIT 3 ";
                     $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
                     $fila_destacados = $row_destacados = $result->fetch_assoc();
                     $ofertas_destacadas_encontradas = $result_destacados->num_rows;
