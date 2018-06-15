@@ -3,7 +3,11 @@
 session_start();
 include '../php/connection.php';
 
-
+/* Sacando datos del user... */
+if (isset($_SESSION['nombre'])) {
+    $username = $_SESSION['nombre'];
+    $sesion = $_SESSION['tipo'];
+}
 if (isset($_GET['alias'])) {
     $alias_empresa = $_GET['alias'];
     $sql = "select * from empresa where alias = " . "'$alias_empresa'";
@@ -28,10 +32,6 @@ if (isset($_GET['alias'])) {
             array_push($res, $fila);
         }
 } else {
-    /* Sacando datos del user... */
-    $username = $_SESSION['nombre'];
-    $sesion = $_SESSION['tipo'];
-
     /* Comprobamos si es usuario o empresa */
     if ($sesion == "usuario") {
         $sql = "select * from usuario where alias = " . "'$username'";
@@ -122,7 +122,7 @@ if (isset($_GET['alias'])) {
     ?>
 
     <h2 class="text-center titulo">Perfil de <?php
-        if ($alias_empresa != null) {
+        if (!isset($_GET['alias'])) {
             echo $res[0]['nombre'] . ' <span class="glyphicon glyphicon-briefcase"></span>';
         } else {
             if ($sesion == 'empresa') {
@@ -135,8 +135,12 @@ if (isset($_GET['alias'])) {
     <div class="infoperfil">
       <div class="imgperfil">
           <?php $myfoto = $res[0]['imagen_perfil'];
-                    echo "<img src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";
-          if ($alias_empresa == null) {
+          if (isset($_SESSION['nombre'])) {
+              echo "<img src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";
+          } else { // Sino, es que está accediendo a un perfil de terceros.
+              echo "<img src='../img/empresa/{$res[0]['imagen_perfil']}' id='imagen_perfil' alt='Imagen de {$res[0]['nombre']}' />";
+          }
+          if (!isset($_GET['alias'])) {
           ?>
           <form action="../php/upload.php" id="formfileup" method='post' enctype="multipart/form-data">
             <h3>Imagen de perfil</h3><br/>
@@ -148,11 +152,11 @@ if (isset($_GET['alias'])) {
     </div>
       <div class="alias">
           <h2><?php echo $res[0]['alias'];?></h2>
-          <h4> Información <?php if($sesion == 'empresa'){ echo 'de la empresa'; } else { echo 'personal'; } ?> </h4>
+          <h4> Información personal </h4>
           <div id="lista">
              <?php
              /* Bloque de vista de perfil de terceros. Si viene un get alias, se mostrará el perfil de la empresa con dicho alias */
-             if ($alias_empresa != null) {
+             if (isset($_GET['alias'])) {
                 echo "<div id='perfil_externo'>
                 <p>Nombre de la empresa: {$res[0]['nombre']}</p>
                 <p>Teléfono de contacto: {$res[0]['telefono']}</p>
@@ -333,24 +337,23 @@ if (isset($_GET['alias'])) {
 </br>
         </div>
          <?php
-         if ($sesion == 'usuario') {
-             /* Consulta para últimas actividades o actividades recientes */
-             $result = $conexion->query($sql_actividades_recientes);
-             if ($result->num_rows === 0) {
-                 echo '<span id="alerta-sin-actividades"><p class="text-center alert alert-info"><span class="glyphicon glyphicon-info-sign"></span> No has participado en actividades aún :(</p></span>';
-             } else {
-                 $resultado_ult_act = $conexion->query($sql_actividades_recientes); // Con esta query sacamos las ofertas asociadas al usuario logueado.
-                 echo ' <br><br><br><h3>Actividades recientes <span class="glyphicon glyphicon-th-list"></span></h3>';
-                 while ($row = $resultado_ult_act->fetch_assoc()) {
-                     $sql_oferta = "SELECT * from oferta where id = '" . $row['id_oferta'] . "'";
-                     $result2 = $conexion->query($sql_oferta);
-                     $row2 = $result2->fetch_assoc();
-
-                     echo '
+         if (!isset($_GET['alias'])) {
+             if (isset($_SESSION['nombre'])) { // Si está logueado alguien...
+                 if ($sesion == 'usuario') {
+                     /* Consulta para últimas actividades o actividades recientes */
+                     $result = $conexion->query($sql_actividades_recientes);
+                     if ($result->num_rows === 0) {
+                         echo '<span id="alerta-sin-actividades"><p class="text-center alert alert-info"><span class="glyphicon glyphicon-info-sign"></span> No has participado en actividades aún :(</p></span>';
+                     } else {
+                         $resultado_ult_act = $conexion->query($sql_actividades_recientes); // Con esta query sacamos las ofertas asociadas al usuario logueado.
+                         echo ' <br><br><br><h3>Actividades recientes <span class="glyphicon glyphicon-th-list"></span></h3>';
+                         while ($row = $resultado_ult_act->fetch_assoc()) {
+                             $sql_oferta = "SELECT * from oferta where id = '" . $row['id_oferta'] . "'";
+                             $result2 = $conexion->query($sql_oferta);
+                             $row2 = $result2->fetch_assoc();
+                             echo '
      
       <div class="col-lg-4 actividad">
-
-
                <figure class="snip1208">
                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
                      
@@ -363,6 +366,8 @@ if (isset($_GET['alias'])) {
                    <button>Ver actividad</button>
                       </figcaption><a href="oferta.php?id=' . $row['id'] . '"></a>                     
             </div>';
+                         }
+                     }
                  }
              }
          }
