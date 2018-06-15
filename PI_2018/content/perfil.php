@@ -123,7 +123,7 @@ if ($sesion == "usuario") {
                 <div id=\"error-usu\"></div>
                 <div class='filainfo'>
                 <div class='infoperfiliz'><label>Nombre: </label></div>
-                <div class='infoperfilde'><input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value={$res[0]['nombre']} id='nombre-usu' required></div>
+                <div class='infoperfilde'><input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value='{$res[0]['nombre']}' id=\"nombre-usu\" required></div>
                 </div>
                   <div class='filainfo'>
                 <div class='infoperfiliz'><label>Apellidos: </label></div>
@@ -194,7 +194,7 @@ if ($sesion == "usuario") {
                         </span>
 <div class='filainfo'>
                       <div class='infoperfiliz'><label>Nombre: </label></div>
-                      <div class='infoperfilde'><input type=\"text\" name=\"nombreempresa\" id='nombre-empresa' disabled class=\"perfil\" value={$res[0]['nombre']} required></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"nombreempresa\" id='nombre-empresa' required disabled class=\"perfil\" value='{$res[0]['nombre']}'></div>
 </div>
 <div class='filainfo'>
                       <div class='infoperfiliz'><label>Teléfono: </label></div>

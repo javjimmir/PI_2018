@@ -80,8 +80,8 @@ insert into usuario values('47342916J','Juan','Delgado','77867347H','España','j
 
 
 -- INSERT EN EMPRESA
-insert into empresa values('g2468123j','Caminos de Yucatán','955648457','Sevilla,','Sevilla','CY_Actividades','user-default.png','agua','www.caminosyucatan.com','yucatanactividades@gmail.com','Apúntate a las actividades de los Caminos de Yucatán y respira el aire libre. Especialistas en actividades acuáticas','41410','c43839f50b944003d68676f70333242d');
-insert into empresa values('v1685473s','Madrid Adventures','902575841','Madrid,','Madrid','MAD','user-default.png','tierra','www.mad.net','mad@actividades.com','En Madrid Adventures creamos actividades al aire libre para todos los públicos','65413','f73a0f6ca4c997b5d84a09159907c9d9');
+insert into empresa values('g2468123j','Caminos de Yucatán','955648457','España','Sevilla','CY_Actividades','user-default.png','agua','www.caminosyucatan.com','yucatanactividades@gmail.com','Apúntate a las actividades de los Caminos de Yucatán y respira el aire libre. Especialistas en actividades acuáticas','41410','c43839f50b944003d68676f70333242d');
+insert into empresa values('v1685473s','Madrid Adventures','902575841','España','Madrid','MAD','user-default.png','tierra','www.mad.net','mad@actividades.com','En Madrid Adventures creamos actividades al aire libre para todos los públicos','65413','f73a0f6ca4c997b5d84a09159907c9d9');
 
 
 -- INSERT EN OFERTA
