@@ -8,7 +8,7 @@ Proyecto integrado 2018 para I.E.S. Polígono Sur.
    
  - Apache o servidor web
  
-       $sudo apt -get install apache2
+       $sudo apt-get install apache2
      
  - PHP 7.0+
  
