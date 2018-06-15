@@ -192,7 +192,7 @@ if (isset($_GET['category'])) {
             } else if (isset($_GET['category'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
-                    $img = ['imagen_oferta'];
+                    $img = $row['imagen_oferta'];
                     $nombre = $row['nombre'];
                     $provincia = $row['provincia'];
                     $actividad = $row['tipo_actividad'];
