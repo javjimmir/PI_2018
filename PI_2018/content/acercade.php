@@ -36,7 +36,7 @@ include '../php/connection.php';
                     <img src="./../img/JAVI.png" alt="sample8" />
                     <figcaption>
                         <h2>Javier <span>Jimenez</span></h2>
-                        <p>Experto en PHP Drupal entre otras cosas</p>
+                        <p>Experto en PHP Drupal</p>
                         <div class="icons"><a target="_blank" href="https://github.com/javjimmir"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
                     </figcaption>
                     <div class="position">Programador Web</div>
@@ -44,7 +44,7 @@ include '../php/connection.php';
                 <figure class="snip0067 blue"><img src="./../img/juan.jpg" alt="sample3" />
                     <figcaption>
                         <h2>Juan <span>Delgado</span></h2>
-                        <p>Experto en PHP Drupal y aplicaciones WEB</p>
+                        <p>Experto en PHP Drupal</p>
                         <div class="icons"><a target="_blank" href="https://github.com/JuandeLS3"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
                     </figcaption>
                     <div class="position">Programador Web</div>
@@ -52,7 +52,7 @@ include '../php/connection.php';
                 <figure class="snip0067 yellow"><img src="./../img/PROYECTOHOMBRE.jpeg" alt="sample5" />
                     <figcaption>
                         <h2>Cristian <span>Delossantos</span></h2>
-                        <p>Desarrollador de aplicaciones con Ionic y programador</p>
+                        <p>Desarrollador de aplicaciones</p>
                         <div class="icons"><a target="_blank" href="https://github.com/cristianciclo"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
                     </figcaption>
                     <div class="position">Programador</div>
@@ -60,7 +60,7 @@ include '../php/connection.php';
                 <figure class="snip0067 green"><img src="./../img/FRAN.jpg" alt="sample5" />
                     <figcaption>
                         <h2>Fran <span>Alcón</span></h2>
-                        <p>Programador web y futuro multiplataforma </p>
+                        <p>Programador web </p>
                         <div class="icons"><a target="_blank" href="https://github.com/FranAlcon96"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
                     </figcaption>
                     <div class="position">Analista Programador</div>
@@ -68,7 +68,7 @@ include '../php/connection.php';
                 <figure class="snip0067 navy"><img src="./../img/FREDY.jpeg" alt="sample5" />
                     <figcaption>
                         <h2>Fredy <span>Jerbi</span></h2>
-                        <p>Programador Web especializado en Front-end con Angular</p>
+                        <p>Programador Web Front-end</p>
                         <div class="icons"><a target="_blank" href="https://github.com/Freddiew20"><i><img src="https://image.flaticon.com/icons/svg/25/25231.svg"/></i></a></div>
                     </figcaption>
                     <div class="position">Programador Web</div>

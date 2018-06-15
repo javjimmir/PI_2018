@@ -175,8 +175,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86aecc', end
 
 }
 
+.listaFuncionaUsu{
+  text-align: left;
+}
+
+#puntuacion button{
+  margin-bottom: 3%;
+}
+
 #userforms{
   display: block;
+}
+
+#alerta-sin-reservas {
+	width: 23%;
+	position: absolute;
+	left: 41%;
+	right: 40%;
+	bottom: 50%;
 }
 
 .actividadesRecientes{
@@ -305,10 +321,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	text-align: left;
 }
 
-.listaFuncionaUsu{
-    text-align: left;
-}
-
 
 .funciona1 h2 {
 	text-align: left;
@@ -386,6 +398,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	width: 80%;
 	display: inherit;
 
+}
+
+.camposmodificar{
+	background-color: red;
+	min-height: 30%;
+	margin-right: 5%;
+	margin-left: 5%;
+	margin-bottom: 15em;
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin: auto;
+  color: black;
+  position: relative;
+  width: 48%;
+  text-align: left;
 }
 
 .selectboton input{
@@ -467,10 +495,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	z-index: 2;  /* bring the button above the stars so it captures touches/clicks */
 	opacity: 0;  /* comment to see where the radio buttons are */
 	font-size: initial; /* reset to default */
-}
-
-#puntuacion button{
-    margin-bottom: 3%;
 }
 
 /* ------------------------------ */
@@ -667,7 +691,7 @@ th:last-child {
   
 tr {
   border-top: 1px solid #C1C3D1;
-  border-bottom-: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
   color:#666B85;
   font-size:16px;
   font-weight:normal;
@@ -801,7 +825,7 @@ figure.snip0067 figcaption {
   padding-left: 30px;
   position: absolute;
   left: 0;
-  top: 25%;
+  top: 10%;
   width: 60%;
   z-index: 1;
   opacity: 0;
@@ -816,7 +840,7 @@ figure.snip0067 figcaption p {
 }
 
 figure.snip0067 figcaption h2 {
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 300;
   text-transform: uppercase;
 }
@@ -827,12 +851,12 @@ figure.snip0067 figcaption h2 span {
 
 figure.snip0067 figcaption p {
   font-weight: 500;
-  font-size: 0.9em;
+  font-size: 1em;
   opacity: 0.8;
 }
 
 figure.snip0067 figcaption .icons {
-  width: 100%;
+  width: 40%;
   padding: 8px 0;
 }
 
@@ -981,8 +1005,8 @@ figure.snip0067.hover:before {
     border-radius: 50%;
     overflow: hidden;
     margin-left: 0;
-    height: 30rem;
-    width: 30rem;
+    height: 15rem;
+    width: 15rem;
     margin: 0;
     padding: 0;
     -webkit-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
@@ -1090,14 +1114,6 @@ figure.snip0067.hover:before {
     left: 14%;
     right: 0;
     bottom: 5%;
-}
-
-#alerta-sin-reservas {
-	width: 23%;
-	position: absolute;
-	left: 41%;
-	right: 40%;
-	bottom: 50%;
 }
 
 /* ---------- */

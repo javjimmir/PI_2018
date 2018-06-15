@@ -36,56 +36,70 @@ $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
         $result = $conexion->query($sql_oferta);
         $row = $result->fetch_assoc();
         echo '<div id="detalle-oferta">';
+        echo '<form action="" method="post" accept-charset="utf-8">';
         // echo "<p>AVISO: ESTO ESTÁ HECHO EN PLAN CUTRÓN, LA IDEA ES QUE AQUÍ SALGAN LOS DATOS, PERO SOLO ALGUNOS DE ELLOS SE PUEDAN MODIFICAR, A CONTINUACIÓN VEREIS CUALES. SE HARÁ PRIMERO LA PARTE BACK Y LUEGO SE LE IMPLEMENTARÁ LA VISTA.</p>";
         echo '<h2>Información de la actividad a editar</h2>';      
 echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Nombre de la oferta: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['nombre']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" value={$row['nombre']}> </div> ";
 echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Provincia: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['provincia']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['provincia']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Municipio: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['municipio']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['municipio']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Duración: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['duracion']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" value={$row['duracion']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Número de plazas disponibles: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['num_plazas']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" value={$row['num_plazas']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Tipo de actividad: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['tipo_actividad']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['tipo_actividad']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Descripción: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['descripcion']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" value={$row['descripcion']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Precio: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['precio']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['precio']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Dificultad: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['dificultad']} </div> ";
+        // echo "<div class='infoperfilde'><input type=\"text\" value={$row['dificultad']}> </div> ";
+        echo "<div class='infoperfilde'><select selected={$row['dificultad']} name='dificultad' id='categ-usu'>
+        <option value='facil'>Fácil</option>
+        <option value='media'>Media</option>
+        <option value='alta'>Alta</option>
+        <option value='experto'>Experto</option>
+    </select></div>";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Categoría: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['categoria']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['categoria']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'>";
         echo "<div class='infoperfiliz'><label>Fecha de inicio: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['fecha_inicio']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['fecha_inicio']}> </div> ";
         echo "</div>";
         echo "<div class='filainfo'> ";
         echo "<div class='infoperfiliz'><label>Fecha de fin: </label></div>";
-        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['fecha_fin']} </div> ";
+        echo "<div class='infoperfilde'><input type=\"text\" disabled value={$row['fecha_fin']}> </div> ";
         echo "</div>";
+
+        echo "<div class='filainfo'> ";
+        echo "<div class='infoperfiliz'><label>Imagen: </label></div>";
+        echo "<div class='infoperfilde'><input name='file' type='file' size='2mb'> </div> ";
+        echo "</div>";
+        echo '<input id="enviar" type="submit" value="Enviar" class="botones">';
+        echo '</form>';
         echo '</div>';
         ?>
         <br><br>.
@@ -93,41 +107,9 @@ echo "</div>";
         <a href="../index.php">Volver al index</a>
     </article>
     <article id="userforms">
-<div class="camposmodificar">
 <?php
-    if (!isset($_POST['nombre'])) {
-        echo '    
+if(isset($_POST['enviar'])){ // button name
 
-        <h2>Campos a modificar de la actividad</h2>
-        
-        <form action="" method="post" accept-charset="utf-8">
-        <label>Nombre</label><br>
-        <input type="text" name="nombre" value="'.$row['nombre'].'" placeholder="Nombre"><br>
-
-        <label>Duración</label><br>
-        <input type="text" name="duracion" value="'.$row['duracion'].'" placeholder="min"><br>
-
-        <label>Número de plazas </label><br>
-        <input type="text" name="plazas" value="'.$row['num_plazas'].'" placeholder="Nº de plazas individuales"><br>
-
-        <label>Descripción</label><br/>
-        <textarea name="desc"></textarea><br/>
-
-        <label>Dificultad</label><br>
-        <select name="dificultad" id="categ-usu">
-            <option value="facil">Fácil</option>
-            <option value="media">Media</option>
-            <option value="alta">Alta</option>
-            <option value="experto">Experto</option>
-        </select><br>
-
-        <label>Imagen</label>
-        <input name="file" type="file" size="2mb"><br/>
-        
-        <input id="enviar" type="submit" value="Enviar" class="botones">
-
-    </form>';
-    }else{
       $nombre = $_POST['nombre'];
       $duracion = $_POST['duracion'];
       $plazas = $_POST['plazas'];
@@ -144,9 +126,7 @@ echo "</div>";
         echo "<br>";        
         echo '<a href="activity_manager.php"> Volver </a>';
     }
-
 ?>
-<div>
     </article>
 </section>
 
