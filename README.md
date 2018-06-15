@@ -14,6 +14,7 @@ Proyecto integrado 2018 para I.E.S. Polígono Sur.
 - Hacer git clone
 - Desplegar en servidor web
 - Ejecutar script en la base de datos
+- Dar permisos de lectura, ejecución y escritura en la carpeta img del proyecto. 
 
 ## Autores
 
