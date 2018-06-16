@@ -34,12 +34,12 @@
                 $nueva_password = $_POST['newpassword'];
                 $sql = "UPDATE usuario SET password = MD5('$nueva_password') WHERE nif = '$nif'";
                 if ($conexion->query($sql) === TRUE) {
-                    header('location: ../content/perfil.php?confirmation=succeed'); // Enviamos a perfil por get que se ha editado con éxito, para coger el parámetro y enviar un mensaje en perfil.
+                    header('location: ../content/perfil.php?confirmation=passucceed'); // Enviamos a perfil por get que se ha editado con éxito, para coger el parámetro y enviar un mensaje en perfil.
                 } else {
                     echo "Error: " . $sql . "<br>" . $conexion->error;
                 }
             } else {
-                header('location: ../content/perfil.php?confirmation=password'); // Enviamos a perfil por get que hay un error con la contraseña.
+                header('location: ../content/perfil.php?confirmation=paserror'); // Enviamos a perfil por get que hay un error con la contraseña.
             }
         }
 
@@ -60,7 +60,7 @@
             $sql = "UPDATE empresa SET nombre = '$nombre', telefono = '$telefono', pais = '$pais', provincia = '$provincia',email = '$email', tipo_actividad = '$tipo_actividad', web = '$web', descripcion = '$descripcion', cp = '$cp' WHERE cif = '$cif'";
 
             if ($conexion->query($sql) === TRUE) {
-                header('location: ../content/perfil.php?confirmation=true'); // Enviamos a perfil por get que se ha editado con éxito, para coger el parámetro y enviar un mensaje en perfil.
+                header('location: ../content/perfil.php?confirmation=succeed'); // Enviamos a perfil por get que se ha editado con éxito, para coger el parámetro y enviar un mensaje en perfil.
             } else {
                 echo "Error: " . $sql . "<br>" . $conexion->error;
             }
@@ -74,12 +74,12 @@
                 $nueva_password = $_POST['newpassword'];
                 $sql = "UPDATE empresa SET password = MD5('$nueva_password') WHERE cif = '$cif'";
                 if ($conexion->query($sql) === TRUE) {
-                    header('location: ../content/perfil.php?confirmation=succeed'); // Enviamos a perfil por get que se ha editado con éxito, para coger el parámetro y enviar un mensaje en perfil.
+                    header('location: ../content/perfil.php?confirmation=passucceed'); // Enviamos a perfil por get que se ha editado con éxito, para coger el parámetro y enviar un mensaje en perfil.
                 } else {
                     echo "Error: " . $sql . "<br>" . $conexion->error;
                 }
             } else {
-                header('location: ../content/perfil.php?confirmation=password'); // Enviamos a perfil por get que hay un error con la contraseña.
+                header('location: ../content/perfil.php?confirmation=paserror'); // Enviamos a perfil por get que hay un error con la contraseña.
             }
         }
     }

@@ -70,6 +70,17 @@ $(document).ready(function () {
     if (getUrlParameter('category')) {
         $("#cargar").remove();
     }
+
+    /* Notificación cuando se editan campos en el perfil */
+    if (getUrlParameter('confirmation') == 'passucceed') {
+        $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> ¡Contraseña actualizada con éxito! </span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('confirmation') == 'paserror') {
+        $(".status").append("<span class='alert alert-danger'><span class='glyphicon glyphicon-remove'></span> Contraseña incorrecta. Inténtalo de nuevo </span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('confirmation') == 'succeed') {
+        $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> Perfil actualizado correctamente </span>").delay(3000).fadeOut();
+    }
+
+
     // Redirección al registrarte. Obtiene si se ha registrado un usuario o empresa y realiza algunos efectos to guapos.
     if (getUrlParameter('register')) {
         $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> ¡Registro completado! Ahora inicia sesión con tus datos</span>").delay(4000).fadeOut("slow");

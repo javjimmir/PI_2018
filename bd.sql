@@ -72,11 +72,11 @@ CREATE TABLE reserva(
 );
 
 -- INSERT EN USUARIO
-insert into usuario values('47342916S','Cristian','De los Santos Pariente','77858968E','España','Baby','cristian@gmail.com','41410','user-default.png','Sevilla','C/ Despeñaperros','acuatica','ddf7057a2557945754e0da8348c6dfb3');
-insert into usuario values('47342917S','Fran','Alcon','77648961F','España','FranPLayer','Fran@gmail.com','41410','user-default.png','Sevilla','C/ Bami','aire','bfdd41f4f0c93fbc96c29cdd3da95c0a');
-insert into usuario values('47342918S','Fredy','Jerby','79536514O','España','Jefry','Fredy@gmail.com','41410','user-default.png','Sevilla','C/ Dos Hermanas','aire','4951387aa6f624c9b807d4196f12c222');
-insert into usuario values('47342919S','Javi','Jimenez','76254868T','España','Moro','javi@gmail.com','41410','user-default.png','Sevilla','C/ Nervion Plaza','nieve','193b0ab64631d233958f5b7afb948f5c');
-insert into usuario values('47342916J','Juan','Delgado','77867347H','España','juandels3','juan@gmail.com','41410','user-default.png','Sevilla','C/ Mares del Sur 16','tierra','c7f626ad40317f4dc7b295c6f04c850d');
+insert into usuario values('47342916S','Cristian','De los Santos Pariente','955662454','España','Baby','cristian@gmail.com','41410','user-default.png','Sevilla','C/ Despeñaperros','acuatica','ddf7057a2557945754e0da8348c6dfb3');
+insert into usuario values('47342917S','Fran','Alcon','954354547','España','FranPLayer','Fran@gmail.com','41410','user-default.png','Sevilla','C/ Bami','aire','bfdd41f4f0c93fbc96c29cdd3da95c0a');
+insert into usuario values('47342918S','Fredy','Jerby','954254584','España','Jefry','Fredy@gmail.com','41410','user-default.png','Sevilla','C/ Dos Hermanas','aire','4951387aa6f624c9b807d4196f12c222');
+insert into usuario values('47342919S','Javi','Jimenez','955256325','España','Moro','javi@gmail.com','41410','user-default.png','Sevilla','C/ Nervion Plaza','nieve','193b0ab64631d233958f5b7afb948f5c');
+insert into usuario values('47342916J','Juan','Delgado','954785474','España','juandels3','juan@gmail.com','41410','user-default.png','Sevilla','C/ Mares del Sur 16','tierra','c7f626ad40317f4dc7b295c6f04c850d');
 
 
 -- INSERT EN EMPRESA
