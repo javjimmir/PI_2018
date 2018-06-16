@@ -141,20 +141,53 @@ if (isset($_GET['alias'])) {
         </div>
       <div class="alias col-12 col-md-7">
           <h2><?php echo $res[0]['alias'];?></h2>
-          <h4> Información personal </h4>
           <div id="lista">
              <?php
              /* Bloque de vista de perfil de terceros. Si viene un get alias, se mostrará el perfil de la empresa con dicho alias */
              if (isset($_GET['alias'])) {
+                 echo "<h4> Información de la empresa </h4>";
                 echo "<div id='perfil_externo'>
-                <p>Nombre de la empresa: {$res[0]['nombre']}</p>
-                <p>Teléfono de contacto: {$res[0]['telefono']}</p>
-                <p>Pais: {$res[0]['pais']}</p>
-                <p>Provincia: {$res[0]['provincia']}</p>
-                <p>Categoría especializada: {$res[0]['tipo_actividad']}</p>
-                <p>Web: {$res[0]['web']}</p>
-                <p>Correo electrónico: {$res[0]['email']}</p>
-                <p>Descripción: {$res[0]['descripcion']}</p>
+                
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Nombre de la empresa: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"nombreusuario\" disabled class=\"perfil\" value='{$res[0]['nombre']}' id=\"nombre-usu\" required></div>
+                </div>
+
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Teléfono: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"telefono\" disabled class=\"perfil\" value='{$res[0]['telefono']}' id=\"tel-usu\" required></div>
+                </div>
+
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Pais: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"pais\" disabled class=\"perfil\" value='{$res[0]['pais']}' id=\"pais-usu\" required></div>
+                </div>
+
+
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Provincia: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value='{$res[0]['provincia']}' id=\"provincia-usu\" required></div>
+                </div>
+
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Categoría especializada: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"tipoactividad\" disabled class=\"perfil\" value='{$res[0]['tipo_actividad']}' id=\"provincia-usu\" required></div>
+                </div>
+
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Web: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"tipoactividad\" disabled class=\"perfil\" value='{$res[0]['web']}' id=\"provincia-usu\" required></div>
+                </div>
+
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Correo: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"email\" disabled class=\"perfil\" value='{$res[0]['email']}' id=\"mail-usu\" required>
+                </div>
+
+                <div class='filainfo'>
+                    <div class='infoperfiliz'><label>Descripción: </label></div>
+                    <div class='infoperfilde'><input type=\"text\" name=\"descripcion\" disabled class=\"perfil\" value='{$res[0]['descripcion']}' id=\"mail-usu\" required>
+                </div>
 
                 </div>";
              } else {
@@ -164,6 +197,7 @@ if (isset($_GET['alias'])) {
                  // Formulario dinámico que depende de si es usuario o empresa.
                  // Cada formulario se divide en dos secciones: perfil y configuración.
                  if ($sesion == "usuario") {
+                     echo "<h4> Información personal </h4>";
                      echo "<form id=\"datos_usuario\" action=\"../php/update_profile.php\" method=\"post\">
                 <div id=\"error-usu\"></div>
                 <div class='filainfo'>
@@ -186,7 +220,7 @@ if (isset($_GET['alias'])) {
 <div class='filainfo'>
                 <div class='infoperfiliz'><label>Provincia: </label></div>
                 <div class='infoperfilde'><input type=\"text\" name=\"provincia\" disabled class=\"perfil\" value='{$res[0]['provincia']}' id=\"provincia-usu\" required></div>
-<div>
+                </div>
 <div class='filainfo'>
                 <div class='infoperfiliz'><label>CP: </label></div>
                 <div class='infoperfilde'><input type=\"text\" name=\"cp\" disabled class=\"perfil\" value='{$res[0]['cp']}' id=\"cp-usuario\" required></div>
@@ -231,9 +265,8 @@ if (isset($_GET['alias'])) {
                   
               </form>";
                  } else {
-                     echo
-
-                     "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
+                     echo "<h4> Datos de la empresa </h4>";
+                     echo "<form id=\"datos_empresa\" action=\"../php/update_profile.php\" method=\"post\">
 <span id=\"error-empre\">
 
                         </span>
