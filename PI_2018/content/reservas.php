@@ -95,7 +95,8 @@ if (!isset($_SESSION['nombre'])) {
                     </figure>';
                if ($resultado->num_rows > 0) { // Si DEVUELVE una actividad con valores nulos, es que el user PUEDE rellenar la encuesta, así que se mostrará
                    if ($fecha_de_hoy > $fecha_reserva && $fecha_reserva < $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calculafecha_expiracion)
-                                                                      // si el día de hoy es mayor o IGUAL que la fecha de expiración, es entonces cuando se mostrará.  ?>
+                                                                      // si el día de hoy es mayor o IGUAL que la fecha de expiración, es entonces cuando se mostrará.  
+                                                                      ?>
                        <div id="puntuacion">
                            <form id="form-rating" method="post">
                                <label>Califica la actividad</label>
@@ -142,7 +143,7 @@ if (!isset($_SESSION['nombre'])) {
                                           title="1 stars">☆</label>
                                </fieldset>
                                <label>¿Qué te ha parecido la actividad?</label>
-                               <textarea required id="rating-text" name="resena" maxlength="200"></textarea><br>
+                               <textarea class="form-control" required id="rating-text" name="resena" maxlength="200"></textarea><br>
                                <input type="hidden" id="input_nif" name="nif_usuario" value=<?php echo $row['nif_usuario'];?>>
                                <input type="hidden" id="input_id_oferta" name="id_oferta" value=<?php echo $row['id_oferta'];?>>
                                <button id="rating">Calificar</button>
