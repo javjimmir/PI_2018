@@ -108,7 +108,7 @@ if (isset($_GET['alias'])) {
 <nav class="menuPrincipalUser"></nav>
 <aside class="publicidad"></aside>
 <section>
-<article>
+<article class="perfilentero">
     <div class="status"></div>
     <h2 class="text-center titulo">Perfil de <?php
         if (isset($_GET['alias'])) {
@@ -121,8 +121,8 @@ if (isset($_GET['alias'])) {
             }
         }?>
     </h2>
-    <div class="infoperfil">
-      <div class="imgperfil">
+    <div class="infoperfil row">
+      <div class="imgperfil col-12 col-md-5">
           <?php $myfoto = $res[0]['imagen_perfil'];
           if (isset($_SESSION['nombre'])) {
               echo "<img src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";
@@ -138,8 +138,8 @@ if (isset($_GET['alias'])) {
 			<input type='submit' class="btn btn-primary" value='Actualizar'/>
 			</form>
           <?php } ?>
-    </div>
-      <div class="alias">
+        </div>
+      <div class="alias col-12 col-md-7">
           <h2><?php echo $res[0]['alias'];?></h2>
           <h4> Información personal </h4>
           <div id="lista">
@@ -342,7 +342,7 @@ if (isset($_GET['alias'])) {
                              $row2 = $result2->fetch_assoc();
                              echo '
      
-      <div class="col-lg-4 actividad">
+      <div class="col-12 col-lg-3 actividad">
                <figure class="snip1208">
                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
                      
