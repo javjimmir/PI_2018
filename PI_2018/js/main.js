@@ -80,6 +80,12 @@ $(document).ready(function () {
         $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> Perfil actualizado correctamente </span>").delay(3000).fadeOut();
     }
 
+    /* Notificación cuando se edita una oferta */
+    if (getUrlParameter('offer') == 'succeed') {
+        $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> Actividad editada con éxito </span>").delay(3000).fadeOut();
+    } else if (getUrlParameter('offer') == 'error') {
+        $(".status").append("<span class='alert alert-danger'><span class='glyphicon glyphicon-remove'></span> Ha ocurrido un error. Inténtalo más tarde </span>").delay(3000).fadeOut();
+    }
 
     // Redirección al registrarte. Obtiene si se ha registrado un usuario o empresa y realiza algunos efectos to guapos.
     if (getUrlParameter('register')) {
