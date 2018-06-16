@@ -112,7 +112,7 @@ if (isset($_GET['alias'])) {
     <div class="status"></div>
     <h2 class="text-center titulo">Perfil de <?php
         if (isset($_GET['alias'])) {
-            echo $res[0]['nombre'] . ' <span class="glyphicon glyphicon-briefcase"></span>';
+            echo $res[0]['nombre'] . ' <span class="glyphicon glyphicon-briefcase"></span><br><br><br>';
         } else {
             if ($sesion == 'empresa') {
                 echo $sesion . ' <span class="glyphicon glyphicon-briefcase"></span>';
@@ -122,10 +122,10 @@ if (isset($_GET['alias'])) {
         }?>
     </h2>
     <div class="infoperfil row">
-      <div class="imgperfil col-12 col-md-5">
+      <div class="imgperfil col-12 col-md-3">
           <?php $myfoto = $res[0]['imagen_perfil'];
           if (isset($_SESSION['nombre'])) {
-              echo "<img src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";
+              echo "<img col-12 col-md-12 src='../img/$sesion/$myfoto' id='imagen_perfil' alt='Imagen de $username' />";
           } else { // Sino, es que está accediendo a un perfil de terceros.
               echo "<img src='../img/empresa/{$res[0]['imagen_perfil']}' id='imagen_perfil' alt='Imagen de {$res[0]['nombre']}' />";
           }

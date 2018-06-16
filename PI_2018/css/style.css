@@ -1031,13 +1031,17 @@ figure.snip0067.hover:before {
     border-radius: 50%;
     overflow: hidden;
     margin-left: 0;
-    height: 15rem;
-    width: 15rem;
+    height: 25rem;
+    width: 25rem;
     margin: 0;
     padding: 0;
     -webkit-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
     box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
+}
+
+imagen_perfil_ajeno{
+  width: 25rem;
 }
 
 .imgperfil{
