@@ -253,7 +253,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	width: 90%;
 	display: inline-block;
 	text-align: justify;
-	margin-right: 3em;
+  margin-right: 3em;
+  padding-left: 1.2em;
 }
 
 #acercade h3{
