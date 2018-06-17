@@ -145,14 +145,15 @@ footer{
 /*--OTROS--*/
 #cargar{
 	margin-top: 2.5%;
-	margin-bottom: 2.5%;
+  margin-bottom: 2.5%;
+  margin-left: 45%;
 }
 
 .actividad{
-	margin-left: 3%;
+	margin-left: 1.5%;
 	margin-top: 1%;
 	margin-bottom: 1%;
-  min-height: 530px;
+  min-height: 550px;
   max-width: 346px;
 	border-radius: 18px 0px 0px 0px;
 -moz-border-radius: 18px 0px 0px 0px;
@@ -348,7 +349,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
     margin-top: 12em;
   }
   .destacada{
-    display: none;
   }
 
 }
@@ -542,7 +542,8 @@ figure.snip1208 {
   overflow: hidden;
   margin: 10px 1%;
   min-width: 220px;
-  max-width: 2950px;
+  max-width: 295px;
+  max-height: 545px;
   width: 100%;
   background-color: #ffffff;
   color: #000000;
@@ -1156,10 +1157,7 @@ imagen_perfil_ajeno{
 
 /* Bloque destacados */
 
-#bloque_destacados {
-	width: 100%;
-	height: 65rem;
-}
+
 
 .destacada { /* cada actividad */
 	background: -moz-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
@@ -1171,6 +1169,10 @@ imagen_perfil_ajeno{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );
 	margin-bottom: 3%;
 
+}
+
+#ofertas{
+  width: 100%;
 }
 
 /* ---------- */

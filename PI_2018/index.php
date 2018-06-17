@@ -33,7 +33,6 @@ if (isset($_GET['category'])) {
 	<title>Index</title>
 </head>
 <body>
-<!-- ESTO ES LO MISMO QUE EL COMPONENTE, BASTA CON VOLVER A SUSTITUIRLO, CON LA DIFERENCIA DE QUE EL COMPONENTE NO ENLAZA BIEN CON EL LOGIN -->
 <header class="menuLogin">
   
 </header>
@@ -143,16 +142,17 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
                                        <figure class="snip1208">
-  <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
+                                       <figcaption>
+                                          <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
 
-  <h3 id="nombre">'.$nombre.'</h3>
-  <p id="actividad">Actividad: '.$actividad.'</p>
-  <p id="provincia">Provincia: '.$provincia.'</p>
-  <p id="dificultad">Dificultad: '.$dificultad.'</p>
-  <p id="precio">Precio: '.$precio.'€</p>
-  <button>Ver actividad</button>
-  </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
-</figure>
+                                          <h3 id="nombre">'.$nombre.'</h3>
+                                          <p id="actividad">Actividad: '.$actividad.'</p>
+                                          <p id="provincia">Provincia: '.$provincia.'</p>
+                                          <p id="dificultad">Dificultad: '.$dificultad.'</p>
+                                          <p id="precio">Precio: '.$precio.'€</p>
+                                          <button>Ver actividad</button>
+                                          </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+                                      </figure>
                 </div>';
                 }
             } else if (isset($_GET['category'])) {
@@ -165,19 +165,20 @@ if (isset($_GET['category'])) {
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-lg-4 actividad">
-                                                           <figure class="snip1208">
-                      <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
-                      
-                      <figcaption>
-                      <h3 id="nombre">'.$nombre.'</h3>
-                      <p id="actividad">Actividad: '.$actividad.'</p>
-                      <p id="provincia">Provincia: '.$provincia.'</p>
-                      <p id="dificultad">Dificultad: '.$dificultad.'</p>
-                      <p id="precio">Precio: '.$precio.'€</p>
-                      <button>Ver actividad</button>
-                      </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
-                    </figure>
-                    </div>';
+                                <figure class="snip1208">
+                                    <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
+                                    
+                                    <figcaption>
+                                    <h3 id="nombre">'.$nombre.'</h3>
+                                    <p id="actividad">Actividad: '.$actividad.'</p>
+                                    <p id="provincia">Provincia: '.$provincia.'</p>
+                                    <p id="dificultad">Dificultad: '.$dificultad.'</p>
+                                    <p id="precio">Precio: '.$precio.'€</p>
+                                    <button>Ver actividad</button>
+                                    </figcaption>
+                                    <a href="content/oferta.php?id='.$row['id'].'"></a>
+                              </figure>
+                          </div>';
                 }
             } else {
 
@@ -205,7 +206,7 @@ if (isset($_GET['category'])) {
                                 $actividad = $row_destacados['tipo_actividad'];
                                 $precio = $row_destacados['precio'];
                                 $dificultad = $row_destacados['dificultad'];
-                                echo '  <div class="col-lg-4 actividad ">
+                                echo '  <div class="col-lg-4 actividad destacada">
                                 <figure class="snip1208">
                       <img src="img/oferta/'.$img.'" alt="Oferta de actividad destacada"/>
                       
@@ -220,10 +221,10 @@ if (isset($_GET['category'])) {
                     </figure>
                   </div>';
                             }
-                            echo "</div>";
+                            // echo "<h3 id='ofertas'>Ofertas</h3></div>";
                         }
                     }
-                    echo "<h3>Ofertas</h3>";
+                    // echo "<h3 id='ofertas'>Ofertas</h3>";
                                   }
 
                 /* Carga de las demás ofertas, máximo 9 hasta pulsar "Cargar más" Este if-else hace que en caso de que haya menos de 9 actividades en TOTAL, semuestren normalmente
@@ -233,8 +234,6 @@ if (isset($_GET['category'])) {
                 } else {
                     $ofertas_mostradas = $ofertas_encontradas-1;
                 }
-
-
 
                 for ($i = 1; $i <= $ofertas_mostradas; $i++) {
                     $row = $result->fetch_assoc();
@@ -262,11 +261,12 @@ if (isset($_GET['category'])) {
             }
         ?>
   		</div>
-        <form action="?load=all" method="get">
+       
+  </article>
+  <form action="?load=all" method="get">
             <input type="hidden" name="load" value="all">
             <button id="cargar">Cargar más</button>
         </form>
-	</article>
 </section>
 
 <footer class="pie">
