@@ -1230,7 +1230,7 @@ imagen_perfil_ajeno{
 	
 }
 
-.btn {
+.btnIndex {
   height: 50px; /* Altura do botão */
   width: 200px; /* Largura do botão */
   background-color: white;
@@ -1239,6 +1239,13 @@ imagen_perfil_ajeno{
   cursor: pointer;
   z-index: 1000;
 
+}
+
+.imgOffer{
+  margin-top: 10px;
+  width: 50%;
+  border-radius: 20px;
+  z-index: -1;
 }
 
 .btn-contact {

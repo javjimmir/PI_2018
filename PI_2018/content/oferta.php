@@ -56,10 +56,11 @@ include '../php/connection.php';
 
         echo '<div>';
         /* IMAGEN DE LA OPFERTA, USTEDES YA LE DAIS EL ESTILO WEYES*/
-	echo '<div><img src="../img/oferta/'.$row['imagen_oferta'].'"></div>';
+    echo '<div> 				<h3>Reservas</h3>
 
-        echo '<div class="table-title">
-				<h3>Reservas</h3>
+    <img class="imgOffer" src="../img/oferta/'.$row['imagen_oferta'].'"></div>';
+
+        echo '<br><div class="table-title">
 				</div>
 				<table class="table-fill">
 				<thead>
