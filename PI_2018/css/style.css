@@ -167,7 +167,7 @@ footer{
 margin-left: 1.5%;
 	margin-top: 1%;
 	margin-bottom: 1%;
-  min-height: 600px;
+  min-height: 560px;
   max-width: 320px;
 	border-radius: 18px 0px 0px 0px;
 -moz-border-radius: 18px 0px 0px 0px;
@@ -177,8 +177,6 @@ border:   #000000;
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-
-
 
 background: rgba(134,174,204,1);
 background: -moz-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);

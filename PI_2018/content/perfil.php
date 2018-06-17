@@ -380,8 +380,8 @@ if (isset($_GET['alias'])) {
                      <img src="../img/oferta/'.$row2['imagen_oferta'].'" alt="sample66"/>
                      
                      <figcaption>
-                      <p id="nombre_actividad">' . $row2['nombre'] . '</p>
-                    <p id="tipo_actividad">' . $row2['tipo_actividad'] . '</p>
+                      <p id="nombre_actividad">Actividad: ' . $row2['nombre'] . '</p>
+                    <p id="tipo_actividad">Tipo: ' . $row2['tipo_actividad'] . '</p>
                   <p id="coste_reserva">Te costó ' . $row['coste_reserva'] . '€</p>
                   <p id="fecha_reserva">La hiciste el ' . $row['fecha_reserva'] . '</p>
                    <p id="valoracion">Tu valoración fue de ' . $row['valoracion'] . '<em>/5</em></p>
