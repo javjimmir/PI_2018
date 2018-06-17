@@ -332,10 +332,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	text-align: left;
 }
 
+@media (min-width: 919px){
+  .social-footer{
+    display: none;
+  }
+}
 @media (max-width: 920px){
   .social-icons{
     display: none;
   }
+  .social-footer{
+    display: block;
+  }
+}
+
+.social-footer{
+  position: absolute;
+  left: 0;
 }
 
 @media (max-width: 769px) {
