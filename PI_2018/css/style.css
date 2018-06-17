@@ -164,11 +164,11 @@ footer{
 }
 
 .actividad{
-	margin-left: 1.5%;
+margin-left: 1.5%;
 	margin-top: 1%;
 	margin-bottom: 1%;
-  min-height: 550px;
-  max-width: 346px;
+  min-height: 600px;
+  max-width: 320px;
 	border-radius: 18px 0px 0px 0px;
 -moz-border-radius: 18px 0px 0px 0px;
 -webkit-border-radius: 18px 0px 0px 0px;
@@ -377,6 +377,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
   }
   #myCarousel{
     display: none;
+  }
+
+  .publicidad{
+  	display: none;
   }
   .fondo{
     margin-top: 12em;
@@ -1234,8 +1238,12 @@ imagen_perfil_ajeno{
   height: 50px; /* Altura do botão */
   width: 200px; /* Largura do botão */
   background-color: white;
-  border: none;
-  color: white;
+  color: black;
+
+border-radius: 0px 0px 10px 10px;
+-moz-border-radius: 0px 0px 10px 10px;
+-webkit-border-radius: 0px 0px 10px 10px;
+border: 0px solid #000000;
   cursor: pointer;
   z-index: 1000;
 
