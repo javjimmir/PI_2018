@@ -152,7 +152,8 @@ footer{
 	margin-left: 3%;
 	margin-top: 1%;
 	margin-bottom: 1%;
-	min-height: 530px;
+  min-height: 530px;
+  max-width: 346px;
 	border-radius: 18px 0px 0px 0px;
 -moz-border-radius: 18px 0px 0px 0px;
 -webkit-border-radius: 18px 0px 0px 0px;
@@ -317,6 +318,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	padding: 0;
 }
 
+.actividad p{
+  font-style: bold;
+}
+
 .listaFuncionaEmpre{
 	text-align: left;
 }
@@ -341,6 +346,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
   }
   .index{
     margin-top: 12em;
+  }
+  .destacada{
+    display: none;
   }
 
 }
@@ -534,9 +542,8 @@ figure.snip1208 {
   overflow: hidden;
   margin: 10px 1%;
   min-width: 220px;
-  max-width: 310px;
+  max-width: 2950px;
   width: 100%;
-  margin-right: 50%;
   background-color: #ffffff;
   color: #000000;
   text-align: left;
