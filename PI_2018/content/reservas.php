@@ -35,7 +35,8 @@ if (!isset($_SESSION['nombre'])) {
 <section>
 <article>
     <div class="status"></div>
-    <h2 class="text-center">Mis reservas</h2>
+        <div class="misreservas">
+         <h2 class="text-center">Mis reservas</h2>
 				<?php
 
 				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') "; 
@@ -148,6 +149,7 @@ if (!isset($_SESSION['nombre'])) {
                                <input type="hidden" id="input_id_oferta" name="id_oferta" value=<?php echo $row['id_oferta'];?>>
                                <button id="rating">Calificar</button>
                            </form>
+                       </div>
                        </div>
                        <?php
                    }

@@ -364,7 +364,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
   #myCarousel{
     display: none;
   }
+  .fondo{
+    margin-top: 12em;
+  }
+    .misreservas{
+      margin-top: 12em;
 
+    }
 }
 
 /* @media (max-width: 320px) {
