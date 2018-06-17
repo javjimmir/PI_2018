@@ -52,7 +52,7 @@ if (!isset($_SESSION['nombre'])) {
                 $row2 = $result2->fetch_assoc();
                 echo '  <div class="col-lg-4 actividad">
          <figure class="snip1208">
-            <img src="../img/oferta/'.$row2['imagen_oferta'].'" lt="sample66"/>
+            <img src="../img/oferta/'.$row2['imagen_oferta'].'" alt="sample66"/>
                       
                       <figcaption>
                 <p id="nombre_actividad">'.$row2['nombre'].'</p>
