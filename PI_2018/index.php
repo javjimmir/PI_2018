@@ -33,6 +33,7 @@ if (isset($_GET['category'])) {
 	<title>Index</title>
 </head>
 <body>
+<button id="btnFiltros" class="btn btn-contact">Filtros</button>
 <header class="menuLogin">
   
 </header>

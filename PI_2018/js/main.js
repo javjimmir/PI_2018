@@ -23,7 +23,22 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
  
 $(document).ready(function () {
+/*Boton de filtros*/
+var hide=true;
+   
 
+
+        $("#btnFiltros").click(function(){
+            if(hide){
+                $("#filters").animate({left: '1px'}, 1000);
+                $("#btnFiltros").animate({left: '49px'}, 1000);
+                hide=false;
+            }else{
+                $("#filters").animate({left: '-250px'}, 1000);
+                $("#btnFiltros").animate({left: '-220px'}, 1000);
+                hide=true;
+            } 
+        });
 //     /*Fondo dinámico */
 //     var d = new Date();
 //     var n = d.getMonth();

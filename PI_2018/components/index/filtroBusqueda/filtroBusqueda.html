@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="./components/index/filtroBusqueda/css/style.css">
-	<script type="text/javascript" src="./js/main.js"></script>
+      <link rel="stylesheet" type="text/css" href="./components/index/filtroBusqueda/css/style.css">
+      <script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
-<div id="filters">
-	<h2>Filtrar actividades</h2><hr/>
-	<form method="post" id="myform" class="form-group">
-		<label>Tipo de actividad</label><br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  <span id="submarinismo">Submarinismo</span><br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="snorkel">  <span id="snorkel">Snorkel</span><br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="senderismo">  <span id="senderismo">Senderismo</span><br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="buceo">  <span id="buceo">Buceo</span><br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="paracaidismo">  <span id="paracaidismo">Paracaidismo</span><br>
-		<input type="radio" class="tipoact" name="tipo_actividad" value="surf">  <span id="surf">Surf</span>
 
-		<label>Precio máximo</label>
+
+
+<div id="filters">
+
+      <h2>Filtrar actividades</h2><hr/>
+      <form method="post" id="myform" class="form-group">
+            <label>Tipo de actividad</label><br>
+            <input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  <span id="submarinismo">Submarinismo</span><br>
+            <input type="radio" class="tipoact" name="tipo_actividad" value="snorkel">  <span id="snorkel">Snorkel</span><br>
+            <input type="radio" class="tipoact" name="tipo_actividad" value="senderismo">  <span id="senderismo">Senderismo</span><br>
+            <input type="radio" class="tipoact" name="tipo_actividad" value="buceo">  <span id="buceo">Buceo</span><br>
+            <input type="radio" class="tipoact" name="tipo_actividad" value="paracaidismo">  <span id="paracaidismo">Paracaidismo</span><br>
+            <input type="radio" class="tipoact" name="tipo_actividad" value="surf">  <span id="surf">Surf</span>
+
+            <label>Precio máximo</label>
 
         <div class="input-box">
-		    <input class="form-control" id="number" name="rangoprecio" min="10" max="200" disabled onkeyup="changeRangeValue(this.value)"/>
+                <input class="form-control" id="number" name="rangoprecio" min="10" max="200" disabled onkeyup="changeRangeValue(this.value)"/>
             <span class="euros">€</span>
         </div>
-		<input class="form-control-range" type="range" min="10" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
+            <input class="form-control-range" type="range" min="10" max="200" id="range" name="barraprecio" value="0" step="10" oninput="changeInputValue(this.value)" />
 
-		<br><label>Provincia</label><br>
+            <br><label>Provincia</label><br>
         <select name="prov-filter" class="prov-filter form-control"style="color: black">
             <option value='alava' selected>Álava</option>
             <option value='albacete'>Albacete</option>
@@ -79,8 +83,10 @@
             <option value='zamora'>Zamora</option>
             <option value='zaragoza'>Zaragoza</option>
         </select><br>
-		<button class="form-control btn-5" id="quitarfiltros">Quitar filtros</button>
-	</form>
+            <button class="form-control btn-5" id="quitarfiltros">Quitar filtros</button>
+      </form>
 </div>
+
+
 </body>
 </html>
