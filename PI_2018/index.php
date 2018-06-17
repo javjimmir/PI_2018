@@ -140,7 +140,7 @@ if (isset($_GET['category'])) {
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
-                    echo '  <div class="col-lg-4 actividad">
+                    echo '  <div class="col-md-4 actividad">
                                        <figure class="snip1208">
                                        <figcaption>
                                           <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
@@ -164,7 +164,7 @@ if (isset($_GET['category'])) {
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
-                    echo '  <div class="col-lg-4 actividad">
+                    echo '  <div class="col-md-4 actividad">
                                 <figure class="snip1208">
                                     <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
                                     
@@ -206,7 +206,7 @@ if (isset($_GET['category'])) {
                                 $actividad = $row_destacados['tipo_actividad'];
                                 $precio = $row_destacados['precio'];
                                 $dificultad = $row_destacados['dificultad'];
-                                echo '  <div class="col-lg-4 actividad destacada">
+                                echo '  <div class="col-md-4 actividad destacada">
                                 <figure class="snip1208">
                       <img src="img/oferta/'.$img.'" alt="Oferta de actividad destacada"/>
                       
@@ -244,7 +244,7 @@ if (isset($_GET['category'])) {
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
                     echo '
-                <div class="col-lg-4 actividad">
+                <div class="col-md-4 actividad">
                    <figure class="snip1208">
                       <img src="img/oferta/'.$img.'" alt="Ofertas de portada"/>
                       <figcaption>
