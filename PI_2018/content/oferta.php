@@ -164,12 +164,12 @@ include '../php/connection.php';
                                 <h2>HACER LA RESERVA</h2>
                                 <form method="POST">
                                     <label>Número de plazas que desea reservar:</label><br>
-                                    <input required type="number" name="plazas_reserva" min="1" max=<?php echo $row['num_plazas'];?>><br>
+                                    <input class="form-control caja" required type="number" name="plazas_reserva" min="1" max=<?php echo $row['num_plazas'];?>><br>
                                     <label>¿Cuándo desea empezar la actividad?</label><br>
 
-                                    <input required type="date" min="<?php echo $row['fecha_inicio'];?>" max="<?php echo $row['fecha_fin'];?>" name="fecha_reserva"><br>
+                                    <input class="form-control caja" required type="date" min="<?php echo $row['fecha_inicio'];?>" max="<?php echo $row['fecha_fin'];?>" name="fecha_reserva"><br>
                                     Escoja un día entre el <?php echo $row['fecha_inicio'];?> y el <?php echo $row['fecha_fin'];?><br>
-                                    <input type="submit" name="enviar" value="Confirmar">
+                                    <input class="form-control caja2 btn-primary" type="submit" name="enviar" value="Confirmar">
                                 </form>
                             </div>
                         <?php 

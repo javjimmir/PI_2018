@@ -41,6 +41,16 @@ nav{
 	margin-right: 7%;
 }
 
+.caja{
+  max-width: 15em;
+  margin: 0 auto;
+}
+
+.caja2{
+  max-width: 9em;
+  margin: 0 auto;
+}
+
 section{
 background-color: white;
 	width: 80%;
