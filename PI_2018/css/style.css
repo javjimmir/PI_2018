@@ -109,7 +109,7 @@ footer{
 }
 .publicidad{
     background-color: transparent;
-
+    margin-top: 150px;
 }
 .menuLogin{
       background-color: transparent;
@@ -1155,6 +1155,7 @@ imagen_perfil_ajeno{
     position: relative;
     float: right;
     margin-bottom: 5%;
+    margin-left: -5em;
 }
 
 #lista{
