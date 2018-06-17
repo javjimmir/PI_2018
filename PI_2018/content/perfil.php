@@ -377,7 +377,7 @@ if (isset($_GET['alias'])) {
      
       <div class="col-12 col-lg-3 actividad">
                <figure class="snip1208">
-                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample66.jpg" alt="sample66"/>
+                     <img src="../img/oferta/'.$row2['imagen_oferta'].'" alt="sample66"/>
                      
                      <figcaption>
                       <p id="nombre_actividad">' . $row2['nombre'] . '</p>
