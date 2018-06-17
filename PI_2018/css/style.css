@@ -342,7 +342,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
     display: none;
   }
   .social-footer{
-    display: block;
+    display: flex;
   }
 }
 

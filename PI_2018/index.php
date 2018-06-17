@@ -142,9 +142,9 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-md-4 actividad">
                                        <figure class="snip1208">
-                                       <figcaption>
+                                       
                                           <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
-
+                                          <figcaption>
                                           <h3 id="nombre">'.$nombre.'</h3>
                                           <p id="actividad">Actividad: '.$actividad.'</p>
                                           <p id="provincia">Provincia: '.$provincia.'</p>
