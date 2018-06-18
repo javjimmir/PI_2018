@@ -3,8 +3,9 @@ Proyecto integrado 2018 para I.E.S. Polígono Sur.
 
 
 ### Prerequisitos
-
-     $sudo apt -get update
+ - Actualiza la lista de paquetes disponibles y sus versiones.
+ 
+        $sudo apt-get update
    
  - Apache o servidor web
  
