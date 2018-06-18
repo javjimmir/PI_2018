@@ -14,60 +14,51 @@
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript" src="../js/fondo.js"></script>
     <title>Iniciar sesión</title>
-    </head>
+</head>
 <body>
 
 <header class="menuLogin">
 
-    </header>
+</header>
 <nav class="menuPrincipalUser">
 
 </nav>
 <aside class="publicidad">
 
-    </aside>
+</aside>
 <section>
     <article>
         <div class="status"></div>
         <div class="modalpers"><p>Por favor, espere</p></div>
-        <!-- formulario de login de usuarios por AJAX -->
         <form action="" method="post" id="form-sesion">
-
             <h1 class="iniciar-sesion">Iniciar sesión</h1><hr/>
-
             <label class="acceso">Alias</label><br>
             <input class="login" type="text" name="alias" value="" placeholder="Alias" id="alias" required><br>
 
             <label class="acceso">Contraseña</label><br>
             <input class="login" type="password" name="password" value="" placeholder="Contraseña" id="password" required><br><br>
 
-           <label>Seleccione si es usuario o empresa</label>
+            <label>Seleccione si es usuario o empresa</label>
             <div class="login-radio">
                 <label class="tiposesion">
                     <em id="text_user_login">Usuario</em>
                     <input required id="user" type="radio" class="tiposes" name="tiposesion" value="usuario">
-                    <img src="../img/deportista.png" alt="usuario">
+                    <img id="usuarioimg" src="../img/deportista.png" alt="usuario">
                 </label>
                 <label class="tiposesion">
                     <input required id="company" type="radio" class="tiposes" name="tiposesion" value="empresa">
-                    <img src="../img/empresa.png" alt="empresa">
+                    <img id="empresaimg" src="../img/empresa.png" alt="empresa">
                     <em id="text_empresa_login">Empresa</em>
                 </label>
             </div>
-
             <br/>
             <button class="boton" id="validar">Acceder</button>
             <br><br>
-
             <div id="msginfo"></div>
         </form>
-
     </article>
-    </section>
-
+</section>
 <footer class="pie">
-
-    </footer>
-
+</footer>
 </body>
 </html>

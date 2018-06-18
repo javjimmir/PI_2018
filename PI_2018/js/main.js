@@ -110,6 +110,12 @@ $(document).ready(function () {
         }
     }
 
+    /* Notificación al logout
+    if (getUrlParameter('status') == 'logout') {
+        $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> Te has desconectado con éxito </span>").delay(3000).fadeOut();
+    }
+    */
+
     $(".tipoact").change(function() {
         var tipo_actividad = $('input[name=tipo_actividad]:checked', '#myform').val()
         /* Petición ajax que envía el tipo de actividad marcado */
@@ -375,7 +381,7 @@ $(document).ready(function () {
 
     /* Login, texto que sale cuando seleccionas tipo de sesion a iniciar input[name=rating]:checked */
 
-    $("input").on( "click", function() {
+    $(".tiposes").on( "click", function() {
         var seleccionada = $('input[name=tiposesion]:checked', '#form-sesion').val();
         if (seleccionada == 'empresa') {
             $("#text_user_login").hide();

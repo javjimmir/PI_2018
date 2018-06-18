@@ -186,7 +186,7 @@ if (isset($_GET['alias'])) {
 
                 <div class='filainfo'>
                     <div class='infoperfiliz'><label>Descripción: </label></div>
-                    <div class='infoperfilde'><input type=\"text\" name=\"descripcion\" disabled class=\"perfil\" value='{$res[0]['descripcion']}' id=\"mail-usu\" required>
+                    <div class='infoperfilde'><textarea rows='6' cols='40'  name=\"descripcion\" disabled class=\"perfil\" id=\"mail-usu\" required>{$res[0]['descripcion']}</textarea>
                 </div>
 
                 </div>";
@@ -282,13 +282,13 @@ if (isset($_GET['alias'])) {
                       <div class='filainfo'>
 
                       <div class='infoperfiliz'><label>Tipo de actividad: </label></div>
-                      <div class='infoperfilde'><input type=\"text\" name=\"tipoactividad\" id=\"busqueda_provincia\" disabled class=\"perfil\" value='{$res[0]['tipo_actividad']}' required></div>
+                      <div class='infoperfilde'><input type=\"text\" name=\"tipoactividad\" style='text-transform: capitalize' id=\"busqueda_provincia\" disabled class=\"perfil\" value='{$res[0]['tipo_actividad']}' required></div>
                       </div>
 
 <div class='filainfo'>
                       <div class='infoperfiliz'><label>Descripción: </label></div>
                       <div class='infoperfilde'>
-                      <textarea name=\"descripcion\" id=\"desc-empresa\" disabled class=\"perfil\" required>{$res[0]['descripcion']}</textarea>
+                      <textarea name=\"descripcion\" rows='6' cols='40' id=\"desc-empresa\" disabled class=\"perfil\" required>{$res[0]['descripcion']}</textarea>
 
                       </div>
 

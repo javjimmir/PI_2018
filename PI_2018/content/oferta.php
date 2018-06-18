@@ -55,8 +55,7 @@ include '../php/connection.php';
 
 
         echo '<div>';
-        /* IMAGEN DE LA OPFERTA, USTEDES YA LE DAIS EL ESTILO WEYES*/
-    echo '<div> 				<h3>DETALLE DE LA OFERTA</h3>
+    echo '<div> 				<h3>DETALLE DE LA ACTIVIDAD</h3>
 
     <img class="imgOffer" src="../img/oferta/'.$row['imagen_oferta'].'"></div>';
 

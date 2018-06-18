@@ -153,7 +153,6 @@ body.loading .modalpers {
 	-webkit-transition: background-color 0.5s;
 	transition: background-color 0.5s;
 }
-
 input[type=radio] {
     margin-top: 1px;
     line-height: normal;
@@ -177,3 +176,4 @@ input[type=radio] {
 .tiposesion {
 	display: inline;
 }
+

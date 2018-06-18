@@ -20,7 +20,7 @@ body, html{
 body{
     font-family: Verlag;
     font-size: 1.6em;
-	position: absolute;
+	/*position: absolute; Se descuadran las páginas*/
     background: url("./../img/fondos/fondo4.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -399,10 +399,11 @@ figure.snip1208.hover button {
     margin-left: 45%;
 }
 
-
-
 /**ESTILO OFERTA.php*/
 
+.text-left a:hover {
+    color: white;
+}
 
 .imgOffer {
     margin-top: 3%;
@@ -1066,8 +1067,15 @@ imagen_perfil_ajeno{
 
 }
 
-
 /*--RESERVAS--*/
+
+#alerta-sin-reservas {
+    width: 23%;
+    position: absolute;
+    left: 41%;
+    right: 40%;
+    bottom: 50%;
+}
 
 #puntuacion button{
   margin-bottom: 3%;

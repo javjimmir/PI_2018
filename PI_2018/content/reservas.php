@@ -44,7 +44,7 @@ if (!isset($_SESSION['nombre'])) {
 				  $result = $conexion->query($sql_reserva); 
           
           if ($result->num_rows === 0) {
-              echo '<span id="alerta-sin-reservas"><p class="text-center alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> Todavía no has reservado actividades. <a href="../index.php">Échale un vistazo</a> a algunas</p></span>';
+              echo '<span id="alerta-sin-reservas"><p class="text-center alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> Todavía no has reservado actividades. ¡<a href="../index.php">Échale un vistazo</a> a algunas!</p></span>';
           }else{ 
            while($row = $result->fetch_assoc()) {
                 $sql_oferta = "SELECT * from oferta where id = '".$row['id_oferta']."'";
