@@ -308,6 +308,12 @@ figure.snip1208.hover button {
     background-color: #117964;
 }
 
+/* Notificación cuando no se encuentran actividades con el filtro aplicado */
+#no_offers {
+    width: 100%;
+    margin-top: 11%;
+}
+
 /* Bloque destacados */
 
 

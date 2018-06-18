@@ -102,8 +102,8 @@ if (isset($_GET['category'])) {
 	</article>
 
 	<article class="index offers">
+        <div class="status"></div>
         <div class="row tabla">
-
         <?php
         	/* Cuenta las reservas que existen y dependiendo de las que salgan irá poniendo los elementos.
 			   En el caso de que haya más reservas de 12, pues solo se mostrarán las 12 más recientes.
@@ -114,7 +114,7 @@ if (isset($_GET['category'])) {
 			$count = 12;
 
 			if ($ofertas_encontradas == 0) {
-                echo '<div id="sin_ofertas"><p>NO HAY OFERTAS DISPONIBLES</p></div>';
+                echo '<div id=\'no_offers\'><span class=\'alert alert-info\'><span class=\'glyphicon glyphicon-info-sign\'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>';
             }
 
 
@@ -143,7 +143,6 @@ if (isset($_GET['category'])) {
                     $dificultad = $row['dificultad'];
                     echo '  <div class="col-md-4 actividad">
                                        <figure class="snip1208">
-                                       
                                           <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
                                           <figcaption>
                                           <h3 id="nombre">'.$nombre.'</h3>

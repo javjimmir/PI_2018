@@ -123,7 +123,7 @@ var hide=true;
             /* Bloque de comprobación de disponibilidad de ofertas */
             if (data.length === 0) {
                 $("#no_offers").remove();
-                $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
                 $("#cargar").hide();
             } else {
                 $("#cargar").show();
@@ -160,7 +160,7 @@ var hide=true;
             /* Bloque de comprobación de disponibilidad de ofertas */
             if (data.length === 0) {
                 $("#no_offers").remove();
-                $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
                 $("#cargar").hide();
             } else {
                 $("#cargar").show();
@@ -196,7 +196,7 @@ var hide=true;
                 /* Bloque de comprobación de disponibilidad de ofertas */
                 if (data.length === 0) {
                     $("#no_offers").remove();
-                    $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                    $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
                     $("#cargar").hide();
                 } else {
                     $("#cargar").show();
@@ -229,7 +229,7 @@ var hide=true;
                 /* Bloque de comprobación de disponibilidad de ofertas */
                 if (data.length === 0) {
                     $("#no_offers").remove();
-                    $(".offers").append("<div id='no_offers'><h2>No hay ofertas disponibles en estos momentos</h2><h1 id='emoji'>:(</h1></div>");
+                    $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
                     $("#cargar").hide();
                 } else {
                     $("#cargar").show();
@@ -252,6 +252,40 @@ var hide=true;
             });
         }
     });
+    /* Petición ajax que se lanza cuando se pulsa "Quitar filtros" */
+    $("#quitarfiltros").click(function(e) {
+        e.preventDefault();
+        var desactivar = 'desactivar';
+        $.post("php/filter.php", {desactivar: desactivar}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
+            $(".tabla").empty();
+            data = $.parseJSON(data);
+            /* Bloque de comprobación de disponibilidad de ofertas */
+            if (data.length === 0) {
+                $("#no_offers").remove();
+                $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
+                $("#cargar").hide();
+            } else {
+                $("#cargar").show();
+                $("#no_offers").remove();
+                for (var i = 0; i <= data.length - 1; i++) {
+                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
+                        "<figure class='snip1208'>" +
+                        "<img src='img/oferta/" + data[i].imagen_oferta + "' alt='sample66'/>" +
+                        "<figcaption>" +
+                        "<h3 id='nombre'>" + data[i].nombre + "</h3>" +
+                        "<p id='actividad'>" + data[i].tipo_actividad + "</p>" +
+                        "<p id='provincia'>" + data[i].provincia + "</p>" +
+                        "<p id='dificultad'>" + data[i].dificultad + "</p>" +
+                        "<p id='precio'>" + data[i].precio + "€</p>" +
+                        "<button>Ver actividad</button>" +
+                        "</figcaption><a href='content/oferta.php?id=" + data[i].id + "'></a>" +
+                        "</figure></div>");
+                }
+            }
+        });
+    });
+
+
     /**
      *
      *      Implementación de login por ajax.

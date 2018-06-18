@@ -99,3 +99,30 @@ if (isset($_POST['provincia']) && empty($_POST['tipo_actividad']) && empty($_POS
     $resultado->free();
     $conexion->close();
 }
+
+/* Si se recibe un post con "Desactivar" se quitarán los filtros */
+if (isset($_POST['desactivar'])) {
+    $res=[];
+    $num = 12; // Número de ofertas que se cargarán. Serán 12 si no hay ningún usuario logueado, y 9 + 3 destacadas si hay uno logueado.
+    if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'empresa') {
+        $num = 9;
+    }
+    $sql = "select * from oferta ORDER BY fecha_inicio DESC LIMIT $num";
+    $resultado = $conexion->query($sql);
+
+    while($row = $resultado->fetch_object()){
+        $fila=array(
+            "id"=>$row->id,
+            "nombre"=>$row->nombre,
+            "tipo_actividad"=>$row->tipo_actividad,
+            "provincia"=>$row->provincia,
+            "dificultad"=>$row->dificultad,
+            "precio"=>$row->precio,
+            "imagen_oferta"=>$row->imagen_oferta
+        );
+        array_push($res, $fila);
+    }
+    echo json_encode($res);
+    $resultado->free();
+    $conexion->close();
+}
