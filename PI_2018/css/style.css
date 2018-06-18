@@ -341,7 +341,7 @@ figure.snip1208.hover button {
 
 
 /**
-ESTILO OFERTAS
+ESTILO OFERTA.php
 
 
  */
@@ -436,6 +436,67 @@ ESTILO OFERTAS
     text-align: left;
 }
 
+#morecsspure-trigger-toggle {
+    cursor: pointer;
+}
+
+#morecsspure-element-toggle {
+    display:none;
+}
+
+#morecsspure-element-toggle:not(:checked) ~ #morecsspure-toggled-element {
+    display:none;
+}
+
+#morecsspure-element-toggle:not(:checked) ~ #morecsspure-trigger-toggle .morecsspure-lesslink {
+    display:none;
+}
+
+#morecsspure-element-toggle:checked ~ #morecsspure-trigger-toggle .morecsspure-morelink {
+    display:none;
+}
+
+#morecsspure .morecsspure-morelink, #morecsspure .morecsspure-lesslink {
+    display: block;
+    cursor: pointer;
+    color:#2196f3;
+}
+
+#morecsspure .morecsspure-morelink:hover, #morecsspure .morecsspure-lesslink:hover {
+    text-decoration:underline;
+}
+
+#morecsspure1-trigger-toggle {
+    cursor: pointer;
+}
+
+#morecsspure1-element-toggle {
+    display:none;
+}
+
+#morecsspure1-element-toggle:not(:checked) ~ #morecsspure1-toggled-element {
+    display:none;
+}
+
+#morecsspure1-element-toggle:not(:checked) ~ #morecsspure1-trigger-toggle .morecsspure1-lesslink {
+    display:none;
+}
+
+#morecsspure1-element-toggle:checked ~ #morecsspure1-trigger-toggle .morecsspure1-morelink {
+    display:none;
+}
+#morecsspure1 .morecsspure1-morelink, #morecsspure1 .morecsspure1-lesslink {
+    display: block;
+    cursor: pointer;
+    color:#2196f3;
+}
+
+#morecsspure1 .morecsspure1-morelink:hover, #morecsspure1 .morecsspure1-lesslink:hover {
+    text-decoration:underline;
+}
+
+/*FIN CSS VISTA COMO FUNCIONA*/
+
 
 /*--ESTILO ACERCA DE--*/
 
@@ -484,31 +545,220 @@ ESTILO OFERTAS
 	right: 0;
 
 }
+
 #logo > img {
 	width: 6.5rem;
 }
 
-/*--OTROS--*/
+
+/*--PERFIL.PHP--*/
 
 
+.status {
+    width: 80%;
+    top: 1%;
+    position: fixed;
+    z-index: 999;
+}
+/* Borrar los de arriba */
+.titulo {
+    font-family: 'Hammersmith One', sans-serif;
+}
 
+#upfile {
+    margin: 0 auto;
+}
+
+.imgperfil > img{
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 0;
+    height: 25rem;
+    width: 25rem;
+    margin: 0;
+    padding: 0;
+    -webkit-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
+}
+
+imagen_perfil_ajeno{
+    width: 25rem;
+}
+
+.imgperfil{
+    padding: 3%;
+}
+
+.infoperfil{
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.infoperfiliz{
+    width: 70%;
+    float: left;
+    text-align: left;
+    position: relative;
+    vertical-align: baseline;
+}
+.infoperfiliz>label{
+    float: left;
+    padding-top: 1.8%;
+    vertical-align: baseline;
+}
+
+.infoperfiliz>button{
+    float: right;
+    margin: 2%;
+    vertical-align: baseline;
+}
+
+.infoperfilde{
+    width: 30%;
+    float: left;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.infoperfilde > input{
+    float: left;
+    padding: 3px 20%;
+    margin: 1%;
+    box-sizing: border-box;
+    border: 2px solid #1110106e;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+.infoperfilde>button{
+    float: left;
+    margin: 5%;
+}
+
+.infoperfilde > input[type=text]:focus, .infoperfilde > input[type=password]:focus {
+    background-color: #337ab7;
+    color: white;
+}
+
+.alias{
+    position: relative;
+    float: right;
+    margin-bottom: 5%;
+    margin-left: -5em;
+}
+
+#lista{
+    background-color: white;
+    width: 70%;
+    color: black;
+    margin-top: 10%;
+    position: relative;
+    width: 48%;
+    text-align: center;
+    margin: auto;
+}
+
+.filainfo{
+    width: 100%;
+    float: left;
+}
+
+.infoperfil{
+    position: relative;
+    float: left;
+    width: 90%;
+    min-height: 30%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+#alerta-sin-actividades {
+    width: 78%;
+    position: absolute;
+    left: 14%;
+    right: 0;
+    bottom: 5%;
+}
+
+/* ---------- */
+
+/*--EDIT.PHP--*/
+
+#userforms{
+    display: block;
+}
+
+#sectionforms{
+    text-align:center;
+
+}
+
+
+/*--RESERVAS--*/
 
 #puntuacion button{
   margin-bottom: 3%;
 }
 
-#userforms{
-  display: block;
+/* Sistema de puntuación y reseña */
+
+.rating {
+    --star-size: 3;  /* use CSS variables to calculate dependent dimensions later */
+    padding: 0;  /* to prevent flicker when mousing over padding */
+    border: none;  /* to prevent flicker when mousing over border */
+    unicode-bidi: bidi-override; direction: rtl;  /* for CSS-only style change on hover */
+    text-align: left;  /* revert the RTL direction */
+    user-select: none;  /* disable mouse/touch selection */
+    font-size: 3em;  /* fallback - IE doesn't support CSS variables */
+    font-size: calc(var(--star-size) * 1em);  /* because `var(--star-size)em` would be too good to be true */
+    cursor: pointer;
+    /* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    margin-bottom: 1em;
+}
+/* the stars */
+.rating > label {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;  /* magic number to overlap the radio buttons on top of the stars */
+    width: calc(var(--star-size) / 3 * 1.1em);
+}
+.rating > *:hover,
+.rating > *:hover ~ label,
+.rating:not(:hover) > input:checked ~ label {
+    color: transparent;  /* reveal the contour/white star from the HTML markup */
+    cursor: inherit;  /* avoid a cursor transition from arrow/pointer to text selection */
+}
+.rating > *:hover:before,
+.rating > *:hover ~ label:before,
+.rating:not(:hover) > input:checked ~ label:before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    color: gold;
+}
+.rating > input {
+    position: relative;
+    transform: scale(3);  /* make the radio buttons big; they don't inherit font-size */
+    transform: scale(var(--star-size));
+    /* the magic numbers below correlate with the font-size */
+    top: -0.5em;  /* margin-top doesn't work */
+    top: calc(var(--star-size) / 6 * -1em);
+    margin-left: -2.5em;  /* overlap the radio buttons exactly under the stars */
+    margin-left: calc(var(--star-size) / 6 * -5em);
+    z-index: 2;  /* bring the button above the stars so it captures touches/clicks */
+    opacity: 0;  /* comment to see where the radio buttons are */
+    font-size: initial; /* reset to default */
 }
 
-#alerta-sin-reservas {
-	width: 23%;
-	position: absolute;
-	left: 41%;
-	right: 40%;
-	bottom: 50%;
-}
 
+
+/**
 .actividadesRecientes{
 	position: relative;
 	padding-top: 3em;
@@ -538,12 +788,9 @@ ESTILO OFERTAS
 #bajo{
 	width: 100%;
 	background-color: red;
-}
+}**/
 
-#sectionforms{
-  text-align:center;
 
- }
 
 
 
@@ -599,67 +846,7 @@ ESTILO OFERTAS
   }
 }
 
-/* @media (max-width: 320px) {
-  .funciona{
-     margin-left: 10px;
-  }
-} */
 
-
-#morecsspure-trigger-toggle {
-	cursor: pointer;
-}
-#morecsspure-element-toggle {
-	display:none;
-}
-#morecsspure-element-toggle:not(:checked) ~ #morecsspure-toggled-element {
-	display:none;
-}
-#morecsspure-element-toggle:not(:checked) ~ #morecsspure-trigger-toggle .morecsspure-lesslink {
-	display:none;
-}
-
-#morecsspure-element-toggle:checked ~ #morecsspure-trigger-toggle .morecsspure-morelink {
-	display:none;
-}
-#morecsspure .morecsspure-morelink, #morecsspure .morecsspure-lesslink {
-	display: block;
-	cursor: pointer;
-	color:#2196f3;
-}
-#morecsspure .morecsspure-morelink:hover, #morecsspure .morecsspure-lesslink:hover {
-	text-decoration:underline;
-}
-
-
-
-
-#morecsspure1-trigger-toggle {
-	cursor: pointer;
-}
-#morecsspure1-element-toggle {
-	display:none;
-}
-#morecsspure1-element-toggle:not(:checked) ~ #morecsspure1-toggled-element {
-	display:none;
-}
-#morecsspure1-element-toggle:not(:checked) ~ #morecsspure1-trigger-toggle .morecsspure1-lesslink {
-	display:none;
-}
-
-#morecsspure1-element-toggle:checked ~ #morecsspure1-trigger-toggle .morecsspure1-morelink {
-	display:none;
-}
-#morecsspure1 .morecsspure1-morelink, #morecsspure1 .morecsspure1-lesslink {
-	display: block;
-	cursor: pointer;
-	color:#2196f3;
-}
-#morecsspure1 .morecsspure1-morelink:hover, #morecsspure1 .morecsspure1-lesslink:hover {
-	text-decoration:underline;
-}
-
-/*FIN CSS VISTA COMO FUNCIONA*/
 
 /*CSS VISTA CONTACTO*/
 
@@ -678,7 +865,7 @@ ESTILO OFERTAS
 
 }
 
-.camposmodificar{
+/**.camposmodificar{
 	background-color: red;
 	min-height: 30%;
 	margin-right: 5%;
@@ -692,7 +879,7 @@ ESTILO OFERTAS
     position: relative;
     width: 48%;
     text-align: left;
-}
+}**/
 
 .selectboton input{
 	width: 28%;
@@ -723,57 +910,6 @@ ESTILO OFERTAS
 	transform-style: preserve-3d;
 }
 
-/* Sistema de puntuación y reseña */
-
-.rating {
-	--star-size: 3;  /* use CSS variables to calculate dependent dimensions later */
-	padding: 0;  /* to prevent flicker when mousing over padding */
-	border: none;  /* to prevent flicker when mousing over border */
-	unicode-bidi: bidi-override; direction: rtl;  /* for CSS-only style change on hover */
-	text-align: left;  /* revert the RTL direction */
-	user-select: none;  /* disable mouse/touch selection */
-	font-size: 3em;  /* fallback - IE doesn't support CSS variables */
-	font-size: calc(var(--star-size) * 1em);  /* because `var(--star-size)em` would be too good to be true */
-	cursor: pointer;
-	/* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-tap-highlight-color: transparent;
-	margin-bottom: 1em;
-}
-/* the stars */
-.rating > label {
-	display: inline-block;
-	position: relative;
-	width: 1.1em;  /* magic number to overlap the radio buttons on top of the stars */
-	width: calc(var(--star-size) / 3 * 1.1em);
-}
-.rating > *:hover,
-.rating > *:hover ~ label,
-.rating:not(:hover) > input:checked ~ label {
-	color: transparent;  /* reveal the contour/white star from the HTML markup */
-	cursor: inherit;  /* avoid a cursor transition from arrow/pointer to text selection */
-}
-.rating > *:hover:before,
-.rating > *:hover ~ label:before,
-.rating:not(:hover) > input:checked ~ label:before {
-	content: "★";
-	position: absolute;
-	left: 0;
-	color: gold;
-}
-.rating > input {
-	position: relative;
-	transform: scale(3);  /* make the radio buttons big; they don't inherit font-size */
-	transform: scale(var(--star-size));
-	/* the magic numbers below correlate with the font-size */
-	top: -0.5em;  /* margin-top doesn't work */
-	top: calc(var(--star-size) / 6 * -1em);
-	margin-left: -2.5em;  /* overlap the radio buttons exactly under the stars */
-	margin-left: calc(var(--star-size) / 6 * -5em);
-	z-index: 2;  /* bring the button above the stars so it captures touches/clicks */
-	opacity: 0;  /* comment to see where the radio buttons are */
-	font-size: initial; /* reset to default */
-}
 
 /* ------------------------------ */
 
@@ -1099,184 +1235,6 @@ figure.snip0067.hover:before {
   -webkit-transform: skewX(-30deg) translateX(0px);
   transform: skewX(-30deg) translateX(0px);
 }
-
-/*Imagenes rotatorias*/
-
-#f1_container {
-    position: relative;
-    margin: 10px auto;
-    width: 450px;
-    height: 281px;
-    z-index: 1;
-}
-
-#f1_container {
-    perspective: 1000;
-}
-
-#f1_card {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: all 1.0s linear;
-}
-
-#f1_container:hover #f1_card {
-    transform: rotateY(180deg);
-    box-shadow: -5px 5px 5px #aaa;
-}
-
-.face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-
-.face.back {
-    display: block;
-    transform: rotateY(180deg);
-    box-sizing: border-box;
-    padding: 10px;
-    color: white;
-    text-align: center;
-    background-color: #aaa;
-}
-
-/* Perfil.php */
-
-.status {
-    width: 80%;
-    top: 1%;
-    position: fixed;
-    z-index: 999;
-}
-/* Borrar los de arriba */
-.titulo {
-    font-family: 'Hammersmith One', sans-serif;
-}
-
-#upfile {
-    margin: 0 auto;
-}
-
-.imgperfil > img{
-    border-radius: 50%;
-    overflow: hidden;
-    margin-left: 0;
-    height: 25rem;
-    width: 25rem;
-    margin: 0;
-    padding: 0;
-    -webkit-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
-    box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
-}
-
-imagen_perfil_ajeno{
-    width: 25rem;
-}
-
-.imgperfil{
-    padding: 3%;
-}
-
-.infoperfil{
-    width: 90%;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 5%;
-}
-
-.infoperfiliz{
-    width: 70%;
-    float: left;
-    text-align: left;
-    position: relative;
-    vertical-align: baseline;
-}
-.infoperfiliz>label{
-    float: left;
-    padding-top: 1.8%;
-    vertical-align: baseline;
-}
-
-.infoperfiliz>button{
-    float: right;
-    margin: 2%;
-    vertical-align: baseline;
-}
-
-.infoperfilde{
-    width: 30%;
-    float: left;
-    position: relative;
-    vertical-align: baseline;
-}
-
-.infoperfilde > input{
-    float: left;
-    padding: 3px 20%;
-    margin: 1%;
-    box-sizing: border-box;
-    border: 2px solid #1110106e;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-}
-.infoperfilde>button{
-    float: left;
-    margin: 5%;
-}
-
-.infoperfilde > input[type=text]:focus, .infoperfilde > input[type=password]:focus {
-    background-color: #337ab7;
-    color: white;
-}
-
-.alias{
-    position: relative;
-    float: right;
-    margin-bottom: 5%;
-    margin-left: -5em;
-}
-
-#lista{
-    background-color: white;
-    width: 70%;
-    color: black;
-    margin-top: 10%;
-    position: relative;
-    width: 48%;
-    text-align: center;
-    margin: auto;
-}
-
-.filainfo{
-    width: 100%;
-    float: left;
-}
-
-.infoperfil{
-    position: relative;
-    float: left;
-    width: 90%;
-    min-height: 30%;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 5%;
-}
-
-#alerta-sin-actividades {
-    width: 78%;
-    position: absolute;
-    left: 14%;
-    right: 0;
-    bottom: 5%;
-}
-
-/* ---------- */
-
 
 
 /* FILTROS */
