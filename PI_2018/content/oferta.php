@@ -216,10 +216,14 @@ include '../php/connection.php';
                 echo '<p>Error al intentar hacer la reserva.</p>';
             }
 
-            if ($_SESSION['tipo'] === "usuario") { 
-            echo '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
-                Realizar reserva
-            </button>';
+            if (isset($_SESSION['tipo'])) {
+                
+                if ($_SESSION['tipo'] === "usuario") { 
+                echo '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
+                    Realizar reserva
+                </button>';
+                }
+
             }
         ?>
 
