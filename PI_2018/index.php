@@ -186,11 +186,11 @@ if (isset($_GET['category'])) {
                 /**
                  *
                  * Bloque de actividades recomendadas para el usuario.
-                 * En este bloque aparecerán 3 ofertas recomendadas para el usuario, según su categoría marcada como favorita al registrarse.
+                 * En este bloque aparecerán 4 ofertas recomendadas para el usuario, según su categoría marcada como favorita al registrarse.
                  *
                  */
                 if (isset($_SESSION['nombre']) && $_SESSION['tipo'] === 'usuario') { // Si hay un usuario conectado y es de tipo usuario...
-                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND() LIMIT 3 ";
+                    $sql_destacados = "SELECT * FROM oferta WHERE categoria = (SELECT actividad_fav FROM usuario WHERE alias = '" . $_SESSION['nombre'] . "') ORDER BY RAND() LIMIT 4";
                     $result_destacados = $conexion->query($sql_destacados); // Select que buscará la actividad_fav del usuario con la sesión iniciada.
                     $fila_destacados = $row_destacados = $result->fetch_assoc();
                     $ofertas_destacadas_encontradas = $result_destacados->num_rows;
@@ -221,11 +221,9 @@ if (isset($_GET['category'])) {
                     </figure>
                   </div>';
                             }
-                            // echo "<h3 id='ofertas'>Ofertas</h3></div>";
                         }
                     }
-                    // echo "<h3 id='ofertas'>Ofertas</h3>";
-                                  }
+                }
 
                 /* Carga de las demás ofertas, máximo 9 hasta pulsar "Cargar más" Este if-else hace que en caso de que haya menos de 9 actividades en TOTAL, semuestren normalmente
                 las que haya en pantalla, y si supera el máximo por pantalla (9), se mostrará el máximo. */
@@ -234,7 +232,7 @@ if (isset($_GET['category'])) {
                 } else {
                     $ofertas_mostradas = $ofertas_encontradas-1;
                 }
-
+                echo "<div id='ofertas'><hr/>";
                 for ($i = 1; $i <= $ofertas_mostradas; $i++) {
                     $row = $result->fetch_assoc();
                     $img = $row['imagen_oferta'];
@@ -258,20 +256,18 @@ if (isset($_GET['category'])) {
                       </figure>
                 </div>';
                 }
+                echo '</div>';
             }
         ?>
   		</div>
        
   </article>
   <form action="?load=all" method="get">
-            <input type="hidden" name="load" value="all">
-            <button id="cargar">Cargar más</button>
-        </form>
+      <input type="hidden" name="load" value="all">
+      <button id="cargar">Cargar más</button>
+  </form>
 </section>
-
 <footer class="pie">
-
 </footer>
-
 </body>
 </html>
