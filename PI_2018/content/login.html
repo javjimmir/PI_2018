@@ -35,20 +35,24 @@
 
             <h1 class="iniciar-sesion">Iniciar sesión</h1><hr/>
 
-            <label>Alias</label><br>
+            <label class="acceso">Alias</label><br>
             <input class="login" type="text" name="alias" value="" placeholder="Alias" id="alias" required><br>
 
-            <label>Contraseña</label><br>
-            <input class="login" type="password" name="password" value="" placeholder="Contraseña" id="password" required><br>
+            <label class="acceso">Contraseña</label><br>
+            <input class="login" type="password" name="password" value="" placeholder="Contraseña" id="password" required><br><br>
 
-            <label></label><br>
-            <label></label><br>
+           <label>Seleccione si es usuario o empresa</label>
             <div class="login-radio">
-                <img src="../img/deportista.png" alt="">
-            <img src="../img/empresa.png" alt=""><br>
-            <input required id="user" type="radio" class="tiposes" name="tiposesion" value="usuario">  Usuario
-            <input required id="company" type="radio" class="tiposes" name="tiposesion" value="empresa">  Empresa<br>
-
+                <label class="tiposesion">
+                    <em id="text_user_login">Usuario</em>
+                    <input required id="user" type="radio" class="tiposes" name="tiposesion" value="usuario">
+                    <img src="../img/deportista.png" alt="usuario">
+                </label>
+                <label class="tiposesion">
+                    <input required id="company" type="radio" class="tiposes" name="tiposesion" value="empresa">
+                    <img src="../img/empresa.png" alt="empresa">
+                    <em id="text_empresa_login">Empresa</em>
+                </label>
             </div>
 
             <br/>

@@ -54,7 +54,7 @@ form {
 	width: 60%;
 }
 
-form label{
+.acceso {
 	display: none;
 }
 
@@ -137,11 +137,21 @@ body.loading .modalpers {
 	position: absolute;
 }
 
+#text_user_login,#text_empresa_login {
+	display: none;
+	font-size: 2rem;
+	text-align:center;
+}
+
 .login-radio img{
-    width: 10%;
-    height: 10%;
-    margin-left: 2%;
-    margin-right: -1%;
+    width: 15%;
+	background: #f5f5f5;
+	margin: 2% 2% 2% 2%;
+	border: 2px #cbcbce solid;
+	-webkit-transition: border 1.5s;
+	transition: border 1.5s;
+	-webkit-transition: background-color 0.5s;
+	transition: background-color 0.5s;
 }
 
 input[type=radio] {
@@ -150,7 +160,20 @@ input[type=radio] {
     margin-left: 3%!important;
 }
 
+.tiposesion > input[type=radio] {
+	visibility: hidden; /* Makes input not-clickable */
+	position: absolute; /* Remove input from document flow */
+}
 
+.tiposesion > input + img { /* IMAGE STYLES */
+	cursor: pointer;
+}
 
+.tiposesion > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+	background: #2a992c;
+	border: 2px black solid;
+}
 
-
+.tiposesion {
+	display: inline;
+}

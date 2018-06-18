@@ -373,6 +373,16 @@ $(document).ready(function () {
         }
     });
 
-    /* ---------------------------------------------------------------------------------------------------- */
-    /*Toogle de seguir leyendo, vista acerca de  */
+    /* Login, texto que sale cuando seleccionas tipo de sesion a iniciar input[name=rating]:checked */
+
+    $("input").on( "click", function() {
+        var seleccionada = $('input[name=tiposesion]:checked', '#form-sesion').val();
+        if (seleccionada == 'empresa') {
+            $("#text_user_login").hide();
+            $("#text_empresa_login").fadeIn("slow").css("display", "inline-block");
+        } else {
+            $("#text_empresa_login").hide();
+            $("#text_user_login").fadeIn("slow").css("display", "inline-block");
+        }
+    });
 });
