@@ -84,7 +84,6 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
       <table class="table table-striped table-hover ">
         <thead>
         <tr tablaactividades>
-          <th>ID</th>
           <th>Actividad</th>
           <th>Tipo de actividad</th>
           <th>Localización</th>
@@ -118,7 +117,6 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
             $reservas = $result3->num_rows;
             echo '
             <tr>
-              <td>'.$row['id'].'</td>                          
               <td>'.$row['nombre'].'</td>
               <td>'.$row['tipo_actividad'].'</td>
               <td>'.$row['localizacion'].'</td>
@@ -133,8 +131,8 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
                             else if ($row['dificultad'] == 'media' ){
                 echo '<span class="label label-primary">Media</span>';
               }
-                            else if ($row['dificultad'] == 'dificil' ){
-                echo '<span class="label label-warning">Difícil</span>';
+                            else if ($row['dificultad'] == 'alta' ){
+                echo '<span class="label label-warning">Alta</span>';
               }
                             else{
                 echo '<span class="label label-danger">Experto</span>';
@@ -170,8 +168,6 @@ $empezar_desde = ($pagina-1) * $resultados_por_pagina;
           }
           echo '</p>';
         }
-
-        
           
       echo '</table><center><a href="registrofertas.php" title="Añadir" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Añadir actividad</a></center>';
 
