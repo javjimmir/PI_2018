@@ -112,15 +112,20 @@ echo "</div>";
         echo "<div class='infoperfilde'><input name=\"fecha_fin\" type=\"text\" disabled value={$row['fecha_fin']}> </div> ";
         echo "</div>";
 
+        echo '<input id="enviar" name="enviar" type="submit" value="Editar" class="botones">';
+        echo '</form>';
+        
+
+        echo '<form action="../php/edit_photo.php?id='.$id.'" method="post" enctype="multipart/form-data">';
         echo "<div class='filainfo'> ";
         echo "<div class='infoperfiliz'><label>Imagen: </label></div>";
-        echo "<div class='infoperfilde'><input disabled name=\"oferta\" name='file' type='file' size='2mb'> </div> ";
+        echo "<div class='infoperfilde'><input  name='upfile' type='file'> </div> ";
         echo "</div>";
-        echo '<input id="enviar" name="enviar" type="submit" value="Enviar" class="botones">';
+        echo '<input id="enviar" name="enviar" type="submit" value="Cambiar foto" class="botones">';
         echo '</form>';
         echo '</div>';
         ?>
-        <br><br>.
+        <br><br>
 </div>
         <a href="../index.php">Volver al index</a>
     </article>
