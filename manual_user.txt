@@ -1,0 +1,36 @@
+0 - Introducción.
+
+1 - Inicio de sesión y registro.
+2 - Configuración del perfil. 
+3 - Buscar actividades: filtros y búsqueda.
+4 - Funcionalidades de empresa: activity_manager.
+5 - Funcionalidades como usuario: hacer reserva y gestionar actividades.
+
+1 - Registro e inicio de sesión:
+
+Puedes acceder a wildSport sin necesidad de registrarte, pero las funciones quedarían limitadas a consultar las distintas ofertas que ya han sido posteadas en la plataforma. 
+
+Para gozar de las funcionalidades que ofrece WildSports recomendamos que se registre en la plataforma, ya sea como usuario o como empresa. Para registrate solo debes hacer click en el boton superior, en el que pone "Registrarse" y a continuación aparecerán dos opciones: 
+
+- Si eres una empresa, que desea emplear la plataforma para compartir tus actividades con el mundo debes elegir la opción soy una empresa. 
+
+- Si por el contrario, eres un usuario cuya intención es buscar una actividad deportiva que concuerde con tus gustos, debes elegir la opción soy un particular. 
+
+Si en alguno de los campos introduces un valor que no es correcto o si se queda el campo vacío, el sistema te avisará mediante una alerta. 
+
+Una vez que hayas completado el registro puedes proceder a hacer login, no olvide seleccionar empresa o usuario para que el login procesa correctamente. 
+
+2 - Menú superior derecho: 
+Una vez que ha iniciado sesión podrá apreciar que en la esquina superior derecha de la pantalla aparece un menú desplegable. Si pinchamos en el veremos que en caso de usuario hay un apartado extra llamado mis reservas, el cual será explicado más adelante.
+	
+Pues bien, en este menú encontramos la opción de ver nuestro perfil y poder editarlo, y la opción de cerrar sesión.
+
+Si elegimos de perfil nos saldría la siguiente pantalla: (foto). Aquí podremos visualizar los datos de nuestro perfil, y podemos editarlos. Como vemos hay una foto de perfil por defecto, la cual puede ser modificada por la que se quiera. Si hemos iniciado sesión como usuario podemos ver las actividades recientes que hemos reservado.
+
+3 - Búsqueda de actividades: 
+
+Si estamos logueados como usuario, podemos ver que hay tres actividades destacadas que se adaptan a las necesidades del usuario según sus preferencias ( que preferencias o criterio sigue para seleccionar las actividades destacadas). 
+
+En el menú principal de la aplicación, podemos ver una pestaña llamada categorías. En ella podremos buscar las actividades de las cuatro categorías que existen: agua, tierra, aire y nieve. 
+
+Si observamos la parte izquierda de la pantalla principal hay un botón llamado filtros. Si lo pulsamos veremos que se despliega una pestaña con una serie de filtros que permiten hacer las búsquedas de nuestras actividades mucho más óptima. Podemos filtrar por tipo de actividad, por precio, y por provincia. Si usted eligió alguna de las categorías anteriormente presentadas se filtrarán sólo las actividades pertenecientes a esa categoría.
