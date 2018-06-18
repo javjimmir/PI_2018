@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@font-face {
+    font-family: Verlag;
+    src: url('../fuentes/OptimusPrinceps.ttf');
 
+}
 /**
 ESSTILOS GENERALES ETIQUETAS HTML5
  */
@@ -14,6 +18,8 @@ body, html{
 }
 
 body{
+    font-family: Verlag;
+    font-size: 1.6em;
 	position: absolute;
     background: url("./../img/fondos/fondo4.jpg");
 	background-repeat: no-repeat;
@@ -289,20 +295,22 @@ figure.snip1208 h3,
 figure.snip1208 p {
     margin: 0;
     padding: 0;
+    font-family: Verlag;
+
 }
 
 figure.snip1208 h3 {
     margin-bottom: 10px;
     display: inline-block;
     font-weight: 600;
-    color: #333333;
+    color: #185fe8;
     text-transform: uppercase;
 }
 
 figure.snip1208 p {
-    font-size: 0.8em;
+    font-size: 1.2em;
     margin-bottom: 20px;
-    line-height: 1.6em;
+    line-height: 1em;
 }
 
 figure.snip1208 button {
@@ -395,11 +403,27 @@ figure.snip1208.hover button {
 
 /**ESTILO OFERTA.php*/
 
-.imgOffer{
-    margin-top: 10px;
-    width: 50%;
+
+.imgOffer {
+    margin-top: 3%;
+    float: left;
+    margin-left: 8%;
+    width: 25%;
+    height: 255px;
     border-radius: 20px;
     z-index: -1;
+}
+
+#reservaoferta{
+    position: absolute;
+    margin-top: -0.2%;
+    margin-left: 1%;
+}
+
+#volverInd{
+    position: absolute;
+    margin-top: -2.6%;
+    margin-left: 20%;
 }
 
 .caja{
@@ -553,7 +577,8 @@ th.text-right {
 }
 
 td.text-left {
-    text-align: left;
+    text-align: center;
+    padding: 1%;
 }
 
 td.text-center {

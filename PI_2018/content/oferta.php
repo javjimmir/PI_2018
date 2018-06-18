@@ -56,7 +56,7 @@ include '../php/connection.php';
 
         echo '<div>';
         /* IMAGEN DE LA OPFERTA, USTEDES YA LE DAIS EL ESTILO WEYES*/
-    echo '<div> 				<h3>Reservas</h3>
+    echo '<div> 				<h3>DETALLE DE LA OFERTA</h3>
 
     <img class="imgOffer" src="../img/oferta/'.$row['imagen_oferta'].'"></div>';
 
@@ -64,10 +64,7 @@ include '../php/connection.php';
 				</div>
 				<table class="table-fill">
 				<thead>
-				<tr>
-				<th class="text-left">Campo</th>
-				<th class="text-left">Información</th>
-				</tr>
+				
 				</thead>';
 				echo '<tbody class="table-hover">';
 
@@ -219,7 +216,7 @@ include '../php/connection.php';
             if (isset($_SESSION['tipo'])) {
                 
                 if ($_SESSION['tipo'] === "usuario") { 
-                echo '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal">
+                echo '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miModal" id="reservaoferta">
                     Realizar reserva
                 </button>';
                 }
@@ -228,7 +225,7 @@ include '../php/connection.php';
         ?>
 
         <br><br>
-                <a class="btn btn-primary btn-lg" href="../index.php">Volver al index</a>
+                <a class="btn btn-primary btn-lg" id="volverInd" href="../index.php">Volver al index</a>
         <br><br>
     </article>
 </section>
