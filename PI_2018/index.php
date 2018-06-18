@@ -197,7 +197,7 @@ if (isset($_GET['category'])) {
                     $count = 9;
                     if ($ofertas_destacadas_encontradas > 0) { // Si no existen actividades con la categoría favorita del user (mínimo 1), no saldrá el cuadro de DESTACADOS!!
                         if (isset($_SESSION['nombre'])) {
-                            echo "<div id='bloque_destacados'><h3>Destacadas</h3>";
+                            echo "<div id='bloque_destacados'><h3>Destacadas</h3><hr style='width: 90%'/>";
                             for ($i = 1; $i <= $ofertas_destacadas_encontradas; $i++) {
                                 $row_destacados = $result_destacados->fetch_assoc();
                                 $nombre = $row_destacados['nombre'];
@@ -232,7 +232,7 @@ if (isset($_GET['category'])) {
                 } else {
                     $ofertas_mostradas = $ofertas_encontradas-1;
                 }
-                echo "<div id='ofertas'><hr/>";
+                echo "<div id='ofertas'><h3>Últimas ofertas</h3><hr style='width: 90%'/>";
                 for ($i = 1; $i <= $ofertas_mostradas; $i++) {
                     $row = $result->fetch_assoc();
                     $img = $row['imagen_oferta'];
