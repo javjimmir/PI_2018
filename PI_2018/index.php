@@ -141,8 +141,9 @@ if (isset($_GET['category'])) {
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
-                    echo '  <div class="col-md-4 actividad">
-                                       <figure class="snip1208">
+                    echo '  
+                                       <div class="snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6">
+                                       <div class="aaa">
                                           <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
                                           <figcaption>
                                           <h3 id="nombre">'.$nombre.'</h3>
@@ -152,8 +153,8 @@ if (isset($_GET['category'])) {
                                           <p id="precio">Precio: '.$precio.'€</p>
                                           <button>Ver actividad</button>
                                           </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
-                                      </figure>
-                </div>';
+                                      </div></div>
+                ';
                 }
             } else if (isset($_GET['category'])) {
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
@@ -164,21 +165,18 @@ if (isset($_GET['category'])) {
                     $actividad = $row['tipo_actividad'];
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
-                    echo '  <div class="col-md-4 actividad">
-                                <figure class="snip1208">
-                                    <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
-                                    
-                                    <figcaption>
-                                    <h3 id="nombre">'.$nombre.'</h3>
-                                    <p id="actividad">Actividad: '.$actividad.'</p>
-                                    <p id="provincia">Provincia: '.$provincia.'</p>
-                                    <p id="dificultad">Dificultad: '.$dificultad.'</p>
-                                    <p id="precio">Precio: '.$precio.'€</p>
-                                    <button>Ver actividad</button>
-                                    </figcaption>
-                                    <a href="content/oferta.php?id='.$row['id'].'"></a>
-                              </figure>
-                          </div>';
+                    echo '   <div class="snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6">
+                    <div class="aaa">
+                                          <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
+                                          <figcaption>
+                                          <h3 id="nombre">'.$nombre.'</h3>
+                                          <p id="actividad">Actividad: '.$actividad.'</p>
+                                          <p id="provincia">Provincia: '.$provincia.'</p>
+                                          <p id="dificultad">Dificultad: '.$dificultad.'</p>
+                                          <p id="precio">Precio: '.$precio.'€</p>
+                                          <button>Ver actividad</button>
+                                          </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+                                      </div></div>';
                 }
             } else {
 
@@ -206,20 +204,18 @@ if (isset($_GET['category'])) {
                                 $actividad = $row_destacados['tipo_actividad'];
                                 $precio = $row_destacados['precio'];
                                 $dificultad = $row_destacados['dificultad'];
-                                echo '  <div class="col-md-4 actividad destacada">
-                                <figure class="snip1208">
-                      <img src="img/oferta/'.$img.'" alt="Oferta de actividad destacada"/>
-                      
-                      <figcaption>
-                      <h3 id="nombre">'.$nombre.'</h3>
-                      <p id="actividad">Actividad: '.$actividad.'</p>
-                      <p id="provincia">Provincia: '.$provincia.'</p>
-                      <p id="dificultad">Dificultad: '.$dificultad.'</p>
-                      <p id="precio">Precio: '.$precio.'€</p>
-                      <button>Ver actividad</button>
-                      </figcaption><a href="content/oferta.php?id=' . $row_destacados['id'] . '"></a>
-                    </figure>
-                  </div>';
+                                echo '   <div class="snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6">
+                                <div class="aaa destacada">
+                                          <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
+                                          <figcaption>
+                                          <h3 id="nombre">'.$nombre.'</h3>
+                                          <p id="actividad">Actividad: '.$actividad.'</p>
+                                          <p id="provincia">Provincia: '.$provincia.'</p>
+                                          <p id="dificultad">Dificultad: '.$dificultad.'</p>
+                                          <p id="precio">Precio: '.$precio.'€</p>
+                                          <button>Ver actividad</button>
+                                          </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+                                      </div></div>';
                             }
                         }
                     }
@@ -242,19 +238,18 @@ if (isset($_GET['category'])) {
                     $precio = $row['precio'];
                     $dificultad = $row['dificultad'];
                     echo '
-                <div class="col-md-4 actividad">
-                   <figure class="snip1208">
-                      <img src="img/oferta/'.$img.'" alt="Ofertas de portada"/>
-                      <figcaption>
-                        <h3 id="nombre">'.$nombre.'</h3>
-                        <p id="actividad">Actividad: '.$actividad.'</p>
-                        <p id="provincia">Provincia: '.$provincia.'</p>
-                        <p id="dificultad">Dificultad: '.$dificultad.'</p>
-                        <p id="precio">Precio: '.$precio.'€</p>
-                        <button>Ver actividad</button>
-                        </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
-                      </figure>
-                </div>';
+               <div class="snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6">
+               <div class="aaa">
+                                          <img src="img/oferta/'.$img.'" alt="Oferta de actividad"/>
+                                          <figcaption>
+                                          <h3 id="nombre">'.$nombre.'</h3>
+                                          <p id="actividad">Actividad: '.$actividad.'</p>
+                                          <p id="provincia">Provincia: '.$provincia.'</p>
+                                          <p id="dificultad">Dificultad: '.$dificultad.'</p>
+                                          <p id="precio">Precio: '.$precio.'€</p>
+                                          <button>Ver actividad</button>
+                                          </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+                                      </div></div>';
                 }
                 echo '</div>';
             }
