@@ -1155,43 +1155,6 @@ imagen_perfil_ajeno{
 }
 
 
-
-/**
-.actividadesRecientes{
-	position: relative;
-	padding-top: 3em;
-	float: left;
-	width: 100%;
-}
-
-.actividadesRecientes p{
-	padding-left: 10%;
-	padding-right: 10%;
-
-}
-
-.actividadesFavoritas{
-	position: relative;
-	padding-top: 3em;
-	float: right;
-	width: 100%;
-	padding-bottom: 3em;
-}
-
-.actividadesFavoritas img{
-	width: 23%;
-}
-
-
-#bajo{
-	width: 100%;
-	background-color: red;
-}**/
-
-
-
-
-
 /*CSS VISTA CONTACTO*/
 
 .form_contact{
@@ -1208,21 +1171,6 @@ imagen_perfil_ajeno{
 
 }
 
-/**.camposmodificar{
-	background-color: red;
-	min-height: 30%;
-	margin-right: 5%;
-	margin-left: 5%;
-	margin-bottom: 15em;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    margin: auto;
-    color: black;
-    position: relative;
-    width: 48%;
-    text-align: left;
-}**/
 
 .selectboton input{
 	width: 28%;
@@ -1253,6 +1201,9 @@ imagen_perfil_ajeno{
 	transform-style: preserve-3d;
 }
 
+form h1{
+    font-family: Verlag;
+}
 
 
 /* FILTROS */

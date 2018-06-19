@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Hammersmith+One');
+@font-face {
+	font-family: Verlag;
+	src: url('../fuentes/OptimusPrinceps.ttf');
 
+}
 .iniciar-sesion {
-	font-family: 'Hammersmith One', sans-serif;
-    font-weight: bold;
+	font-family: Verlag;
 }
 .login {
 	width: 50%;
