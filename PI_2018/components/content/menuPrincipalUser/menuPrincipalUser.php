@@ -25,14 +25,14 @@ session_start();
           <li><a href="../index.php?category=nieve">Nieve</a></li>
         </ul>
       </li>
-        <?php
-        if (!empty($_SESSION) && $_SESSION['tipo'] === "empresa") {
-            echo "<li><a href='activity_manager.php'>Administrar actividades</a></li>";
-        }
-        ?>
       <li><a href="comofunciona.php">Como Funciona</a></li>
       <li><a href="contacto.php">Contacto</a></li>
       <li><a href="acercade.php">Acerca de</a></li>
+        <?php
+        if (!empty($_SESSION) && $_SESSION['tipo'] === "empresa") {
+            echo "<li><a href='activity_manager.php' style=\"color:#2196f3\">Administrar actividades</a></li>";
+        }
+        ?>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       
