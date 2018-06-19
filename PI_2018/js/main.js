@@ -132,8 +132,9 @@ $(document).ready(function () {
                 $("#cargar").show();
                 $("#no_offers").remove();
                 for (var i = 0; i <= data.length-1; i++) {
-                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<figure class='snip1208'>"+
+                    $(".tabla").append(
+                        "<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
+                        "<div class=\"aaa\">"+
                         "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
                         "<figcaption>"+
                         "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -143,7 +144,7 @@ $(document).ready(function () {
                         "<p id='precio'>Precio " + data[i].precio + "€</p>"+
                         "<button>Ver actividad</button>"+
                         "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                        "</figure></div>");
+                        "</div></div>");
                 }
             }
         });
@@ -164,8 +165,8 @@ $(document).ready(function () {
                 $("#cargar").show();
                 $("#no_offers").remove();
                 for (var i = 0; i <= data.length - 1; i++) {
-                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<figure class='snip1208'>"+
+                    $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
+                        "<div class=\"aaa\">"+
                         "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
                         "<figcaption>"+
                         "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -175,7 +176,7 @@ $(document).ready(function () {
                         "<p id='precio'>Precio " + data[i].precio + "€</p>"+
                         "<button>Ver actividad</button>"+
                         "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                        "</figure></div>");
+                        "</div></div>");
                 }
             }
         });
@@ -198,8 +199,8 @@ $(document).ready(function () {
                     $("#cargar").show();
                     $("#no_offers").remove();
                     for (var i = 0; i <= data.length - 1; i++) {
-                        $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                            "<figure class='snip1208'>"+
+                        $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
+                            "<div class=\"aaa\">"+
                             "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
                             "<figcaption>"+
                             "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -209,7 +210,7 @@ $(document).ready(function () {
                             "<p id='precio'>Precio " + data[i].precio + "€</p>"+
                             "<button>Ver actividad</button>"+
                             "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                            "</figure></div>");
+                            "</div></div>");
                     }
                 }
                 
@@ -231,8 +232,8 @@ $(document).ready(function () {
                     $("#cargar").show();
                     $("#no_offers").remove();
                     for (var i = 0; i <= data.length - 1; i++) {
-                        $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                            "<figure class='snip1208'>"+
+                        $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
+                            "<div class=\"aaa\">"+
                             "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
                             "<figcaption>"+
                             "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -242,7 +243,7 @@ $(document).ready(function () {
                             "<p id='precio'>Precio " + data[i].precio + "€</p>"+
                             "<button>Ver actividad</button>"+
                             "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                            "</figure></div>");
+                            "</div></div>");
                     }
                 }
             });
@@ -264,8 +265,8 @@ $(document).ready(function () {
                 $("#cargar").show();
                 $("#no_offers").remove();
                 for (var i = 0; i <= data.length - 1; i++) {
-                    $(".tabla").append("<div class='col-lg-4 actividad'>" +
-                        "<figure class='snip1208'>"+
+                    $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
+                        "<div class=\"aaa\">"+
                         "<img src='img/oferta/"+data[i].imagen_oferta+"' alt='sample66'/>"+
                         "<figcaption>"+
                         "<h3 id='nombre'>"+data[i].nombre+"</h3>"+
@@ -275,7 +276,7 @@ $(document).ready(function () {
                         "<p id='precio'>Precio " + data[i].precio + "€</p>"+
                         "<button>Ver actividad</button>"+
                         "</figcaption><a href='content/oferta.php?id="+data[i].id+"'></a>"+
-                        "</figure></div>");
+                        "</div></div>");
                 }
             }
         });
