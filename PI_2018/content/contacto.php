@@ -14,7 +14,7 @@
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_usu.js"></script>
     <script type="text/javascript" src="../js/fondo.js"></script>
-    <title>Index</title>
+    <title>Contacto | WildSports</title>
     </head>
 <body>
 

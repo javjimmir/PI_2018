@@ -21,7 +21,6 @@ if (isset($_GET['category'])) {
 <head>
     <link rel="icon" type="image/png" href="./img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
-
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,8 +28,7 @@ if (isset($_GET['category'])) {
   	<script type="text/javascript" src="./js/conectores.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/fondo.js"></script>
-
-	<title>Index</title>
+	<title>Portada | WildSports</title>
 </head>
 <body>
 <button id="btnFiltros" class="btnIndex btn-contact">Filtros</button>
@@ -157,6 +155,7 @@ if (isset($_GET['category'])) {
                 ';
                 }
             } else if (isset($_GET['category'])) {
+                echo "<div id='bloque_destacados'><h3>Actividades de {$_GET['category']}</h3><hr style='width: 90%'/>";
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
                     $img = $row['imagen_oferta'];

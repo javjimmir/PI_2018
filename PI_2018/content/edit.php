@@ -26,7 +26,7 @@ if(isset($_POST['nombre'])){ // array post con datos recibido
 <html>
 <head>
     <link rel="icon" type="image/png" href="../img/favicon.ico" />
-	<title>Editar una oferta</title>
+	<title>Editar actividad | WildSports</title>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

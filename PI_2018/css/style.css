@@ -1,7 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+/*@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);*/
 @font-face {
-    font-family: Verlag;
+    font-family: 'Arimo', sans-serif;
     src: url('../fuentes/OptimusPrinceps.ttf');
 
 }
@@ -16,9 +17,8 @@ body, html{
 	top:0;
 	left:0;
 }
-
-body{
-    font-family: Verlag;
+body {
+    font-family: Roboto Slab;
     font-size: 1.6em;
 	/*position: absolute; Se descuadran las páginas*/
     background: url("./../img/fondos/fondo4.jpg");
@@ -80,9 +80,6 @@ footer{
 	float: left;
   margin-top: 5%;
 }
-
-
-
 
 /**ESTILOS GENERALES PARA LOS COMPONENTES */
 
@@ -212,17 +209,15 @@ footer{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86aecc', endColorstr='#d4e4ef', GradientType=1 );*/
 
 }
-.aaa{
+.aaa{ /* Por qué esta clase se llama así? */
     padding: 5%;
-        border-radius: 18px 0px 0px 0px;
+    border-radius: 18px 0px 0px 0px;
     -moz-border-radius: 18px 0px 0px 0px;
     -webkit-border-radius: 18px 0px 0px 0px;
     border:   #000000;
-
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-
     background: rgba(134,174,204,1);
     background: -moz-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
     background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(134,174,204,1)), color-stop(100%, rgba(212,228,239,1)));
@@ -231,6 +226,8 @@ footer{
     background: -ms-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
     background: linear-gradient(135deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86aecc', endColorstr='#d4e4ef', GradientType=1 );
+    height: 90%;
+    min-height: 90%;
 }
 
 .snip1208 {
@@ -239,10 +236,6 @@ footer{
     overflow: hidden;
     height: 600px;
     text-align: -webkit-center;
-  
-    
-
- 
     color: #000000;
     font-size: 16px;
 }
@@ -312,7 +305,7 @@ footer{
 .snip1208 p {
     margin: 0;
     padding: 0;
-    font-family: Verlag;
+    font-family: Roboto Slab;
 
 }
 
@@ -408,6 +401,8 @@ footer{
     background: linear-gradient(to bottom, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );
     margin-bottom: 3%;
+    height: 90%;
+    min-height: 90%;
 }
 
 #ofertas{
@@ -1202,7 +1197,7 @@ imagen_perfil_ajeno{
 }
 
 form h1{
-    font-family: Verlag;
+    font-family: Roboto Slab;
 }
 
 

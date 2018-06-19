@@ -19,7 +19,7 @@ if (!isset($_SESSION['nombre'])) {
   	<script type="text/javascript" src="../js/conectores_content.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript" src="../js/fondo.js"></script>
-    <title>Mis reservas</title>
+    <title>Mis reservas | WildSports</title>
 </head>
 <body>
 <header class="menuLogin">

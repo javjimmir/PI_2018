@@ -15,7 +15,7 @@ include '../php/connection.php';
     <script type="text/javascript" src="../js/conectores_content.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
     <script type="text/javascript" src="../js/fondo.js"></script>
-    <title>Index</title>
+    <title>Tipo de cuenta | WildSports</title>
     </head>
 <body>
 

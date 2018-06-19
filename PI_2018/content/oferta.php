@@ -7,7 +7,7 @@ include '../php/connection.php';
 <html>
 <head>
     <link rel="icon" type="image/png" href="../img/favicon.ico" />
-	<title>Hacer reserva</title>
+	<title>Detalle de actividad | WildSports</title>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

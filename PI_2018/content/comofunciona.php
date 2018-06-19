@@ -19,7 +19,7 @@ include '../php/connection.php';
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
     <script type="text/javascript" src="../js/fondo.js"></script>
 
-    <title>Index</title>
+    <title>Cómo funciona | WildSports</title>
     </head>
 <body>
 
