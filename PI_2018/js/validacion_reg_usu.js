@@ -155,7 +155,7 @@ $(function () {
 
 
     $("#mail-usu").blur(function(){
-        var mailRegex = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
+        var mailRegex = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/;
         var mail = $("#mail-usu").val();
         if (mailRegex.test(mail) == false || mail == "") {
             $("#error-usu").html("<p>El campo mail está vacío o mal formado</p>");
