@@ -198,6 +198,7 @@ if (isset($_GET['category'])) {
                             echo "<div id='bloque_destacados'><h3>Destacadas</h3><hr style='width: 90%'/>";
                             for ($i = 1; $i <= $ofertas_destacadas_encontradas; $i++) {
                                 $row_destacados = $result_destacados->fetch_assoc();
+                                $id = $row_destacados['id'];
                                 $nombre = $row_destacados['nombre'];
                                 $img = $row_destacados['imagen_oferta'];
                                 $provincia = $row_destacados['provincia'];
@@ -213,8 +214,9 @@ if (isset($_GET['category'])) {
                                           <p id="provincia">Provincia: '.$provincia.'</p>
                                           <p id="dificultad">Dificultad: '.$dificultad.'</p>
                                           <p id="precio">Precio: '.$precio.'€</p>
+                                          <p id="id" hidden>'.$id.'</p>
                                           <button>Ver actividad</button>
-                                          </figcaption><a href="content/oferta.php?id='.$row['id'].'"></a>
+                                          </figcaption><a href="content/oferta.php?id='.$row_destacados['id'].'"></a>
                                       </div></div>';
                             }
                         }
