@@ -352,8 +352,12 @@ footer{
 
 .snip1208:hover img,
 .snip1208.hover img {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    border-radius: 18px 0px 0px 0px;
+    -moz-border-radius: 18px 0px 0px 0px;
+    -webkit-border-radius: 18px 0px 0px 0px;
+    border:   #000000;
 }
 
 .snip1208:hover .date,
