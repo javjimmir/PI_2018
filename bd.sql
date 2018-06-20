@@ -100,3 +100,7 @@ insert into oferta values(12,'g2468123j','Esquí en Sierra Nevada','Granada','Si
 insert into oferta values(13,'v1685473s','Snorkel','Cádiz','Barbate','100','15','snorkel','Primeras experiencias con el snorkel','Barbate',15,'facil','snorkel.jpg','agua','18-06-22','18-08-15');
 insert into oferta values(14,'g2468123j','3ªRuta Senderismo Sierra Norte','Sevilla','Alanís','240','25','senderismo','Conoce la Sierra Norte de Sevilla','Constantina',10,'facil','senderismo.jpg','tierra','18-06-10','18-07-20');
 insert into oferta values(15,'v1685473s','2º Salt0 desde un avion','Sevilla','Pilas','120','30','paracaidismo','Experiementa una caida libre de 50 seg y un placido paseo en paracaidas','Pilas',100,'alta','paracaidas1.jpg','aire','18-07-05','18-08-01');
+
+-- INSERT DE EJEMPLO EN RESERVA
+insert into reserva (nif_usuario,id_oferta,fecha_reserva,num_plazas_reserva,coste_reserva, valoracion, resena) values('47342916S',8,'2018-06-12',1,100.00,NULL,NULL);
+insert into reserva (nif_usuario,id_oferta,fecha_reserva,num_plazas_reserva,coste_reserva, valoracion, resena) values('47342916J',9,'2018-06-21',2,30.00,NULL,NULL);
