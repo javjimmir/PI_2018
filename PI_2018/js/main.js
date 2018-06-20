@@ -37,25 +37,27 @@ $(document).ready(function () {
             hide=true;
         }
     });
-//     /*Fondo dinámico */
-//     var d = new Date();
-//     var n = d.getMonth();
 
-// if(n>10 && n<2){
-//     // invierno
-//             $(document.body).css('background-image', 'url(http://www.hdbilder.eu/p/get_photo/544286/2560/1440)');
-// }else if(n>=2 && n<5){
-//     // primavera
-//              $(document.body).css('background-image', 'url(http://www.thetravelboss.com/images/gallery/img_1515493479.jpg)');
-// }else if(n>=5 && n<8){
-//     // verano
-//              $(document.body).css('background-image', 'url(https://www.sunsportsmaine.com/wp-content/uploads/2017/12/GoPro-Hero-Session-Floaty-3.jpg)');
-// }else if(n>=8 && n<11){
-//     // otoño 
-//              $(document.body).css('background-image', 'url(https://hdwallsource.com/img/2014/9/downhill-wallpaper-hd-35545-36355-hd-wallpapers.jpg)');
-// }
+    /* Implementación de sistema de puntuación y reseña por ajax */
+    $(".puntuar").click(function(e) {
+        e.preventDefault();
+        var starselected = $('input[name=rating]:checked', '#form-rating').val();
+        var rating_text = $("#rating-text").val();
+        var input_nif_usuario = $("#input_nif").val();
+        var input_id_oferta = $("#input_id_oferta").val();
 
-    /* Bloque de mensajes de información relacionados con la actualización de imágenes en el perfil */
+        $.post("../php/rating.php", {starselected: starselected, rating_text: rating_text, input_nif_usuario: input_nif_usuario, input_id_oferta: input_id_oferta}, function (data) {
+            $("#puntuacion").empty();
+            if (data == 0) {
+                /* En caso de que los datos sean correctos... */
+                $("#puntuacion").append("<p>¡Muchas gracias por tu opinión!</p>");
+            } else {
+                /* En caso de algún error... */
+                $("#puntuacion").append("<p>¡Vaya! Ha ocurrido un error inesperado. Inténtalo más tarde.</p>");
+            }
+        });
+    });
+
 
     if (getUrlParameter('status') == 'success') {
         $(".status").append("<span class='alert alert-success'>¡Imagen actualizada con éxito!</span>").delay(3000).fadeOut();
@@ -114,6 +116,7 @@ $(document).ready(function () {
         $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> Te has desconectado con éxito </span>");
     }
 
+
     /**
      *
      *      Implementación de login por ajax.
@@ -168,25 +171,7 @@ $(document).ready(function () {
             }, 2000);
         }
     });
-    /* Implementación de sistema de puntuación y reseña por ajax */
-    $("#rating").click(function(e) {
-        e.preventDefault();
-        var starselected = $('input[name=rating]:checked', '#form-rating').val();
-        var rating_text = $("#rating-text").val();
-        var input_nif_usuario = $("#input_nif").val();
-        var input_id_oferta = $("#input_id_oferta").val();
 
-        $.post("../php/rating.php", {starselected: starselected, rating_text: rating_text, input_nif_usuario: input_nif_usuario, input_id_oferta: input_id_oferta}, function (data) {
-            $("#puntuacion").empty();
-            if (data == 0) {
-                /* En caso de que los datos sean correctos... */
-                $(".status").append("<span class='alert alert-success'>¡Muchas gracias por tu opinión!</span>").delay(3000).fadeOut();
-            } else {
-                /* En caso de algún error... */
-                $(".status").append("<span class='alert alert-danger'>Ha ocurrido un error inesperado, ¡inténtalo más tarde!</span>").delay(3000).fadeOut("slow");
-            }
-        });
-    });
     /*
     *
     * Perfil.php

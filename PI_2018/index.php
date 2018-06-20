@@ -27,7 +27,6 @@ if (isset($_GET['category'])) {
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script type="text/javascript" src="./js/conectores.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
-    <script type="text/javascript" src="./js/fondo.js"></script>
 	<title>Portada | WildSports</title>
 </head>
 <body>

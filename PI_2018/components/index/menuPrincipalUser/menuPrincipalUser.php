@@ -23,7 +23,7 @@ session_start();
           <li><a href="index.php?category=nieve">Nieve</a></li>
         </ul>
       </li>
-      <li><a href="./content/comofunciona.php">Cómo Funciona</a></li>
+      <li><a href="./content/comofunciona.php">Cómo funciona</a></li>
       <li><a href="./content/contacto.php">Contacto</a></li>
       <li><a href="./content/acercade.php">Acerca de</a></li>
         <?php

@@ -17,8 +17,8 @@ if (!isset($_SESSION['nombre'])) {
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script type="text/javascript" src="../js/conectores_content.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
-    <script type="text/javascript" src="../js/fondo.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+
     <title>Mis reservas | WildSports</title>
 </head>
 <body>
@@ -36,7 +36,7 @@ if (!isset($_SESSION['nombre'])) {
 <article>
     <div class="status"></div>
         <div class="misreservas">
-         <h2 class="text-center">Mis reservas</h2>
+         <h2 class="text-center">Mis reservas</h2><hr style='width: 90%'/>
 				<?php
 
 				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') "; 
@@ -51,7 +51,7 @@ if (!isset($_SESSION['nombre'])) {
                 $result2 = $conexion->query($sql_oferta);
                 $row2 = $result2->fetch_assoc();
                 echo '  <div class="col-lg-4 actividad">
-         <figure class="snip1208">
+         <div class="snip1208">
             <img src="../img/oferta/'.$row2['imagen_oferta'].'" alt="sample66"/>
                       
                       <figcaption>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['nombre'])) {
                $resultado=$conexion->query($sql_comprobacion_null);
                 echo '
                <button>Ver actividad</button>
-                      </figcaption><a href="oferta.php?id='.$row['id_oferta'].'"></a>
+                      </div><a href="oferta.php?id='.$row['id_oferta'].'"></a>
                     </figure>';
                if ($resultado->num_rows > 0) { // Si DEVUELVE una actividad con valores nulos, es que el user PUEDE rellenar la encuesta, así que se mostrará
                    if ($fecha_de_hoy > $fecha_reserva && $fecha_reserva < $fecha_expiracion_actividad) { // El form se mostrará 1 día después de la fecha que el usuario ha reservado(fecha_expiracion). Así que aquí se calculafecha_expiracion)
@@ -144,10 +144,10 @@ if (!isset($_SESSION['nombre'])) {
                                           title="1 stars">☆</label>
                                </fieldset>
                                <label>¿Qué te ha parecido la actividad?</label>
-                               <textarea class="form-control" required id="rating-text" name="resena" maxlength="200"></textarea><br>
+                               <textarea class="form-control" id="rating-text" name="resena" maxlength="200"></textarea><br>
                                <input type="hidden" id="input_nif" name="nif_usuario" value=<?php echo $row['nif_usuario'];?>>
                                <input type="hidden" id="input_id_oferta" name="id_oferta" value=<?php echo $row['id_oferta'];?>>
-                               <button id="rating">Calificar</button>
+                               <button class="puntuar" id="rating">Calificar</button>
                            </form>
                        </div>
                        </div>

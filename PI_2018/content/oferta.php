@@ -15,7 +15,6 @@ include '../php/connection.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/conectores_content.js"></script>
-    <script type="text/javascript" src="../js/fondo.js"></script>
     </head>
 <body>
 <header class="menuLogin">
@@ -34,20 +33,18 @@ include '../php/connection.php';
         <?php
         $id = $_GET['id'];
         $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
-        //$sql_cont_reservas = "SELECT COUNT(*) as reservas, CAST(((SUM(valoracion))/COUNT(*)) as INT) as media FROM reserva WHERE id_oferta=".$id;
+        $sql_cont_reservas = "SELECT TRUNCATE(AVG(valoracion),1) as media, COUNT(*) as total FROM reserva WHERE id_oferta=".$id;
         $result = $conexion->query($sql_oferta);
-        //$result2 = $conexion->query($sql_cont_reservas);
+        $result2 = $conexion->query($sql_cont_reservas);
         $row = $result->fetch_assoc();
-        //$row2 = $result2->fetch_assoc();
-        //$media = 0; 
+        $row2 = $result2->fetch_assoc();
+        $media = 0;
+        $total = 0;
 
-        /*if ($row2['media']!=null) {
+        if ($row2['media']!=null) {
             $media = $row2['media'];
-        }*/
-
-
-
-
+            $total = $row2['total'];
+        }
         /* Query que obtiene el nombre de la empresa que organiza la oferta/actividad */
         $sql_nombre_empresa = "select nombre,alias from empresa where cif = (select cif_empresa from oferta where id = $id)";
         $result_nombre_empresa = $conexion->query($sql_nombre_empresa);
@@ -55,7 +52,7 @@ include '../php/connection.php';
 
 
         echo '<div>';
-    echo '<div> 				<h3>DETALLE DE LA ACTIVIDAD</h3>
+    echo '<div><h3>DETALLE DE LA ACTIVIDAD</h3><hr style=\'width: 90%\'/>
 
     <img class="imgOffer" src="../img/oferta/'.$row['imagen_oferta'].'"></div>';
 
@@ -68,13 +65,13 @@ include '../php/connection.php';
 				echo '<tbody class="table-hover">';
 
 				echo '<tr>
-				<td class="text-left">Nombre de la oferta</td>
+				<td class="text-left">Nombre</td>
 				<td class="text-left">'.$row['nombre'].'</td>
 				</tr>';
 
                 echo "<tr>
 				<td class=\"text-left\">Empresa organizadora</td>
-				<td class=\"text-left\"><a href='perfil.php?alias={$row_nombre_empresa['alias']}'>{$row_nombre_empresa['nombre']}</a></td>
+				<td class=\"text-left\"><a href='perfil.php?alias={$row_nombre_empresa['alias']}'>{$row_nombre_empresa['nombre']} <span class='glyphicon glyphicon-share-alt'></span></a></td>
 				</tr>";
 
 				echo '<tr>
@@ -88,7 +85,7 @@ include '../php/connection.php';
 				</tr>';
 				echo '<tr>
 				<td class="text-left">Duración</td>
-				<td class="text-left">'.$row['duracion'].'</td>
+				<td class="text-left">'.$row['duracion'].' minutos</td>
 				</tr>';
 
 				echo '<tr>
@@ -98,11 +95,11 @@ include '../php/connection.php';
 
 				echo '<tr>
 				<td class="text-left">Tipo de actividad</td>
-				<td class="text-left">'.$row['tipo_actividad'].'</td>
+				<td class="text-left" style="text-transform: capitalize">'.$row['tipo_actividad'].'</td>
 				</tr>';
 
 				echo '<tr>
-				<td class="text-left">Descipción</td>
+				<td class="text-left">Descripción</td>
 				<td class="text-left">'.$row['descripcion'].'</td>
 				</tr>';
 
@@ -113,12 +110,12 @@ include '../php/connection.php';
 
 				echo '<tr>
 				<td class="text-left">Dificultad</td>
-				<td class="text-left">'.$row['dificultad']. '</td>
+				<td class="text-left" style="text-transform: capitalize">'.$row['dificultad']. '</td>
 				</tr>';
 
 				echo '<tr>
 				<td class="text-left">Categoría</td>
-				<td class="text-left">'.$row['categoria'].'</td>
+				<td class="text-left" style="text-transform: capitalize">'.$row['categoria'].'</td>
 				</tr>';
 
 				echo '<tr>
@@ -131,11 +128,11 @@ include '../php/connection.php';
 				<td class="text-left">'.$row['fecha_fin'].'</td>
 				</tr>';
 
-				/*echo '<tr>
+				echo '<tr>
 				<td class="text-left">Media de valoraciones</td>
-				<td class="text-left">'.$media.'</td>
+				<td class="text-left">'.$media.'/5 <br>(basado en '.$total.' puntuaciones)</td>
 				</tr>';
-				*/
+
 				echo '</tbody>';
 				echo '</table>';
       
@@ -182,7 +179,7 @@ include '../php/connection.php';
                                 VALUES('".$nif."',".$id.",'".$_POST['fecha_reserva']."',".$_POST['plazas_reserva'].",".$_POST['plazas_reserva']."*".$row['precio'].")";
 
                                     if ($conexion->query($insert_reserva) === TRUE) {
-                                        echo 'Registro insertado correctamente';
+                                        echo '<div id=\'reserva_ok\'><span class=\'alert alert-success\'><span class=\'glyphicon glyphicon-ok-circle\'></span> ¡Reserva realizada con éxito! Accede a <a href="reservas.php">tus reservas</a> para ver más información</span></div>';
                                         $sql_plazas = "UPDATE oferta SET num_plazas=num_plazas - ".$_POST['plazas_reserva']." WHERE id=".$id;
                                         $conexion->query($sql_plazas);
                                         $insert_correcto = 1;
@@ -205,11 +202,11 @@ include '../php/connection.php';
             /* Esto de mostrar el error así es un viaje de pachanguero, pero por ahora lo dejo así porque no se me ocurre otra forma. Fran */ 
 
             if ($insert_correcto === 1) {
-                echo '<p>Registro insertado correctamente!!!</p>';
+                echo '<div id=\'reserva_ok\' style="position: absolute; width: 37%;"><span class=\'alert alert-success\'><span class=\'glyphicon glyphicon-ok-circle\'></span> ¡Reserva realizada con éxito! Accede a <a href="reservas.php">tus reservas</a> para ver más información</span></div>';
             }
 
             if ($insert_correcto === 2) {
-                echo '<p>Error al intentar hacer la reserva.</p>';
+                echo '<div id=\'reserva_error\' style="position: absolute; width: 37%;"><span class=\'alert alert-danger\'><span class=\'glyphicon glyphicon-remove\'></span> Ha ocurrido un error en la reserva, inténtalo más tarde</span></div>';
             }
 
             if (isset($_SESSION['tipo'])) {
@@ -219,7 +216,6 @@ include '../php/connection.php';
                     Realizar reserva
                 </button>';
                 }
-
             }
         ?>
 

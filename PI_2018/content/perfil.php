@@ -101,7 +101,6 @@ if (isset($_GET['alias'])) {
     <script type="text/javascript" src="../js/validacion_reg_usu.js"></script>
     <script type="text/javascript" src="../js/validacion_reg_empre.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
-    <script type="text/javascript" src="../js/fondo.js"></script>
     <title>Mi perfil | WildSports</title>
 </head>
 <body>
