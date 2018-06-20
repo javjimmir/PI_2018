@@ -156,7 +156,7 @@ include '../php/connection.php';
 
                 <div>
                     <input id="enviar" type="submit" value="Enviar" class="botones">
-                    <input id="reset" type="reset" value="Limpiar formulario" class="botones">
+                    <input id="reset" type="reset" value="Limpiar" class="botones">
 
 
         </form>
