@@ -211,6 +211,7 @@ footer{
 }
 .aaa{ /* Por qué esta clase se llama así? */
     padding: 5%;
+    margin-bottom: 2%;
     border-radius: 18px 0px 0px 0px;
     -moz-border-radius: 18px 0px 0px 0px;
     -webkit-border-radius: 18px 0px 0px 0px;
@@ -226,15 +227,66 @@ footer{
     background: -ms-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
     background: linear-gradient(135deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86aecc', endColorstr='#d4e4ef', GradientType=1 );
-    height: 90%;
+    
     min-height: 90%;
 }
+
+.tarjetaConPun{
+    padding: 5%;
+    margin-bottom: 2%;
+    border-radius: 18px 0px 0px 0px;
+    -moz-border-radius: 18px 0px 0px 0px;
+    -webkit-border-radius: 18px 0px 0px 0px;
+    border:   #000000;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    background: rgba(134,174,204,1);
+    background: -moz-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(134,174,204,1)), color-stop(100%, rgba(212,228,239,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
+    background: linear-gradient(135deg, rgba(134,174,204,1) 0%, rgba(212,228,239,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86aecc', endColorstr='#d4e4ef', GradientType=1 );
+    
+    min-height: 90%;
+}
+.tarjetaConPun img{
+  max-width: 100%;
+    width: 100%;
+    height: 200px;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.tarjetaConPun button {
+    border: medium none;
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.tarjetaConPun a {
+    left: 0;
+    right: 0;
+   top:0;
+   bottom: 200px;
+    position: absolute;
+    z-index: 1;
+}
+
 
 .snip1208 {
     font-family: 'Raleway', Arial, sans-serif;
     text-align: center;
     overflow: hidden;
-    height: 600px;
+    min-height: 700px;
     text-align: -webkit-center;
     color: #000000;
     font-size: 16px;
@@ -1106,13 +1158,14 @@ imagen_perfil_ajeno{
 /* Sistema de puntuación y reseña */
 
 .rating {
-    --star-size: 3;  /* use CSS variables to calculate dependent dimensions later */
+    z-index: 1000;
+    --star-size: 2.3;  /* use CSS variables to calculate dependent dimensions later */
     padding: 0;  /* to prevent flicker when mousing over padding */
     border: none;  /* to prevent flicker when mousing over border */
     unicode-bidi: bidi-override; direction: rtl;  /* for CSS-only style change on hover */
-    text-align: left;  /* revert the RTL direction */
+    text-align: center;  /* revert the RTL direction */
     user-select: none;  /* disable mouse/touch selection */
-    font-size: 3em;  /* fallback - IE doesn't support CSS variables */
+    font-size: 2.5em;  /* fallback - IE doesn't support CSS variables */
     font-size: calc(var(--star-size) * 1em);  /* because `var(--star-size)em` would be too good to be true */
     cursor: pointer;
     /* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
@@ -1124,7 +1177,7 @@ imagen_perfil_ajeno{
 .rating > label {
     display: inline-block;
     position: relative;
-    width: 1.1em;  /* magic number to overlap the radio buttons on top of the stars */
+    width: 0.8em;  /* magic number to overlap the radio buttons on top of the stars */
     width: calc(var(--star-size) / 3 * 1.1em);
 }
 .rating > *:hover,
