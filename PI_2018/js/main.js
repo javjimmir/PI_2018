@@ -113,7 +113,7 @@ $(document).ready(function () {
     }
     /* Notificación al logout */
     if (getUrlParameter('status') === 'logout') {
-        $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> Te has desconectado con éxito </span>");
+        $(".status").append("<span class='alert alert-success'><span class='glyphicon glyphicon-ok-circle'></span> Te has desconectado con éxito </span>").delay(4000).fadeOut();;
     }
 
 
