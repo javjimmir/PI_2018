@@ -955,12 +955,12 @@ figure.snip0067.hover:before {
     margin: 0 auto;
 }
 
-.imgperfil > img{
+.imgperfil > img {
     border-radius: 50%;
     overflow: hidden;
     margin-left: 0;
-    height: 25rem;
-    width: 25rem;
+    height: 35rem;
+    width: 35rem;
     margin: 0;
     padding: 0;
     -webkit-box-shadow: 4px 4px 14px 1px rgba(0,0,0,0.75);
@@ -972,8 +972,9 @@ imagen_perfil_ajeno{
     width: 25rem;
 }
 
-.imgperfil{
+.imgperfil {
     padding: 3%;
+    margin-left: 9%;
 }
 
 .infoperfil{
@@ -1029,11 +1030,12 @@ imagen_perfil_ajeno{
     color: white;
 }
 
-.alias{
+.alias {
     position: relative;
     float: right;
-    margin-bottom: 5%;
-    margin-left: -5em;
+    /* margin-bottom: 5%; */
+    /* margin-left: -5em; */
+    left: -119px;
 }
 
 #lista{
@@ -1068,6 +1070,10 @@ imagen_perfil_ajeno{
     left: 14%;
     right: 0;
     bottom: 5%;
+}
+
+.infoperfil textarea{
+    width: 246%;
 }
 
 
