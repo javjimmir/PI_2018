@@ -1,3 +1,11 @@
+<?php
+include '../../../php/connection.php';
+
+// Esta query recogerá 6 tipos de actividades desde la tabla ofertas (surf, buceo, ...etc) de forma aleatoria, y sin repetirse.
+$sql_tipo_actividades = "SELECT DISTINCT tipo_actividad from oferta ORDER BY RAND() LIMIT 20;";
+$result = $conexion->query($sql_tipo_actividades);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,21 +13,17 @@
       <script type="text/javascript" src="./js/filters.js"></script>
 </head>
 <body>
-
-
-
 <div id="filters">
 
       <h2>Filtrar actividades</h2><hr/>
       <form method="post" id="myform" class="form-group">
             <label>Tipo de actividad</label><br>
-            <input type="radio" class="tipoact" name="tipo_actividad" value="submarinismo">  <span id="submarinismo">Submarinismo</span><br>
-            <input type="radio" class="tipoact" name="tipo_actividad" value="snorkel">  <span id="snorkel">Snorkel</span><br>
-            <input type="radio" class="tipoact" name="tipo_actividad" value="senderismo">  <span id="senderismo">Senderismo</span><br>
-            <input type="radio" class="tipoact" name="tipo_actividad" value="buceo">  <span id="buceo">Buceo</span><br>
-            <input type="radio" class="tipoact" name="tipo_actividad" value="paracaidismo">  <span id="paracaidismo">Paracaidismo</span><br>
-            <input type="radio" class="tipoact" name="tipo_actividad" value="surf">  <span id="surf">Surf</span>
-
+            <?php
+            while($row = $result->fetch_assoc()) {
+                $tipo_actividad = $row['tipo_actividad'];
+                echo "<input type='radio' class='tipoact' name='tipo_actividad' value={$tipo_actividad}>  <span id={$tipo_actividad} style='text-transform: capitalize'>{$tipo_actividad}</span><br>";
+            }
+            ?>
             <label>Precio máximo</label>
 
         <div class="input-box">
