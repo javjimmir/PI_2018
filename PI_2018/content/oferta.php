@@ -28,8 +28,6 @@ include '../php/connection.php';
 </aside>
 <section>
     <article>
-
-
         <?php
         $id = $_GET['id'];
         $sql_oferta = "SELECT * FROM oferta WHERE id=".$id;
@@ -52,7 +50,7 @@ include '../php/connection.php';
 
 
         echo '<div>';
-    echo '<div><h3>DETALLE DE LA ACTIVIDAD</h3><hr style=\'width: 90%\'/>
+    echo '<div><h3>Detalle de la actividad</h3><hr style=\'width: 90%\'/>
 
     <img class="imgOffer" src="../img/oferta/'.$row['imagen_oferta'].'"></div>';
 
@@ -132,11 +130,70 @@ include '../php/connection.php';
 				<td class="text-left">Media de valoraciones</td>
 				<td class="text-left">'.$media.'/5 <br>(basado en '.$total.' puntuaciones)</td>
 				</tr>';
-
 				echo '</tbody>';
 				echo '</table>';
       
         echo '</div>';
+
+
+        if ($_SESSION['tipo'] === "empresa") {
+            echo '<br><div class="table-title_contactos">
+				</div>
+				<table class="table-fill_contactos">';
+            echo '<tbody class="table-hover">';
+
+            echo '<tr>
+				<td class="text-left">Nombre, apellidos y alias</td>
+				<td class="text-left">Datos</td>
+				</tr>';
+
+            $sql_datos_clientes = "SELECT * FROM usuario WHERE nif IN (SELECT nif_usuario from reserva WHERE id_oferta = $id);";
+            $result = $conexion->query($sql_datos_clientes);
+            $res = [];
+            while ($row_clientes = $result->fetch_object()) {
+                $fila = array(
+                    "nif" => $row_clientes->nif,
+                    "nombre" => $row_clientes->nombre,
+                    "apellidos" => $row_clientes->apellidos,
+                    "telefono" => $row_clientes->telefono,
+                    "pais" => $row_clientes->pais,
+                    "alias" => $row_clientes->alias,
+                    "email" => $row_clientes->email,
+                    "cp" => $row_clientes->cp,
+                    "imagen_perfil" => $row_clientes->imagen_perfil,
+                    "provincia" => $row_clientes->provincia,
+                    "direccion" => $row_clientes->direccion,
+                    "actividad_fav" => $row_clientes->actividad_fav,
+                    "password" => $row_clientes->password
+                );
+                array_push($res, $fila);
+            }
+            $total_reservas_actividad = $result->num_rows;
+
+
+            for ($i = 0; $i < $total_reservas_actividad; $i++) {
+                $nif = $res[$i]['nif'];
+                $sql_fecha_reserva_por_dni = "SELECT fecha_reserva FROM reserva WHERE nif_usuario = '$nif' and id_oferta = $id;";
+                $resultado_2 = $conexion->query($sql_fecha_reserva_por_dni);
+                //$fila = $row_2 = $resultado_2->fetch_assoc();
+                while($row_2 = $resultado_2->fetch_assoc()) {
+                    echo
+                        '<tr>
+                    <td class="text-left">' . $res[$i]['nombre'] . ' ' . $res[$i]['apellidos'] . ' (' . $res[$i]['alias'] . ')</td>
+                    <td class="text-left">Tel: ' . $res[$i]['telefono'] . '<br> Email: ' . $res[$i]['email'] . '<br>Fecha reservada: <br>' . $row_2['fecha_reserva'] . '</td>
+				</tr>';
+                }
+            }
+
+
+
+            echo '</tbody>';
+            echo '</table>';
+
+            echo '</div>';
+        }
+
+
 
         ?>
 

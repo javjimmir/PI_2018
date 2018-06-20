@@ -39,9 +39,8 @@ if (!isset($_SESSION['nombre'])) {
          <h2 class="text-center">Mis reservas</h2><hr style='width: 90%'/>
 				<?php
 
-				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') "; 
-
-				  $result = $conexion->query($sql_reserva); 
+				$sql_reserva = "SELECT * FROM reserva WHERE nif_usuario = (SELECT nif FROM usuario WHERE alias = '". $_SESSION['nombre']  ."') ";
+				$result = $conexion->query($sql_reserva);
           
           if ($result->num_rows === 0) {
               echo '<span id="alerta-sin-reservas"><p class="text-center alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> Todavía no has reservado actividades. ¡<a href="../index.php">Échale un vistazo</a> a algunas!</p></span>';

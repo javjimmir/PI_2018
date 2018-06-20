@@ -172,7 +172,6 @@ footer{
     }
 }
 
-
 /**ESTILO INDEX */
 
 
@@ -505,6 +504,27 @@ div.table-title {
     animation: float 5s infinite;
 }
 
+div.table-title_contactos {
+    display: block;
+    margin: auto;
+    max-width: 600px;
+    padding:5px;
+    width: 100%;
+}
+
+.table-fill_contactos {
+    background: white;
+    border-radius: 3px;
+    border-collapse: collapse;
+    margin: -9% 0% 0% 4%;
+    max-width: 600px;
+    padding: 5px;
+    width: 35%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+}
+
+
 th {
     color:#D5DDE5;;
     background:#1b1e24;
@@ -516,15 +536,6 @@ th {
     text-align:left;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     vertical-align:middle;
-}
-
-th:first-child {
-    border-top-left-radius:3px;
-}
-
-th:last-child {
-    border-top-right-radius:3px;
-    border-right:none;
 }
 
 tr {
@@ -539,7 +550,6 @@ tr {
 tr:hover td {
     background:#4E5066;
     color:#FFFFFF;
-    border-top: 1px solid #22262e;
 }
 
 tr:first-child {
@@ -1269,3 +1279,13 @@ form h1{
 #logo > img {
     width: 6.5rem;
 }
+
+/*
+ / Responsive tabla datos en reserva
+ */
+@media (max-width: 1300px){
+    .table-fill_contactos {
+        margin: auto;
+    }
+}
+
