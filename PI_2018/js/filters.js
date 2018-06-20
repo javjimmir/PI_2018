@@ -9,12 +9,14 @@ $(".tipoact").change(function() {
         data = $.parseJSON(data);
         /* Bloque de comprobación de disponibilidad de ofertas */
         if (data.length === 0) {
+            $(".tabla").append("<div id='titulo_filtro'><h3>Actividades de " + tipo_actividad + "</h3><hr style='width: 90%'/>");
             $("#no_offers").remove();
             $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
             $("#cargar").hide();
         } else {
             $("#cargar").show();
             $("#no_offers").remove();
+            $(".tabla").append("<div id='titulo_filtro'><h3>Actividades de " + tipo_actividad + "</h3><hr style='width: 90%'/>");
             for (var i = 0; i <= data.length-1; i++) {
                 $(".tabla").append(
                     "<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
@@ -42,12 +44,14 @@ $(".prov-filter").change(function() {
         data = $.parseJSON(data);
         /* Bloque de comprobación de disponibilidad de ofertas */
         if (data.length === 0) {
+            $(".tabla").append("<div id='titulo_filtro'><h3>Actividades en <text style='text-transform: capitalize'>" + provincia + "</text></h3><hr style='width: 90%'/>");
             $("#no_offers").remove();
             $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
             $("#cargar").hide();
         } else {
             $("#cargar").show();
             $("#no_offers").remove();
+            $(".tabla").append("<div id='titulo_filtro'><h3>Actividades en <text style='text-transform: capitalize'>" + provincia + "</text></h3><hr style='width: 90%'/>");
             for (var i = 0; i <= data.length - 1; i++) {
                 $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
                     "<div class=\"aaa\">"+
@@ -77,12 +81,14 @@ $("#range").change(function() {
             data = $.parseJSON(data);
             /* Bloque de comprobación de disponibilidad de ofertas */
             if (data.length === 0) {
+                $(".tabla").append("<div id='titulo_filtro'><h3>Actividades de " + tipo_actividad + " por menos de " + precio + "€</h3><hr style='width: 90%'/>");
                 $("#no_offers").remove();
                 $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
                 $("#cargar").hide();
             } else {
                 $("#cargar").show();
                 $("#no_offers").remove();
+                $(".tabla").append("<div id='titulo_filtro'><h3>Actividades de " + tipo_actividad + " por menos de " + precio + "€</h3><hr style='width: 90%'/>");
                 for (var i = 0; i <= data.length - 1; i++) {
                     $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
                         "<div class=\"aaa\">"+
@@ -110,12 +116,14 @@ $("#range").change(function() {
             data = $.parseJSON(data);
             /* Bloque de comprobación de disponibilidad de ofertas */
             if (data.length === 0) {
+                $(".tabla").append("<div id='titulo_filtro'><h3>Actividades por menos de " + precio + "€</h3><hr style='width: 90%'/>");
                 $("#no_offers").remove();
                 $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
                 $("#cargar").hide();
             } else {
                 $("#cargar").show();
                 $("#no_offers").remove();
+                $(".tabla").append("<div id='titulo_filtro'><h3>Actividades por menos de " + precio + "€</h3><hr style='width: 90%'/>");
                 for (var i = 0; i <= data.length - 1; i++) {
                     $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
                         "<div class=\"aaa\">"+
@@ -139,17 +147,21 @@ $("#range").change(function() {
 $("#quitarfiltros").click(function(e) {
     e.preventDefault();
     var desactivar = 'desactivar';
-    $.post("php/filter.php", {desactivar: desactivar}, function (data) { // Le pasamos el precio, que es lo que se procesará en servidor
+    $(".tipoact").prop('checked', false); // Desactivamos el check del radio
+
+    $.post("php/filter.php", {desactivar: desactivar}, function (data) {
         $(".tabla").empty();
         data = $.parseJSON(data);
         /* Bloque de comprobación de disponibilidad de ofertas */
         if (data.length === 0) {
+            $(".tabla").append("<div id='titulo_filtro'><h3>Últimas actividades</h3><hr style='width: 90%'/>");
             $("#no_offers").remove();
             $(".offers").append("<div id='no_offers'><span class='alert alert-info'><span class='glyphicon glyphicon-info-sign'></span> No hay ofertas disponibles con el filtro seleccionado</span></div>");
             $("#cargar").hide();
         } else {
             $("#cargar").show();
             $("#no_offers").remove();
+            $(".tabla").append("<div id='titulo_filtro'><h3>Últimas actividades</h3><hr style='width: 90%'/>");
             for (var i = 0; i <= data.length - 1; i++) {
                 $(".tabla").append("<div class=\"snip1208 col-md-4 col-xs-12 col-lg-3 col-sm-6\">" +
                     "<div class=\"aaa\">"+

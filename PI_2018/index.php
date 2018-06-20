@@ -130,6 +130,7 @@ if (isset($_GET['category'])) {
              */
 
             if (isset($_GET['load'])) {
+                echo "<div id='load_more'><h3>Todas las actividades</h3><hr style='width: 90%'/>";
                 for ($i = 1; $i <= $ofertas_encontradas; $i++) {
                     $row = $result->fetch_assoc();
                     $img = $row['imagen_oferta'];
@@ -228,7 +229,7 @@ if (isset($_GET['category'])) {
                 } else {
                     $ofertas_mostradas = $ofertas_encontradas-1;
                 }
-                echo "<div id='ofertas'><h3>Últimas ofertas</h3><hr style='width: 90%'/>";
+                echo "<div id='ofertas'><h3>Últimas actividades</h3><hr style='width: 90%'/>";
                 for ($i = 1; $i <= $ofertas_mostradas; $i++) {
                     $row = $result->fetch_assoc();
                     $img = $row['imagen_oferta'];
